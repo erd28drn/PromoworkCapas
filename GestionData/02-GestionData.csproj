@@ -72,6 +72,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Enumeradores\Class1.cs" />
+    <Compile Include="Enumeradores\CustomEnumConverter.cs" />
+    <Compile Include="Enumeradores\DescriptionAttribute.cs" />
+    <Compile Include="Enumeradores\EnumAlbaranUtilizado.cs" />
+    <Compile Include="Enumeradores\EnumCargaAlbaranes.cs" />
+    <Compile Include="Enumeradores\EnumCargaFacturas.cs" />
+    <Compile Include="Enumeradores\EnumEnhanced.cs" />
     <Compile Include="masterDataSet.cs">
       <DependentUpon>masterDataSet.xsd</DependentUpon>
       <SubType>Component</SubType>

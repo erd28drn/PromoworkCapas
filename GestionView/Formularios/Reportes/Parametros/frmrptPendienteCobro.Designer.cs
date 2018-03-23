@@ -1,4 +1,4 @@
-﻿namespace Promowork
+﻿namespace Promowork.Formularios.Reportes.Parametros
 {
     partial class frmrptPendienteCobro
     {
@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmrptPendienteCobro));
-            this.datosReportesNuevos = new Promowork.DatosReportesNuevos();
+            this.datosReportesNuevos = new GestionData.DatosReportesNuevos();
             this.facturasPendientesCobroBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.facturasPendientesCobroTableAdapter = new Promowork.DatosReportesNuevosTableAdapters.FacturasPendientesCobroTableAdapter();
-            this.tableAdapterManager = new Promowork.DatosReportesNuevosTableAdapters.TableAdapterManager();
+            this.facturasPendientesCobroTableAdapter = new GestionData.DatosReportesNuevosTableAdapters.FacturasPendientesCobroTableAdapter();
+            this.tableAdapterManager = new GestionData.DatosReportesNuevosTableAdapters.TableAdapterManager();
             this.facturasPendientesCobroBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -89,7 +89,7 @@
             this.colDesCliente1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.vPendienteCobroBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.vPendienteCobroTableAdapter = new Promowork.DatosReportesNuevosTableAdapters.vPendienteCobroTableAdapter();
+            this.vPendienteCobroTableAdapter = new GestionData.DatosReportesNuevosTableAdapters.vPendienteCobroTableAdapter();
             this.vPendienteCobroGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colIdFactCab1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -152,7 +152,7 @@
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.UpdateOrder = Promowork.DatosReportesNuevosTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UpdateOrder = GestionData.DatosReportesNuevosTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // facturasPendientesCobroBindingNavigator
             // 
@@ -959,10 +959,10 @@
 
         #endregion
 
-        private DatosReportesNuevos datosReportesNuevos;
+        private GestionData.DatosReportesNuevos datosReportesNuevos;
         private System.Windows.Forms.BindingSource facturasPendientesCobroBindingSource;
-        private DatosReportesNuevosTableAdapters.FacturasPendientesCobroTableAdapter facturasPendientesCobroTableAdapter;
-        private DatosReportesNuevosTableAdapters.TableAdapterManager tableAdapterManager;
+        private GestionData.DatosReportesNuevosTableAdapters.FacturasPendientesCobroTableAdapter facturasPendientesCobroTableAdapter;
+        private GestionData.DatosReportesNuevosTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.BindingNavigator facturasPendientesCobroBindingNavigator;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
@@ -1018,7 +1018,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colDesCliente1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.BindingSource vPendienteCobroBindingSource;
-        private DatosReportesNuevosTableAdapters.vPendienteCobroTableAdapter vPendienteCobroTableAdapter;
+        private GestionData.DatosReportesNuevosTableAdapters.vPendienteCobroTableAdapter vPendienteCobroTableAdapter;
         private DevExpress.XtraGrid.GridControl vPendienteCobroGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
         private DevExpress.XtraGrid.Columns.GridColumn colIdFactCab1;

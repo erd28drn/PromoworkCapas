@@ -8,6 +8,14 @@ using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
+using GestionData.Enumeradores;
+using Promowork.Formularios.Definiciones;
+using Promowork.Formularios.General;
+using Promowork.Formularios.Reportes.Parametros;
+using Promowork.Formularios.Reportes.Viewer;
+using Promowork.Formularios.Operaciones;
+using GestionData;
+using GestionData.Enumeradores;
 
 namespace Promowork.Formularios.Operaciones
 {
@@ -93,6 +101,10 @@ namespace Promowork.Formularios.Operaciones
            foreach (DataRowView nAno in anosBindingSource)
            {
                cbAnos.Items.Add(nAno["Ano"]);
+           }
+           if (anosBindingSource.Count == 0)
+           {
+               cbAnos.Items.Add(VariablesGlobales.nAnoActual);
            }
             cbAnos.SelectedItem=cbAnos.Items.Contains(VariablesGlobales.nAnoActual)?VariablesGlobales.nAnoActual:int.Parse(null);
             

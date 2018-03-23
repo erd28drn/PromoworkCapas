@@ -1908,7 +1908,7 @@
                           <Color>Black</Color>
                           <Width>1.5pt</Width>
                         </LeftBorder>
-                        <BackgroundColor>#ebffff</BackgroundColor>
+                        <BackgroundColor>=iif(Fields!Cantidad.Value=0,"Pink","#ebffff")</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -1947,7 +1947,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>#ebffff</BackgroundColor>
+                        <BackgroundColor>=iif(Fields!Cantidad.Value=0,"Pink","#ebffff")</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -1986,7 +1986,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>#ebffff</BackgroundColor>
+                        <BackgroundColor>=iif(Fields!Cantidad.Value=0,"Pink","#ebffff")</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -2028,7 +2028,7 @@
                           <Color>Black</Color>
                           <Width>1.5pt</Width>
                         </RightBorder>
-                        <BackgroundColor>#ebffff</BackgroundColor>
+                        <BackgroundColor>=iif(Fields!Cantidad.Value=0,"Pink","#ebffff")</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -2072,7 +2072,7 @@
                           <Style>Solid</Style>
                           <Width>1pt</Width>
                         </LeftBorder>
-                        <BackgroundColor>WhiteSmoke</BackgroundColor>
+                        <BackgroundColor>=iif(Fields!Cantidad.Value=0,"Pink","#ebffff")</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -2111,7 +2111,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>WhiteSmoke</BackgroundColor>
+                        <BackgroundColor>=iif(Fields!Cantidad.Value=0,"Pink","#ebffff")</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -2153,7 +2153,7 @@
                           <Color>Black</Color>
                           <Width>1.5pt</Width>
                         </LeftBorder>
-                        <BackgroundColor>#e4fce4</BackgroundColor>
+                        <BackgroundColor>=iif(Fields!Cantidad.Value=0,"Pink","#ebffff")</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -2191,7 +2191,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>#e4fce4</BackgroundColor>
+                        <BackgroundColor>=iif(Fields!Cantidad.Value=0,"Pink","#ebffff")</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -2233,7 +2233,7 @@
                           <Color>Black</Color>
                           <Width>1.5pt</Width>
                         </LeftBorder>
-                        <BackgroundColor>#f7eada</BackgroundColor>
+                        <BackgroundColor>=iif(Fields!Cantidad.Value=0,"Pink","#ebffff")</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -2276,7 +2276,7 @@
                           <Color>Black</Color>
                           <Width>1pt</Width>
                         </RightBorder>
-                        <BackgroundColor>#f7eada</BackgroundColor>
+                        <BackgroundColor>=iif(Fields!Cantidad.Value=0,"Pink","#ebffff")</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -2318,7 +2318,7 @@
                           <Color>Black</Color>
                           <Width>1.5pt</Width>
                         </LeftBorder>
-                        <BackgroundColor>#d7dbe7</BackgroundColor>
+                        <BackgroundColor>=iif(Fields!Cantidad.Value=0,"Pink","#ebffff")</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -2356,7 +2356,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>#d7dbe7</BackgroundColor>
+                        <BackgroundColor>=iif(Fields!Cantidad.Value=0,"Pink","#ebffff")</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -2400,7 +2400,7 @@
                           <Color>Black</Color>
                           <Width>1.5pt</Width>
                         </RightBorder>
-                        <BackgroundColor>#d7dbe7</BackgroundColor>
+                        <BackgroundColor>=iif(Fields!Cantidad.Value=0,"Pink","#ebffff")</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -2761,6 +2761,7 @@
                       </Style>
                     </Textbox>
                     <ColSpan>4</ColSpan>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell />
@@ -7882,6 +7883,7 @@
                                 <Color>LightGrey</Color>
                                 <Style>Solid</Style>
                               </Border>
+                              <BackgroundColor>=iif(Fields!Cantidad.Value=0,"Pink","#ebffff")</BackgroundColor>
                               <PaddingLeft>2pt</PaddingLeft>
                               <PaddingRight>2pt</PaddingRight>
                               <PaddingTop>2pt</PaddingTop>
@@ -7919,7 +7921,7 @@
                                     <Color>LightGrey</Color>
                                     <Style>Solid</Style>
                                   </Border>
-                                  <BackgroundColor>#ebffff</BackgroundColor>
+                                  <BackgroundColor>=iif(Fields!Cantidad.Value=0,"Pink","#ebffff")</BackgroundColor>
                                   <PaddingLeft>2pt</PaddingLeft>
                                   <PaddingRight>2pt</PaddingRight>
                                   <PaddingTop>2pt</PaddingTop>
@@ -7959,7 +7961,7 @@
                                         <Color>LightGrey</Color>
                                         <Style>Solid</Style>
                                       </Border>
-                                      <BackgroundColor>#ebffff</BackgroundColor>
+                                      <BackgroundColor>=iif(Fields!Cantidad.Value=0,"Pink","#ebffff")</BackgroundColor>
                                       <PaddingLeft>2pt</PaddingLeft>
                                       <PaddingRight>2pt</PaddingRight>
                                       <PaddingTop>2pt</PaddingTop>

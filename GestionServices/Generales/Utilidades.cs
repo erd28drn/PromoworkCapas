@@ -5,11 +5,11 @@ using System.Globalization;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 //using System.Drawing;
-using WIA;
+//using WIA;
 using System.IO;
 //using System.Windows.Media.Imaging;
-using AcroPDFLib;
-using AxAcroPDFLib;
+//using AcroPDFLib;
+//using AxAcroPDFLib;
 //using iTextSharp.text;
 //using iTextSharp.text.pdf;
 using DevExpress.XtraGrid.Views.Base;
@@ -151,7 +151,7 @@ namespace Promowork
         #endregion VALIDAR EMAIL
 
         #region ENVIAR REPORTES POR CORREO ELECTRONICO
-        public static string EnviaCorreo(int idEmpresa, List<string> destinatarios, string asunto, List<string> adjuntos, string cuerpo)
+        public static string EnviaCorreo(int idEmpresa, List<string> destinatarios, string asunto, List<string> adjuntos, string cuerpo, string responderA)
         {
             string mensaje="";
 
@@ -174,12 +174,13 @@ namespace Promowork
             MailMessage msg = new MailMessage();
             msg.IsBodyHtml = true;
             msg.From = new MailAddress("compras@promowork.es");//servidorSMTP.Usuario);
+            msg.ReplyTo = new MailAddress(responderA);
             msg.Subject = asunto;
             msg.Body = cuerpo;
 
             foreach (string destinatario in destinatarios)
             {
-                msg.To.Add(new MailAddress(destinatario));
+                msg.To.Add(new MailAddress(destinatario.Trim()));
             }
 
             foreach (string adjunto in adjuntos)

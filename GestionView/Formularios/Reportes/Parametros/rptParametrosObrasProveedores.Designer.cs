@@ -1,4 +1,4 @@
-﻿namespace Promowork
+﻿namespace Promowork.Formularios.Reportes.Parametros
 {
     partial class rptParametrosObrasProveedores
     {
@@ -38,7 +38,7 @@
             this.ObrasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Promowork_dataDataSet = new GestionData.Promowork_dataDataSet();
             this.EmpresasActualBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.DatosReportesNuevos = new Promowork.DatosReportesNuevos();
+            this.DatosReportesNuevos = new GestionData.DatosReportesNuevos();
             this.button1 = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -49,7 +49,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btObras = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.tableAdapterManager = new Promowork.DatosReportesNuevosTableAdapters.TableAdapterManager();
+            this.tableAdapterManager = new GestionData.DatosReportesNuevosTableAdapters.TableAdapterManager();
             this.tabResumenEnvioCorreo = new System.Windows.Forms.TabPage();
             this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
             this.tbCuerpoCorreo = new DevExpress.XtraEditors.MemoEdit();
@@ -76,7 +76,7 @@
             this.colObraSM = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ObrasTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.ObrasTableAdapter();
             this.proveedoresComprasAlbaranesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.proveedoresComprasAlbaranesTableAdapter = new Promowork.DatosReportesNuevosTableAdapters.ProveedoresComprasAlbaranesTableAdapter();
+            this.proveedoresComprasAlbaranesTableAdapter = new GestionData.DatosReportesNuevosTableAdapters.ProveedoresComprasAlbaranesTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.ObrasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Promowork_dataDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EmpresasActualBindingSource)).BeginInit();
@@ -244,7 +244,7 @@
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.Connection = null;
             this.tableAdapterManager.ServidorSMTPTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = Promowork.DatosReportesNuevosTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UpdateOrder = GestionData.DatosReportesNuevosTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // tabResumenEnvioCorreo
             // 
@@ -578,12 +578,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button2;
-        private DatosReportesNuevos DatosReportesNuevos;
+        private GestionData.DatosReportesNuevos DatosReportesNuevos;
         private System.Windows.Forms.BindingSource EmpresasActualBindingSource;
         private GestionData.Promowork_dataDataSet Promowork_dataDataSet;
         private GestionData.Promowork_dataDataSetTableAdapters.EmpresasActualTableAdapter EmpresasActualTableAdapter;
         private System.Windows.Forms.Panel panel1;
-        private DatosReportesNuevosTableAdapters.TableAdapterManager tableAdapterManager;
+        private GestionData.DatosReportesNuevosTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TabPage tabResumenEnvioCorreo;
         private System.Windows.Forms.TabPage tabReporte;
@@ -615,6 +615,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colObra;
         private DevExpress.XtraGrid.Columns.GridColumn colObraSM;
         private System.Windows.Forms.BindingSource proveedoresComprasAlbaranesBindingSource;
-        private DatosReportesNuevosTableAdapters.ProveedoresComprasAlbaranesTableAdapter proveedoresComprasAlbaranesTableAdapter;
+        private GestionData.DatosReportesNuevosTableAdapters.ProveedoresComprasAlbaranesTableAdapter proveedoresComprasAlbaranesTableAdapter;
     }
 }

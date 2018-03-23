@@ -10,7 +10,7 @@ using System.IO;
 using System.Collections;
 using Microsoft.Reporting.WinForms;
 
-namespace Promowork
+namespace Promowork.Formularios.Reportes.Parametros
 {
     public partial class rptParametrosObrasProveedores : Form
     {
@@ -181,14 +181,16 @@ namespace Promowork
             {
                 if (RespuestaCrearFichero == string.Empty)
                 {
-                    List<string> destinatarios = new List<string>();
-                    destinatarios.Add("compras@promowork.es");//compras@promowork.es
+                    //List<string> destinatarios = new List<string>();
+                    //destinatarios.Add("compras@promowork.es");//compras@promowork.es
+
+                    var responderA = "compras@promowork.es";
                     
-                    //List<string> destinatarios= proveedor.Email.Split(';').ToList();
+                    List<string> destinatarios= proveedor.Email.Split(';').ToList();
                     string asunto= "Listado de Obras Activas";
                     List<string> adjuntos= new List<string>();
                     adjuntos.Add(nombreFichero+ ".PDF");
-                    string respuestaEnviarCorreo= Utilidades.EnviaCorreo(VariablesGlobales.nIdEmpresaActual, destinatarios, asunto, adjuntos, cuerpoCorreo);
+                    string respuestaEnviarCorreo= Utilidades.EnviaCorreo(VariablesGlobales.nIdEmpresaActual, destinatarios, asunto, adjuntos, cuerpoCorreo, responderA);
                     proveedor.Enviado = true;
                     proveedor.Respuesta = respuestaEnviarCorreo;
                 }

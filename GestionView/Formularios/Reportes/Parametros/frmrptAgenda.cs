@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Promowork
+namespace Promowork.Formularios.Reportes.Parametros
 {
     public partial class frmrptAgenda : Form
     {

@@ -7,6 +7,13 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Promowork.Formularios.Definiciones;
+using Promowork.Formularios.General;
+using Promowork.Formularios.Reportes.Parametros;
+using Promowork.Formularios.Reportes.Viewer;
+using Promowork.Formularios.Operaciones;
+using GestionData;
+using GestionData.Enumeradores;
 
 namespace Promowork.Formularios.Operaciones
 {
@@ -49,7 +56,7 @@ namespace Promowork.Formularios.Operaciones
             this.tiposServiciosTableAdapter.FillByCombustibles(this.Promowork_dataDataSetCombustible.TiposServicios);
             // TODO: This line of code loads data into the 'GestionData.Promowork_dataDataSetCombustible.ServiciosVehiculos' table. You can move, or remove it, as needed.
             this.consumosVehiculosTableAdapter.FillByCombustible(this.Promowork_dataDataSetCombustible.ConsumosVehiculos, VariablesGlobales.nIdEmpresaActual);
-            this.vehiculosTableAdapter.Fill(GestionData.Promowork_dataDataSetCombustible.Vehiculos, VariablesGlobales.nIdEmpresaActual);
+            this.vehiculosTableAdapter.Fill(Promowork_dataDataSetCombustible.Vehiculos, VariablesGlobales.nIdEmpresaActual);
             consumosVehiculosBindingSource.MoveLast();
         }
 

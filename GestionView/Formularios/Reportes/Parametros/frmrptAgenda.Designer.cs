@@ -1,4 +1,4 @@
-﻿namespace Promowork
+﻿namespace Promowork.Formularios.Reportes.Parametros
 {
     partial class frmrptAgenda
     {
@@ -32,7 +32,7 @@
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.vAgendaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.datosReportesNuevos = new Promowork.DatosReportesNuevos();
+            this.datosReportesNuevos = new GestionData.DatosReportesNuevos();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.label1 = new System.Windows.Forms.Label();
             this.btnVer = new System.Windows.Forms.Button();
@@ -57,10 +57,10 @@
             this.colIVA = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTotal = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNomMes = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.vAgendaTableAdapter = new Promowork.DatosReportesNuevosTableAdapters.vAgendaTableAdapter();
-            this.tableAdapterManager = new Promowork.DatosReportesNuevosTableAdapters.TableAdapterManager();
+            this.vAgendaTableAdapter = new GestionData.DatosReportesNuevosTableAdapters.vAgendaTableAdapter();
+            this.tableAdapterManager = new GestionData.DatosReportesNuevosTableAdapters.TableAdapterManager();
             this.vAgendaGastosGeneralesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.vAgendaGastosGeneralesTableAdapter = new Promowork.DatosReportesNuevosTableAdapters.vAgendaGastosGeneralesTableAdapter();
+            this.vAgendaGastosGeneralesTableAdapter = new GestionData.DatosReportesNuevosTableAdapters.vAgendaGastosGeneralesTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.vAgendaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datosReportesNuevos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -338,7 +338,7 @@
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.UpdateOrder = Promowork.DatosReportesNuevosTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UpdateOrder = GestionData.DatosReportesNuevosTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // vAgendaGastosGeneralesBindingSource
             // 
@@ -386,10 +386,10 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage PgListado1;
         private System.Windows.Forms.TabPage PgReporte;
-        private DatosReportesNuevos datosReportesNuevos;
+        private GestionData.DatosReportesNuevos datosReportesNuevos;
         private System.Windows.Forms.BindingSource vAgendaBindingSource;
-        private DatosReportesNuevosTableAdapters.vAgendaTableAdapter vAgendaTableAdapter;
-        private DatosReportesNuevosTableAdapters.TableAdapterManager tableAdapterManager;
+        private GestionData.DatosReportesNuevosTableAdapters.vAgendaTableAdapter vAgendaTableAdapter;
+        private GestionData.DatosReportesNuevosTableAdapters.TableAdapterManager tableAdapterManager;
         private DevExpress.XtraGrid.GridControl vAgendaGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colEmpresa;
@@ -408,6 +408,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colNomMes;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.BindingSource vAgendaGastosGeneralesBindingSource;
-        private DatosReportesNuevosTableAdapters.vAgendaGastosGeneralesTableAdapter vAgendaGastosGeneralesTableAdapter;
+        private GestionData.DatosReportesNuevosTableAdapters.vAgendaGastosGeneralesTableAdapter vAgendaGastosGeneralesTableAdapter;
     }
 }

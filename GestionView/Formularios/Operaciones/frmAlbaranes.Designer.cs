@@ -77,6 +77,7 @@
             this.btRevisionAlbaranes = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.btSinAlbaran = new System.Windows.Forms.ToolStripButton();
+            this.btObrasProveedores = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
             this.albaranesCabGridControl = new DevExpress.XtraGrid.GridControl();
@@ -183,7 +184,6 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.trabajadoresTableAdapter = new GestionData.DatosAlbaranesTableAdapters.TrabajadoresTableAdapter();
             this.observacionesProveedoresTableAdapter = new GestionData.DatosAlbaranesTableAdapters.ObservacionesProveedoresTableAdapter();
-            this.btObrasProveedores = new System.Windows.Forms.ToolStripButton();
             numAlbaranLabel = new System.Windows.Forms.Label();
             fechaAlbaranLabel = new System.Windows.Forms.Label();
             observacionesLabel = new System.Windows.Forms.Label();
@@ -458,7 +458,7 @@
             this.albaranesCabBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.albaranesCabBindingNavigator.Name = "albaranesCabBindingNavigator";
             this.albaranesCabBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.albaranesCabBindingNavigator.Size = new System.Drawing.Size(981, 25);
+            this.albaranesCabBindingNavigator.Size = new System.Drawing.Size(871, 25);
             this.albaranesCabBindingNavigator.TabIndex = 0;
             this.albaranesCabBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -603,6 +603,15 @@
             this.btSinAlbaran.Text = "Sin Albarán";
             this.btSinAlbaran.Click += new System.EventHandler(this.btSinAlbaran_Click);
             // 
+            // btObrasProveedores
+            // 
+            this.btObrasProveedores.Image = ((System.Drawing.Image)(resources.GetObject("btObrasProveedores.Image")));
+            this.btObrasProveedores.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btObrasProveedores.Name = "btObrasProveedores";
+            this.btObrasProveedores.Size = new System.Drawing.Size(135, 22);
+            this.btObrasProveedores.Text = "Obras a Proveedores";
+            this.btObrasProveedores.Click += new System.EventHandler(this.btObrasProveedores_Click);
+            // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
@@ -614,7 +623,7 @@
             this.toolStripButton9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton9.Name = "toolStripButton9";
-            this.toolStripButton9.Size = new System.Drawing.Size(129, 19);
+            this.toolStripButton9.Size = new System.Drawing.Size(129, 22);
             this.toolStripButton9.Text = "Prueba Fra-Albaranes";
             this.toolStripButton9.Click += new System.EventHandler(this.toolStripButton9_Click);
             // 
@@ -629,7 +638,7 @@
             this.Proveedores,
             this.Obra,
             this.gvcbxUtilizadoEn});
-            this.albaranesCabGridControl.Size = new System.Drawing.Size(981, 437);
+            this.albaranesCabGridControl.Size = new System.Drawing.Size(871, 437);
             this.albaranesCabGridControl.TabIndex = 1;
             this.albaranesCabGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -898,7 +907,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.albaranesDetGridControl);
             this.splitContainer1.Panel2.Controls.Add(this.bindingNavigator1);
-            this.splitContainer1.Size = new System.Drawing.Size(1480, 733);
+            this.splitContainer1.Size = new System.Drawing.Size(1370, 733);
             this.splitContainer1.SplitterDistance = 462;
             this.splitContainer1.TabIndex = 2;
             // 
@@ -918,8 +927,8 @@
             // 
             this.splitContainer2.Panel2.AutoScroll = true;
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
-            this.splitContainer2.Size = new System.Drawing.Size(1480, 462);
-            this.splitContainer2.SplitterDistance = 981;
+            this.splitContainer2.Size = new System.Drawing.Size(1370, 462);
+            this.splitContainer2.SplitterDistance = 871;
             this.splitContainer2.TabIndex = 2;
             // 
             // splitContainer3
@@ -1289,7 +1298,7 @@
             this.Lugares,
             this.Trabajadores,
             this.UMProductos});
-            this.albaranesDetGridControl.Size = new System.Drawing.Size(1480, 242);
+            this.albaranesDetGridControl.Size = new System.Drawing.Size(1370, 242);
             this.albaranesDetGridControl.TabIndex = 0;
             this.albaranesDetGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -1586,7 +1595,7 @@
             this.bindingNavigator1.MovePreviousItem = this.toolStripButton4;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = this.toolStripTextBox1;
-            this.bindingNavigator1.Size = new System.Drawing.Size(1480, 25);
+            this.bindingNavigator1.Size = new System.Drawing.Size(1370, 25);
             this.bindingNavigator1.TabIndex = 3;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -1742,20 +1751,11 @@
             // 
             this.observacionesProveedoresTableAdapter.ClearBeforeFill = true;
             // 
-            // btObrasProveedores
-            // 
-            this.btObrasProveedores.Image = ((System.Drawing.Image)(resources.GetObject("btObrasProveedores.Image")));
-            this.btObrasProveedores.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btObrasProveedores.Name = "btObrasProveedores";
-            this.btObrasProveedores.Size = new System.Drawing.Size(135, 22);
-            this.btObrasProveedores.Text = "Obras a Proveedores";
-            this.btObrasProveedores.Click += new System.EventHandler(this.btObrasProveedores_Click);
-            // 
             // frmAlbaranes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1480, 733);
+            this.ClientSize = new System.Drawing.Size(1370, 733);
             this.Controls.Add(this.splitContainer1);
             this.Name = "frmAlbaranes";
             this.Text = "Albaranes";

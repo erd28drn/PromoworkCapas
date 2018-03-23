@@ -8,6 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Globalization;
 using System.Windows.Forms;
+using Promowork.Formularios.Definiciones;
+using Promowork.Formularios.General;
+using Promowork.Formularios.Reportes.Parametros;
+using Promowork.Formularios.Reportes.Viewer;
+using Promowork.Formularios.Operaciones;
+using GestionData;
+using GestionData.Enumeradores;
 
 namespace Promowork.Formularios.Definiciones
 {

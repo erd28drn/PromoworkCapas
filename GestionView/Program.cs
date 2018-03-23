@@ -6,6 +6,12 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Threading;
 using System.Globalization;
+using Promowork.Formularios.Definiciones;
+using Promowork.Formularios.General;
+using Promowork.Formularios.Reportes;
+using Promowork.Formularios.Operaciones;
+using GestionData;
+using GestionData.Enumeradores;
 
 namespace Promowork
 {

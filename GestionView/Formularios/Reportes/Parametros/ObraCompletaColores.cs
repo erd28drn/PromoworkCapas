@@ -9,7 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 using Microsoft.Reporting.WinForms;
 
-namespace Promowork
+namespace Promowork.Formularios.Reportes.Parametros
 {
     public partial class ObraCompletaColores : Form
     {

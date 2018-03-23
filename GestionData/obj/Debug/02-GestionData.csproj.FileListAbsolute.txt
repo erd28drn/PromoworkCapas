@@ -3,3 +3,8 @@ C:\Users\USUARIO\Google Drive\Promowork\GestionData\bin\Debug\GestionData.pdb
 C:\Users\USUARIO\Google Drive\Promowork\GestionData\obj\Debug\GestionData.dll
 C:\Users\USUARIO\Google Drive\Promowork\GestionData\obj\Debug\GestionData.pdb
 C:\Users\USUARIO\Google Drive\Promowork\GestionData\bin\Debug\GestionData.dll.config
+C:\Users\Maite\Google Drive\PromoworkCapas\GestionData\bin\Debug\GestionData.dll.config
+C:\Users\Maite\Google Drive\PromoworkCapas\GestionData\bin\Debug\GestionData.dll
+C:\Users\Maite\Google Drive\PromoworkCapas\GestionData\bin\Debug\GestionData.pdb
+C:\Users\Maite\Google Drive\PromoworkCapas\GestionData\obj\Debug\GestionData.dll
+C:\Users\Maite\Google Drive\PromoworkCapas\GestionData\obj\Debug\GestionData.pdb

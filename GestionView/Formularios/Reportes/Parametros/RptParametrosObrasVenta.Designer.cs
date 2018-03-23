@@ -1,4 +1,4 @@
-﻿namespace Promowork
+﻿namespace Promowork.Formularios.Reportes.Parametros
 {
     partial class RptParametrosObrasVenta
     {

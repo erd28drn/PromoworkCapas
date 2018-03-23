@@ -69,15 +69,15 @@
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label obsFactura2Label;
             System.Windows.Forms.Label label4;
-            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition6 = new DevExpress.XtraGrid.StyleFormatCondition();
-            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition7 = new DevExpress.XtraGrid.StyleFormatCondition();
-            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition8 = new DevExpress.XtraGrid.StyleFormatCondition();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
             DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition5 = new DevExpress.XtraGrid.StyleFormatCondition();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFacturasPresupuestos));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             this.colFacturaPresup = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colEntregada = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Pendiente = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -326,6 +326,7 @@
             this.imprimirToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.anosFacturasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.anosFacturasTableAdapter = new GestionData.DatosPresupuestosTableAdapters.AnosFacturasTableAdapter();
@@ -349,7 +350,6 @@
             this.facturasDetDirectaTableAdapter = new GestionData.DatosPresupuestosTableAdapters.FacturasDetDirectaTableAdapter();
             this.vComprasDirectasTableAdapterFactura = new GestionData.DatosPresupuestosTableAdapters.vComprasDirectasTableAdapter();
             this.vDetallesHorasMaterialesTableAdapter = new GestionData.DatosPresupuestosTableAdapters.vDetallesHorasMaterialesTableAdapter();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             anticipoLabel = new System.Windows.Forms.Label();
             copiaFacturaLabel = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
@@ -1056,32 +1056,32 @@
             this.colTotalCobrado,
             this.Pendiente,
             this.colEsCertificacion});
-            styleFormatCondition6.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Italic);
-            styleFormatCondition6.Appearance.Options.UseFont = true;
-            styleFormatCondition6.ApplyToRow = true;
-            styleFormatCondition6.Column = this.colFacturaPresup;
-            styleFormatCondition6.Condition = DevExpress.XtraGrid.FormatConditionEnum.NotEqual;
-            styleFormatCondition6.Value1 = true;
-            styleFormatCondition7.Appearance.BackColor = System.Drawing.Color.Yellow;
-            styleFormatCondition7.Appearance.Options.UseBackColor = true;
-            styleFormatCondition7.ApplyToRow = true;
-            styleFormatCondition7.Column = this.colEntregada;
-            styleFormatCondition7.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-            styleFormatCondition7.Value1 = true;
-            styleFormatCondition8.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            styleFormatCondition8.Appearance.Options.UseBackColor = true;
-            styleFormatCondition8.ApplyToRow = true;
-            styleFormatCondition8.Column = this.Pendiente;
-            styleFormatCondition8.Condition = DevExpress.XtraGrid.FormatConditionEnum.Less;
-            styleFormatCondition8.Value1 = new decimal(new int[] {
+            styleFormatCondition1.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Italic);
+            styleFormatCondition1.Appearance.Options.UseFont = true;
+            styleFormatCondition1.ApplyToRow = true;
+            styleFormatCondition1.Column = this.colFacturaPresup;
+            styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.NotEqual;
+            styleFormatCondition1.Value1 = true;
+            styleFormatCondition2.Appearance.BackColor = System.Drawing.Color.Yellow;
+            styleFormatCondition2.Appearance.Options.UseBackColor = true;
+            styleFormatCondition2.ApplyToRow = true;
+            styleFormatCondition2.Column = this.colEntregada;
+            styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition2.Value1 = true;
+            styleFormatCondition3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            styleFormatCondition3.Appearance.Options.UseBackColor = true;
+            styleFormatCondition3.ApplyToRow = true;
+            styleFormatCondition3.Column = this.Pendiente;
+            styleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.Less;
+            styleFormatCondition3.Value1 = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.gridView1.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition6,
-            styleFormatCondition7,
-            styleFormatCondition8});
+            styleFormatCondition1,
+            styleFormatCondition2,
+            styleFormatCondition3});
             this.gridView1.GridControl = this.facturasCabGridControl;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.ReadOnly = true;
@@ -1544,7 +1544,6 @@
             // 
             // button5
             // 
-            this.button5.Image = global::Promowork.Properties.Resources.bindingNavigatorAddNewItem_Image;
             this.button5.Location = new System.Drawing.Point(416, 87);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(22, 21);
@@ -1615,7 +1614,6 @@
             // 
             // button3
             // 
-            this.button3.Image = global::Promowork.Properties.Resources.bindingNavigatorDeleteItem_Image;
             this.button3.Location = new System.Drawing.Point(389, 374);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(22, 23);
@@ -2143,10 +2141,10 @@
             // btnEliminar
             // 
             this.btnEliminar.AutoHeight = false;
-            serializableAppearanceObject4.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            serializableAppearanceObject4.Options.UseFont = true;
+            serializableAppearanceObject1.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            serializableAppearanceObject1.Options.UseFont = true;
             this.btnEliminar.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "Eliminar", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "Eliminar", null, null, true)});
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnEliminar.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnEliminar_ButtonClick);
@@ -2280,21 +2278,21 @@
             this.colDelete,
             this.colFacturaDirecta1,
             this.colObraCorrecta});
-            styleFormatCondition1.Appearance.ForeColor = System.Drawing.Color.Orange;
-            styleFormatCondition1.Appearance.Options.UseForeColor = true;
-            styleFormatCondition1.ApplyToRow = true;
-            styleFormatCondition1.Column = this.colObraCorrecta;
-            styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.NotEqual;
-            styleFormatCondition1.Value1 = true;
-            styleFormatCondition2.Appearance.ForeColor = System.Drawing.Color.Red;
-            styleFormatCondition2.Appearance.Options.UseForeColor = true;
-            styleFormatCondition2.ApplyToRow = true;
-            styleFormatCondition2.Column = this.colFacturaDirecta1;
-            styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.NotEqual;
-            styleFormatCondition2.Value1 = true;
+            styleFormatCondition4.Appearance.ForeColor = System.Drawing.Color.Orange;
+            styleFormatCondition4.Appearance.Options.UseForeColor = true;
+            styleFormatCondition4.ApplyToRow = true;
+            styleFormatCondition4.Column = this.colObraCorrecta;
+            styleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.NotEqual;
+            styleFormatCondition4.Value1 = true;
+            styleFormatCondition5.Appearance.ForeColor = System.Drawing.Color.Red;
+            styleFormatCondition5.Appearance.Options.UseForeColor = true;
+            styleFormatCondition5.ApplyToRow = true;
+            styleFormatCondition5.Column = this.colFacturaDirecta1;
+            styleFormatCondition5.Condition = DevExpress.XtraGrid.FormatConditionEnum.NotEqual;
+            styleFormatCondition5.Value1 = true;
             this.gridView4.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition1,
-            styleFormatCondition2});
+            styleFormatCondition4,
+            styleFormatCondition5});
             this.gridView4.GridControl = this.facturasDetDirectaGridControl;
             this.gridView4.Name = "gridView4";
             this.gridView4.OptionsView.ShowFooter = true;
@@ -2389,7 +2387,7 @@
             // 
             this.btQuitarCompraDirecta.AutoHeight = false;
             this.btQuitarCompraDirecta.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "Quitar Compra Directa de la Factura", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "Quitar Compra Directa de la Factura", null, null, true)});
             this.btQuitarCompraDirecta.Name = "btQuitarCompraDirecta";
             this.btQuitarCompraDirecta.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btQuitarCompraDirecta.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btQuitarCompraDirecta_ButtonPressed);
@@ -2580,7 +2578,7 @@
             // 
             this.AgregarCompraDirecta.AutoHeight = false;
             this.AgregarCompraDirecta.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Left, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "Agregar Compra Directa a Factura", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Left, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "Agregar Compra Directa a Factura", null, null, true)});
             this.AgregarCompraDirecta.Name = "AgregarCompraDirecta";
             this.AgregarCompraDirecta.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.AgregarCompraDirecta.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.AgregarCompraDirecta_ButtonPressed);
@@ -3376,8 +3374,8 @@
             // 
             this.toolStripLabel1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(109, 22);
-            this.toolStripLabel1.Text = "Detalle Manual";
+            this.toolStripLabel1.Size = new System.Drawing.Size(205, 22);
+            this.toolStripLabel1.Text = "Detalle Manual/Partes Admin";
             // 
             // toolStripSeparator4
             // 
@@ -3577,12 +3575,16 @@
             // toolStripButton3
             // 
             this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = global::Promowork.Properties.Resources.Duplicar_32;
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
             this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton3.Text = "Hacer dos Facturas desde la Actual";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
             // comboBox1
             // 
@@ -3707,11 +3709,6 @@
             // vDetallesHorasMaterialesTableAdapter
             // 
             this.vDetallesHorasMaterialesTableAdapter.ClearBeforeFill = true;
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
             // frmFacturasPresupuestos
             // 

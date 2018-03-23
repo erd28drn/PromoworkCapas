@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 
-namespace Promowork
+namespace Promowork.Formularios.Reportes.Parametros
 {
     public partial class rptParametrosSinAlbaran : Form
     {
@@ -147,15 +147,17 @@ namespace Promowork
                 var RespuestaCrearFichero= Utilidades.ExportarReporte(reportViewer1, nombreFichero, ".PDF", "PDF");
                 if (RespuestaCrearFichero == string.Empty)
                 {
-                    List<string> destinatarios = new List<string>();
-                    destinatarios.Add("compras@promowork.es");
+                    //List<string> destinatarios = new List<string>();
+                    //destinatarios.Add("compras@promowork.es");
+
+                    var responderA = "compras@promowork.es";
                     
                     
-                    //List<string> destinatarios= proveedor.Email.Split(';').ToList();
+                    List<string> destinatarios= proveedor.Email.Split(';').ToList();
                     string asunto= "Albaranes Pendientes";
                     List<string> adjuntos= new List<string>();
                     adjuntos.Add(nombreFichero+ ".PDF");
-                    string respuestaEnviarCorreo= Utilidades.EnviaCorreo(VariablesGlobales.nIdEmpresaActual, destinatarios, asunto, adjuntos, cuerpoCorreo);
+                    string respuestaEnviarCorreo= Utilidades.EnviaCorreo(VariablesGlobales.nIdEmpresaActual, destinatarios, asunto, adjuntos, cuerpoCorreo, responderA);
                     proveedor.Enviado = true;
                     proveedor.Respuesta = respuestaEnviarCorreo;
                 }

@@ -10,6 +10,13 @@ using DevExpress.XtraEditors;
 using System.Linq;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
+using Promowork.Formularios.Definiciones;
+using Promowork.Formularios.General;
+using Promowork.Formularios.Reportes.Parametros;
+using Promowork.Formularios.Reportes.Viewer;
+using Promowork.Formularios.Operaciones;
+using GestionData;
+using GestionData.Enumeradores;
 
 namespace Promowork.Formularios.Operaciones
 {

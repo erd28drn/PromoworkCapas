@@ -1,4 +1,4 @@
-﻿namespace Promowork
+﻿namespace Promowork.Formularios.Reportes.Parametros
 {
     partial class frmrptResumenTotalesObras
     {
@@ -42,7 +42,7 @@
             this.colPorcBeneficioCob = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPendiente = new DevExpress.XtraGrid.Columns.GridColumn();
             this.vTotalPorObrasConCalculosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.DatosReportesNuevos = new Promowork.DatosReportesNuevos();
+            this.DatosReportesNuevos = new GestionData.DatosReportesNuevos();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.label1 = new System.Windows.Forms.Label();
             this.btnVer = new System.Windows.Forms.Button();
@@ -71,8 +71,8 @@
             this.colSerieObra = new DevExpress.XtraGrid.Columns.GridColumn();
             this.PgReporte = new System.Windows.Forms.TabPage();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.vTotalPorObrasConCalculosTableAdapter = new Promowork.DatosReportesNuevosTableAdapters.vTotalPorObrasConCalculosTableAdapter();
-            this.tableAdapterManager = new Promowork.DatosReportesNuevosTableAdapters.TableAdapterManager();
+            this.vTotalPorObrasConCalculosTableAdapter = new GestionData.DatosReportesNuevosTableAdapters.vTotalPorObrasConCalculosTableAdapter();
+            this.tableAdapterManager = new GestionData.DatosReportesNuevosTableAdapters.TableAdapterManager();
             ((System.ComponentModel.ISupportInitialize)(this.vTotalPorObrasConCalculosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DatosReportesNuevos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -560,7 +560,7 @@
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.UpdateOrder = Promowork.DatosReportesNuevosTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UpdateOrder = GestionData.DatosReportesNuevosTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // frmrptResumenTotalesObras
             // 
@@ -595,8 +595,8 @@
         private DevExpress.XtraEditors.SpinEdit spnPorciento;
         private System.Windows.Forms.ComboBox cbxTipoReporte;
         private System.Windows.Forms.BindingSource vTotalPorObrasConCalculosBindingSource;
-        private DatosReportesNuevos DatosReportesNuevos;
-        private DatosReportesNuevosTableAdapters.vTotalPorObrasConCalculosTableAdapter vTotalPorObrasConCalculosTableAdapter;
+        private GestionData.DatosReportesNuevos DatosReportesNuevos;
+        private GestionData.DatosReportesNuevosTableAdapters.vTotalPorObrasConCalculosTableAdapter vTotalPorObrasConCalculosTableAdapter;
         private System.Windows.Forms.Button btnVer;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage PgListado1;
@@ -623,7 +623,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colUltCompra;
         private DevExpress.XtraGrid.Columns.GridColumn colUltFactura;
         private DevExpress.XtraGrid.Columns.GridColumn colUltCobro;
-        private DatosReportesNuevosTableAdapters.TableAdapterManager tableAdapterManager;
+        private GestionData.DatosReportesNuevosTableAdapters.TableAdapterManager tableAdapterManager;
         private DevExpress.XtraGrid.Columns.GridColumn colNumObra;
         private DevExpress.XtraGrid.Columns.GridColumn colSerieObra;
         private System.Windows.Forms.Label label1;

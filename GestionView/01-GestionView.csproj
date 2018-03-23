@@ -191,12 +191,6 @@
     <Compile Include="Formularios\Definiciones\ConceptosBanco.Designer.cs">
       <DependentUpon>ConceptosBanco.cs</DependentUpon>
     </Compile>
-    <Compile Include="EnumAlbaranUtilizado.cs" />
-    <Compile Include="EnumCargaAlbaranes.cs" />
-    <Compile Include="CustomEnumConverter.cs" />
-    <Compile Include="DescriptionAttribute.cs" />
-    <Compile Include="EnumCargaFacturas.cs" />
-    <Compile Include="EnumEnhanced.cs" />
     <Compile Include="Formularios\Reportes\Parametros\rptParametrosObrasProveedores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -511,142 +505,142 @@
     <Compile Include="Formularios\Definiciones\Proveedores.Designer.cs">
       <DependentUpon>Proveedores.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RevisionHorasTrabajadores.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RevisionHorasTrabajadores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RevisionHorasTrabajadores.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RevisionHorasTrabajadores.Designer.cs">
       <DependentUpon>RevisionHorasTrabajadores.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptAnticiposTrabajadores.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptAnticiposTrabajadores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptAnticiposTrabajadores.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptAnticiposTrabajadores.Designer.cs">
       <DependentUpon>RptAnticiposTrabajadores.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptComprasDuplicadas.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptComprasDuplicadas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptComprasDuplicadas.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptComprasDuplicadas.Designer.cs">
       <DependentUpon>RptComprasDuplicadas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptDiferenciasLitros.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptDiferenciasLitros.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptDiferenciasLitros.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptDiferenciasLitros.Designer.cs">
       <DependentUpon>RptDiferenciasLitros.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptFacturasHorasDescImp.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptFacturasHorasDescImp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptFacturasHorasDescImp.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptFacturasHorasDescImp.Designer.cs">
       <DependentUpon>RptFacturasHorasDescImp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptFacturasHorasDescImpParte.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptFacturasHorasDescImpParte.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptFacturasHorasDescImpParte.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptFacturasHorasDescImpParte.Designer.cs">
       <DependentUpon>RptFacturasHorasDescImpParte.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptFacturasHorasImp.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptFacturasHorasImp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptFacturasHorasImp.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptFacturasHorasImp.Designer.cs">
       <DependentUpon>RptFacturasHorasImp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptFacturasHorasImpParte.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptFacturasHorasImpParte.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptFacturasHorasImpParte.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptFacturasHorasImpParte.Designer.cs">
       <DependentUpon>RptFacturasHorasImpParte.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptFacturasManualImp.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptFacturasManualImp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptFacturasManualImp.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptFacturasManualImp.Designer.cs">
       <DependentUpon>RptFacturasManualImp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptFacturasManualImp2.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptFacturasManualImp2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptFacturasManualImp2.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptFacturasManualImp2.Designer.cs">
       <DependentUpon>RptFacturasManualImp2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptFacturasManualImpParte2.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptFacturasManualImpParte2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptFacturasManualImpParte2.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptFacturasManualImpParte2.Designer.cs">
       <DependentUpon>RptFacturasManualImpParte2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptFacturasPresupImp.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptFacturasPresupImp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptFacturasPresupImp.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptFacturasPresupImp.Designer.cs">
       <DependentUpon>RptFacturasPresupImp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptFacturasPresupImp2.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptFacturasPresupImp2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptFacturasPresupImp2.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptFacturasPresupImp2.Designer.cs">
       <DependentUpon>RptFacturasPresupImp2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptFacturasPresupParteImp2.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptFacturasPresupParteImp2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptFacturasPresupParteImp2.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptFacturasPresupParteImp2.Designer.cs">
       <DependentUpon>RptFacturasPresupParteImp2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptFichaTrabajador.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptFichaTrabajador.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptFichaTrabajador.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptFichaTrabajador.Designer.cs">
       <DependentUpon>RptFichaTrabajador.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptHojaTrabajadores.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptHojaTrabajadores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptHojaTrabajadores.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptHojaTrabajadores.Designer.cs">
       <DependentUpon>RptHojaTrabajadores.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptHojaTrabajadoresCruce.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptHojaTrabajadoresCruce.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptHojaTrabajadoresCruce.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptHojaTrabajadoresCruce.Designer.cs">
       <DependentUpon>RptHojaTrabajadoresCruce.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptHorasTrabajadasDias.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptHorasTrabajadasDias.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptHorasTrabajadasDias.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptHorasTrabajadasDias.Designer.cs">
       <DependentUpon>RptHorasTrabajadasDias.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptListadoFacturasEmitidas.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptListadoFacturasEmitidas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptListadoFacturasEmitidas.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptListadoFacturasEmitidas.Designer.cs">
       <DependentUpon>RptListadoFacturasEmitidas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptListadoObras.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptListadoObras.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptListadoObras.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptListadoObras.Designer.cs">
       <DependentUpon>RptListadoObras.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptListadoObrasClientes.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptListadoObrasClientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptListadoObrasClientes.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptListadoObrasClientes.Designer.cs">
       <DependentUpon>RptListadoObrasClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptOperacionesBancoActual.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptOperacionesBancoActual.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptOperacionesBancoActual.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptOperacionesBancoActual.Designer.cs">
       <DependentUpon>RptOperacionesBancoActual.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptOperacionesBancoConceptos.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptOperacionesBancoConceptos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptOperacionesBancoConceptos.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptOperacionesBancoConceptos.Designer.cs">
       <DependentUpon>RptOperacionesBancoConceptos.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Reportes\Parametros\RptParametrosCobrosClientes.cs">
@@ -757,138 +751,138 @@
     <Compile Include="Formularios\Reportes\Parametros\RptParametrosSalarioTrabajadores.Designer.cs">
       <DependentUpon>RptParametrosSalarioTrabajadores.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptPendienteFacturar.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptPendienteFacturar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptPendienteFacturar.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptPendienteFacturar.Designer.cs">
       <DependentUpon>RptPendienteFacturar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptPendienteFacturarConResumen.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptPendienteFacturarConResumen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptPendienteFacturarConResumen.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptPendienteFacturarConResumen.Designer.cs">
       <DependentUpon>RptPendienteFacturarConResumen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptPresupuestoActual.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptPresupuestoActual.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptPresupuestoActual.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptPresupuestoActual.Designer.cs">
       <DependentUpon>RptPresupuestoActual.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptPresupuestoActualFactCob.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptPresupuestoActualFactCob.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptPresupuestoActualFactCob.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptPresupuestoActualFactCob.Designer.cs">
       <DependentUpon>RptPresupuestoActualFactCob.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptPresupuestoaFacturar.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptPresupuestoaFacturar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptPresupuestoaFacturar.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptPresupuestoaFacturar.Designer.cs">
       <DependentUpon>RptPresupuestoaFacturar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptResumenCobrosClientes.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptResumenCobrosClientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptResumenCobrosClientes.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptResumenCobrosClientes.Designer.cs">
       <DependentUpon>RptResumenCobrosClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptResumenCompras.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptResumenCompras.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptResumenCompras.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptResumenCompras.Designer.cs">
       <DependentUpon>RptResumenCompras.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptResumenComprasBanco.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptResumenComprasBanco.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptResumenComprasBanco.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptResumenComprasBanco.Designer.cs">
       <DependentUpon>RptResumenComprasBanco.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptResumenComprasProveedores.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptResumenComprasProveedores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptResumenComprasProveedores.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptResumenComprasProveedores.Designer.cs">
       <DependentUpon>RptResumenComprasProveedores.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptResumenConsumoCombustible.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptResumenConsumoCombustible.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptResumenConsumoCombustible.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptResumenConsumoCombustible.Designer.cs">
       <DependentUpon>RptResumenConsumoCombustible.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptResumenFacturasClientes.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptResumenFacturasClientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptResumenFacturasClientes.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptResumenFacturasClientes.Designer.cs">
       <DependentUpon>RptResumenFacturasClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptResumenObraCompleta.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptResumenObraCompleta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptResumenObraCompleta.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptResumenObraCompleta.Designer.cs">
       <DependentUpon>RptResumenObraCompleta.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptResumenObraCompletaAdmin.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptResumenObraCompletaAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptResumenObraCompletaAdmin.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptResumenObraCompletaAdmin.Designer.cs">
       <DependentUpon>RptResumenObraCompletaAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptResumenObras.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptResumenObras.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptResumenObras.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptResumenObras.Designer.cs">
       <DependentUpon>RptResumenObras.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptResumenObrasSalarioVentaDias.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptResumenObrasSalarioVentaDias.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptResumenObrasSalarioVentaDias.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptResumenObrasSalarioVentaDias.Designer.cs">
       <DependentUpon>RptResumenObrasSalarioVentaDias.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptResumenPagos.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptResumenPagos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptResumenPagos.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptResumenPagos.Designer.cs">
       <DependentUpon>RptResumenPagos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptSalarioExtraTrabajadores.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptSalarioExtraTrabajadores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptSalarioExtraTrabajadores.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptSalarioExtraTrabajadores.Designer.cs">
       <DependentUpon>RptSalarioExtraTrabajadores.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptSalarioObras.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptSalarioObras.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptSalarioObras.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptSalarioObras.Designer.cs">
       <DependentUpon>RptSalarioObras.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\ResultadoCruce.cs">
+    <Compile Include="Formularios\Reportes\Viewer\ResultadoCruce.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\ResultadoCruce.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\ResultadoCruce.Designer.cs">
       <DependentUpon>ResultadoCruce.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Formularios\Reportes\Viwer\RptResumenTrabajadores.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptResumenTrabajadores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptResumenTrabajadores.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptResumenTrabajadores.Designer.cs">
       <DependentUpon>RptResumenTrabajadores.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptSalarioTrabajadores.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptSalarioTrabajadores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptSalarioTrabajadores.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptSalarioTrabajadores.Designer.cs">
       <DependentUpon>RptSalarioTrabajadores.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptSeguridadSocial.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptSeguridadSocial.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptSeguridadSocial.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptSeguridadSocial.Designer.cs">
       <DependentUpon>RptSeguridadSocial.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\General\SalvaRestaura.cs">
@@ -904,10 +898,10 @@
       <DependentUpon>SeguridadSocial.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
-    <Compile Include="Formularios\Reportes\Viwer\RptSinSalario.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptSinSalario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viwer\RptSinSalario.Designer.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptSinSalario.Designer.cs">
       <DependentUpon>RptSinSalario.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Definiciones\Tipos.cs">
@@ -1183,75 +1177,75 @@
     <EmbeddedResource Include="Reportes\ResumenObrasSalarioVenta.rdlc" />
     <EmbeddedResource Include="Reportes\ResumenPagos.rdlc" />
     <EmbeddedResource Include="Reportes\ResumenTrabajadores.rdlc" />
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RevisionHorasTrabajadores.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RevisionHorasTrabajadores.resx">
       <DependentUpon>RevisionHorasTrabajadores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\rptAgenda.rdlc" />
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptAnticiposTrabajadores.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptAnticiposTrabajadores.resx">
       <DependentUpon>RptAnticiposTrabajadores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\rptBeneficiosObras.rdlc" />
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptComprasDuplicadas.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptComprasDuplicadas.resx">
       <DependentUpon>RptComprasDuplicadas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptDiferenciasLitros.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptDiferenciasLitros.resx">
       <DependentUpon>RptDiferenciasLitros.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptFacturasHorasDescImp.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptFacturasHorasDescImp.resx">
       <DependentUpon>RptFacturasHorasDescImp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptFacturasHorasDescImpParte.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptFacturasHorasDescImpParte.resx">
       <DependentUpon>RptFacturasHorasDescImpParte.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptFacturasHorasImp.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptFacturasHorasImp.resx">
       <DependentUpon>RptFacturasHorasImp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptFacturasHorasImpParte.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptFacturasHorasImpParte.resx">
       <DependentUpon>RptFacturasHorasImpParte.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptFacturasManualImp.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptFacturasManualImp.resx">
       <DependentUpon>RptFacturasManualImp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptFacturasManualImp2.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptFacturasManualImp2.resx">
       <DependentUpon>RptFacturasManualImp2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptFacturasManualImpParte2.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptFacturasManualImpParte2.resx">
       <DependentUpon>RptFacturasManualImpParte2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptFacturasPresupImp.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptFacturasPresupImp.resx">
       <DependentUpon>RptFacturasPresupImp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptFacturasPresupImp2.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptFacturasPresupImp2.resx">
       <DependentUpon>RptFacturasPresupImp2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptFacturasPresupParteImp2.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptFacturasPresupParteImp2.resx">
       <DependentUpon>RptFacturasPresupParteImp2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptFichaTrabajador.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptFichaTrabajador.resx">
       <DependentUpon>RptFichaTrabajador.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptHojaTrabajadores.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptHojaTrabajadores.resx">
       <DependentUpon>RptHojaTrabajadores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptHojaTrabajadoresCruce.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptHojaTrabajadoresCruce.resx">
       <DependentUpon>RptHojaTrabajadoresCruce.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptHorasTrabajadasDias.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptHorasTrabajadasDias.resx">
       <DependentUpon>RptHorasTrabajadasDias.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptListadoFacturasEmitidas.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptListadoFacturasEmitidas.resx">
       <DependentUpon>RptListadoFacturasEmitidas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptListadoObras.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptListadoObras.resx">
       <DependentUpon>RptListadoObras.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptListadoObrasClientes.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptListadoObrasClientes.resx">
       <DependentUpon>RptListadoObrasClientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptOperacionesBancoActual.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptOperacionesBancoActual.resx">
       <DependentUpon>RptOperacionesBancoActual.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptOperacionesBancoConceptos.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptOperacionesBancoConceptos.resx">
       <DependentUpon>RptOperacionesBancoConceptos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Reportes\Parametros\RptParametrosCobrosClientes.resx">
@@ -1311,79 +1305,79 @@
     <EmbeddedResource Include="Formularios\Reportes\Parametros\rptParametrosSinAlbaran.resx">
       <DependentUpon>rptParametrosSinAlbaran.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptPendienteFacturar.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptPendienteFacturar.resx">
       <DependentUpon>RptPendienteFacturar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptPendienteFacturarConResumen.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptPendienteFacturarConResumen.resx">
       <DependentUpon>RptPendienteFacturarConResumen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptPresupuestoActual.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptPresupuestoActual.resx">
       <DependentUpon>RptPresupuestoActual.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptPresupuestoActualFactCob.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptPresupuestoActualFactCob.resx">
       <DependentUpon>RptPresupuestoActualFactCob.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptPresupuestoaFacturar.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptPresupuestoaFacturar.resx">
       <DependentUpon>RptPresupuestoaFacturar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptResumenCobrosClientes.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptResumenCobrosClientes.resx">
       <DependentUpon>RptResumenCobrosClientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptResumenCompras.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptResumenCompras.resx">
       <DependentUpon>RptResumenCompras.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptResumenComprasBanco.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptResumenComprasBanco.resx">
       <DependentUpon>RptResumenComprasBanco.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptResumenComprasProveedores.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptResumenComprasProveedores.resx">
       <DependentUpon>RptResumenComprasProveedores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptResumenConsumoCombustible.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptResumenConsumoCombustible.resx">
       <DependentUpon>RptResumenConsumoCombustible.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptResumenFacturasClientes.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptResumenFacturasClientes.resx">
       <DependentUpon>RptResumenFacturasClientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptResumenObraCompleta.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptResumenObraCompleta.resx">
       <DependentUpon>RptResumenObraCompleta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptResumenObraCompletaAdmin.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptResumenObraCompletaAdmin.resx">
       <DependentUpon>RptResumenObraCompletaAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptResumenObras.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptResumenObras.resx">
       <DependentUpon>RptResumenObras.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptResumenObrasSalarioVentaDias.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptResumenObrasSalarioVentaDias.resx">
       <DependentUpon>RptResumenObrasSalarioVentaDias.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptResumenPagos.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptResumenPagos.resx">
       <DependentUpon>RptResumenPagos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptSalarioExtraTrabajadores.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptSalarioExtraTrabajadores.resx">
       <DependentUpon>RptSalarioExtraTrabajadores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptSeguridadSocial.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptSeguridadSocial.resx">
       <DependentUpon>RptSeguridadSocial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\rptSinAlbaran.rdlc" />
     <EmbeddedResource Include="Reportes\SalarioExtraTrabajadores.rdlc" />
     <EmbeddedResource Include="Reportes\SalarioObras.rdlc" />
     <EmbeddedResource Include="Reportes\ResultadosCruce.rdlc" />
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptSalarioObras.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptSalarioObras.resx">
       <DependentUpon>RptSalarioObras.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\ResultadoCruce.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\ResultadoCruce.resx">
       <DependentUpon>ResultadoCruce.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptResumenTrabajadores.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptResumenTrabajadores.resx">
       <DependentUpon>RptResumenTrabajadores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptSalarioTrabajadores.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptSalarioTrabajadores.resx">
       <DependentUpon>RptSalarioTrabajadores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\SalarioTrabajadores.rdlc" />
-    <EmbeddedResource Include="Formularios\Reportes\Viwer\RptSinSalario.resx">
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptSinSalario.resx">
       <DependentUpon>RptSinSalario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\General\SalvaRestaura.resx">
@@ -1609,9 +1603,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\DataSources\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\GestionData\02-GestionData.csproj">
       <Project>{BB75FE35-D1B9-4C7B-98A8-71E856740632}</Project>

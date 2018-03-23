@@ -7,6 +7,13 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Promowork.Formularios.Definiciones;
+using Promowork.Formularios.General;
+using Promowork.Formularios.Reportes.Parametros;
+using Promowork.Formularios.Reportes.Viewer;
+using Promowork.Formularios.Operaciones;
+using GestionData;
+using GestionData.Enumeradores;
 
 namespace Promowork.Formularios.Operaciones
 {
@@ -51,7 +58,7 @@ namespace Promowork.Formularios.Operaciones
             this.uMedidasTableAdapter.Fill(this.Promowork_dataDataSetCombustible.UMedidas);
             // TODO: esta línea de código carga datos en la tabla 'GestionData.Promowork_dataDataSetCombustible.EntradasCombustibleDet' Puede moverla o quitarla según sea necesario.
             //this.entradasCombustibleDetTableAdapter.Fill(this.Promowork_dataDataSetCombustible.EntradasCombustibleDet);
-            this.entradasCombustibleCabTableAdapter.Fill(GestionData.Promowork_dataDataSetCombustible.EntradasCombustibleCab, VariablesGlobales.nIdEmpresaActual);
+            this.entradasCombustibleCabTableAdapter.Fill(Promowork_dataDataSetCombustible.EntradasCombustibleCab, VariablesGlobales.nIdEmpresaActual);
 
             entradasCombustibleCabBindingSource.MoveLast();
 
@@ -91,7 +98,7 @@ namespace Promowork.Formularios.Operaciones
 
        private void Servicio_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
        {
-           var servicio = GestionData.Promowork_dataDataSetCombustible.TiposServicios.FindByIdServicio((int)e.NewValue);
+           var servicio = Promowork_dataDataSetCombustible.TiposServicios.FindByIdServicio((int)e.NewValue);
            try
            {
                gridView2.SetFocusedRowCellValue("Precio", servicio.PrecioServicio);
