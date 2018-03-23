@@ -1,0 +1,214 @@
+﻿<XtraSerializer version="1.0" application="View">
+  <property name="#LayoutVersion" />
+  <property name="ActiveFilterEnabled">true</property>
+  <property name="Columns" iskey="true" value="37">
+    <property name="Item1" isnull="true" iskey="true">
+      <property name="Name">colIdAlbaranCab</property>
+    </property>
+    <property name="Item2" isnull="true" iskey="true">
+      <property name="Name">colIdObra</property>
+    </property>
+    <property name="Item3" isnull="true" iskey="true">
+      <property name="Name">colIdProveedor</property>
+    </property>
+    <property name="Item4" isnull="true" iskey="true">
+      <property name="Width">93</property>
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">0</property>
+      <property name="FilterMode">DisplayText</property>
+      <property name="Name">colNumAlbaran</property>
+    </property>
+    <property name="Item5" isnull="true" iskey="true">
+      <property name="Width">57</property>
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">1</property>
+      <property name="Name">colConsecutivoAlbaran</property>
+    </property>
+    <property name="Item6" isnull="true" iskey="true">
+      <property name="Width">67</property>
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">2</property>
+      <property name="Name">colFechaAlbaran</property>
+    </property>
+    <property name="Item7" isnull="true" iskey="true">
+      <property name="Width">46</property>
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">14</property>
+      <property name="Name">colValorado</property>
+    </property>
+    <property name="Item8" isnull="true" iskey="true">
+      <property name="Width">63</property>
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">15</property>
+      <property name="Name">colUtilizado</property>
+    </property>
+    <property name="Item9" isnull="true" iskey="true">
+      <property name="Name">colNumMatriz</property>
+    </property>
+    <property name="Item10" isnull="true" iskey="true">
+      <property name="Name">colNumObra</property>
+    </property>
+    <property name="Item11" isnull="true" iskey="true">
+      <property name="Name">colSerieObra</property>
+    </property>
+    <property name="Item12" isnull="true" iskey="true">
+      <property name="Width">70</property>
+      <property name="Name">colNumeroObra</property>
+    </property>
+    <property name="Item13" isnull="true" iskey="true">
+      <property name="Width">165</property>
+      <property name="FilterMode">DisplayText</property>
+      <property name="Name">colDesObra</property>
+    </property>
+    <property name="Item14" isnull="true" iskey="true">
+      <property name="Name">colNumProveedor</property>
+    </property>
+    <property name="Item15" isnull="true" iskey="true">
+      <property name="Width">180</property>
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">0</property>
+      <property name="FilterMode">DisplayText</property>
+      <property name="Name">colDesProveedor</property>
+    </property>
+    <property name="Item16" isnull="true" iskey="true">
+      <property name="Width">73</property>
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">5</property>
+      <property name="Name">colCantidad</property>
+    </property>
+    <property name="Item17" isnull="true" iskey="true">
+      <property name="Width">50</property>
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">6</property>
+      <property name="Name">colPrecio</property>
+    </property>
+    <property name="Item18" isnull="true" iskey="true">
+      <property name="Width">50</property>
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">7</property>
+      <property name="Name">colDescuento</property>
+    </property>
+    <property name="Item19" isnull="true" iskey="true">
+      <property name="Width">116</property>
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">8</property>
+      <property name="Name">colImporte</property>
+      <property name="Summary" iskey="true" value="1">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="DisplayFormat">{0:c2}</property>
+          <property name="SummaryType">Sum</property>
+          <property name="Tag" isnull="true" />
+          <property name="FieldName">Importe</property>
+        </property>
+      </property>
+    </property>
+    <property name="Item20" isnull="true" iskey="true">
+      <property name="Width">71</property>
+      <property name="FilterMode">DisplayText</property>
+      <property name="Name">colCodProductoInterno</property>
+    </property>
+    <property name="Item21" isnull="true" iskey="true">
+      <property name="Width">188</property>
+      <property name="FilterMode">DisplayText</property>
+      <property name="Name">colDesProducto</property>
+    </property>
+    <property name="Item22" isnull="true" iskey="true">
+      <property name="Width">33</property>
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">4</property>
+      <property name="Name">colCodUmedida</property>
+    </property>
+    <property name="Item23" isnull="true" iskey="true">
+      <property name="Width">67</property>
+      <property name="Name">colCodGrupo</property>
+    </property>
+    <property name="Item24" isnull="true" iskey="true">
+      <property name="Width">61</property>
+      <property name="Name">colDesGrupo</property>
+    </property>
+    <property name="Item25" isnull="true" iskey="true">
+      <property name="Width">28</property>
+      <property name="Name">colCodTipoProveedor</property>
+    </property>
+    <property name="Item26" isnull="true" iskey="true">
+      <property name="Width">28</property>
+      <property name="Name">colDesTipoProveedor</property>
+    </property>
+    <property name="Item27" isnull="true" iskey="true">
+      <property name="Width">111</property>
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">9</property>
+      <property name="Name">colDesLugarUso</property>
+    </property>
+    <property name="Item28" isnull="true" iskey="true">
+      <property name="Name">colIdEmpresa</property>
+    </property>
+    <property name="Item29" isnull="true" iskey="true">
+      <property name="Width">114</property>
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">11</property>
+      <property name="FilterMode">DisplayText</property>
+      <property name="Name">Grupo</property>
+    </property>
+    <property name="Item30" isnull="true" iskey="true">
+      <property name="Width">118</property>
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">12</property>
+      <property name="FilterMode">DisplayText</property>
+      <property name="Name">TipoProveedor</property>
+    </property>
+    <property name="Item31" isnull="true" iskey="true">
+      <property name="Width">131</property>
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">0</property>
+      <property name="FilterMode">DisplayText</property>
+      <property name="Name">Obra</property>
+    </property>
+    <property name="Item32" isnull="true" iskey="true">
+      <property name="Width">135</property>
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">3</property>
+      <property name="FilterMode">DisplayText</property>
+      <property name="Name">Producto</property>
+    </property>
+    <property name="Item33" isnull="true" iskey="true">
+      <property name="Width">150</property>
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">10</property>
+      <property name="Name">colTrabajador</property>
+    </property>
+    <property name="Item34" isnull="true" iskey="true">
+      <property name="Width">79</property>
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">13</property>
+      <property name="Name">colFacturaRecibida</property>
+    </property>
+    <property name="Item35" isnull="true" iskey="true">
+      <property name="Width">126</property>
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">16</property>
+      <property name="Name">colObservaciones</property>
+    </property>
+    <property name="Item36" isnull="true" iskey="true">
+      <property name="Width">42</property>
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">17</property>
+      <property name="Name">Filtro</property>
+    </property>
+    <property name="Item37" isnull="true" iskey="true">
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">18</property>
+      <property name="FilterMode">DisplayText</property>
+      <property name="Name">colFacturaCompra</property>
+    </property>
+  </property>
+  <property name="OptionsView" isnull="true" iskey="true">
+    <property name="ShowFooter">true</property>
+    <property name="ShowAutoFilterRow">true</property>
+  </property>
+  <property name="SortInfo">~Xtra#Base64AAEAAAD/////AQAAAAAAAAAMAgAAAF1EZXZFeHByZXNzLlh0cmFHcmlkLnYxMi4xLCBWZXJzaW9uPTEyLjEuNy4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI4OGQxNzU0ZDcwMGU0OWEFAQAAADhEZXZFeHByZXNzLlh0cmFHcmlkLkNvbHVtbnMuR3JpZENvbHVtblNvcnRJbmZvQ29sbGVjdGlvbgQAAAAKZ3JvdXBDb3VudAVjbG9uZQ9jbG9uZUdyb3VwQ291bnQTQ29sbGVjdGlvbkJhc2UrbGlzdAADAAMIsgFTeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5MaXN0YDFbW0RldkV4cHJlc3MuWHRyYUdyaWQuQ29sdW1ucy5HcmlkQ29sdW1uU29ydEluZm8sIERldkV4cHJlc3MuWHRyYUdyaWQudjEyLjEsIFZlcnNpb249MTIuMS43LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjg4ZDE3NTRkNzAwZTQ5YV1dCBxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AgAAAAIAAAAJAwAAAAIAAAAJBAAAAAQDAAAAsgFTeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5MaXN0YDFbW0RldkV4cHJlc3MuWHRyYUdyaWQuQ29sdW1ucy5HcmlkQ29sdW1uU29ydEluZm8sIERldkV4cHJlc3MuWHRyYUdyaWQudjEyLjEsIFZlcnNpb249MTIuMS43LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjg4ZDE3NTRkNzAwZTQ5YV1dAwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24EAAAwRGV2RXhwcmVzcy5YdHJhR3JpZC5Db2x1bW5zLkdyaWRDb2x1bW5Tb3J0SW5mb1tdAgAAAAgICQUAAAACAAAAAgAAAAQEAAAAHFN5c3RlbS5Db2xsZWN0aW9ucy5BcnJheUxpc3QDAAAABl9pdGVtcwVfc2l6ZQhfdmVyc2lvbgUAAAgICQYAAAADAAAAAwAAAAcFAAAAAAEAAAAEAAAABC5EZXZFeHByZXNzLlh0cmFHcmlkLkNvbHVtbnMuR3JpZENvbHVtblNvcnRJbmZvAgAAAAkHAAAACQgAAAANAhAGAAAABAAAAAkJAAAACQoAAAAJCwAAAAoMDAAAABlEZXZFeHByZXNzLlh0cmFHcmlkLnYxMi4xBQcAAAAuRGV2RXhwcmVzcy5YdHJhR3JpZC5Db2x1bW5zLkdyaWRDb2x1bW5Tb3J0SW5mbwIAAAAJU29ydE9yZGVyCkNvbHVtbk5hbWUAAQgMAAAAAQAAAAYNAAAABE9icmEBCAAAAAcAAAABAAAABg4AAAAPY29sRGVzUHJvdmVlZG9yAQkAAAAHAAAAAQAAAAkNAAAAAQoAAAAHAAAAAQAAAAkOAAAAAQsAAAAHAAAAAQAAAAYRAAAAC2NvbENhbnRpZGFkCw==</property>
+  <property name="ActiveFilterString" />
+  <property name="GroupSummarySortInfoState" />
+  <property name="FindFilterText" />
+  <property name="FindPanelVisible">false</property>
+</XtraSerializer>

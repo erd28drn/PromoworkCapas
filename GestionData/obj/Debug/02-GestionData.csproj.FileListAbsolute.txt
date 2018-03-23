@@ -1,0 +1,5 @@
+C:\Users\USUARIO\Google Drive\Promowork\GestionData\bin\Debug\GestionData.dll
+C:\Users\USUARIO\Google Drive\Promowork\GestionData\bin\Debug\GestionData.pdb
+C:\Users\USUARIO\Google Drive\Promowork\GestionData\obj\Debug\GestionData.dll
+C:\Users\USUARIO\Google Drive\Promowork\GestionData\obj\Debug\GestionData.pdb
+C:\Users\USUARIO\Google Drive\Promowork\GestionData\bin\Debug\GestionData.dll.config

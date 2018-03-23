@@ -1,0 +1,95 @@
+﻿<XtraSerializer version="1.0" application="View">
+  <property name="#LayoutVersion" />
+  <property name="ActiveFilterEnabled">true</property>
+  <property name="Columns" iskey="true" value="12">
+    <property name="Item1" isnull="true" iskey="true">
+      <property name="Name">colIdAlbaranDet</property>
+    </property>
+    <property name="Item2" isnull="true" iskey="true">
+      <property name="Name">colIdAlbaranCab1</property>
+    </property>
+    <property name="Item3" isnull="true" iskey="true">
+      <property name="Width">146</property>
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">0</property>
+      <property name="FilterMode">DisplayText</property>
+      <property name="Name">Codigo</property>
+    </property>
+    <property name="Item4" isnull="true" iskey="true">
+      <property name="Width">76</property>
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">3</property>
+      <property name="Name">colCantidad</property>
+    </property>
+    <property name="Item5" isnull="true" iskey="true">
+      <property name="Width">67</property>
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">4</property>
+      <property name="Name">colPrecio</property>
+    </property>
+    <property name="Item6" isnull="true" iskey="true">
+      <property name="Width">324</property>
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">1</property>
+      <property name="FilterMode">DisplayText</property>
+      <property name="Name">Descripcion</property>
+    </property>
+    <property name="Item7" isnull="true" iskey="true">
+      <property name="Width">73</property>
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">5</property>
+      <property name="Name">colDescuento</property>
+    </property>
+    <property name="Item8" isnull="true" iskey="true">
+      <property name="Width">84</property>
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">6</property>
+      <property name="Name">Importe</property>
+      <property name="Summary" iskey="true" value="1">
+        <property name="Item1" isnull="true" iskey="true">
+          <property name="DisplayFormat">{0:c2}</property>
+          <property name="SummaryType">Sum</property>
+          <property name="Tag" isnull="true" />
+          <property name="FieldName">Importe</property>
+        </property>
+      </property>
+    </property>
+    <property name="Item9" isnull="true" iskey="true">
+      <property name="Width">138</property>
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">7</property>
+      <property name="FilterMode">DisplayText</property>
+      <property name="Name">colIdLugarUso</property>
+    </property>
+    <property name="Item10" isnull="true" iskey="true">
+      <property name="Width">138</property>
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">8</property>
+      <property name="FilterMode">DisplayText</property>
+      <property name="Name">colIdTrabajador</property>
+    </property>
+    <property name="Item11" isnull="true" iskey="true">
+      <property name="Width">246</property>
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">9</property>
+      <property name="FilterMode">DisplayText</property>
+      <property name="Name">colObservaciones1</property>
+    </property>
+    <property name="Item12" isnull="true" iskey="true">
+      <property name="Width">44</property>
+      <property name="Visible">true</property>
+      <property name="VisibleIndex">2</property>
+      <property name="FilterMode">DisplayText</property>
+      <property name="Name">colIdProducto</property>
+    </property>
+  </property>
+  <property name="OptionsView" isnull="true" iskey="true">
+    <property name="ShowGroupPanel">false</property>
+    <property name="ShowFooter">true</property>
+    <property name="ShowAutoFilterRow">true</property>
+  </property>
+  <property name="ActiveFilterString" />
+  <property name="GroupSummarySortInfoState" />
+  <property name="FindFilterText" />
+  <property name="FindPanelVisible">false</property>
+</XtraSerializer>

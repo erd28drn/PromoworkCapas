@@ -1,0 +1,8 @@
+C:\Users\USUARIO\Google Drive\Promowork\GestionServices\bin\Debug\GestionServices.dll
+C:\Users\USUARIO\Google Drive\Promowork\GestionServices\bin\Debug\GestionServices.pdb
+C:\Users\USUARIO\Google Drive\Promowork\GestionServices\obj\Debug\GestionServices.dll
+C:\Users\USUARIO\Google Drive\Promowork\GestionServices\obj\Debug\GestionServices.pdb
+C:\Users\USUARIO\Google Drive\Promowork\GestionServices\obj\Debug\03-GestionServices.csprojResolveAssemblyReference.cache
+C:\Users\USUARIO\Google Drive\Promowork\GestionServices\bin\Debug\AxInterop.AcroPDFLib.dll
+C:\Users\USUARIO\Google Drive\Promowork\GestionServices\bin\Debug\GestionData.dll
+C:\Users\USUARIO\Google Drive\Promowork\GestionServices\bin\Debug\GestionData.pdb
