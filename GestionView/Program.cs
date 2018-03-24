@@ -8,7 +8,8 @@ using System.Threading;
 using System.Globalization;
 using Promowork.Formularios.Definiciones;
 using Promowork.Formularios.General;
-using Promowork.Formularios.Reportes;
+using Promowork.Formularios.Reportes.Parametros;
+using Promowork.Formularios.Reportes.Viewer;
 using Promowork.Formularios.Operaciones;
 using GestionData;
 using GestionData.Enumeradores;
@@ -42,7 +43,7 @@ namespace Promowork
                 Application.Run(new EntradaSistema ());
                 if (VariablesGlobales.nIdEmpresaActual != 0 && VariablesGlobales.nIdUsuarioActual != 0 && VariablesGlobales.nAnoActual != 0 && VariablesGlobales.nMesActual != 0)
                 {
-                    Application.Run(new Principal ());
+                    Application.Run(new rptParametrosSinAlbaran ());
                 }
             }
             catch (Exception ex)

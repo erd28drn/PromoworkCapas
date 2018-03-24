@@ -26,6 +26,8 @@ namespace Promowork.Formularios.Reportes.Parametros
 
         private void rptParametrosSinAlbaran_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'DatosReportesNuevos.vAlbaranes' Puede moverla o quitarla según sea necesario.
+            this.vAlbaranesTableAdapter.Fill(this.DatosReportesNuevos.vAlbaranes);
              nMes = VariablesGlobales.nMesActual;
             nAno = VariablesGlobales.nAnoActual;
             nDiasFin = DateTime.DaysInMonth(nAno, nMes);
@@ -127,13 +129,17 @@ namespace Promowork.Formularios.Reportes.Parametros
         private void button3_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
-            var cuerpoCorreo = "<p>Con el fin de poder verificar sus facturas, rogamos nos envien copia de los siguientes albaranes a compras@promowork.es " +
-                                "Ya que NO disponemos de ellos. Para ello, será necesario que conste la firma y el DNI de la persona autorizada que realizó " +
-                                "la retirada del material o autorizó la escarga.</p>" +
-                                "<p>Sin otro particular,<br>" +
-                                "Le saludo muy cordialmente,</p>" +
-                                "<p>Oscar Urpi<br>" +
-                                "Dpto.Compras.</p>";
+            GuardarAsuntoCuerpoMensaje();
+            var cuerpoCorreo = cuerpoMensajeSinAlbaranTextEdit.Text;
+                
+                
+                //"<p>Con el fin de poder verificar sus facturas, rogamos nos envien copia de los siguientes albaranes a compras@promowork.es " +
+                //                "Ya que NO disponemos de ellos. Para ello, será necesario que conste la firma y el DNI de la persona autorizada que realizó " +
+                //                "la retirada del material o autorizó la escarga.</p>" +
+                //                "<p>Sin otro particular,<br>" +
+                //                "Le saludo muy cordialmente,</p>" +
+                //                "<p>Oscar Urpi<br>" +
+                //                "Dpto.Compras.</p>";
 
             foreach (var proveedor in proveedores.Where(p => p.Marca))
             {
@@ -154,7 +160,7 @@ namespace Promowork.Formularios.Reportes.Parametros
                     
                     
                     List<string> destinatarios= proveedor.Email.Split(';').ToList();
-                    string asunto= "Albaranes Pendientes";
+                    string asunto = asuntoSinAlbaranTextEdit.Text;// "Albaranes Pendientes";
                     List<string> adjuntos= new List<string>();
                     adjuntos.Add(nombreFichero+ ".PDF");
                     string respuestaEnviarCorreo= Utilidades.EnviaCorreo(VariablesGlobales.nIdEmpresaActual, destinatarios, asunto, adjuntos, cuerpoCorreo, responderA);
@@ -176,6 +182,13 @@ namespace Promowork.Formularios.Reportes.Parametros
 
         }
 
+        private void GuardarAsuntoCuerpoMensaje()
+        {
+            this.Validate();
+            this.EmpresasActualBindingSource.EndEdit();
+            this.EmpresasActualTableAdapter.Update(Promowork_dataDataSet.EmpresasActual);
+        }
+
         private void gridView1_ShowingEditor(object sender, CancelEventArgs e)
         {
             var valido = (bool)gridView1.GetFocusedRowCellValue(colValido);
@@ -191,5 +204,6 @@ namespace Promowork.Formularios.Reportes.Parametros
             this.reportViewer1.RefreshReport();
         }
 
+     
     }
 }

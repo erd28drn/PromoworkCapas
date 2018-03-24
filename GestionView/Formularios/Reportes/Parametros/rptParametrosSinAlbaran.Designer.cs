@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource7 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource8 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
-            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
+            System.Windows.Forms.Label asuntoSinAlbaranLabel;
+            System.Windows.Forms.Label cuerpoMensajeSinAlbaranLabel;
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
             this.vAlbaranesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DatosReportesNuevos = new GestionData.DatosReportesNuevos();
             this.EmpresasActualBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -59,14 +61,16 @@
             this.colProveedor = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colEmail = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colRespuesta = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.asuntoSinAlbaranTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
+            this.cuerpoMensajeSinAlbaranTextEdit = new DevExpress.XtraEditors.MemoEdit();
             this.vAlbaranesTableAdapter = new GestionData.DatosReportesNuevosTableAdapters.vAlbaranesTableAdapter();
             this.proveedoresSinAlbaranBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.proveedoresSinAlbaranTableAdapter = new GestionData.DatosReportesNuevosTableAdapters.ProveedoresSinAlbaranTableAdapter();
             this.tableAdapterManager = new GestionData.DatosReportesNuevosTableAdapters.TableAdapterManager();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
-            this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
+            asuntoSinAlbaranLabel = new System.Windows.Forms.Label();
+            cuerpoMensajeSinAlbaranLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.vAlbaranesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DatosReportesNuevos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EmpresasActualBindingSource)).BeginInit();
@@ -77,13 +81,31 @@
             this.tabResumenEnvioCorreo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proveedoresSinAlbaranBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.asuntoSinAlbaranTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cuerpoMensajeSinAlbaranTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proveedoresSinAlbaranBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // asuntoSinAlbaranLabel
+            // 
+            asuntoSinAlbaranLabel.AutoSize = true;
+            asuntoSinAlbaranLabel.Location = new System.Drawing.Point(17, 9);
+            asuntoSinAlbaranLabel.Name = "asuntoSinAlbaranLabel";
+            asuntoSinAlbaranLabel.Size = new System.Drawing.Size(86, 13);
+            asuntoSinAlbaranLabel.TabIndex = 2;
+            asuntoSinAlbaranLabel.Text = "Asunto Mensaje:";
+            // 
+            // cuerpoMensajeSinAlbaranLabel
+            // 
+            cuerpoMensajeSinAlbaranLabel.AutoSize = true;
+            cuerpoMensajeSinAlbaranLabel.Location = new System.Drawing.Point(16, 37);
+            cuerpoMensajeSinAlbaranLabel.Name = "cuerpoMensajeSinAlbaranLabel";
+            cuerpoMensajeSinAlbaranLabel.Size = new System.Drawing.Size(87, 13);
+            cuerpoMensajeSinAlbaranLabel.TabIndex = 3;
+            cuerpoMensajeSinAlbaranLabel.Text = "Cuerpo Mensaje:";
             // 
             // vAlbaranesBindingSource
             // 
@@ -194,16 +216,16 @@
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource7.Name = "SinAlbaran";
-            reportDataSource7.Value = this.vAlbaranesBindingSource;
-            reportDataSource8.Name = "Empresa";
-            reportDataSource8.Value = this.EmpresasActualBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource7);
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource8);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Promowork.rptSinAlbaran.rdlc";
+            reportDataSource1.Name = "SinAlbaran";
+            reportDataSource1.Value = this.vAlbaranesBindingSource;
+            reportDataSource2.Name = "Empresa";
+            reportDataSource2.Value = this.EmpresasActualBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Promowork.Reportes.rptSinAlbaran.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(3, 3);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(1063, 339);
+            this.reportViewer1.Size = new System.Drawing.Size(1185, 339);
             this.reportViewer1.TabIndex = 17;
             // 
             // EmpresasActualTableAdapter
@@ -216,7 +238,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(792, 46);
+            this.panel1.Size = new System.Drawing.Size(1199, 46);
             this.panel1.TabIndex = 18;
             // 
             // button3
@@ -238,7 +260,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 46);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(792, 371);
+            this.tabControl1.Size = new System.Drawing.Size(1199, 371);
             this.tabControl1.TabIndex = 19;
             // 
             // tabReporte
@@ -247,7 +269,7 @@
             this.tabReporte.Location = new System.Drawing.Point(4, 22);
             this.tabReporte.Name = "tabReporte";
             this.tabReporte.Padding = new System.Windows.Forms.Padding(3);
-            this.tabReporte.Size = new System.Drawing.Size(1069, 345);
+            this.tabReporte.Size = new System.Drawing.Size(1191, 345);
             this.tabReporte.TabIndex = 0;
             this.tabReporte.Text = "Reporte";
             this.tabReporte.UseVisualStyleBackColor = true;
@@ -259,7 +281,7 @@
             this.tabResumenEnvioCorreo.Location = new System.Drawing.Point(4, 22);
             this.tabResumenEnvioCorreo.Name = "tabResumenEnvioCorreo";
             this.tabResumenEnvioCorreo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabResumenEnvioCorreo.Size = new System.Drawing.Size(784, 345);
+            this.tabResumenEnvioCorreo.Size = new System.Drawing.Size(1191, 345);
             this.tabResumenEnvioCorreo.TabIndex = 1;
             this.tabResumenEnvioCorreo.Text = "Resumen Envio Correos";
             this.tabResumenEnvioCorreo.UseVisualStyleBackColor = true;
@@ -267,10 +289,10 @@
             // gridControl1
             // 
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(3, 123);
+            this.gridControl1.Location = new System.Drawing.Point(3, 158);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(778, 219);
+            this.gridControl1.Size = new System.Drawing.Size(1185, 184);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -285,23 +307,23 @@
             this.colValido,
             this.colEnviado,
             this.colRespuesta});
-            styleFormatCondition3.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            styleFormatCondition3.Appearance.Options.HighPriority = true;
-            styleFormatCondition3.Appearance.Options.UseForeColor = true;
-            styleFormatCondition3.ApplyToRow = true;
-            styleFormatCondition3.Column = this.colValido;
-            styleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-            styleFormatCondition3.Value1 = false;
-            styleFormatCondition4.Appearance.ForeColor = System.Drawing.Color.Red;
-            styleFormatCondition4.Appearance.Options.HighPriority = true;
-            styleFormatCondition4.Appearance.Options.UseForeColor = true;
-            styleFormatCondition4.ApplyToRow = true;
-            styleFormatCondition4.Column = this.colEnviado;
-            styleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-            styleFormatCondition4.Value1 = false;
+            styleFormatCondition1.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            styleFormatCondition1.Appearance.Options.HighPriority = true;
+            styleFormatCondition1.Appearance.Options.UseForeColor = true;
+            styleFormatCondition1.ApplyToRow = true;
+            styleFormatCondition1.Column = this.colValido;
+            styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition1.Value1 = false;
+            styleFormatCondition2.Appearance.ForeColor = System.Drawing.Color.Red;
+            styleFormatCondition2.Appearance.Options.HighPriority = true;
+            styleFormatCondition2.Appearance.Options.UseForeColor = true;
+            styleFormatCondition2.ApplyToRow = true;
+            styleFormatCondition2.Column = this.colEnviado;
+            styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition2.Value1 = false;
             this.gridView1.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition3,
-            styleFormatCondition4});
+            styleFormatCondition1,
+            styleFormatCondition2});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
@@ -356,6 +378,45 @@
             this.colRespuesta.VisibleIndex = 5;
             this.colRespuesta.Width = 670;
             // 
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(cuerpoMensajeSinAlbaranLabel);
+            this.panelControl1.Controls.Add(asuntoSinAlbaranLabel);
+            this.panelControl1.Controls.Add(this.asuntoSinAlbaranTextEdit);
+            this.panelControl1.Controls.Add(this.lookUpEdit1);
+            this.panelControl1.Controls.Add(this.cuerpoMensajeSinAlbaranTextEdit);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl1.Location = new System.Drawing.Point(3, 3);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(1185, 155);
+            this.panelControl1.TabIndex = 1;
+            // 
+            // asuntoSinAlbaranTextEdit
+            // 
+            this.asuntoSinAlbaranTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.EmpresasActualBindingSource, "AsuntoSinAlbaran", true));
+            this.asuntoSinAlbaranTextEdit.Location = new System.Drawing.Point(110, 6);
+            this.asuntoSinAlbaranTextEdit.Name = "asuntoSinAlbaranTextEdit";
+            this.asuntoSinAlbaranTextEdit.Size = new System.Drawing.Size(445, 20);
+            this.asuntoSinAlbaranTextEdit.TabIndex = 3;
+            // 
+            // lookUpEdit1
+            // 
+            this.lookUpEdit1.Location = new System.Drawing.Point(674, 6);
+            this.lookUpEdit1.Name = "lookUpEdit1";
+            this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEdit1.Properties.DataSource = this.Promowork_dataDataSet;
+            this.lookUpEdit1.Size = new System.Drawing.Size(232, 20);
+            this.lookUpEdit1.TabIndex = 2;
+            // 
+            // cuerpoMensajeSinAlbaranTextEdit
+            // 
+            this.cuerpoMensajeSinAlbaranTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.EmpresasActualBindingSource, "CuerpoMensajeSinAlbaran", true));
+            this.cuerpoMensajeSinAlbaranTextEdit.Location = new System.Drawing.Point(110, 36);
+            this.cuerpoMensajeSinAlbaranTextEdit.Name = "cuerpoMensajeSinAlbaranTextEdit";
+            this.cuerpoMensajeSinAlbaranTextEdit.Size = new System.Drawing.Size(796, 99);
+            this.cuerpoMensajeSinAlbaranTextEdit.TabIndex = 4;
+            // 
             // vAlbaranesTableAdapter
             // 
             this.vAlbaranesTableAdapter.ClearBeforeFill = true;
@@ -373,48 +434,15 @@
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.EmpresasTableAdapter = null;
             this.tableAdapterManager.ServidorSMTPTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = GestionData.DatosReportesNuevosTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // panelControl1
-            // 
-            this.panelControl1.Controls.Add(this.lookUpEdit1);
-            this.panelControl1.Controls.Add(this.memoEdit1);
-            this.panelControl1.Controls.Add(this.textEdit1);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl1.Location = new System.Drawing.Point(3, 3);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(778, 120);
-            this.panelControl1.TabIndex = 1;
-            // 
-            // textEdit1
-            // 
-            this.textEdit1.Location = new System.Drawing.Point(150, 5);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(312, 20);
-            this.textEdit1.TabIndex = 0;
-            // 
-            // memoEdit1
-            // 
-            this.memoEdit1.Location = new System.Drawing.Point(150, 32);
-            this.memoEdit1.Name = "memoEdit1";
-            this.memoEdit1.Size = new System.Drawing.Size(597, 71);
-            this.memoEdit1.TabIndex = 1;
-            // 
-            // lookUpEdit1
-            // 
-            this.lookUpEdit1.Location = new System.Drawing.Point(515, 6);
-            this.lookUpEdit1.Name = "lookUpEdit1";
-            this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEdit1.Size = new System.Drawing.Size(232, 20);
-            this.lookUpEdit1.TabIndex = 2;
             // 
             // rptParametrosSinAlbaran
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(792, 417);
+            this.ClientSize = new System.Drawing.Size(1199, 417);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dateTimePicker2);
@@ -441,12 +469,13 @@
             this.tabResumenEnvioCorreo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proveedoresSinAlbaranBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
+            this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.asuntoSinAlbaranTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cuerpoMensajeSinAlbaranTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proveedoresSinAlbaranBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -486,7 +515,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colIdProveedor;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
-        private DevExpress.XtraEditors.MemoEdit memoEdit1;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit asuntoSinAlbaranTextEdit;
+        private DevExpress.XtraEditors.MemoEdit cuerpoMensajeSinAlbaranTextEdit;
     }
 }

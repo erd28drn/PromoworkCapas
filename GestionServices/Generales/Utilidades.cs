@@ -205,6 +205,22 @@ namespace Promowork
         #endregion ENVIAR REPORTES POR CORREO ELECTRONICO
 
 
-        
+        #region TRABAJADORES CON EMAIL
+        public static TabajadoresConEmail ObtenerTrabajadoresConEmail()
+        {
+            DatosReportesNuevos DatosReportesNuevos = new DatosReportesNuevos();
+            GestionData.DatosReportesNuevosTableAdapters.ServidorSMTPTableAdapter ServidorSMTPTableAdapter = new GestionData.DatosReportesNuevosTableAdapters.ServidorSMTPTableAdapter();
+            ServidorSMTPTableAdapter.Fill(DatosReportesNuevos.ServidorSMTP, idEmpresa);
+            var servidorSMTP = ServidorSMTPTableAdapter.GetData(idEmpresa).First();
+
+        }
+        public class TabajadoresConEmail
+        {
+            public int IdTrabajador { get; set; }
+            public int NumeroTRabajador { get; set; }
+
+
+        }
+        #endregion TRABAJADORES CON EMAIL
     }
 }
