@@ -33,6 +33,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -72,6 +75,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Entities\PromoworkDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PromoworkDataModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Enumeradores\Class1.cs" />
     <Compile Include="Enumeradores\CustomEnumConverter.cs" />
     <Compile Include="Enumeradores\DescriptionAttribute.cs" />
@@ -90,7 +98,6 @@
     </Compile>
     <Compile Include="Promowork_dataDataSet.cs">
       <DependentUpon>Promowork_dataDataSet.xsd</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Promowork_dataDataSet.Designer.cs">
       <DependentUpon>Promowork_dataDataSet.xsd</DependentUpon>
@@ -158,6 +165,10 @@
     <None Include="DatosReportesNuevos.xss">
       <DependentUpon>DatosReportesNuevos.xsd</DependentUpon>
     </None>
+    <EntityDeploy Include="Entities\PromoworkDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PromoworkDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <None Include="masterDataSet.xsc">
       <DependentUpon>masterDataSet.xsd</DependentUpon>
     </None>
@@ -196,9 +207,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entities\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

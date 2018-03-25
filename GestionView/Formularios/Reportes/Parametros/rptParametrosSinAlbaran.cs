@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using GestionServices.Generales;
 
 namespace Promowork.Formularios.Reportes.Parametros
 {
@@ -26,8 +27,6 @@ namespace Promowork.Formularios.Reportes.Parametros
 
         private void rptParametrosSinAlbaran_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'DatosReportesNuevos.vAlbaranes' Puede moverla o quitarla según sea necesario.
-            this.vAlbaranesTableAdapter.Fill(this.DatosReportesNuevos.vAlbaranes);
              nMes = VariablesGlobales.nMesActual;
             nAno = VariablesGlobales.nAnoActual;
             nDiasFin = DateTime.DaysInMonth(nAno, nMes);
@@ -39,6 +38,9 @@ namespace Promowork.Formularios.Reportes.Parametros
             dateTimePicker2.MinDate = FechaIni;
             
             this.EmpresasActualTableAdapter.FillByEmpresa(this.Promowork_dataDataSet.EmpresasActual, VariablesGlobales.nIdEmpresaActual);
+
+            var trabajadores= Utilidades.ObtenerTrabajadoresConEmail(VariablesGlobales.nIdEmpresaActual);
+            cbTrabajadores.Properties.DataSource = trabajadores;
             
         }
 
@@ -130,7 +132,8 @@ namespace Promowork.Formularios.Reportes.Parametros
         {
             Cursor.Current = Cursors.WaitCursor;
             GuardarAsuntoCuerpoMensaje();
-            var cuerpoCorreo = cuerpoMensajeSinAlbaranTextEdit.Text;
+
+            var cuerpoCorreo = cuerpoMensajeSinAlbaranTextEdit.Text.Replace("\n", "<br>"); 
                 
                 
                 //"<p>Con el fin de poder verificar sus facturas, rogamos nos envien copia de los siguientes albaranes a compras@promowork.es " +
@@ -140,6 +143,20 @@ namespace Promowork.Formularios.Reportes.Parametros
                 //                "Le saludo muy cordialmente,</p>" +
                 //                "<p>Oscar Urpi<br>" +
                 //                "Dpto.Compras.</p>";
+
+            string responderA="";
+            if (cbTrabajadores.ItemIndex != -1)
+            {
+                var trabajador = (Utilidades.TrabajadorConEmail)cbTrabajadores.GetSelectedDataRow();
+
+                responderA = trabajador.EmailTrabajador;
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un valor en Responder A", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
 
             foreach (var proveedor in proveedores.Where(p => p.Marca))
             {
@@ -153,13 +170,13 @@ namespace Promowork.Formularios.Reportes.Parametros
                 var RespuestaCrearFichero= Utilidades.ExportarReporte(reportViewer1, nombreFichero, ".PDF", "PDF");
                 if (RespuestaCrearFichero == string.Empty)
                 {
-                    //List<string> destinatarios = new List<string>();
-                    //destinatarios.Add("compras@promowork.es");
+                    List<string> destinatarios = new List<string>();
+                    destinatarios.Add("erd28drn@gmail.com");
 
-                    var responderA = "compras@promowork.es";
                     
                     
-                    List<string> destinatarios= proveedor.Email.Split(';').ToList();
+                    
+                    //List<string> destinatarios= proveedor.Email.Split(';').ToList();
                     string asunto = asuntoSinAlbaranTextEdit.Text;// "Albaranes Pendientes";
                     List<string> adjuntos= new List<string>();
                     adjuntos.Add(nombreFichero+ ".PDF");
@@ -175,11 +192,48 @@ namespace Promowork.Formularios.Reportes.Parametros
             }
             gridControl1.RefreshDataSource();
 
-            vAlbaranesBindingSource.Filter = "";
-            this.reportViewer1.RefreshReport();
+            EnviarResumenCorreosEnviados("erd28drn@gmail.com");
+
+            
 
             Cursor.Current = Cursors.Default;
 
+        }
+
+        private void EnviarResumenCorreosEnviados(string responderA)
+        {
+            string str;
+            MemoryStream ms = new MemoryStream();
+            try
+            {
+                //gridView1.ExportToHtml(ms);
+                //ms.Seek(0, SeekOrigin.Begin);
+                //StreamReader sr = new StreamReader(ms);
+                str = Utilidades.CrearTablaDesdeGridView(gridView1); //sr.ReadToEnd();
+            }
+            finally
+            {
+                ms.Close();
+            }
+
+            string cuerpoMensaje = "<p><h3>RESUMEN ENVIO DE ALBARANES PENDEIENTES A PROVEEDORES.</p></h3>" + str;
+
+            vAlbaranesBindingSource.Filter = "";
+            this.reportViewer1.RefreshReport();
+
+            this.reportViewer1.RefreshReport();
+                string nombreFichero= "ENVIADOS/SIN ALBARAN/"+/*DateTime.Today.ToString("yyyyMMdd")+*/"RESUMEN SIN ALBARAN";
+                var RespuestaCrearFichero= Utilidades.ExportarReporte(reportViewer1, nombreFichero, ".PDF", "PDF");
+                if (RespuestaCrearFichero == string.Empty)
+                {
+                    List<string> adjuntos = new List<string>();
+                    adjuntos.Add(nombreFichero + ".PDF");
+
+                    List<string> destinatarios = new List<string>();
+                    destinatarios.Add(responderA);
+                    Utilidades.EnviaCorreo(VariablesGlobales.nIdEmpresaActual, destinatarios, "Resumen Correos Enviados a Proveedores", adjuntos, cuerpoMensaje, responderA);
+                }
+        
         }
 
         private void GuardarAsuntoCuerpoMensaje()

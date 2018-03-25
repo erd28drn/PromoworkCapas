@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Collections;
 using Microsoft.Reporting.WinForms;
+using GestionServices.Generales;
 
 namespace Promowork.Formularios.Reportes.Parametros
 {
@@ -40,6 +41,9 @@ namespace Promowork.Formularios.Reportes.Parametros
             dateTimePicker2.MinDate = FechaIni;
             
             this.EmpresasActualTableAdapter.FillByEmpresa(this.Promowork_dataDataSet.EmpresasActual, VariablesGlobales.nIdEmpresaActual);
+
+            var trabajadores = Utilidades.ObtenerTrabajadoresConEmail(VariablesGlobales.nIdEmpresaActual);
+            cbTrabajadores.Properties.DataSource = trabajadores;
             
         }
 
@@ -184,10 +188,12 @@ namespace Promowork.Formularios.Reportes.Parametros
                     //List<string> destinatarios = new List<string>();
                     //destinatarios.Add("compras@promowork.es");//compras@promowork.es
 
-                    var responderA = "compras@promowork.es";
+                    var trabajador = (Utilidades.TrabajadorConEmail)cbTrabajadores.GetSelectedDataRow();
+
+                    var responderA = trabajador.EmailTrabajador;
                     
                     List<string> destinatarios= proveedor.Email.Split(';').ToList();
-                    string asunto= "Listado de Obras Activas";
+                    string asunto = tbAsuntoObrasProveedores.Text;// "Listado de Obras Activas";
                     List<string> adjuntos= new List<string>();
                     adjuntos.Add(nombreFichero+ ".PDF");
                     string respuestaEnviarCorreo= Utilidades.EnviaCorreo(VariablesGlobales.nIdEmpresaActual, destinatarios, asunto, adjuntos, cuerpoCorreo, responderA);

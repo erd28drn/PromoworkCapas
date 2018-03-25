@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label asuntoSinAlbaranLabel;
             System.Windows.Forms.Label cuerpoMensajeSinAlbaranLabel;
+            System.Windows.Forms.Label label1;
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
@@ -63,7 +64,7 @@
             this.colRespuesta = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.asuntoSinAlbaranTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
+            this.cbTrabajadores = new DevExpress.XtraEditors.LookUpEdit();
             this.cuerpoMensajeSinAlbaranTextEdit = new DevExpress.XtraEditors.MemoEdit();
             this.vAlbaranesTableAdapter = new GestionData.DatosReportesNuevosTableAdapters.vAlbaranesTableAdapter();
             this.proveedoresSinAlbaranBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -71,6 +72,7 @@
             this.tableAdapterManager = new GestionData.DatosReportesNuevosTableAdapters.TableAdapterManager();
             asuntoSinAlbaranLabel = new System.Windows.Forms.Label();
             cuerpoMensajeSinAlbaranLabel = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.vAlbaranesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DatosReportesNuevos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EmpresasActualBindingSource)).BeginInit();
@@ -84,7 +86,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.asuntoSinAlbaranTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbTrabajadores.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cuerpoMensajeSinAlbaranTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proveedoresSinAlbaranBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -156,6 +158,15 @@
             this.colEnviado.Visible = true;
             this.colEnviado.VisibleIndex = 4;
             this.colEnviado.Width = 112;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(661, 8);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(72, 13);
+            label1.TabIndex = 5;
+            label1.Text = "Responder A:";
             // 
             // button1
             // 
@@ -238,7 +249,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1199, 46);
+            this.panel1.Size = new System.Drawing.Size(1330, 46);
             this.panel1.TabIndex = 18;
             // 
             // button3
@@ -260,7 +271,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 46);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1199, 371);
+            this.tabControl1.Size = new System.Drawing.Size(1330, 674);
             this.tabControl1.TabIndex = 19;
             // 
             // tabReporte
@@ -281,7 +292,7 @@
             this.tabResumenEnvioCorreo.Location = new System.Drawing.Point(4, 22);
             this.tabResumenEnvioCorreo.Name = "tabResumenEnvioCorreo";
             this.tabResumenEnvioCorreo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabResumenEnvioCorreo.Size = new System.Drawing.Size(1191, 345);
+            this.tabResumenEnvioCorreo.Size = new System.Drawing.Size(1322, 648);
             this.tabResumenEnvioCorreo.TabIndex = 1;
             this.tabResumenEnvioCorreo.Text = "Resumen Envio Correos";
             this.tabResumenEnvioCorreo.UseVisualStyleBackColor = true;
@@ -292,7 +303,7 @@
             this.gridControl1.Location = new System.Drawing.Point(3, 158);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1185, 184);
+            this.gridControl1.Size = new System.Drawing.Size(1316, 487);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -380,15 +391,16 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(label1);
             this.panelControl1.Controls.Add(cuerpoMensajeSinAlbaranLabel);
             this.panelControl1.Controls.Add(asuntoSinAlbaranLabel);
             this.panelControl1.Controls.Add(this.asuntoSinAlbaranTextEdit);
-            this.panelControl1.Controls.Add(this.lookUpEdit1);
+            this.panelControl1.Controls.Add(this.cbTrabajadores);
             this.panelControl1.Controls.Add(this.cuerpoMensajeSinAlbaranTextEdit);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(3, 3);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1185, 155);
+            this.panelControl1.Size = new System.Drawing.Size(1316, 155);
             this.panelControl1.TabIndex = 1;
             // 
             // asuntoSinAlbaranTextEdit
@@ -396,25 +408,29 @@
             this.asuntoSinAlbaranTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.EmpresasActualBindingSource, "AsuntoSinAlbaran", true));
             this.asuntoSinAlbaranTextEdit.Location = new System.Drawing.Point(110, 6);
             this.asuntoSinAlbaranTextEdit.Name = "asuntoSinAlbaranTextEdit";
-            this.asuntoSinAlbaranTextEdit.Size = new System.Drawing.Size(445, 20);
+            this.asuntoSinAlbaranTextEdit.Size = new System.Drawing.Size(515, 20);
             this.asuntoSinAlbaranTextEdit.TabIndex = 3;
             // 
-            // lookUpEdit1
+            // cbTrabajadores
             // 
-            this.lookUpEdit1.Location = new System.Drawing.Point(674, 6);
-            this.lookUpEdit1.Name = "lookUpEdit1";
-            this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.cbTrabajadores.Location = new System.Drawing.Point(739, 5);
+            this.cbTrabajadores.Name = "cbTrabajadores";
+            this.cbTrabajadores.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEdit1.Properties.DataSource = this.Promowork_dataDataSet;
-            this.lookUpEdit1.Size = new System.Drawing.Size(232, 20);
-            this.lookUpEdit1.TabIndex = 2;
+            this.cbTrabajadores.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NombreEmailTrabajador", "Trabajador")});
+            this.cbTrabajadores.Properties.DisplayMember = "NombreEmailTrabajador";
+            this.cbTrabajadores.Properties.NullText = "";
+            this.cbTrabajadores.Properties.ValueMember = "IdTrabajador";
+            this.cbTrabajadores.Size = new System.Drawing.Size(399, 20);
+            this.cbTrabajadores.TabIndex = 2;
             // 
             // cuerpoMensajeSinAlbaranTextEdit
             // 
             this.cuerpoMensajeSinAlbaranTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.EmpresasActualBindingSource, "CuerpoMensajeSinAlbaran", true));
             this.cuerpoMensajeSinAlbaranTextEdit.Location = new System.Drawing.Point(110, 36);
             this.cuerpoMensajeSinAlbaranTextEdit.Name = "cuerpoMensajeSinAlbaranTextEdit";
-            this.cuerpoMensajeSinAlbaranTextEdit.Size = new System.Drawing.Size(796, 99);
+            this.cuerpoMensajeSinAlbaranTextEdit.Size = new System.Drawing.Size(1028, 113);
             this.cuerpoMensajeSinAlbaranTextEdit.TabIndex = 4;
             // 
             // vAlbaranesTableAdapter
@@ -442,7 +458,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1199, 417);
+            this.ClientSize = new System.Drawing.Size(1330, 720);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dateTimePicker2);
@@ -473,7 +489,7 @@
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.asuntoSinAlbaranTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbTrabajadores.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cuerpoMensajeSinAlbaranTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proveedoresSinAlbaranBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -514,7 +530,7 @@
         private System.Windows.Forms.Button button3;
         private DevExpress.XtraGrid.Columns.GridColumn colIdProveedor;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
+        private DevExpress.XtraEditors.LookUpEdit cbTrabajadores;
         private DevExpress.XtraEditors.TextEdit asuntoSinAlbaranTextEdit;
         private DevExpress.XtraEditors.MemoEdit cuerpoMensajeSinAlbaranTextEdit;
     }

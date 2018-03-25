@@ -16,6 +16,7 @@ using Promowork.Formularios.Reportes.Viewer;
 using Promowork.Formularios.Operaciones;
 using GestionData;
 using GestionData.Enumeradores;
+using GestionServices.Generales;
 
 namespace Promowork.Formularios.Operaciones
 {

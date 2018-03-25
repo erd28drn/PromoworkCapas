@@ -13,16 +13,21 @@ using System.IO;
 //using iTextSharp.text;
 //using iTextSharp.text.pdf;
 using DevExpress.XtraGrid.Views.Base;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid.Columns;
+
 //using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors;
 using Microsoft.Reporting.WinForms;
 using System.Net.Mail;
 using System.Net;
 using GestionData;
+using GestionData.Entities;
 
 
-namespace Promowork
+namespace GestionServices.Generales
 {
+    
     public static class Utilidades
     {
         public static Boolean Escanear(string texto)
@@ -122,12 +127,20 @@ namespace Promowork
         #endregion EXPORTA REPORTES EN PDF Y XLS
 
         #region VALIDAR EMAIL
-
-        public static bool ValidarEmail(string email)
+        public static bool ValidarEmail(string emails)
         {
+            if (string.IsNullOrEmpty(emails))
+            {
+                return false;
+            }
+
             try
             {
-                new MailAddress(email);
+                var lstEmail= emails.Split(';').ToList();
+                foreach (var email in lstEmail)
+                {
+                    new MailAddress(email.Trim());
+                }
                 return true;
             }
             catch (FormatException)
@@ -147,7 +160,6 @@ namespace Promowork
                 return false;
             }
         }
-
         #endregion VALIDAR EMAIL
 
         #region ENVIAR REPORTES POR CORREO ELECTRONICO
@@ -155,12 +167,8 @@ namespace Promowork
         {
             string mensaje="";
 
-            DatosReportesNuevos DatosReportesNuevos = new  DatosReportesNuevos();
             GestionData.DatosReportesNuevosTableAdapters.ServidorSMTPTableAdapter ServidorSMTPTableAdapter = new GestionData.DatosReportesNuevosTableAdapters.ServidorSMTPTableAdapter();
-            ServidorSMTPTableAdapter.Fill(DatosReportesNuevos.ServidorSMTP, idEmpresa);
             var servidorSMTP = ServidorSMTPTableAdapter.GetData(idEmpresa).First();
-
-            //servidorSMTP = contextoParametrizacion.tblServidorSMTP.First();
 
             SmtpClient smtp = new SmtpClient();
             smtp.Host = servidorSMTP.NombreServidorSMTP;
@@ -174,7 +182,7 @@ namespace Promowork
             MailMessage msg = new MailMessage();
             msg.IsBodyHtml = true;
             msg.From = new MailAddress("compras@promowork.es");//servidorSMTP.Usuario);
-            msg.ReplyTo = new MailAddress(responderA);
+            msg.ReplyToList.Add( new MailAddress(responderA));
             msg.Subject = asunto;
             msg.Body = cuerpo;
 
@@ -183,10 +191,13 @@ namespace Promowork
                 msg.To.Add(new MailAddress(destinatario.Trim()));
             }
 
-            foreach (string adjunto in adjuntos)
+            if (adjuntos != null)
             {
-                Attachment attachment = new Attachment(adjunto);
-                msg.Attachments.Add(attachment);
+                foreach (string adjunto in adjuntos)
+                {
+                    Attachment attachment = new Attachment(adjunto);
+                    msg.Attachments.Add(attachment);
+                }
             }
 
             try
@@ -204,23 +215,82 @@ namespace Promowork
         }
         #endregion ENVIAR REPORTES POR CORREO ELECTRONICO
 
-
         #region TRABAJADORES CON EMAIL
-        public static TabajadoresConEmail ObtenerTrabajadoresConEmail()
+        public static List<TrabajadorConEmail> ObtenerTrabajadoresConEmail(int idEmpresa)
         {
-            DatosReportesNuevos DatosReportesNuevos = new DatosReportesNuevos();
-            GestionData.DatosReportesNuevosTableAdapters.ServidorSMTPTableAdapter ServidorSMTPTableAdapter = new GestionData.DatosReportesNuevosTableAdapters.ServidorSMTPTableAdapter();
-            ServidorSMTPTableAdapter.Fill(DatosReportesNuevos.ServidorSMTP, idEmpresa);
-            var servidorSMTP = ServidorSMTPTableAdapter.GetData(idEmpresa).First();
+            GestionData.Promowork_dataDataSetTableAdapters.TrabajadoresTableAdapter trabajadoresTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.TrabajadoresTableAdapter();
+            List<TrabajadorConEmail> trabajadoresConEmail = trabajadoresTableAdapter.GetData(idEmpresa).Where(t => t.ActivoTrabajador && ValidarEmail(t.EmailTrabajador))
+            .Select(t => new TrabajadorConEmail()
+            {
+                IdTrabajador = t.IdTrabajador,
+                NumeroTRabajador = t.NumTrabajador,
+                NombreTrabajador = t.NomTrabajador + " " + t.ApeTrabajador,
+                EmailTrabajador = t.EmailTrabajador
+            }).ToList();
 
+
+            //Promowork_dataEntities _db = new Promowork_dataEntities();
+            //var trabajadoresConEmail = _db.Trabajadores.AsQueryable().Where(t => t.IdEmpresa == idEmpresa && t.ActivoTrabajador.Value);// && t.EmailTrabajador != null);//.ToList();
+            //List<TrabajadorConEmail> trabajadoresConEmailValido = trabajadoresConEmail//.Where(t => ValidarEmail(t.EmailTrabajador))
+            //                                                                          .Select(t => new TrabajadorConEmail()
+            //                                                                            {
+            //                                                                                IdTrabajador = t.IdTrabajador,
+            //                                                                                NumeroTRabajador = t.NumTrabajador,
+            //                                                                                NombreTrabajador = t.NomTrabajador + " " + t.ApeTrabajador,
+            //                                                                                EmailTrabajador = t.EmailTrabajador
+            //                                                                            }).ToList();
+            return trabajadoresConEmail;
         }
-        public class TabajadoresConEmail
+        
+        public class TrabajadorConEmail
         {
             public int IdTrabajador { get; set; }
             public int NumeroTRabajador { get; set; }
-
-
+            public string NombreTrabajador { get; set; }
+            public string EmailTrabajador { get; set; }
+            public string NombreEmailTrabajador
+            {
+                get
+                {
+                    return NombreTrabajador + " (" + EmailTrabajador + ")";
+                }
+            }
         }
         #endregion TRABAJADORES CON EMAIL
+
+        #region CREAR TABLA DESDE GRIDVIEW
+        public static string CrearTablaDesdeGridView(GridView gridView)
+        {
+            string tablaHtml = "<table  border=1 cellspacing=0 cellpadding=2>";
+            tablaHtml += "<tr bgcolor='BlanchedAlmond'>";
+
+            foreach (GridColumn column in gridView.Columns)
+            {
+                if (column.Visible)
+                {
+                    tablaHtml += "<td>" + column.Caption + "</td>";
+                }
+            }
+            tablaHtml += "</tr>";
+
+            for (int i = 0; i < gridView.RowCount - 1; i++)
+            {
+                tablaHtml += "<tr>";
+                foreach (GridColumn column in gridView.Columns)
+                {
+                    if (column.Visible)
+                    {
+                        tablaHtml += "<td>" + gridView.GetRowCellValue(i, column) ?? "" + "</td>";
+                    }
+                }
+                tablaHtml += "</tr>";
+            }
+            tablaHtml += "</table>";
+
+
+            return tablaHtml;
+        }
+        #endregion CREAR TABLA DESDE GRIDVIEW
+        
     }
 }
