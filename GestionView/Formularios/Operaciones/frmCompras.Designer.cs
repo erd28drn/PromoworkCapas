@@ -1796,7 +1796,6 @@
             this.colTotal.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colTotal.FieldName = "Total";
             this.colTotal.Name = "colTotal";
-            this.colTotal.OptionsColumn.ReadOnly = true;
             this.colTotal.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Total", "{0:c2}")});
             this.colTotal.Visible = true;

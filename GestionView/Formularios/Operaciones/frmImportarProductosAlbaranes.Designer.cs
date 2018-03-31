@@ -196,7 +196,9 @@
             // 
             this.colNumAlbaran.Caption = "Número";
             this.colNumAlbaran.FieldName = "NumAlbaran";
+            this.colNumAlbaran.FilterMode = DevExpress.XtraGrid.ColumnFilterMode.DisplayText;
             this.colNumAlbaran.Name = "colNumAlbaran";
+            this.colNumAlbaran.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.colNumAlbaran.Visible = true;
             this.colNumAlbaran.VisibleIndex = 0;
             this.colNumAlbaran.Width = 109;

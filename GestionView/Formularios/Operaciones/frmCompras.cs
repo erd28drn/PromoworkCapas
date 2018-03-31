@@ -253,6 +253,7 @@ namespace Promowork.Formularios.Operaciones
             compraNueva["IdCuenta"] = cuenta;
 
             compraNueva["Pagada"] = false;
+            compraNueva["ImpPagado"] = 0.00;
             compraNueva["FacturaPendiente"] = false;
             compraNueva["FacturaDirecta"] = false;
             compraNueva["Prevision"] = false;
@@ -698,6 +699,16 @@ namespace Promowork.Formularios.Operaciones
 
         private void gvComprasDet_CellValueChanged(object sender, CellValueChangedEventArgs e)
         {
+            if (e.Column == colTotal)
+            {
+                decimal importeBase = 0;
+                decimal importeTotal = 0;
+
+                decimal.TryParse(gvComprasDet.GetFocusedRowCellValue(colImpBaseCompraDet).ToString(), out importeBase);
+                decimal.TryParse(gvComprasDet.GetFocusedRowCellValue(colTotal).ToString(), out importeTotal);
+                gvComprasDet.SetFocusedRowCellValue(colImpIvaCompraDet, importeTotal - importeBase);
+                //gvComprasDet.SetFocusedRowCellValue(colIVACompraDet, ((importeTotal/importeBase)-1)*100);
+            }
             gvComprasDet.UpdateTotalSummary();
 
             CalculaTotalCompra();

@@ -14,6 +14,9 @@ using Promowork.Formularios.Reportes.Viewer;
 using Promowork.Formularios.Operaciones;
 using GestionData;
 using GestionData.Enumeradores;
+using DevExpress.XtraGrid.Views.Base;
+using DevExpress.XtraGrid.Views.Grid;
+using GestionServices.Generales;
 
 namespace Promowork.Formularios.Operaciones
 {
@@ -339,8 +342,14 @@ namespace Promowork.Formularios.Operaciones
             }
             else
             {
-                presupCabTableAdapter.FillByCliente(datosPresupuestos.PresupCab, 0);
-                obrasBindingSource1.Filter = "IdCliente=0";
+                try
+                {
+                    presupCabTableAdapter.FillByCliente(datosPresupuestos.PresupCab, 0);
+                    obrasBindingSource1.Filter = "IdCliente=0";
+                }
+                catch (Exception ex)
+                { 
+                }
             }
         }
 
@@ -394,7 +403,7 @@ namespace Promowork.Formularios.Operaciones
             fechaVctoFactDateTimePicker.Value = DateTime.Today;
 
             gridView1.SetFocusedRowCellValue("Entregada", false);
-            gridView1.SetFocusedRowCellValue("EsPrevision", false);
+            gridView1.SetFocusedRowCellValue("EsPrevision", true);
             facturaCheckBox.CheckState = CheckState.Checked;
 
             if (cbxfacturas.Text == "Facturas")
@@ -788,6 +797,23 @@ namespace Promowork.Formularios.Operaciones
         {
             queriesPresupuestos1.DuplicaFactura(nIdFactura);
             cbxfacturas_SelectedValueChanged(null, null);
+        }
+
+        private void btSujetoPasivo_Click(object sender, EventArgs e)
+        {
+            obsFactura2TextEdit.Text = "(*) Operación de inversión del sujeto pasivo de acuerdo al art. 84 apartado uno, nº 2ºf) de la ley 37/1992 de I.V.A";
+        }
+
+        private void gridView1_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e)
+        {
+            GridCell[] celdasSeleccionadas = gridView1.GetSelectedCells();
+            GridView gridView = (GridView)sender;
+
+            var resultado = Utilidades.SumarCeldas(gridView, celdasSeleccionadas);
+
+            tbRecuentoSeleccion.Text = resultado.Recuento.ToString();
+            tbSumaSeleccion.Text = resultado.Suma.ToString("N2");
+            tbPromedioSeleccion.Text = resultado.Promedio.ToString("N2");
         }
 
     }

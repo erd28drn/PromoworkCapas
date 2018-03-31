@@ -623,7 +623,7 @@
             this.toolStripButton9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton9.Name = "toolStripButton9";
-            this.toolStripButton9.Size = new System.Drawing.Size(129, 22);
+            this.toolStripButton9.Size = new System.Drawing.Size(129, 19);
             this.toolStripButton9.Text = "Prueba Fra-Albaranes";
             this.toolStripButton9.Click += new System.EventHandler(this.toolStripButton9_Click);
             // 

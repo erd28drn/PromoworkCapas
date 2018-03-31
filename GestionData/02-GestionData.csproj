@@ -75,11 +75,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Entities\ObrasEnviar.cs" />
     <Compile Include="Entities\PromoworkDataModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PromoworkDataModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Entities\ResumenEnvioCorreos.cs" />
     <Compile Include="Enumeradores\Class1.cs" />
     <Compile Include="Enumeradores\CustomEnumConverter.cs" />
     <Compile Include="Enumeradores\DescriptionAttribute.cs" />
