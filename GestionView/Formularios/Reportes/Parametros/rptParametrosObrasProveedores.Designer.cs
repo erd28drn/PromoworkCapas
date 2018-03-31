@@ -38,10 +38,11 @@
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.colValido = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colEnviado = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.ObrasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.Promowork_dataDataSet = new GestionData.Promowork_dataDataSet();
-            this.EmpresasActualBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ListadoObrasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DatosReportesNuevos = new GestionData.DatosReportesNuevos();
+            this.EmpresasActualBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Promowork_dataDataSet = new GestionData.Promowork_dataDataSet();
+            this.ObrasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -85,10 +86,11 @@
             label1 = new System.Windows.Forms.Label();
             cuerpoMensajeSinAlbaranLabel = new System.Windows.Forms.Label();
             asuntoSinAlbaranLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.ObrasBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Promowork_dataDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EmpresasActualBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ListadoObrasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DatosReportesNuevos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EmpresasActualBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Promowork_dataDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ObrasBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
             this.tabResumenEnvioCorreo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
@@ -105,6 +107,33 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proveedoresComprasAlbaranesBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(650, 12);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(72, 13);
+            label1.TabIndex = 11;
+            label1.Text = "Responder A:";
+            // 
+            // cuerpoMensajeSinAlbaranLabel
+            // 
+            cuerpoMensajeSinAlbaranLabel.AutoSize = true;
+            cuerpoMensajeSinAlbaranLabel.Location = new System.Drawing.Point(5, 41);
+            cuerpoMensajeSinAlbaranLabel.Name = "cuerpoMensajeSinAlbaranLabel";
+            cuerpoMensajeSinAlbaranLabel.Size = new System.Drawing.Size(87, 13);
+            cuerpoMensajeSinAlbaranLabel.TabIndex = 9;
+            cuerpoMensajeSinAlbaranLabel.Text = "Cuerpo Mensaje:";
+            // 
+            // asuntoSinAlbaranLabel
+            // 
+            asuntoSinAlbaranLabel.AutoSize = true;
+            asuntoSinAlbaranLabel.Location = new System.Drawing.Point(6, 13);
+            asuntoSinAlbaranLabel.Name = "asuntoSinAlbaranLabel";
+            asuntoSinAlbaranLabel.Size = new System.Drawing.Size(86, 13);
+            asuntoSinAlbaranLabel.TabIndex = 7;
+            asuntoSinAlbaranLabel.Text = "Asunto Mensaje:";
             // 
             // colValido
             // 
@@ -136,52 +165,30 @@
             this.colEnviado.VisibleIndex = 4;
             this.colEnviado.Width = 112;
             // 
-            // ObrasBindingSource
+            // ListadoObrasBindingSource
             // 
-            this.ObrasBindingSource.DataMember = "Obras";
-            this.ObrasBindingSource.DataSource = this.Promowork_dataDataSet;
+            this.ListadoObrasBindingSource.DataMember = "ListadoObras";
+            this.ListadoObrasBindingSource.DataSource = this.DatosReportesNuevos;
             // 
-            // Promowork_dataDataSet
+            // DatosReportesNuevos
             // 
-            this.Promowork_dataDataSet.DataSetName = "Promowork_dataDataSet";
-            this.Promowork_dataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.DatosReportesNuevos.DataSetName = "DatosReportesNuevos";
+            this.DatosReportesNuevos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // EmpresasActualBindingSource
             // 
             this.EmpresasActualBindingSource.DataMember = "EmpresasActual";
             this.EmpresasActualBindingSource.DataSource = this.Promowork_dataDataSet;
             // 
-            // label1
+            // Promowork_dataDataSet
             // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(650, 12);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(72, 13);
-            label1.TabIndex = 11;
-            label1.Text = "Responder A:";
+            this.Promowork_dataDataSet.DataSetName = "Promowork_dataDataSet";
+            this.Promowork_dataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // cuerpoMensajeSinAlbaranLabel
+            // ObrasBindingSource
             // 
-            cuerpoMensajeSinAlbaranLabel.AutoSize = true;
-            cuerpoMensajeSinAlbaranLabel.Location = new System.Drawing.Point(5, 41);
-            cuerpoMensajeSinAlbaranLabel.Name = "cuerpoMensajeSinAlbaranLabel";
-            cuerpoMensajeSinAlbaranLabel.Size = new System.Drawing.Size(87, 13);
-            cuerpoMensajeSinAlbaranLabel.TabIndex = 9;
-            cuerpoMensajeSinAlbaranLabel.Text = "Cuerpo Mensaje:";
-            // 
-            // asuntoSinAlbaranLabel
-            // 
-            asuntoSinAlbaranLabel.AutoSize = true;
-            asuntoSinAlbaranLabel.Location = new System.Drawing.Point(6, 13);
-            asuntoSinAlbaranLabel.Name = "asuntoSinAlbaranLabel";
-            asuntoSinAlbaranLabel.Size = new System.Drawing.Size(86, 13);
-            asuntoSinAlbaranLabel.TabIndex = 7;
-            asuntoSinAlbaranLabel.Text = "Asunto Mensaje:";
-            // 
-            // DatosReportesNuevos
-            // 
-            this.DatosReportesNuevos.DataSetName = "DatosReportesNuevos";
-            this.DatosReportesNuevos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.ObrasBindingSource.DataMember = "Obras";
+            this.ObrasBindingSource.DataSource = this.Promowork_dataDataSet;
             // 
             // button1
             // 
@@ -456,7 +463,7 @@
             reportDataSource2.Value = this.EmpresasActualBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Promowork.ListadoObras.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Promowork.Reportes.ListadoObras.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(3, 3);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size(1405, 575);
@@ -612,10 +619,11 @@
             this.Text = "Enviar Obras a Provedores";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.rptParametrosSinAlbaran_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.ObrasBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Promowork_dataDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EmpresasActualBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ListadoObrasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DatosReportesNuevos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EmpresasActualBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Promowork_dataDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ObrasBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.tabResumenEnvioCorreo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).EndInit();
@@ -684,5 +692,6 @@
         private DevExpress.XtraEditors.TextEdit tbAsuntoObrasProveedores;
         private DevExpress.XtraEditors.LookUpEdit cbTrabajadores;
         private DevExpress.XtraEditors.MemoEdit tbCuerpoCorreo;
+        private System.Windows.Forms.BindingSource ListadoObrasBindingSource;
     }
 }

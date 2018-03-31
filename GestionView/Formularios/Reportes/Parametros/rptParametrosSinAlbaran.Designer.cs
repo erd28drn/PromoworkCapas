@@ -109,6 +109,15 @@
             cuerpoMensajeSinAlbaranLabel.TabIndex = 3;
             cuerpoMensajeSinAlbaranLabel.Text = "Cuerpo Mensaje:";
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(661, 8);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(72, 13);
+            label1.TabIndex = 5;
+            label1.Text = "Responder A:";
+            // 
             // vAlbaranesBindingSource
             // 
             this.vAlbaranesBindingSource.DataMember = "vAlbaranes";
@@ -154,19 +163,11 @@
             this.colEnviado.FieldName = "Enviado";
             this.colEnviado.Name = "colEnviado";
             this.colEnviado.OptionsColumn.ReadOnly = true;
+            this.colEnviado.UnboundExpression = "False";
             this.colEnviado.UnboundType = DevExpress.Data.UnboundColumnType.Boolean;
             this.colEnviado.Visible = true;
             this.colEnviado.VisibleIndex = 4;
             this.colEnviado.Width = 112;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(661, 8);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(72, 13);
-            label1.TabIndex = 5;
-            label1.Text = "Responder A:";
             // 
             // button1
             // 
@@ -236,7 +237,7 @@
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "Promowork.Reportes.rptSinAlbaran.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(3, 3);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(1185, 339);
+            this.reportViewer1.Size = new System.Drawing.Size(1316, 642);
             this.reportViewer1.TabIndex = 17;
             // 
             // EmpresasActualTableAdapter
@@ -280,7 +281,7 @@
             this.tabReporte.Location = new System.Drawing.Point(4, 22);
             this.tabReporte.Name = "tabReporte";
             this.tabReporte.Padding = new System.Windows.Forms.Padding(3);
-            this.tabReporte.Size = new System.Drawing.Size(1191, 345);
+            this.tabReporte.Size = new System.Drawing.Size(1322, 648);
             this.tabReporte.TabIndex = 0;
             this.tabReporte.Text = "Reporte";
             this.tabReporte.UseVisualStyleBackColor = true;

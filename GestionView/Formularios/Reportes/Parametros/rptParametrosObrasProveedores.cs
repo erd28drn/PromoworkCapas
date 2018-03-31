@@ -10,6 +10,7 @@ using System.IO;
 using System.Collections;
 using Microsoft.Reporting.WinForms;
 using GestionServices.Generales;
+using GestionData.Entities;
 
 namespace Promowork.Formularios.Reportes.Parametros
 {
@@ -30,6 +31,8 @@ namespace Promowork.Formularios.Reportes.Parametros
 
         private void rptParametrosSinAlbaran_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'Promowork_dataDataSet.Obras' Puede moverla o quitarla según sea necesario.
+            this.ObrasTableAdapter.Fill(this.Promowork_dataDataSet.Obras);
              nMes = VariablesGlobales.nMesActual;
             nAno = VariablesGlobales.nAnoActual;
             nDiasFin = DateTime.DaysInMonth(nAno, nMes);
@@ -108,7 +111,7 @@ namespace Promowork.Formularios.Reportes.Parametros
                         Proveedor = p.DesProveedor,
                         Email = p.EmailProveedor,
                         Valido = Utilidades.ValidarEmail(p.EmailProveedor),
-                        Enviado = null
+                        Enviado = false
                     }).ToList();
                 gridControl1.DataSource = proveedores;
                 button3.Enabled = true;
@@ -121,18 +124,6 @@ namespace Promowork.Formularios.Reportes.Parametros
                 MessageBox.Show("Error al validar los proveedores. " + ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private class ResumenEnvioCorreos
-        {
-            public int IdProveedor { get; set; }
-            public bool Marca { get; set; }
-            public string Proveedor {get; set;}
-            public string Email {get; set;}
-            public bool Valido {get; set;}
-            public bool? Enviado {get; set;}
-            public string Respuesta { get; set; }
-        }
-
 
         private void fillbySinAlbaranToolStripButton_Click(object sender, EventArgs e)
         {
@@ -158,22 +149,24 @@ namespace Promowork.Formularios.Reportes.Parametros
         {
             tabControl1.SelectedTab = tabControl1.TabPages[2];
             Cursor.Current = Cursors.WaitCursor;
+            GuardarAsuntoCuerpoMensaje();
+             string responderA="";
+            if (cbTrabajadores.ItemIndex != -1)
+            {
+                var trabajador = (Utilidades.TrabajadorConEmail)cbTrabajadores.GetSelectedDataRow();
+
+                responderA = trabajador.EmailTrabajador;
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un valor en Responder A", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
 
             CrearReporte();
 
             var cuerpoCorreo = tbCuerpoCorreo.Text.Replace("\n","<br>");
                 
-                
-                //"<p>Con el fin de poder verificar sus facturas, rogamos nos envien copia de los siguientes albaranes a compras@promowork.es " +
-                //                "Ya que NO disponemos de ellos. Para ello, será necesario que conste la firma y el DNI de la persona autorizada que realizó " +
-                //                "la retirada del material o autorizó la escarga.</p>" +
-                //                "<p>Sin otro particular,<br>" +
-                //                "Le saludo muy cordialmente,</p>" +
-                //                "<p>Oscar Urpi<br>" +
-                //                "Dpto.Compras.</p>";
-
-            
-
             if (!Directory.Exists("ENVIADOS/OBRAS"))
             {
                 Directory.CreateDirectory("ENVIADOS/OBRAS");
@@ -186,12 +179,8 @@ namespace Promowork.Formularios.Reportes.Parametros
                 if (RespuestaCrearFichero == string.Empty)
                 {
                     //List<string> destinatarios = new List<string>();
-                    //destinatarios.Add("compras@promowork.es");//compras@promowork.es
+                    //destinatarios.Add("erd28drn@gmail.com");//compras@promowork.es
 
-                    var trabajador = (Utilidades.TrabajadorConEmail)cbTrabajadores.GetSelectedDataRow();
-
-                    var responderA = trabajador.EmailTrabajador;
-                    
                     List<string> destinatarios= proveedor.Email.Split(';').ToList();
                     string asunto = tbAsuntoObrasProveedores.Text;// "Listado de Obras Activas";
                     List<string> adjuntos= new List<string>();
@@ -208,10 +197,40 @@ namespace Promowork.Formularios.Reportes.Parametros
             }
             gridControl1.RefreshDataSource();
 
-            //vAlbaranesBindingSource.Filter = "";
+            EnviarResumenCorreosEnviados(responderA);
             this.reportViewer1.RefreshReport();
 
             Cursor.Current = Cursors.Default;
+
+        }
+
+        private void GuardarAsuntoCuerpoMensaje()
+        {
+            this.Validate();
+            this.EmpresasActualBindingSource.EndEdit();
+            this.EmpresasActualTableAdapter.Update(Promowork_dataDataSet.EmpresasActual);
+        }
+
+        private void EnviarResumenCorreosEnviados(string responderA)
+        {
+            string tablaHTML = Utilidades.CrearTablaHTMLDesdeGridView(gridView1);
+
+            string cuerpoMensaje = "<p><h3>RESUMEN ENVIO DE OBRAS A PROVEEDORES.</p></h3>" + tablaHTML;
+
+            this.reportViewer1.RefreshReport();
+
+            this.reportViewer1.RefreshReport();
+            string nombreFichero = "ENVIADOS/OBRAS/" +/*DateTime.Today.ToString("yyyyMMdd")+*/"RESUMEN OBRAS PROVEEDORES";
+            var RespuestaCrearFichero = Utilidades.ExportarReporte(reportViewer1, nombreFichero, ".PDF", "PDF");
+            if (RespuestaCrearFichero == string.Empty)
+            {
+                List<string> adjuntos = new List<string>();
+                adjuntos.Add(nombreFichero + ".PDF");
+
+                List<string> destinatarios = new List<string>();
+                destinatarios.Add(responderA);
+                Utilidades.EnviaCorreo(VariablesGlobales.nIdEmpresaActual, destinatarios, "Resumen Obras Enviadas a Proveedores", adjuntos, cuerpoMensaje, responderA);
+            }
 
         }
 
@@ -228,20 +247,6 @@ namespace Promowork.Formularios.Reportes.Parametros
         {
             
             this.reportViewer1.RefreshReport();
-        }
-
-        private class ObrasEnviar
-        {
-            public int IdObra { get; set; }
-            public bool Marca { get; set; }
-            public int? Matriz { get; set; }
-            public int NumObra { get; set; }
-            public string SerieObra { get; set; }
-            public string NumObraStr { get; set; }
-            public string DesObra { get; set; }
-            //public bool EnviarProveedor { get; set; }
-            public string NumeroDescripcion { get; set; }
-            public string MatrizNumeroDescripcion { get; set; }
         }
 
         private void CargarObras()

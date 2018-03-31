@@ -259,10 +259,10 @@ namespace GestionServices.Generales
         #endregion TRABAJADORES CON EMAIL
 
         #region CREAR TABLA DESDE GRIDVIEW
-        public static string CrearTablaDesdeGridView(GridView gridView)
+        public static string CrearTablaHTMLDesdeGridView(GridView gridView)
         {
             string tablaHtml = "<table  border=1 cellspacing=0 cellpadding=2>";
-            tablaHtml += "<tr bgcolor='BlanchedAlmond'>";
+            tablaHtml += "<tr bgcolor='BlanchedAlmond' style='font-weight:bold'>";
 
             foreach (GridColumn column in gridView.Columns)
             {
@@ -273,14 +273,23 @@ namespace GestionServices.Generales
             }
             tablaHtml += "</tr>";
 
-            for (int i = 0; i < gridView.RowCount - 1; i++)
+            for (int i = 0; i < gridView.RowCount; i++)
             {
                 tablaHtml += "<tr>";
                 foreach (GridColumn column in gridView.Columns)
                 {
                     if (column.Visible)
                     {
-                        tablaHtml += "<td>" + gridView.GetRowCellValue(i, column) ?? "" + "</td>";
+                        if (column.ColumnType== typeof(bool))
+                        {
+                            var celValue= (bool)gridView.GetRowCellValue(i, column)==true?"X":"";
+
+                            tablaHtml += "<td align='center' style='font-weight:bold'>" + celValue + "</td>";
+                        }
+                        else
+                        {
+                            tablaHtml += "<td>" + gridView.GetRowCellValue(i, column) ?? "" + "</td>";
+                        }
                     }
                 }
                 tablaHtml += "</tr>";

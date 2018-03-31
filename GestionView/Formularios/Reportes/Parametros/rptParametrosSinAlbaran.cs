@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using GestionServices.Generales;
+using GestionData.Entities;
 
 namespace Promowork.Formularios.Reportes.Parametros
 {
@@ -82,7 +83,7 @@ namespace Promowork.Formularios.Reportes.Parametros
                         Proveedor = p.DesProveedor,
                         Email = p.EmailProveedor,
                         Valido = Utilidades.ValidarEmail(p.EmailProveedor),
-                        Enviado = null
+                        Enviado = false
                     }).ToList();
                 gridControl1.DataSource = proveedores;
                 button3.Enabled = true;
@@ -95,17 +96,6 @@ namespace Promowork.Formularios.Reportes.Parametros
                 MessageBox.Show("Error al validar los proveedores." + ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
        
-        }
-
-        private class ResumenEnvioCorreos
-        {
-            public int IdProveedor { get; set; }
-            public bool Marca { get; set; }
-            public string Proveedor {get; set;}
-            public string Email {get; set;}
-            public bool Valido {get; set;}
-            public bool? Enviado {get; set;}
-            public string Respuesta { get; set; }
         }
 
         private void fillbySinAlbaranToolStripButton_Click(object sender, EventArgs e)
@@ -134,7 +124,6 @@ namespace Promowork.Formularios.Reportes.Parametros
             GuardarAsuntoCuerpoMensaje();
 
             var cuerpoCorreo = cuerpoMensajeSinAlbaranTextEdit.Text.Replace("\n", "<br>"); 
-                
                 
                 //"<p>Con el fin de poder verificar sus facturas, rogamos nos envien copia de los siguientes albaranes a compras@promowork.es " +
                 //                "Ya que NO disponemos de ellos. Para ello, será necesario que conste la firma y el DNI de la persona autorizada que realizó " +
@@ -170,13 +159,10 @@ namespace Promowork.Formularios.Reportes.Parametros
                 var RespuestaCrearFichero= Utilidades.ExportarReporte(reportViewer1, nombreFichero, ".PDF", "PDF");
                 if (RespuestaCrearFichero == string.Empty)
                 {
-                    List<string> destinatarios = new List<string>();
-                    destinatarios.Add("erd28drn@gmail.com");
+                    //List<string> destinatarios = new List<string>();
+                    //destinatarios.Add("erd28drn@gmail.com");
 
-                    
-                    
-                    
-                    //List<string> destinatarios= proveedor.Email.Split(';').ToList();
+                    List<string> destinatarios= proveedor.Email.Split(';').ToList();
                     string asunto = asuntoSinAlbaranTextEdit.Text;// "Albaranes Pendientes";
                     List<string> adjuntos= new List<string>();
                     adjuntos.Add(nombreFichero+ ".PDF");
@@ -192,9 +178,7 @@ namespace Promowork.Formularios.Reportes.Parametros
             }
             gridControl1.RefreshDataSource();
 
-            EnviarResumenCorreosEnviados("erd28drn@gmail.com");
-
-            
+            EnviarResumenCorreosEnviados(responderA);
 
             Cursor.Current = Cursors.Default;
 
@@ -202,38 +186,26 @@ namespace Promowork.Formularios.Reportes.Parametros
 
         private void EnviarResumenCorreosEnviados(string responderA)
         {
-            string str;
-            MemoryStream ms = new MemoryStream();
-            try
-            {
-                //gridView1.ExportToHtml(ms);
-                //ms.Seek(0, SeekOrigin.Begin);
-                //StreamReader sr = new StreamReader(ms);
-                str = Utilidades.CrearTablaDesdeGridView(gridView1); //sr.ReadToEnd();
-            }
-            finally
-            {
-                ms.Close();
-            }
+            string tablaHTML = Utilidades.CrearTablaHTMLDesdeGridView(gridView1);
 
-            string cuerpoMensaje = "<p><h3>RESUMEN ENVIO DE ALBARANES PENDEIENTES A PROVEEDORES.</p></h3>" + str;
+            string cuerpoMensaje = "<p><h3>RESUMEN ENVIO DE ALBARANES PENDEIENTES A PROVEEDORES.</p></h3>" + tablaHTML;
 
             vAlbaranesBindingSource.Filter = "";
             this.reportViewer1.RefreshReport();
 
             this.reportViewer1.RefreshReport();
-                string nombreFichero= "ENVIADOS/SIN ALBARAN/"+/*DateTime.Today.ToString("yyyyMMdd")+*/"RESUMEN SIN ALBARAN";
-                var RespuestaCrearFichero= Utilidades.ExportarReporte(reportViewer1, nombreFichero, ".PDF", "PDF");
-                if (RespuestaCrearFichero == string.Empty)
-                {
-                    List<string> adjuntos = new List<string>();
-                    adjuntos.Add(nombreFichero + ".PDF");
+            string nombreFichero = "ENVIADOS/SIN ALBARAN/" +/*DateTime.Today.ToString("yyyyMMdd")+*/"RESUMEN SIN ALBARAN";
+            var RespuestaCrearFichero = Utilidades.ExportarReporte(reportViewer1, nombreFichero, ".PDF", "PDF");
+            if (RespuestaCrearFichero == string.Empty)
+            {
+                List<string> adjuntos = new List<string>();
+                adjuntos.Add(nombreFichero + ".PDF");
 
-                    List<string> destinatarios = new List<string>();
-                    destinatarios.Add(responderA);
-                    Utilidades.EnviaCorreo(VariablesGlobales.nIdEmpresaActual, destinatarios, "Resumen Correos Enviados a Proveedores", adjuntos, cuerpoMensaje, responderA);
-                }
-        
+                List<string> destinatarios = new List<string>();
+                destinatarios.Add(responderA);
+                Utilidades.EnviaCorreo(VariablesGlobales.nIdEmpresaActual, destinatarios, "Resumen Albaranes pendientes Enviados a Proveedores", adjuntos, cuerpoMensaje, responderA);
+            }
+
         }
 
         private void GuardarAsuntoCuerpoMensaje()
