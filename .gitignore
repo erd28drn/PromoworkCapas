@@ -286,3 +286,16 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+/GestionView/bin/Release/AxInterop.AcroPDFLib.dll
+/GestionView/bin/Release/AxInterop.AcroPDFLib.dll
+/GestionView/bin/Release/frmAlbaranesgridView111.xml
+/GestionView/bin/Release/Gestion.exe
+/GestionView/bin/Release/Gestion.pdb
+/GestionView/bin/Release/Interop.AcroPDFLib.dll
+/GestionView/obj/x86/Release/AxInterop.AcroPDFLib.dll
+/GestionView/obj/x86/Release/Gestion.exe
+/GestionView/obj/x86/Release/gestion.exe.licenses
+/GestionView/obj/x86/Release/Gestion.pdb
+/GestionView/obj/x86/Release/Interop.AcroPDFLib.dll
+/GestionView/obj/x86/Release/Interop.WIA.dll
+/GestionView/obj/x86/Release/RdlCompile.cache
