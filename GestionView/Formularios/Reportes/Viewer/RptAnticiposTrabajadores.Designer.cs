@@ -51,7 +51,7 @@
             reportDataSource4.Value = this.EmpresasActualBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource3);
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource4);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Promowork.AnticiposTrabajadores.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Promowork.Reportes.AnticiposTrabajadores.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size(1104, 602);

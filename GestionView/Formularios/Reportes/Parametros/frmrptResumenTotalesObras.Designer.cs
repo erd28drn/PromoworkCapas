@@ -546,7 +546,7 @@
             reportDataSource1.Name = "TotalesObras";
             reportDataSource1.Value = this.vTotalPorObrasConCalculosBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Promowork.rptBeneficiosObras.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Promowork.Reportes.rptBeneficiosObras.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(3, 3);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size(1098, 508);

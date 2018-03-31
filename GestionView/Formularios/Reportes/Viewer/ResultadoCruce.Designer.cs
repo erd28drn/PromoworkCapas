@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource4 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.resultadoCruceTrabajadoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.promowork_dataDataSet = new GestionData.Promowork_dataDataSet();
             this.EmpresasActualBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -144,13 +144,13 @@
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource3.Name = "DataSet1";
-            reportDataSource3.Value = this.resultadoCruceTrabajadoresBindingSource;
-            reportDataSource4.Name = "DataSet2";
-            reportDataSource4.Value = this.EmpresasActualBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource3);
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource4);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Promowork.ResultadosCruce.rdlc";
+            reportDataSource1.Name = "DataSet1";
+            reportDataSource1.Value = this.resultadoCruceTrabajadoresBindingSource;
+            reportDataSource2.Name = "DataSet2";
+            reportDataSource2.Value = this.EmpresasActualBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Promowork.Reportes.ResultadosCruce.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 35);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size(1195, 618);

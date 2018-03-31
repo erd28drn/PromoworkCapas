@@ -70,7 +70,7 @@
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource4);
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource5);
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource6);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Promowork.ResumenObras.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Promowork.Reportes.ResumenObras.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size(1104, 602);

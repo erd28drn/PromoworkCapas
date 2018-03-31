@@ -28,7 +28,7 @@ namespace Promowork.Formularios.Reportes.Viewer
 
             if (unificarMaterial)
             {
-                this.reportViewer1.LocalReport.ReportEmbeddedResource = "Promowork.FacturaHorasMatImpParte.rdlc";
+                this.reportViewer1.LocalReport.ReportEmbeddedResource = "Promowork.Reportes.FacturaHorasMatImpParte.rdlc";
             }
             
             DataRowView factura = (DataRowView)FacturasCabImpBindingSource.Current;

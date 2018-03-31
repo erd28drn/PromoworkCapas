@@ -27,7 +27,7 @@ namespace Promowork.Formularios.Reportes.Viewer
 
             if (Agrupardescripcion)
             {
-                reportViewer1.LocalReport.ReportEmbeddedResource = "Promowork.PendienteFacturarConResumen2.rdlc";
+                reportViewer1.LocalReport.ReportEmbeddedResource = "Promowork.Reportes.PendienteFacturarConResumen2.rdlc";
             }
 
             ReportParameter[] Parametros = new ReportParameter[2];
