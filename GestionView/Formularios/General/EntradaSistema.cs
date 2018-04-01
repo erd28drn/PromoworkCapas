@@ -8,6 +8,7 @@ using System.Text;
 using System.Security.Cryptography;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using GestionServices.Generales;
 
 namespace Promowork.Formularios.General
 {

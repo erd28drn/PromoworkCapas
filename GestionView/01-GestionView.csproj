@@ -393,7 +393,6 @@
     <Compile Include="Formularios\General\Empresas.Designer.cs">
       <DependentUpon>Empresas.cs</DependentUpon>
     </Compile>
-    <Compile Include="ErroresSQLSerrver.cs" />
     <Compile Include="Formularios\Definiciones\EstadoCivil.cs">
       <SubType>Form</SubType>
     </Compile>

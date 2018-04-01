@@ -26,22 +26,22 @@ namespace Promowork.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=promowork.noip.me;Initial Catalog=Promowork_data;Persist Security Inf" +
-            "o=True;User ID=sa;Password=david-25")]
-        public string Promowork_dataConnection {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=PRMW_NAVE;Initial Catalog=master;Persist Security Info=True;User ID=s" +
+            "a;Password=david-25")]
+        public string masterConnectionString {
             get {
-                return ((string)(this["Promowork_dataConnection"]));
+                return ((string)(this["masterConnectionString"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=promowork.noip.me;Initial Catalog=master;Persist Security Info=True;U" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=PRMW_NAVE;Initial Catalog=Promowork_data;Persist Security Info=True;U" +
             "ser ID=sa;Password=david-25")]
-        public string masterConnectionString {
+        public string Promowork_dataConnection {
             get {
-                return ((string)(this["masterConnectionString"]));
+                return ((string)(this["Promowork_dataConnection"]));
             }
         }
     }

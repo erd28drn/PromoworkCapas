@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Microsoft.Reporting.WinForms;
+using GestionServices.Generales;
 
 namespace Promowork.Formularios.Reportes.Viewer
 {

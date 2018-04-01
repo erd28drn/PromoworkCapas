@@ -59,8 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="Generales\Class1.cs" />
+    <Compile Include="Generales\ErroresSQLSerrver.cs" />
     <Compile Include="Generales\Utilidades.cs" />
     <Compile Include="Operaciones\ServicioCompraPoveedores.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

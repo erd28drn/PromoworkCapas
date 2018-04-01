@@ -4,9 +4,9 @@ using System.Linq;
 using System.Globalization;
 using System.Data.SqlClient;
 using System.Windows.Forms;
-using System.Drawing;
+//using System.Drawing;
 
-namespace Promowork
+namespace GestionServices.Generales
 {
     public static class ErroresSQLServer
     {

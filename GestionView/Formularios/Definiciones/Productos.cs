@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraGrid.Views.Base;
+using GestionServices.Generales;
 
 namespace Promowork.Formularios.Definiciones
 {

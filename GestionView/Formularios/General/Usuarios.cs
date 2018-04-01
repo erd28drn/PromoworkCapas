@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Security.Cryptography;
 using System.Windows.Forms;
+using GestionServices.Generales;
 
 namespace Promowork.Formularios.General
 {

@@ -877,6 +877,33 @@
             label4.TabIndex = 195;
             label4.Text = "Obra:";
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(310, 22);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(54, 13);
+            label5.TabIndex = 27;
+            label5.Text = "Promedio:";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new System.Drawing.Point(137, 22);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(37, 13);
+            label7.TabIndex = 25;
+            label7.Text = "Suma:";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new System.Drawing.Point(19, 22);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(57, 13);
+            label8.TabIndex = 23;
+            label8.Text = "Recuento:";
+            // 
             // colFacturaPresup
             // 
             this.colFacturaPresup.FieldName = "FacturaPresup";
@@ -916,33 +943,6 @@
             // 
             this.colFacturaDirecta1.FieldName = "FacturaDirecta";
             this.colFacturaDirecta1.Name = "colFacturaDirecta1";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new System.Drawing.Point(310, 22);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(54, 13);
-            label5.TabIndex = 27;
-            label5.Text = "Promedio:";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new System.Drawing.Point(137, 22);
-            label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(37, 13);
-            label7.TabIndex = 25;
-            label7.Text = "Suma:";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new System.Drawing.Point(19, 22);
-            label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(57, 13);
-            label8.TabIndex = 23;
-            label8.Text = "Recuento:";
             // 
             // splitContainer1
             // 
@@ -3684,6 +3684,7 @@
             // toolStripButton3
             // 
             this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton3.Image = global::Promowork.Properties.Resources.Duplicar_32;
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
             this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
