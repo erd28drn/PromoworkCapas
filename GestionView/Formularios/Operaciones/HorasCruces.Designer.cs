@@ -249,16 +249,6 @@
             this.D29 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.D30 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.D31 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.idEmpresaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.desCategoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idTrabajadorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dNITrabajadorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomTrabajadorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apeTrabajadorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idCategoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numTrabajadorDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mesEmpresaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.anoEmpresaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             celTrabajadorLabel = new System.Windows.Forms.Label();
             apeTrabajadorLabel = new System.Windows.Forms.Label();
             salNormalLabel = new System.Windows.Forms.Label();
@@ -985,17 +975,7 @@
             this.D28,
             this.D29,
             this.D30,
-            this.D31,
-            this.idEmpresaDataGridViewTextBoxColumn,
-            this.desCategoriaDataGridViewTextBoxColumn,
-            this.idTrabajadorDataGridViewTextBoxColumn,
-            this.dNITrabajadorDataGridViewTextBoxColumn,
-            this.nomTrabajadorDataGridViewTextBoxColumn,
-            this.apeTrabajadorDataGridViewTextBoxColumn,
-            this.idCategoriaDataGridViewTextBoxColumn,
-            this.numTrabajadorDataGridViewTextBoxColumn1,
-            this.mesEmpresaDataGridViewTextBoxColumn,
-            this.anoEmpresaDataGridViewTextBoxColumn});
+            this.D31});
             this.cruceTrabajadoresDiasDataGridView.DataSource = this.cruceTrabajadoresDiasBindingSource;
             this.cruceTrabajadoresDiasDataGridView.Location = new System.Drawing.Point(305, 243);
             this.cruceTrabajadoresDiasDataGridView.MultiSelect = false;
@@ -1916,70 +1896,6 @@
             this.D31.HeaderText = "D31";
             this.D31.Name = "D31";
             // 
-            // idEmpresaDataGridViewTextBoxColumn
-            // 
-            this.idEmpresaDataGridViewTextBoxColumn.DataPropertyName = "IdEmpresa";
-            this.idEmpresaDataGridViewTextBoxColumn.HeaderText = "IdEmpresa";
-            this.idEmpresaDataGridViewTextBoxColumn.Name = "idEmpresaDataGridViewTextBoxColumn";
-            this.idEmpresaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // desCategoriaDataGridViewTextBoxColumn
-            // 
-            this.desCategoriaDataGridViewTextBoxColumn.DataPropertyName = "DesCategoria";
-            this.desCategoriaDataGridViewTextBoxColumn.HeaderText = "DesCategoria";
-            this.desCategoriaDataGridViewTextBoxColumn.Name = "desCategoriaDataGridViewTextBoxColumn";
-            // 
-            // idTrabajadorDataGridViewTextBoxColumn
-            // 
-            this.idTrabajadorDataGridViewTextBoxColumn.DataPropertyName = "IdTrabajador";
-            this.idTrabajadorDataGridViewTextBoxColumn.HeaderText = "IdTrabajador";
-            this.idTrabajadorDataGridViewTextBoxColumn.Name = "idTrabajadorDataGridViewTextBoxColumn";
-            this.idTrabajadorDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dNITrabajadorDataGridViewTextBoxColumn
-            // 
-            this.dNITrabajadorDataGridViewTextBoxColumn.DataPropertyName = "DNITrabajador";
-            this.dNITrabajadorDataGridViewTextBoxColumn.HeaderText = "DNITrabajador";
-            this.dNITrabajadorDataGridViewTextBoxColumn.Name = "dNITrabajadorDataGridViewTextBoxColumn";
-            // 
-            // nomTrabajadorDataGridViewTextBoxColumn
-            // 
-            this.nomTrabajadorDataGridViewTextBoxColumn.DataPropertyName = "NomTrabajador";
-            this.nomTrabajadorDataGridViewTextBoxColumn.HeaderText = "NomTrabajador";
-            this.nomTrabajadorDataGridViewTextBoxColumn.Name = "nomTrabajadorDataGridViewTextBoxColumn";
-            // 
-            // apeTrabajadorDataGridViewTextBoxColumn
-            // 
-            this.apeTrabajadorDataGridViewTextBoxColumn.DataPropertyName = "ApeTrabajador";
-            this.apeTrabajadorDataGridViewTextBoxColumn.HeaderText = "ApeTrabajador";
-            this.apeTrabajadorDataGridViewTextBoxColumn.Name = "apeTrabajadorDataGridViewTextBoxColumn";
-            // 
-            // idCategoriaDataGridViewTextBoxColumn
-            // 
-            this.idCategoriaDataGridViewTextBoxColumn.DataPropertyName = "IdCategoria";
-            this.idCategoriaDataGridViewTextBoxColumn.HeaderText = "IdCategoria";
-            this.idCategoriaDataGridViewTextBoxColumn.Name = "idCategoriaDataGridViewTextBoxColumn";
-            // 
-            // numTrabajadorDataGridViewTextBoxColumn1
-            // 
-            this.numTrabajadorDataGridViewTextBoxColumn1.DataPropertyName = "NumTrabajador";
-            this.numTrabajadorDataGridViewTextBoxColumn1.HeaderText = "NumTrabajador";
-            this.numTrabajadorDataGridViewTextBoxColumn1.Name = "numTrabajadorDataGridViewTextBoxColumn1";
-            // 
-            // mesEmpresaDataGridViewTextBoxColumn
-            // 
-            this.mesEmpresaDataGridViewTextBoxColumn.DataPropertyName = "MesEmpresa";
-            this.mesEmpresaDataGridViewTextBoxColumn.HeaderText = "MesEmpresa";
-            this.mesEmpresaDataGridViewTextBoxColumn.Name = "mesEmpresaDataGridViewTextBoxColumn";
-            this.mesEmpresaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // anoEmpresaDataGridViewTextBoxColumn
-            // 
-            this.anoEmpresaDataGridViewTextBoxColumn.DataPropertyName = "AnoEmpresa";
-            this.anoEmpresaDataGridViewTextBoxColumn.HeaderText = "AnoEmpresa";
-            this.anoEmpresaDataGridViewTextBoxColumn.Name = "anoEmpresaDataGridViewTextBoxColumn";
-            this.anoEmpresaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // HorasCruces
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2230,15 +2146,5 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn D29;
         private System.Windows.Forms.DataGridViewCheckBoxColumn D30;
         private System.Windows.Forms.DataGridViewCheckBoxColumn D31;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idEmpresaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn desCategoriaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idTrabajadorDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dNITrabajadorDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomTrabajadorDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn apeTrabajadorDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idCategoriaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numTrabajadorDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mesEmpresaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn anoEmpresaDataGridViewTextBoxColumn;
     }
 }
