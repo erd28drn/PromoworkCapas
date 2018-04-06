@@ -348,6 +348,18 @@
           <DataField>Anticipo</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
+		<Field Name="ImpTotalBase">
+          <DataField>ImpTotalBase</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+		<Field Name="ImpTotalBaseDescuentos">
+          <DataField>ImpTotalBaseDescuentos</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+		<Field Name="ImpTotal">
+          <DataField>ImpTotal</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
       </Fields>
       <Query>
         <DataSourceName>Promowork_dataDataSet</DataSourceName>
@@ -951,7 +963,7 @@ end if
  bmp.Save(ms, System.Drawing.Imaging.ImageFormat.png)
  Return ms.ToArray()
 End Function</Code>
-  <Width>7.44056in</Width>
+  <Width>7.45445in</Width>
   <Page>
     <PageHeader>
       <Height>6.42333cm</Height>
@@ -1051,7 +1063,7 @@ End Function</Code>
           </Paragraphs>
           <rd:DefaultName>FechaPresup</rd:DefaultName>
           <Top>2.80543cm</Top>
-          <Left>12.99379cm</Left>
+          <Left>13.02907cm</Left>
           <Height>3.22985cm</Height>
           <Width>5.90523cm</Width>
           <Style>
@@ -1421,47 +1433,6 @@ End Function</Code>
             <PaddingBottom>0cm</PaddingBottom>
           </Style>
         </Textbox>
-        <Textbox Name="Cantidad15">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=Sum(Fields!Cantidad.Value*Fields!Precio.Value, "DataSet1")</Value>
-                  <Style>
-                    <FontSize>11pt</FontSize>
-                    <FontWeight>Bold</FontWeight>
-                    <Format>#,0.00'€';-#,0.00'€';''</Format>
-                    <rd:FormatSymbolCulture>es-ES</rd:FormatSymbolCulture>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style>
-                <TextAlign>Right</TextAlign>
-              </Style>
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Cantidad</rd:DefaultName>
-          <Top>0.10581cm</Top>
-          <Left>15.54353cm</Left>
-          <Height>0.5cm</Height>
-          <Width>3.32021cm</Width>
-          <ZIndex>3</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <TopBorder>
-              <Color>Black</Color>
-              <Width>1.5pt</Width>
-            </TopBorder>
-            <PaddingLeft>0cm</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>0cm</PaddingTop>
-            <PaddingBottom>0cm</PaddingBottom>
-          </Style>
-        </Textbox>
         <Textbox Name="Textbox425">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
@@ -1498,7 +1469,7 @@ End Function</Code>
           <Left>11.43149cm</Left>
           <Height>0.5cm</Height>
           <Width>4.11204cm</Width>
-          <ZIndex>4</ZIndex>
+          <ZIndex>3</ZIndex>
           <Visibility>
             <Hidden>=First(Fields!DescFactura.Value, "DataSet3")=0</Hidden>
           </Visibility>
@@ -1508,45 +1479,6 @@ End Function</Code>
             </Border>
             <PaddingLeft>0cm</PaddingLeft>
             <PaddingRight>0cm</PaddingRight>
-            <PaddingTop>0cm</PaddingTop>
-            <PaddingBottom>0cm</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="Textbox449">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=Sum(Fields!Cantidad.Value*Fields!Precio.Value, "DataSet1")*First(Fields!DescFactura.Value, "DataSet3")/100</Value>
-                  <Style>
-                    <FontSize>8pt</FontSize>
-                    <Format>#,0.00'€';-#,0.00'€';''</Format>
-                    <rd:FormatSymbolCulture>es-ES</rd:FormatSymbolCulture>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style>
-                <TextAlign>Right</TextAlign>
-              </Style>
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox427</rd:DefaultName>
-          <Top>0.60581cm</Top>
-          <Left>15.54353cm</Left>
-          <Height>0.5cm</Height>
-          <Width>3.32021cm</Width>
-          <ZIndex>5</ZIndex>
-          <Visibility>
-            <Hidden>=Sum(Fields!DescFactura.Value, "DataSet3")=0</Hidden>
-          </Visibility>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>0cm</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
             <PaddingTop>0cm</PaddingTop>
             <PaddingBottom>0cm</PaddingBottom>
           </Style>
@@ -1587,7 +1519,7 @@ End Function</Code>
           <Left>11.43149cm</Left>
           <Height>0.5cm</Height>
           <Width>4.11204cm</Width>
-          <ZIndex>6</ZIndex>
+          <ZIndex>4</ZIndex>
           <Visibility>
             <Hidden>=First(Fields!DescPronto.Value, "DataSet3")=0</Hidden>
           </Visibility>
@@ -1597,45 +1529,6 @@ End Function</Code>
             </Border>
             <PaddingLeft>0cm</PaddingLeft>
             <PaddingRight>0cm</PaddingRight>
-            <PaddingTop>0cm</PaddingTop>
-            <PaddingBottom>0cm</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="Textbox450">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=(Sum(Fields!Cantidad.Value*Fields!Precio.Value, "DataSet1")-Sum(Fields!Cantidad.Value*Fields!Precio.Value, "DataSet1")*First(Fields!DescFactura.Value, "DataSet3")/100)*First(Fields!DescPronto.Value, "DataSet3")/100</Value>
-                  <Style>
-                    <FontSize>8pt</FontSize>
-                    <Format>#,0.00'€';-#,0.00'€';''</Format>
-                    <rd:FormatSymbolCulture>es-ES</rd:FormatSymbolCulture>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style>
-                <TextAlign>Right</TextAlign>
-              </Style>
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox427</rd:DefaultName>
-          <Top>1.10581cm</Top>
-          <Left>15.54353cm</Left>
-          <Height>0.5cm</Height>
-          <Width>3.32021cm</Width>
-          <ZIndex>7</ZIndex>
-          <Visibility>
-            <Hidden>=First(Fields!DescPronto.Value, "DataSet3")=0</Hidden>
-          </Visibility>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>0cm</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
             <PaddingTop>0cm</PaddingTop>
             <PaddingBottom>0cm</PaddingBottom>
           </Style>
@@ -1664,7 +1557,7 @@ End Function</Code>
           <Left>11.43149cm</Left>
           <Height>0.5cm</Height>
           <Width>4.11204cm</Width>
-          <ZIndex>8</ZIndex>
+          <ZIndex>5</ZIndex>
           <Visibility>
             <Hidden>=First(Fields!DescPronto.Value, "DataSet3")+Sum(Fields!DescFactura.Value, "DataSet3")=0</Hidden>
           </Visibility>
@@ -1674,46 +1567,6 @@ End Function</Code>
             </Border>
             <PaddingLeft>0cm</PaddingLeft>
             <PaddingRight>0cm</PaddingRight>
-            <PaddingTop>0cm</PaddingTop>
-            <PaddingBottom>0cm</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="Cantidad19">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=Round(Sum(Fields!Cantidad.Value*Fields!Precio.Value, "DataSet1"),2)  - Round((Sum(Fields!Cantidad.Value*Fields!Precio.Value, "DataSet1")*First(Fields!DescFactura.Value, "DataSet3")/100),2) -  Round(((Sum(Fields!Cantidad.Value*Fields!Precio.Value, "DataSet1")-Sum(Fields!Cantidad.Value*Fields!Precio.Value, "DataSet1")*First(Fields!DescFactura.Value, "DataSet3")/100)*First(Fields!DescPronto.Value, "DataSet3")/100),2)</Value>
-                  <Style>
-                    <FontSize>11pt</FontSize>
-                    <FontWeight>Bold</FontWeight>
-                    <Format>#,0.00'€';-#,0.00'€';''</Format>
-                    <rd:FormatSymbolCulture>es-ES</rd:FormatSymbolCulture>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style>
-                <TextAlign>Right</TextAlign>
-              </Style>
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Cantidad</rd:DefaultName>
-          <Top>1.60581cm</Top>
-          <Left>15.54353cm</Left>
-          <Height>0.5cm</Height>
-          <Width>3.32021cm</Width>
-          <ZIndex>9</ZIndex>
-          <Visibility>
-            <Hidden>=First(Fields!DescPronto.Value, "DataSet3")+Sum(Fields!DescFactura.Value, "DataSet3")=0</Hidden>
-          </Visibility>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>0cm</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
             <PaddingTop>0cm</PaddingTop>
             <PaddingBottom>0cm</PaddingBottom>
           </Style>
@@ -1754,49 +1607,13 @@ End Function</Code>
           <Left>11.43149cm</Left>
           <Height>0.5cm</Height>
           <Width>4.11204cm</Width>
-          <ZIndex>10</ZIndex>
+          <ZIndex>6</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
             </Border>
             <PaddingLeft>0cm</PaddingLeft>
             <PaddingRight>0cm</PaddingRight>
-            <PaddingTop>0cm</PaddingTop>
-            <PaddingBottom>0cm</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="Textbox451">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=(Round(Sum(Fields!Cantidad.Value*Fields!Precio.Value, "DataSet1"),2)  - Round((Sum(Fields!Cantidad.Value*Fields!Precio.Value, "DataSet1")*First(Fields!DescFactura.Value, "DataSet3")/100),2) -  Round(((Sum(Fields!Cantidad.Value*Fields!Precio.Value, "DataSet1")-Sum(Fields!Cantidad.Value*Fields!Precio.Value, "DataSet1")*First(Fields!DescFactura.Value, "DataSet3")/100)*First(Fields!DescPronto.Value, "DataSet3")/100),2))  *  (First(Fields!IVAFactura.Value, "DataSet3")/100)</Value>
-                  <Style>
-                    <FontSize>8pt</FontSize>
-                    <Format>#,0.00'€';-#,0.00'€';''</Format>
-                    <rd:FormatSymbolCulture>es-ES</rd:FormatSymbolCulture>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style>
-                <TextAlign>Right</TextAlign>
-              </Style>
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox427</rd:DefaultName>
-          <Top>2.10581cm</Top>
-          <Left>15.54353cm</Left>
-          <Height>0.5cm</Height>
-          <Width>3.32021cm</Width>
-          <ZIndex>11</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>0cm</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
             <PaddingTop>0cm</PaddingTop>
             <PaddingBottom>0cm</PaddingBottom>
           </Style>
@@ -1825,53 +1642,13 @@ End Function</Code>
           <Left>11.43149cm</Left>
           <Height>0.5cm</Height>
           <Width>4.11204cm</Width>
-          <ZIndex>12</ZIndex>
+          <ZIndex>7</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
             </Border>
             <PaddingLeft>0cm</PaddingLeft>
             <PaddingRight>0cm</PaddingRight>
-            <PaddingTop>0cm</PaddingTop>
-            <PaddingBottom>0cm</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="Cantidad20">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=(Round(Sum(Fields!Cantidad.Value*Fields!Precio.Value, "DataSet1"),2)  - Round((Sum(Fields!Cantidad.Value*Fields!Precio.Value, "DataSet1")*First(Fields!DescFactura.Value, "DataSet3")/100),2) -  Round(((Sum(Fields!Cantidad.Value*Fields!Precio.Value, "DataSet1")-Sum(Fields!Cantidad.Value*Fields!Precio.Value, "DataSet1")*First(Fields!DescFactura.Value, "DataSet3")/100)*First(Fields!DescPronto.Value, "DataSet3")/100),2))  *  (First(Fields!IVAFactura.Value, "DataSet3")/100)   +   (Round(Sum(Fields!Cantidad.Value*Fields!Precio.Value, "DataSet1"),2)  - Round((Sum(Fields!Cantidad.Value*Fields!Precio.Value, "DataSet1")*First(Fields!DescFactura.Value, "DataSet3")/100),2) -  Round(((Sum(Fields!Cantidad.Value*Fields!Precio.Value, "DataSet1")-Sum(Fields!Cantidad.Value*Fields!Precio.Value, "DataSet1")*First(Fields!DescFactura.Value, "DataSet3")/100)*First(Fields!DescPronto.Value, "DataSet3")/100),2))</Value>
-                  <Style>
-                    <FontSize>11pt</FontSize>
-                    <FontWeight>Bold</FontWeight>
-                    <Format>#,0.00'€';-#,0.00'€';''</Format>
-                    <rd:FormatSymbolCulture>es-ES</rd:FormatSymbolCulture>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style>
-                <TextAlign>Right</TextAlign>
-              </Style>
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Cantidad</rd:DefaultName>
-          <Top>2.60581cm</Top>
-          <Left>15.54353cm</Left>
-          <Height>0.5cm</Height>
-          <Width>3.32021cm</Width>
-          <ZIndex>13</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <TopBorder>
-              <Width>1pt</Width>
-            </TopBorder>
-            <PaddingLeft>0cm</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
             <PaddingTop>0cm</PaddingTop>
             <PaddingBottom>0cm</PaddingBottom>
           </Style>
@@ -1912,7 +1689,7 @@ End Function</Code>
           <Left>11.43149cm</Left>
           <Height>0.5cm</Height>
           <Width>4.11204cm</Width>
-          <ZIndex>14</ZIndex>
+          <ZIndex>8</ZIndex>
           <Visibility>
             <Hidden>=First(Fields!Retencion.Value, "DataSet3")=0</Hidden>
           </Visibility>
@@ -1922,45 +1699,6 @@ End Function</Code>
             </Border>
             <PaddingLeft>0cm</PaddingLeft>
             <PaddingRight>0cm</PaddingRight>
-            <PaddingTop>0cm</PaddingTop>
-            <PaddingBottom>0cm</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="Cantidad21">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=((Round(Sum(Fields!Cantidad.Value*Fields!Precio.Value, "DataSet1"),2)  - Round((Sum(Fields!Cantidad.Value*Fields!Precio.Value, "DataSet1")*First(Fields!DescFactura.Value, "DataSet3")/100),2) -  Round(((Sum(Fields!Cantidad.Value*Fields!Precio.Value, "DataSet1")-Sum(Fields!Cantidad.Value*Fields!Precio.Value, "DataSet1")*First(Fields!DescFactura.Value, "DataSet3")/100)*First(Fields!DescPronto.Value, "DataSet3")/100),2))  *  (First(Fields!IVAFactura.Value, "DataSet3")/100)   +   (Round(Sum(Fields!Cantidad.Value*Fields!Precio.Value, "DataSet1"),2)  - Round((Sum(Fields!Cantidad.Value*Fields!Precio.Value, "DataSet1")*First(Fields!DescFactura.Value, "DataSet3")/100),2) -  Round(((Sum(Fields!Cantidad.Value*Fields!Precio.Value, "DataSet1")-Sum(Fields!Cantidad.Value*Fields!Precio.Value, "DataSet1")*First(Fields!DescFactura.Value, "DataSet3")/100)*First(Fields!DescPronto.Value, "DataSet3")/100),2)))  *  (First(Fields!Retencion.Value, "DataSet3")/100)</Value>
-                  <Style>
-                    <FontSize>8pt</FontSize>
-                    <Format>#,0.00'€';-#,0.00'€';''</Format>
-                    <rd:FormatSymbolCulture>es-ES</rd:FormatSymbolCulture>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style>
-                <TextAlign>Right</TextAlign>
-              </Style>
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Cantidad</rd:DefaultName>
-          <Top>3.10581cm</Top>
-          <Left>15.54353cm</Left>
-          <Height>0.5cm</Height>
-          <Width>3.32021cm</Width>
-          <ZIndex>15</ZIndex>
-          <Visibility>
-            <Hidden>=First(Fields!Retencion.Value, "DataSet3")=0</Hidden>
-          </Visibility>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>0cm</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
             <PaddingTop>0cm</PaddingTop>
             <PaddingBottom>0cm</PaddingBottom>
           </Style>
@@ -1988,7 +1726,7 @@ End Function</Code>
           <Left>11.43149cm</Left>
           <Height>0.5cm</Height>
           <Width>4.11204cm</Width>
-          <ZIndex>16</ZIndex>
+          <ZIndex>9</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1999,46 +1737,6 @@ End Function</Code>
             </BottomBorder>
             <PaddingLeft>0cm</PaddingLeft>
             <PaddingRight>0cm</PaddingRight>
-            <PaddingTop>0cm</PaddingTop>
-            <PaddingBottom>0cm</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="Cantidad22">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=(Round(Sum(Fields!Cantidad.Value*Fields!Precio.Value, "DataSet1"),2)  - Round((Sum(Fields!Cantidad.Value*Fields!Precio.Value, "DataSet1")*First(Fields!DescFactura.Value, "DataSet3")/100),2) -  Round(((Sum(Fields!Cantidad.Value*Fields!Precio.Value, "DataSet1")-Sum(Fields!Cantidad.Value*Fields!Precio.Value, "DataSet1")*First(Fields!DescFactura.Value, "DataSet3")/100)*First(Fields!DescPronto.Value, "DataSet3")/100),2))  *  (First(Fields!IVAFactura.Value, "DataSet3")/100)   +   (Round(Sum(Fields!Cantidad.Value*Fields!Precio.Value, "DataSet1"),2)  - Round((Sum(Fields!Cantidad.Value*Fields!Precio.Value, "DataSet1")*First(Fields!DescFactura.Value, "DataSet3")/100),2) -  Round(((Sum(Fields!Cantidad.Value*Fields!Precio.Value, "DataSet1")-Sum(Fields!Cantidad.Value*Fields!Precio.Value, "DataSet1")*First(Fields!DescFactura.Value, "DataSet3")/100)*First(Fields!DescPronto.Value, "DataSet3")/100),2))</Value>
-                  <Style>
-                    <FontSize>12pt</FontSize>
-                    <FontWeight>Bold</FontWeight>
-                    <Format>#,0.00'€';-#,0.00'€';''</Format>
-                    <rd:FormatSymbolCulture>es-ES</rd:FormatSymbolCulture>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style>
-                <TextAlign>Right</TextAlign>
-              </Style>
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Cantidad</rd:DefaultName>
-          <Top>4.10581cm</Top>
-          <Left>15.57881cm</Left>
-          <Height>0.5cm</Height>
-          <Width>3.32021cm</Width>
-          <ZIndex>17</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <TopBorder>
-              <Width>1pt</Width>
-            </TopBorder>
-            <PaddingLeft>0cm</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
             <PaddingTop>0cm</PaddingTop>
             <PaddingBottom>0cm</PaddingBottom>
           </Style>
@@ -2070,7 +1768,7 @@ End Function</Code>
           <Left>0.216cm</Left>
           <Height>0.5cm</Height>
           <Width>4.54799cm</Width>
-          <ZIndex>18</ZIndex>
+          <ZIndex>10</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -2104,7 +1802,7 @@ End Function</Code>
           <Left>11.43149cm</Left>
           <Height>0.5cm</Height>
           <Width>4.11204cm</Width>
-          <ZIndex>19</ZIndex>
+          <ZIndex>11</ZIndex>
           <Visibility>
             <Hidden>=First(Fields!Anticipo.Value, "DataSet3")=0</Hidden>
           </Visibility>
@@ -2114,45 +1812,6 @@ End Function</Code>
             </Border>
             <PaddingLeft>0cm</PaddingLeft>
             <PaddingRight>0cm</PaddingRight>
-            <PaddingTop>0cm</PaddingTop>
-            <PaddingBottom>0cm</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="Cantidad23">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=First(Fields!Anticipo.Value, "DataSet3")</Value>
-                  <Style>
-                    <FontSize>8pt</FontSize>
-                    <Format>#,0.00'€';(#,0.00'€');''</Format>
-                    <rd:FormatSymbolCulture>es-ES</rd:FormatSymbolCulture>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style>
-                <TextAlign>Right</TextAlign>
-              </Style>
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Cantidad</rd:DefaultName>
-          <Top>3.60581cm</Top>
-          <Left>15.54353cm</Left>
-          <Height>0.5cm</Height>
-          <Width>3.32021cm</Width>
-          <ZIndex>20</ZIndex>
-          <Visibility>
-            <Hidden>=First(Fields!Anticipo.Value, "DataSet3")=0</Hidden>
-          </Visibility>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>0cm</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
             <PaddingTop>0cm</PaddingTop>
             <PaddingBottom>0cm</PaddingBottom>
           </Style>
@@ -2184,7 +1843,7 @@ End Function</Code>
           <Left>4.92863cm</Left>
           <Height>0.55928cm</Height>
           <Width>9.04176cm</Width>
-          <ZIndex>21</ZIndex>
+          <ZIndex>12</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -2221,7 +1880,7 @@ End Function</Code>
           <Left>0.216cm</Left>
           <Height>0.5cm</Height>
           <Width>11.21549cm</Width>
-          <ZIndex>22</ZIndex>
+          <ZIndex>13</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -2230,6 +1889,350 @@ End Function</Code>
             <PaddingRight>2pt</PaddingRight>
             <PaddingTop>2pt</PaddingTop>
             <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="tbImporteBase">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!ImpTotalBase.Value, "DataSet3")</Value>
+                  <Style>
+                    <FontSize>11pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <Format>#,0.00'€';(#,0.00'€');''</Format>
+                    <rd:FormatSymbolCulture>es-ES</rd:FormatSymbolCulture>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <Top>0.10581cm</Top>
+          <Left>15.57881cm</Left>
+          <Height>0.5cm</Height>
+          <Width>3.32021cm</Width>
+          <ZIndex>14</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <TopBorder>
+              <Color>Black</Color>
+              <Width>1.5pt</Width>
+            </TopBorder>
+            <PaddingLeft>0cm</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>0cm</PaddingTop>
+            <PaddingBottom>0cm</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="tbImporteDescuentoComercial">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!ImpTotalBase.Value, "DataSet3")*First(Fields!DescFactura.Value, "DataSet3")/100</Value>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                    <Format>#,0.00'€';(#,0.00'€');''</Format>
+                    <rd:FormatSymbolCulture>es-ES</rd:FormatSymbolCulture>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <Top>0.60581cm</Top>
+          <Left>15.57881cm</Left>
+          <Height>0.5cm</Height>
+          <Width>3.32021cm</Width>
+          <ZIndex>15</ZIndex>
+          <Visibility>
+            <Hidden>=Sum(Fields!DescFactura.Value, "DataSet3")=0</Hidden>
+          </Visibility>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>0cm</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>0cm</PaddingTop>
+            <PaddingBottom>0cm</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="tbImporteDescuentoProntoPago">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!ImpTotalBase.Value, "DataSet3")*First(Fields!DescPronto.Value, "DataSet3")/100</Value>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                    <Format>#,0.00'€';(#,0.00'€');''</Format>
+                    <rd:FormatSymbolCulture>es-ES</rd:FormatSymbolCulture>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <Top>1.10581cm</Top>
+          <Left>15.57881cm</Left>
+          <Height>0.5cm</Height>
+          <Width>3.32021cm</Width>
+          <ZIndex>16</ZIndex>
+          <Visibility>
+            <Hidden>=First(Fields!DescPronto.Value, "DataSet3")=0</Hidden>
+          </Visibility>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>0cm</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>0cm</PaddingTop>
+            <PaddingBottom>0cm</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="tbImporteBaseCD">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!ImpTotalBaseDescuentos.Value, "DataSet3")</Value>
+                  <Style>
+                    <FontSize>11pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <Format>#,0.00'€';(#,0.00'€');''</Format>
+                    <rd:FormatSymbolCulture>es-ES</rd:FormatSymbolCulture>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <Top>1.60581cm</Top>
+          <Left>15.57881cm</Left>
+          <Height>0.5cm</Height>
+          <Width>3.32021cm</Width>
+          <ZIndex>17</ZIndex>
+          <Visibility>
+            <Hidden>=First(Fields!DescPronto.Value, "DataSet3")+Sum(Fields!DescFactura.Value, "DataSet3")=0</Hidden>
+          </Visibility>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>0cm</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>0cm</PaddingTop>
+            <PaddingBottom>0cm</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="tbImporteIVA">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!ImpTotalBaseDescuentos.Value, "DataSet3")*First(Fields!IVAFactura.Value, "DataSet3")/100</Value>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                    <Format>#,0.00'€';(#,0.00'€');''</Format>
+                    <rd:FormatSymbolCulture>es-ES</rd:FormatSymbolCulture>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <Top>2.10581cm</Top>
+          <Left>15.57881cm</Left>
+          <Height>0.5cm</Height>
+          <Width>3.32021cm</Width>
+          <ZIndex>18</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>0cm</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>0cm</PaddingTop>
+            <PaddingBottom>0cm</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="tbImporteTotalFactura">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!ImpTotal.Value, "DataSet3")</Value>
+                  <Style>
+                    <FontSize>11pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <Format>#,0.00'€';(#,0.00'€');''</Format>
+                    <rd:FormatSymbolCulture>es-ES</rd:FormatSymbolCulture>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <Top>2.60581cm</Top>
+          <Left>15.57881cm</Left>
+          <Height>0.5cm</Height>
+          <Width>3.32021cm</Width>
+          <ZIndex>19</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <TopBorder>
+              <Width>1pt</Width>
+            </TopBorder>
+            <PaddingLeft>0cm</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>0cm</PaddingTop>
+            <PaddingBottom>0cm</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="tbImporteRetencion">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!ImpTotal.Value, "DataSet3")*First(Fields!Retencion.Value, "DataSet3")/100</Value>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                    <Format>#,0.00'€';(#,0.00'€');''</Format>
+                    <rd:FormatSymbolCulture>es-ES</rd:FormatSymbolCulture>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <Top>3.10581cm</Top>
+          <Left>15.57881cm</Left>
+          <Height>0.5cm</Height>
+          <Width>3.32021cm</Width>
+          <ZIndex>20</ZIndex>
+          <Visibility>
+            <Hidden>=First(Fields!Retencion.Value, "DataSet3")=0</Hidden>
+          </Visibility>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>0cm</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>0cm</PaddingTop>
+            <PaddingBottom>0cm</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="tbImporteTotalPagar">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!ImpTotal.Value, "DataSet3")*(1-(First(Fields!Retencion.Value, "DataSet3")/100))-First(Fields!Anticipo.Value, "DataSet3")</Value>
+                  <Style>
+                    <FontSize>12pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <Format>#,0.00'€';(#,0.00'€');''</Format>
+                    <rd:FormatSymbolCulture>es-ES</rd:FormatSymbolCulture>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <Top>4.10581cm</Top>
+          <Left>15.57881cm</Left>
+          <Height>0.5cm</Height>
+          <Width>3.32021cm</Width>
+          <ZIndex>21</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <TopBorder>
+              <Width>1pt</Width>
+            </TopBorder>
+            <PaddingLeft>0cm</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>0cm</PaddingTop>
+            <PaddingBottom>0cm</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="tbImporteAnticipo">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!Anticipo.Value, "DataSet3")</Value>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                    <Format>#,0.00'€';(#,0.00'€');''</Format>
+                    <rd:FormatSymbolCulture>es-ES</rd:FormatSymbolCulture>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <Top>3.60581cm</Top>
+          <Left>15.57881cm</Left>
+          <Height>0.5cm</Height>
+          <Width>3.32021cm</Width>
+          <ZIndex>22</ZIndex>
+          <Visibility>
+            <Hidden>=First(Fields!Anticipo.Value, "DataSet3")=0</Hidden>
+          </Visibility>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>0cm</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>0cm</PaddingTop>
+            <PaddingBottom>0cm</PaddingBottom>
           </Style>
         </Textbox>
       </ReportItems>
