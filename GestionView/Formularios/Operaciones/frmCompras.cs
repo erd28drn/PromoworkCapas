@@ -666,7 +666,7 @@ namespace Promowork.Formularios.Operaciones
             opebanco["IdUsuario"] = VariablesGlobales.nIdUsuarioActual;
 
             gvPagos.Focus();
-            gvPagos.FocusedColumn = colImportePagado;
+            gvPagos.FocusedColumn = colFecha;
 
             gvPagos.UpdateTotalSummary();
         }

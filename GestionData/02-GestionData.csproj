@@ -120,6 +120,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">
@@ -206,6 +207,7 @@
     <None Include="Promowork_dataDataSetCombustible.xss">
       <DependentUpon>Promowork_dataDataSetCombustible.xsd</DependentUpon>
     </None>
+    <None Include="Properties\DataSources\GestionData.Entities.Promowork_dataEntities.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
