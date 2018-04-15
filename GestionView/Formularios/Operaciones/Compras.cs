@@ -70,7 +70,7 @@ namespace Promowork.Formularios.Operaciones
             
             this.proveedoresTableAdapter.FillByActivoEmpresa(promowork_dataDataSet.Proveedores, VariablesGlobales.nIdEmpresaActual);
             this.empresasActualTableAdapter.FillByEmpresa(promowork_dataDataSet.EmpresasActual, VariablesGlobales.nIdEmpresaActual);
-            comprasCabBindingSource.Filter = "Pagada=false";
+            comprasCabBindingSource.Filter = "Importe>isnull(ImpPagado,0) or ImpPagado=0";
             comprasCabBindingSource.MoveLast();
             DataRowView EmpresaActual = (DataRowView)empresasActualBindingSource.Current;
             int AnoEmpresa = Convert.ToInt32(EmpresaActual["AnoEmpresa"]);
@@ -116,6 +116,7 @@ namespace Promowork.Formularios.Operaciones
             idProveedorComboBox.SelectedValue = Proveedor!=null?(int)Proveedor["IdProveedor"]: 0;
             CompraActual["FechaFactura"] = fechaFacturaDateTimePicker.Value;
             CompraActual["FechaRecib"] = fechaRecibDateTimePicker.Value;
+            CompraActual["ImpPagado"] = 0.00;
 
             //fechaFacturaDateTimePicker.Value = DateTime.Parse(CompraActual["FechaFactura"].ToString());
            // fechaRecibDateTimePicker.Value = DateTime.Parse(CompraActual["FechaRecib"].ToString());
@@ -231,12 +232,12 @@ namespace Promowork.Formularios.Operaciones
            {
            this.Validate();
            this.pagosBindingSource.EndEdit();
-           
 
-           object ImpBase = promowork_dataDataSet.ComprasDet.Compute("Sum(ImpBase)", "IdCompra=" + Convert.ToString(CompraActual["IdCompra"]));
-           object ImpIVA = promowork_dataDataSet.ComprasDet.Compute("Sum(ImpIVA)", "IdCompra=" + Convert.ToString(CompraActual["IdCompra"]));
-           object ImpIRPF = promowork_dataDataSet.ComprasDet.Compute("Sum(ImpIRPF)", "IdCompra=" + Convert.ToString(CompraActual["IdCompra"]));
-           object TotalPagado = promowork_dataDataSet.Pagos.Compute("Sum(Importe)", "IdCompra=" + Convert.ToString(CompraActual["IdCompra"]));
+
+           object ImpBase = CompraActual["ImpBase"];// promowork_dataDataSet.ComprasDet.Compute("Sum(ImpBase)", "IdCompra=" + Convert.ToString(CompraActual["IdCompra"]));
+           object ImpIVA = CompraActual["ImpIVA"];// promowork_dataDataSet.ComprasDet.Compute("Sum(ImpIVA)", "IdCompra=" + Convert.ToString(CompraActual["IdCompra"]));
+           object ImpIRPF = CompraActual["ImpIRPF"];// promowork_dataDataSet.ComprasDet.Compute("Sum(ImpIRPF)", "IdCompra=" + Convert.ToString(CompraActual["IdCompra"]));
+           object TotalPagado = CompraActual["ImpPagado"];// promowork_dataDataSet.Pagos.Compute("Sum(Importe)", "IdCompra=" + Convert.ToString(CompraActual["IdCompra"]));
 
            if (Convert.IsDBNull(ImpBase))
            {
@@ -345,12 +346,12 @@ namespace Promowork.Formularios.Operaciones
            this.Validate();
            this.comprasDetBindingSource.EndEdit();
 
-           
 
-           object ImpBase = promowork_dataDataSet.ComprasDet.Compute("Sum(ImpBase)", "IdCompra=" + Convert.ToString(CompraActual["IdCompra"]));
-           object ImpIVA = promowork_dataDataSet.ComprasDet.Compute("Sum(ImpIVA)", "IdCompra=" + Convert.ToString(CompraActual["IdCompra"]));
-           object ImpIRPF = promowork_dataDataSet.ComprasDet.Compute("Sum(ImpIRPF)", "IdCompra=" + Convert.ToString(CompraActual["IdCompra"]));
-           object TotalPagado = promowork_dataDataSet.Pagos.Compute("Sum(Importe)", "IdCompra=" + Convert.ToString(CompraActual["IdCompra"]));
+
+           object ImpBase = CompraActual["ImpBase"];// promowork_dataDataSet.ComprasDet.Compute("Sum(ImpBase)", "IdCompra=" + Convert.ToString(CompraActual["IdCompra"]));
+           object ImpIVA = CompraActual["ImpIVA"];// promowork_dataDataSet.ComprasDet.Compute("Sum(ImpIVA)", "IdCompra=" + Convert.ToString(CompraActual["IdCompra"]));
+           object ImpIRPF = CompraActual["ImpIRPF"];// promowork_dataDataSet.ComprasDet.Compute("Sum(ImpIRPF)", "IdCompra=" + Convert.ToString(CompraActual["IdCompra"]));
+           object TotalPagado = CompraActual["ImpPagado"];// promowork_dataDataSet.Pagos.Compute("Sum(Importe)", "IdCompra=" + Convert.ToString(CompraActual["IdCompra"]));
 
            if (Convert.IsDBNull(ImpBase))
            {
@@ -447,10 +448,10 @@ namespace Promowork.Formularios.Operaciones
 
            DataRowView CompraActual = (DataRowView)comprasCabBindingSource.Current;
 
-           object ImpBase = promowork_dataDataSet.ComprasDet.Compute("Sum(ImpBase)", "IdCompra=" + Convert.ToString(CompraActual["IdCompra"]));
-           object ImpIVA = promowork_dataDataSet.ComprasDet.Compute("Sum(ImpIVA)", "IdCompra=" + Convert.ToString(CompraActual["IdCompra"]));
-           object ImpIRPF = promowork_dataDataSet.ComprasDet.Compute("Sum(ImpIRPF)", "IdCompra=" + Convert.ToString(CompraActual["IdCompra"]));
-           object TotalPagado = promowork_dataDataSet.Pagos.Compute("Sum(Importe)", "IdCompra=" + Convert.ToString(CompraActual["IdCompra"]));
+           object ImpBase = CompraActual["ImpBase"];// promowork_dataDataSet.ComprasDet.Compute("Sum(ImpBase)", "IdCompra=" + Convert.ToString(CompraActual["IdCompra"]));
+           object ImpIVA = CompraActual["ImpIVA"];// promowork_dataDataSet.ComprasDet.Compute("Sum(ImpIVA)", "IdCompra=" + Convert.ToString(CompraActual["IdCompra"]));
+           object ImpIRPF = CompraActual["ImpIRPF"];// promowork_dataDataSet.ComprasDet.Compute("Sum(ImpIRPF)", "IdCompra=" + Convert.ToString(CompraActual["IdCompra"]));
+           object TotalPagado = CompraActual["ImpPagado"];// promowork_dataDataSet.Pagos.Compute("Sum(Importe)", "IdCompra=" + Convert.ToString(CompraActual["IdCompra"]));
           
            if (Convert.IsDBNull(ImpBase))
            {
@@ -511,7 +512,7 @@ namespace Promowork.Formularios.Operaciones
        {
            if (radioButton2.Checked == true)
            {
-               comprasCabBindingSource.Filter = "Pagada=false";
+               comprasCabBindingSource.Filter = "Importe>isnull(ImpPagado,0) or ImpPagado=0";
            }
        }
 
