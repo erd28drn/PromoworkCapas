@@ -163,7 +163,7 @@ namespace GestionServices.Generales
         #endregion VALIDAR EMAIL
 
         #region ENVIAR REPORTES POR CORREO ELECTRONICO
-        public static string EnviaCorreo(int idEmpresa, List<string> destinatarios, string asunto, List<string> adjuntos, string cuerpo, string responderA)
+        public static string EnviaCorreo(int idEmpresa, List<string> destinatarios, string asunto, List<string> adjuntos, string cuerpo, string responderA, List<string> ccos=null)
         {
             string mensaje="";
 
@@ -189,6 +189,10 @@ namespace GestionServices.Generales
             foreach (string destinatario in destinatarios)
             {
                 msg.To.Add(new MailAddress(destinatario.Trim()));
+            }
+            foreach (string cco in ccos)
+            {
+                msg.Bcc.Add(new MailAddress(cco.Trim()));
             }
 
             if (adjuntos != null)

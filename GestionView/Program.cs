@@ -43,7 +43,7 @@ namespace Promowork
                 Application.Run(new EntradaSistema ());
                 if (VariablesGlobales.nIdEmpresaActual != 0 && VariablesGlobales.nIdUsuarioActual != 0 && VariablesGlobales.nAnoActual != 0 && VariablesGlobales.nMesActual != 0)
                 {
-                    Application.Run(new Principal ());
+                    Application.Run(new RptFacturasPresupImp2 ());
                 }
             }
             catch (Exception ex)
