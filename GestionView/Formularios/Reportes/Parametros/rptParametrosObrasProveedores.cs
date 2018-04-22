@@ -11,6 +11,7 @@ using System.Collections;
 using Microsoft.Reporting.WinForms;
 using GestionServices.Generales;
 using GestionData.Entities;
+using GestionServices.Definiciones;
 
 namespace Promowork.Formularios.Reportes.Parametros
 {
@@ -45,7 +46,7 @@ namespace Promowork.Formularios.Reportes.Parametros
             
             this.EmpresasActualTableAdapter.FillByEmpresa(this.Promowork_dataDataSet.EmpresasActual, VariablesGlobales.nIdEmpresaActual);
 
-            var trabajadores = Utilidades.ObtenerTrabajadoresConEmail(VariablesGlobales.nIdEmpresaActual);
+            var trabajadores = TrabajadoresServices.ObtenerTrabajadoresConEmail(VariablesGlobales.nIdEmpresaActual);
             cbTrabajadores.Properties.DataSource = trabajadores;
             
         }
@@ -150,12 +151,12 @@ namespace Promowork.Formularios.Reportes.Parametros
             tabControl1.SelectedTab = tabControl1.TabPages[2];
             Cursor.Current = Cursors.WaitCursor;
             GuardarAsuntoCuerpoMensaje();
-             string responderA="";
+            List<string> responderA=null;
             if (cbTrabajadores.ItemIndex != -1)
             {
-                var trabajador = (Utilidades.TrabajadorConEmail)cbTrabajadores.GetSelectedDataRow();
+                var trabajador = (TrabajadorConEmail)cbTrabajadores.GetSelectedDataRow();
 
-                responderA = trabajador.EmailTrabajador;
+                responderA = trabajador.EmailTrabajador.Split(';').ToList();
             }
             else
             {
@@ -211,7 +212,7 @@ namespace Promowork.Formularios.Reportes.Parametros
             this.EmpresasActualTableAdapter.Update(Promowork_dataDataSet.EmpresasActual);
         }
 
-        private void EnviarResumenCorreosEnviados(string responderA)
+        private void EnviarResumenCorreosEnviados(List<string> responderA)
         {
             string tablaHTML = Utilidades.CrearTablaHTMLDesdeGridView(gridView1);
 
@@ -227,9 +228,9 @@ namespace Promowork.Formularios.Reportes.Parametros
                 List<string> adjuntos = new List<string>();
                 adjuntos.Add(nombreFichero + ".PDF");
 
-                List<string> destinatarios = new List<string>();
-                destinatarios.Add(responderA);
-                Utilidades.EnviaCorreo(VariablesGlobales.nIdEmpresaActual, destinatarios, "Resumen Obras Enviadas a Proveedores", adjuntos, cuerpoMensaje, responderA);
+                //List<string> destinatarios = new List<string>();
+                //destinatarios.Add(responderA);
+                Utilidades.EnviaCorreo(VariablesGlobales.nIdEmpresaActual, responderA, "Resumen Obras Enviadas a Proveedores", adjuntos, cuerpoMensaje, responderA);
             }
 
         }

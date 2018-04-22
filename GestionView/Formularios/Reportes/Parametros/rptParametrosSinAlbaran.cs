@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using GestionServices.Generales;
+using GestionServices.Definiciones;
 using GestionData.Entities;
 
 namespace Promowork.Formularios.Reportes.Parametros
@@ -40,7 +41,7 @@ namespace Promowork.Formularios.Reportes.Parametros
             
             this.EmpresasActualTableAdapter.FillByEmpresa(this.Promowork_dataDataSet.EmpresasActual, VariablesGlobales.nIdEmpresaActual);
 
-            var trabajadores= Utilidades.ObtenerTrabajadoresConEmail(VariablesGlobales.nIdEmpresaActual);
+            var trabajadores= TrabajadoresServices.ObtenerTrabajadoresConEmail(VariablesGlobales.nIdEmpresaActual);
             cbTrabajadores.Properties.DataSource = trabajadores;
             
         }
@@ -133,12 +134,12 @@ namespace Promowork.Formularios.Reportes.Parametros
                 //                "<p>Oscar Urpi<br>" +
                 //                "Dpto.Compras.</p>";
 
-            string responderA="";
+            List<string> responderA=null;
             if (cbTrabajadores.ItemIndex != -1)
             {
-                var trabajador = (Utilidades.TrabajadorConEmail)cbTrabajadores.GetSelectedDataRow();
+                var trabajador = (TrabajadorConEmail)cbTrabajadores.GetSelectedDataRow();
 
-                responderA = trabajador.EmailTrabajador;
+                responderA = trabajador.EmailTrabajador.Split(';').ToList(); ;
             }
             else
             {
@@ -184,7 +185,7 @@ namespace Promowork.Formularios.Reportes.Parametros
 
         }
 
-        private void EnviarResumenCorreosEnviados(string responderA)
+        private void EnviarResumenCorreosEnviados(List<string> responderA)
         {
             string tablaHTML = Utilidades.CrearTablaHTMLDesdeGridView(gridView1);
 
@@ -201,9 +202,9 @@ namespace Promowork.Formularios.Reportes.Parametros
                 List<string> adjuntos = new List<string>();
                 adjuntos.Add(nombreFichero + ".PDF");
 
-                List<string> destinatarios = new List<string>();
-                destinatarios.Add(responderA);
-                Utilidades.EnviaCorreo(VariablesGlobales.nIdEmpresaActual, destinatarios, "Resumen Albaranes pendientes Enviados a Proveedores", adjuntos, cuerpoMensaje, responderA);
+                //List<string> destinatarios = new List<string>();
+                //destinatarios.Add(responderA);
+                Utilidades.EnviaCorreo(VariablesGlobales.nIdEmpresaActual, responderA, "Resumen Albaranes pendientes Enviados a Proveedores", adjuntos, cuerpoMensaje, responderA);
             }
 
         }

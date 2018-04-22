@@ -163,7 +163,7 @@ namespace GestionServices.Generales
         #endregion VALIDAR EMAIL
 
         #region ENVIAR REPORTES POR CORREO ELECTRONICO
-        public static string EnviaCorreo(int idEmpresa, List<string> destinatarios, string asunto, List<string> adjuntos, string cuerpo, string responderA, List<string> ccos=null)
+        public static string EnviaCorreo(int idEmpresa, List<string> destinatarios, string asunto, List<string> adjuntos, string cuerpo, List<string> responderA, List<string> ccos=null)
         {
             string mensaje="";
 
@@ -182,9 +182,13 @@ namespace GestionServices.Generales
             MailMessage msg = new MailMessage();
             msg.IsBodyHtml = true;
             msg.From = new MailAddress("compras@promowork.es");//servidorSMTP.Usuario);
-            msg.ReplyToList.Add( new MailAddress(responderA));
             msg.Subject = asunto;
             msg.Body = cuerpo;
+
+            foreach (string responder in responderA)
+            {
+                msg.ReplyToList.Add(new MailAddress(responder));
+            }
 
             foreach (string destinatario in destinatarios)
             {
@@ -218,49 +222,6 @@ namespace GestionServices.Generales
             return mensaje;
         }
         #endregion ENVIAR REPORTES POR CORREO ELECTRONICO
-
-        #region TRABAJADORES CON EMAIL
-        public static List<TrabajadorConEmail> ObtenerTrabajadoresConEmail(int idEmpresa)
-        {
-            GestionData.Promowork_dataDataSetTableAdapters.TrabajadoresTableAdapter trabajadoresTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.TrabajadoresTableAdapter();
-            List<TrabajadorConEmail> trabajadoresConEmail = trabajadoresTableAdapter.GetData(idEmpresa).Where(t => t.ActivoTrabajador && ValidarEmail(t.EmailTrabajador))
-            .Select(t => new TrabajadorConEmail()
-            {
-                IdTrabajador = t.IdTrabajador,
-                NumeroTRabajador = t.NumTrabajador,
-                NombreTrabajador = t.NomTrabajador + " " + t.ApeTrabajador,
-                EmailTrabajador = t.EmailTrabajador
-            }).ToList();
-
-
-            //Promowork_dataEntities _db = new Promowork_dataEntities();
-            //var trabajadoresConEmail = _db.Trabajadores.AsQueryable().Where(t => t.IdEmpresa == idEmpresa && t.ActivoTrabajador.Value);// && t.EmailTrabajador != null);//.ToList();
-            //List<TrabajadorConEmail> trabajadoresConEmailValido = trabajadoresConEmail//.Where(t => ValidarEmail(t.EmailTrabajador))
-            //                                                                          .Select(t => new TrabajadorConEmail()
-            //                                                                            {
-            //                                                                                IdTrabajador = t.IdTrabajador,
-            //                                                                                NumeroTRabajador = t.NumTrabajador,
-            //                                                                                NombreTrabajador = t.NomTrabajador + " " + t.ApeTrabajador,
-            //                                                                                EmailTrabajador = t.EmailTrabajador
-            //                                                                            }).ToList();
-            return trabajadoresConEmail;
-        }
-        
-        public class TrabajadorConEmail
-        {
-            public int IdTrabajador { get; set; }
-            public int NumeroTRabajador { get; set; }
-            public string NombreTrabajador { get; set; }
-            public string EmailTrabajador { get; set; }
-            public string NombreEmailTrabajador
-            {
-                get
-                {
-                    return NombreTrabajador + " (" + EmailTrabajador + ")";
-                }
-            }
-        }
-        #endregion TRABAJADORES CON EMAIL
 
         #region CREAR TABLA DESDE GRIDVIEW
         public static string CrearTablaHTMLDesdeGridView(GridView gridView)

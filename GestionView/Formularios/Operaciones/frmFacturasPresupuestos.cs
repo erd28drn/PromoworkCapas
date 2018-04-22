@@ -260,7 +260,7 @@ namespace Promowork.Formularios.Operaciones
             {
 
                 RptFacturasPresupImp2 frm = new RptFacturasPresupImp2();
-                frm.LoadFiltro(nIdFactura);
+                frm.LoadFiltro(nIdFactura, "Promowork.Reportes.FacturaPresupImp2.rdlc");
                 frm.MdiParent = this.MdiParent;
                 frm.Show();
             }

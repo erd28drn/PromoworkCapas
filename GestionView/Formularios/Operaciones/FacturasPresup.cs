@@ -995,7 +995,7 @@ namespace Promowork.Formularios.Operaciones
 
 
                RptFacturasPresupImp2 frm = new RptFacturasPresupImp2();
-               frm.LoadFiltro(Factura);
+               frm.LoadFiltro(Factura, "Promowork.Reportes.FacturaPresupImp2.rdlc");
                frm.MdiParent = this.MdiParent;
                frm.Show();
            }
