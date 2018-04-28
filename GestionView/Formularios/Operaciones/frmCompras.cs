@@ -306,17 +306,24 @@ namespace Promowork.Formularios.Operaciones
 
         private void CargaAlbaranesProveedores()
         {
-            if (tbcbCargaAlbaranes.SelectedIndex != -1)
+            try
             {
-                switch ((int)((ComboBoxItem)tbcbCargaAlbaranes.SelectedItem).Value)
+                if (tbcbCargaAlbaranes.SelectedIndex != -1)
                 {
-                    case 1: //Solo Alabaranes del período de la factura
-                        this.albaranesCabProveedoresTableAdapter.FillByProveedorObraMes(this.datosAlbaranesProveedor.AlbaranesCab, vProveedor, null, vMesFactura, vAnoFactura);
-                        break;
-                    case 2: //Todos los Albaranes pendientes
-                        this.albaranesCabProveedoresTableAdapter.FillByProveedorObra(this.datosAlbaranesProveedor.AlbaranesCab, vProveedor, null);
-                        break;
+                    switch ((int)((ComboBoxItem)tbcbCargaAlbaranes.SelectedItem).Value)
+                    {
+                        case 1: //Solo Alabaranes del período de la factura
+                            this.albaranesCabProveedoresTableAdapter.FillByProveedorObraMes(this.datosAlbaranesProveedor.AlbaranesCab, vProveedor, null, vMesFactura, vAnoFactura);
+                            break;
+                        case 2: //Todos los Albaranes pendientes
+                            this.albaranesCabProveedoresTableAdapter.FillByProveedorObra(this.datosAlbaranesProveedor.AlbaranesCab, vProveedor, null);
+                            break;
+                    }
                 }
+            }
+            catch
+            {
+                this.albaranesCabProveedoresTableAdapter.FillByProveedorObra(this.datosAlbaranesProveedor.AlbaranesCab, 0, 0);
             }
         }
 
@@ -360,19 +367,22 @@ namespace Promowork.Formularios.Operaciones
 
         private void cbProveedores_Validated(object sender, EventArgs e)
         {
-            var proveedor = (DataRowView)cbProveedores.GetSelectedDataRow();
-            int.TryParse(proveedor["CredProveedor"].ToString(), out vDiasCredito);
+            if (cbProveedores.ItemIndex != -1 && (int)cbProveedores.EditValue != vProveedor)//NUNCA ENTRA PORQUE vProveedores se actualiza al nuevo valor.
+            {
+                var proveedor = (DataRowView)cbProveedores.GetSelectedDataRow();
+                int.TryParse(proveedor["CredProveedor"].ToString(), out vDiasCredito);
 
-            int vFormaPago = 0;
-            int vCuenta = 0;
+                int? vFormaPago = null;
+                int? vCuenta = null;
 
-            int.TryParse(proveedor["IdFormaPago"].ToString(), out vFormaPago);
-            int.TryParse(proveedor["IdCuenta"].ToString(), out vCuenta);
+                vFormaPago=(int?)proveedor["IdFormaPago"];
+                vCuenta=(int?)proveedor["IdCuenta"];
 
-            ActualizaFechaVencimiento();
+                ActualizaFechaVencimiento();
 
-            cbFormaPago.EditValue = vFormaPago;
-            cbCuenta.EditValue = vCuenta;
+                cbFormaPago.EditValue = vFormaPago;
+                cbCuenta.EditValue = vCuenta;
+            }
         }
 
         private void fechaFacturaDateEdit_Validated(object sender, EventArgs e)
@@ -564,6 +574,7 @@ namespace Promowork.Formularios.Operaciones
                     e.Cancel = true;
                 }
             }
+
         }
 
         private void gvComprasCab_SelectionChanged(object sender, DevExpress.Data.SelectionChangedEventArgs e)
