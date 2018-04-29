@@ -1,6 +1,6 @@
 ﻿namespace Promowork.Formularios.Reportes.Viewer
 {
-    partial class RptFacturasPresupImp2
+    partial class RptFacturasClientes
     {
         /// <summary>
         /// Required designer variable.
@@ -32,11 +32,6 @@
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label cuerpoMensajeSinAlbaranLabel;
             System.Windows.Forms.Label asuntoSinAlbaranLabel;
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource11 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource12 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource13 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource14 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource15 = new Microsoft.Reporting.WinForms.ReportDataSource();
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Label label3;
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
@@ -118,21 +113,6 @@
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource11.Name = "DataSet1";
-            reportDataSource11.Value = this.FacturasDetImpBindingSource;
-            reportDataSource12.Name = "DataSet2";
-            reportDataSource12.Value = this.empresasPoblacionBindingSource;
-            reportDataSource13.Name = "DataSet3";
-            reportDataSource13.Value = this.FacturasCabImpBindingSource;
-            reportDataSource14.Name = "ComprasDirectas";
-            reportDataSource14.Value = this.vComprasDirectasBindingSource;
-            reportDataSource15.Name = "DetallesHoras";
-            reportDataSource15.Value = this.FacturasDetHorasImpBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource11);
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource12);
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource13);
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource14);
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource15);
             this.reportViewer1.Location = new System.Drawing.Point(0, 180);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size(1370, 517);

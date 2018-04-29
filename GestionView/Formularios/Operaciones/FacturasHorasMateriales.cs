@@ -1018,29 +1018,53 @@ namespace Promowork.Formularios.Operaciones
 
        private void toolStripButton16_Click(object sender, EventArgs e)
        {
+           DataRowView FacturaAct = (DataRowView)facturasCabBindingSource.Current;
+           int nIdFactura = Convert.ToInt32(FacturaAct["IdFactCab"]);
+           RptFacturasClientes frm = new RptFacturasClientes();
+
            if (facturaCheckBox.Checked == true)
            {
-               DataRowView FacturaAct = (DataRowView)facturasCabBindingSource.Current;
+               if (unificarMaterialCheckEdit.Checked)
+               {
+                   frm.LoadFiltro(nIdFactura, "Promowork.Reportes.FacturaHorasMatImp.rdlc", true);
+                   frm.MdiParent = this.MdiParent;
+                   frm.Show();
 
-               int Factura = Convert.ToInt32(FacturaAct["IdFactCab"]);
+               }
+               else
+               {
+                   frm.LoadFiltro(nIdFactura, "Promowork.Reportes.FacturaHorasImp.rdlc", true);
+                   frm.MdiParent = this.MdiParent;
+                   frm.Show();
 
+               }
 
-               RptFacturasHorasImp frm = new RptFacturasHorasImp();
-               frm.LoadFiltro(Factura, unificarMaterialCheckEdit.Checked);
-               frm.MdiParent = this.MdiParent;
-               frm.Show();
+               //RptFacturasHorasImp frm = new RptFacturasHorasImp();
+               //frm.LoadFiltro(Factura, unificarMaterialCheckEdit.Checked);
+               //frm.MdiParent = this.MdiParent;
+               //frm.Show();
            }
            else
            {
-               DataRowView FacturaAct = (DataRowView)facturasCabBindingSource.Current;
+               if (unificarMaterialCheckEdit.Checked)
+               {
+                   frm.LoadFiltro(nIdFactura, "Promowork.Reportes.FacturaHorasMatImpParte.rdlc", true);
+                   frm.MdiParent = this.MdiParent;
+                   frm.Show();
 
-               int Factura = Convert.ToInt32(FacturaAct["IdFactCab"]);
+               }
+               else
+               {
+                   frm.LoadFiltro(nIdFactura, "Promowork.Reportes.FacturaHorasImpParte.rdlc", true);
+                   frm.MdiParent = this.MdiParent;
+                   frm.Show();
 
-
-               RptFacturasHorasImpParte frm = new RptFacturasHorasImpParte();
-               frm.LoadFiltro(Factura, unificarMaterialCheckEdit.Checked);
-               frm.MdiParent = this.MdiParent;
-               frm.Show();
+               }
+               
+               //RptFacturasHorasImpParte frm = new RptFacturasHorasImpParte();
+               //frm.LoadFiltro(Factura, unificarMaterialCheckEdit.Checked);
+               //frm.MdiParent = this.MdiParent;
+               //frm.Show();
            }
        }
 

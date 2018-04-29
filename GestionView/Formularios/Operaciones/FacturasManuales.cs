@@ -532,29 +532,33 @@ namespace Promowork.Formularios.Operaciones
 
        private void printToolStripButton1_Click(object sender, EventArgs e)
        {
+           DataRowView FacturaAct = (DataRowView)facturasCabBindingSource.Current;
+           int nIdFactura = Convert.ToInt32(FacturaAct["IdFactCab"]);
+
            if (facturaCheckBox.Checked == true)
            {
-               DataRowView FacturaAct = (DataRowView)facturasCabBindingSource.Current;
+               RptFacturasClientes frm = new RptFacturasClientes();
+                frm.LoadFiltro(nIdFactura, "Promowork.Reportes.FacturaManualImp2.rdlc");
+                frm.MdiParent = this.MdiParent;
+                frm.Show();
 
-               int Factura = Convert.ToInt32(FacturaAct["IdFactCab"]);
+               //RptFacturasManualImp2 frm = new RptFacturasManualImp2();
+               //frm.LoadFiltro(Factura);
+               //frm.MdiParent = this.MdiParent;
+               //frm.Show();
 
-
-               RptFacturasManualImp2 frm = new RptFacturasManualImp2();
-               frm.LoadFiltro(Factura);
-               frm.MdiParent = this.MdiParent;
-               frm.Show();
            }
            else
            {
-               DataRowView FacturaAct = (DataRowView)facturasCabBindingSource.Current;
-
-               int Factura = Convert.ToInt32(FacturaAct["IdFactCab"]);
-
-
-               RptFacturasManualImpParte2 frm = new RptFacturasManualImpParte2();
-               frm.LoadFiltro(Factura);
+               RptFacturasClientes frm = new RptFacturasClientes();
+               frm.LoadFiltro(nIdFactura, "Promowork.Reportes.FacturaManualImpParte2.rdlc");
                frm.MdiParent = this.MdiParent;
                frm.Show();
+
+               //RptFacturasManualImpParte2 frm = new RptFacturasManualImpParte2();
+               //frm.LoadFiltro(Factura);
+               //frm.MdiParent = this.MdiParent;
+               //frm.Show();
            }
 
        }

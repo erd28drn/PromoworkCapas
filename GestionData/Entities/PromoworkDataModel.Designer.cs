@@ -233,7 +233,8 @@ namespace GestionData.Entities
         /// <summary>
         /// Inicializar un nuevo objeto Promowork_dataEntities.
         /// </summary>
-        public Promowork_dataEntities(string connectionString) : base(connectionString, "Promowork_dataEntities")
+        public Promowork_dataEntities(string connectionString)
+            : base(connectionString, "Promowork.Properties.Settings.Promowork_dataConnection")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();

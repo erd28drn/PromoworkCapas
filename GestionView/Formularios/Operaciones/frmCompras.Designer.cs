@@ -496,7 +496,7 @@
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.splitContainerControl3);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(1728, 859);
+            this.splitContainerControl1.Size = new System.Drawing.Size(1370, 749);
             this.splitContainerControl1.SplitterPosition = 620;
             this.splitContainerControl1.TabIndex = 0;
             this.splitContainerControl1.Text = "splitContainerControl1";
@@ -541,7 +541,7 @@
             this.splitContainerControl2.Panel2.Controls.Add(this.tbCopiaFactura);
             this.splitContainerControl2.Panel2.Controls.Add(this.observTextEdit);
             this.splitContainerControl2.Panel2.Text = "Panel2";
-            this.splitContainerControl2.Size = new System.Drawing.Size(1728, 620);
+            this.splitContainerControl2.Size = new System.Drawing.Size(1370, 620);
             this.splitContainerControl2.SplitterPosition = 511;
             this.splitContainerControl2.TabIndex = 3;
             this.splitContainerControl2.Text = "splitContainerControl2";
@@ -550,14 +550,14 @@
             // 
             this.vComprasProveedoresGridControl.DataSource = this.comprasCabBindingSource;
             this.vComprasProveedoresGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.vComprasProveedoresGridControl.Location = new System.Drawing.Point(0, 25);
+            this.vComprasProveedoresGridControl.Location = new System.Drawing.Point(0, 27);
             this.vComprasProveedoresGridControl.MainView = this.gvComprasCab;
             this.vComprasProveedoresGridControl.Name = "vComprasProveedoresGridControl";
             this.vComprasProveedoresGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.Proveedores,
             this.FormasPago,
             this.Cuentas});
-            this.vComprasProveedoresGridControl.Size = new System.Drawing.Size(1212, 595);
+            this.vComprasProveedoresGridControl.Size = new System.Drawing.Size(854, 593);
             this.vComprasProveedoresGridControl.TabIndex = 2;
             this.vComprasProveedoresGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvComprasCab});
@@ -937,14 +937,14 @@
             this.comprasCabBindingNavigator.MovePreviousItem = this.toolStripButton3;
             this.comprasCabBindingNavigator.Name = "comprasCabBindingNavigator";
             this.comprasCabBindingNavigator.PositionItem = this.toolStripTextBox1;
-            this.comprasCabBindingNavigator.Size = new System.Drawing.Size(1212, 25);
+            this.comprasCabBindingNavigator.Size = new System.Drawing.Size(854, 27);
             this.comprasCabBindingNavigator.TabIndex = 2;
             this.comprasCabBindingNavigator.Text = "bindingNavigator1";
             // 
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(37, 22);
+            this.toolStripLabel1.Size = new System.Drawing.Size(37, 24);
             this.toolStripLabel1.Text = "de {0}";
             this.toolStripLabel1.ToolTipText = "Total number of items";
             // 
@@ -954,7 +954,7 @@
             this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 24);
             this.toolStripButton2.Text = "Move first";
             // 
             // toolStripButton3
@@ -963,13 +963,13 @@
             this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
             this.toolStripButton3.Name = "toolStripButton3";
             this.toolStripButton3.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton3.Size = new System.Drawing.Size(23, 24);
             this.toolStripButton3.Text = "Move previous";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
             // toolStripTextBox1
             // 
@@ -983,7 +983,7 @@
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
             // toolStripButton4
             // 
@@ -991,7 +991,7 @@
             this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
             this.toolStripButton4.Name = "toolStripButton4";
             this.toolStripButton4.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton4.Size = new System.Drawing.Size(23, 24);
             this.toolStripButton4.Text = "Move next";
             // 
             // toolStripButton5
@@ -1000,13 +1000,13 @@
             this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
             this.toolStripButton5.Name = "toolStripButton5";
             this.toolStripButton5.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton5.Size = new System.Drawing.Size(23, 24);
             this.toolStripButton5.Text = "Move last";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 27);
             // 
             // tbbtDelete
             // 
@@ -1014,7 +1014,7 @@
             this.tbbtDelete.Image = ((System.Drawing.Image)(resources.GetObject("tbbtDelete.Image")));
             this.tbbtDelete.Name = "tbbtDelete";
             this.tbbtDelete.RightToLeftAutoMirrorImage = true;
-            this.tbbtDelete.Size = new System.Drawing.Size(23, 22);
+            this.tbbtDelete.Size = new System.Drawing.Size(23, 24);
             this.tbbtDelete.Text = "Delete";
             this.tbbtDelete.Click += new System.EventHandler(this.tbbtDelete_Click);
             // 
@@ -1024,7 +1024,7 @@
             this.tbbtAdd.Image = ((System.Drawing.Image)(resources.GetObject("tbbtAdd.Image")));
             this.tbbtAdd.Name = "tbbtAdd";
             this.tbbtAdd.RightToLeftAutoMirrorImage = true;
-            this.tbbtAdd.Size = new System.Drawing.Size(23, 22);
+            this.tbbtAdd.Size = new System.Drawing.Size(23, 24);
             this.tbbtAdd.Text = "Add new";
             this.tbbtAdd.Click += new System.EventHandler(this.tbbtAdd_Click);
             // 
@@ -1033,14 +1033,14 @@
             this.tbbtSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.tbbtSave.Image = ((System.Drawing.Image)(resources.GetObject("tbbtSave.Image")));
             this.tbbtSave.Name = "tbbtSave";
-            this.tbbtSave.Size = new System.Drawing.Size(23, 22);
+            this.tbbtSave.Size = new System.Drawing.Size(23, 24);
             this.tbbtSave.Text = "Save Data";
             this.tbbtSave.Click += new System.EventHandler(this.tbbtSave_Click);
             // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 27);
             // 
             // tbbtPrint
             // 
@@ -1049,18 +1049,18 @@
             this.tbbtPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tbbtPrint.Margin = new System.Windows.Forms.Padding(3, 1, 0, 2);
             this.tbbtPrint.Name = "tbbtPrint";
-            this.tbbtPrint.Size = new System.Drawing.Size(23, 22);
+            this.tbbtPrint.Size = new System.Drawing.Size(23, 24);
             this.tbbtPrint.Text = "Posibles Compras Duplicadas desde la fecha Indicada";
             // 
             // toolStripSeparator10
             // 
             this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 27);
             // 
             // toolStripLabel2
             // 
             this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(35, 22);
+            this.toolStripLabel2.Size = new System.Drawing.Size(35, 24);
             this.toolStripLabel2.Text = "Año: ";
             // 
             // tbcbAnos
@@ -1068,37 +1068,37 @@
             this.tbcbAnos.DropDownWidth = 75;
             this.tbcbAnos.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.tbcbAnos.Name = "tbcbAnos";
-            this.tbcbAnos.Size = new System.Drawing.Size(75, 25);
+            this.tbcbAnos.Size = new System.Drawing.Size(75, 27);
             this.tbcbAnos.Sorted = true;
             this.tbcbAnos.SelectedIndexChanged += new System.EventHandler(this.tbcbAnos_SelectedIndexChanged);
             // 
             // toolStripSeparator11
             // 
             this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 27);
             // 
             // toolStripLabel3
             // 
             this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(48, 22);
+            this.toolStripLabel3.Size = new System.Drawing.Size(48, 24);
             this.toolStripLabel3.Text = "Estado: ";
             // 
             // tbcbCargarCompras
             // 
             this.tbcbCargarCompras.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.tbcbCargarCompras.Name = "tbcbCargarCompras";
-            this.tbcbCargarCompras.Size = new System.Drawing.Size(150, 25);
+            this.tbcbCargarCompras.Size = new System.Drawing.Size(150, 27);
             this.tbcbCargarCompras.SelectedIndexChanged += new System.EventHandler(this.tbcbCargarCompras_SelectedIndexChanged);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 27);
             // 
             // toolStripLabel10
             // 
             this.toolStripLabel10.Name = "toolStripLabel10";
-            this.toolStripLabel10.Size = new System.Drawing.Size(36, 22);
+            this.toolStripLabel10.Size = new System.Drawing.Size(36, 24);
             this.toolStripLabel10.Text = "Obra:";
             // 
             // tbcbObras
@@ -1107,7 +1107,7 @@
             this.tbcbObras.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.tbcbObras.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.tbcbObras.Name = "tbcbObras";
-            this.tbcbObras.Size = new System.Drawing.Size(300, 25);
+            this.tbcbObras.Size = new System.Drawing.Size(300, 23);
             this.tbcbObras.SelectedIndexChanged += new System.EventHandler(this.tbcbObras_SelectedIndexChanged);
             // 
             // toolStripButton1
@@ -1116,7 +1116,7 @@
             this.toolStripButton1.Image = global::Promowork.Properties.Resources.sc_removefilter;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 20);
             this.toolStripButton1.Text = "toolStripButton1";
             this.toolStripButton1.ToolTipText = "Quitar filtro de Obra";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
@@ -1608,6 +1608,7 @@
             this.cbProveedores.TabIndex = 1;
             this.cbProveedores.EditValueChanged += new System.EventHandler(this.cbProveedores_EditValueChanged);
             this.cbProveedores.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.cbProveedores_EditValueChanging);
+            this.cbProveedores.Enter += new System.EventHandler(this.cbProveedores_Enter);
             this.cbProveedores.Validated += new System.EventHandler(this.cbProveedores_Validated);
             // 
             // tbCopiaFactura
@@ -1643,7 +1644,7 @@
             this.splitContainerControl3.Panel2.Controls.Add(this.albaranesCabGridControl1);
             this.splitContainerControl3.Panel2.Controls.Add(this.bindingNavigator2);
             this.splitContainerControl3.Panel2.Text = "Panel2";
-            this.splitContainerControl3.Size = new System.Drawing.Size(1728, 234);
+            this.splitContainerControl3.Size = new System.Drawing.Size(1370, 124);
             this.splitContainerControl3.SplitterPosition = 1159;
             this.splitContainerControl3.TabIndex = 1;
             this.splitContainerControl3.Text = "splitContainerControl3";
@@ -1659,8 +1660,8 @@
             this.splitContainerControl5.Panel1.Text = "Panel1";
             this.splitContainerControl5.Panel2.Controls.Add(this.splitContainerControl4);
             this.splitContainerControl5.Panel2.Text = "Panel2";
-            this.splitContainerControl5.Size = new System.Drawing.Size(1159, 209);
-            this.splitContainerControl5.SplitterPosition = 106;
+            this.splitContainerControl5.Size = new System.Drawing.Size(1159, 99);
+            this.splitContainerControl5.SplitterPosition = 51;
             this.splitContainerControl5.TabIndex = 4;
             this.splitContainerControl5.Text = "splitContainerControl5";
             // 
@@ -1673,7 +1674,7 @@
             this.comprasDetGridControl.Name = "comprasDetGridControl";
             this.comprasDetGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.Obras});
-            this.comprasDetGridControl.Size = new System.Drawing.Size(1159, 106);
+            this.comprasDetGridControl.Size = new System.Drawing.Size(1159, 51);
             this.comprasDetGridControl.TabIndex = 0;
             this.comprasDetGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvComprasDet});
@@ -1839,7 +1840,7 @@
             this.splitContainerControl4.Panel2.Controls.Add(this.albaranesDetGridControl);
             this.splitContainerControl4.Panel2.Controls.Add(this.bindingNavigator4);
             this.splitContainerControl4.Panel2.Text = "Panel2";
-            this.splitContainerControl4.Size = new System.Drawing.Size(1159, 98);
+            this.splitContainerControl4.Size = new System.Drawing.Size(1159, 43);
             this.splitContainerControl4.SplitterPosition = 567;
             this.splitContainerControl4.TabIndex = 3;
             this.splitContainerControl4.Text = "splitContainerControl4";
@@ -1854,7 +1855,7 @@
             this.albaranesCabGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.QuitarAsociacion,
             this.ObrasAlbaranes});
-            this.albaranesCabGridControl.Size = new System.Drawing.Size(567, 73);
+            this.albaranesCabGridControl.Size = new System.Drawing.Size(567, 18);
             this.albaranesCabGridControl.TabIndex = 0;
             this.albaranesCabGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvAlbaranesCompra});
@@ -2086,7 +2087,7 @@
             this.albaranesDetGridControl.Location = new System.Drawing.Point(0, 25);
             this.albaranesDetGridControl.MainView = this.gvAlbaranesDet;
             this.albaranesDetGridControl.Name = "albaranesDetGridControl";
-            this.albaranesDetGridControl.Size = new System.Drawing.Size(587, 73);
+            this.albaranesDetGridControl.Size = new System.Drawing.Size(587, 18);
             this.albaranesDetGridControl.TabIndex = 0;
             this.albaranesDetGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvAlbaranesDet});
@@ -2331,13 +2332,13 @@
             // 
             this.albaranesCabGridControl1.DataSource = this.albaranesCabProveedoresBindingSource;
             this.albaranesCabGridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.albaranesCabGridControl1.Location = new System.Drawing.Point(0, 25);
+            this.albaranesCabGridControl1.Location = new System.Drawing.Point(0, 27);
             this.albaranesCabGridControl1.MainView = this.gvAlbaranesProveedorObra;
             this.albaranesCabGridControl1.Name = "albaranesCabGridControl1";
             this.albaranesCabGridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cbObraAlbaran,
             this.AsociarAFactura});
-            this.albaranesCabGridControl1.Size = new System.Drawing.Size(564, 209);
+            this.albaranesCabGridControl1.Size = new System.Drawing.Size(206, 97);
             this.albaranesCabGridControl1.TabIndex = 1;
             this.albaranesCabGridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvAlbaranesProveedorObra});
@@ -2537,7 +2538,7 @@
             this.bindingNavigator2.MovePreviousItem = null;
             this.bindingNavigator2.Name = "bindingNavigator2";
             this.bindingNavigator2.PositionItem = null;
-            this.bindingNavigator2.Size = new System.Drawing.Size(564, 25);
+            this.bindingNavigator2.Size = new System.Drawing.Size(206, 27);
             this.bindingNavigator2.TabIndex = 5;
             this.bindingNavigator2.Text = "bindingNavigator2";
             // 
@@ -2545,25 +2546,25 @@
             // 
             this.toolStripLabel6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.toolStripLabel6.Name = "toolStripLabel6";
-            this.toolStripLabel6.Size = new System.Drawing.Size(123, 22);
+            this.toolStripLabel6.Size = new System.Drawing.Size(123, 24);
             this.toolStripLabel6.Text = "Albaranes Proveedor";
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 27);
             // 
             // toolStripLabel4
             // 
             this.toolStripLabel4.Name = "toolStripLabel4";
-            this.toolStripLabel4.Size = new System.Drawing.Size(106, 22);
+            this.toolStripLabel4.Size = new System.Drawing.Size(106, 15);
             this.toolStripLabel4.Text = "Mostrar Albaranes:";
             // 
             // tbcbCargaAlbaranes
             // 
             this.tbcbCargaAlbaranes.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.tbcbCargaAlbaranes.Name = "tbcbCargaAlbaranes";
-            this.tbcbCargaAlbaranes.Size = new System.Drawing.Size(180, 25);
+            this.tbcbCargaAlbaranes.Size = new System.Drawing.Size(180, 23);
             this.tbcbCargaAlbaranes.SelectedIndexChanged += new System.EventHandler(this.tbcbCargaAlbaranes_SelectedIndexChanged);
             // 
             // toolStripSeparator9
@@ -2574,13 +2575,13 @@
             // toolStripLabel5
             // 
             this.toolStripLabel5.Name = "toolStripLabel5";
-            this.toolStripLabel5.Size = new System.Drawing.Size(48, 22);
+            this.toolStripLabel5.Size = new System.Drawing.Size(48, 15);
             this.toolStripLabel5.Text = "IVA (%):";
             // 
             // tbIVA
             // 
             this.tbIVA.Name = "tbIVA";
-            this.tbIVA.Size = new System.Drawing.Size(50, 25);
+            this.tbIVA.Size = new System.Drawing.Size(50, 23);
             this.tbIVA.Text = "21";
             // 
             // tableAdapterManager
@@ -2744,7 +2745,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1728, 859);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.splitContainerControl1);
             this.Name = "frmCompras";
             this.ShowIcon = false;
