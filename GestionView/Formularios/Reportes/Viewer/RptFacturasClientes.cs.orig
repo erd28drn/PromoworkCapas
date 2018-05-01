@@ -76,7 +76,11 @@ namespace Promowork.Formularios.Reportes.Viewer
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource15);
 
 
+<<<<<<< HEAD:GestionView/Formularios/Reportes/Viewer/RptFacturasClientes.cs
             var trabajadores = TrabajadoresService.ObtenerTrabajadoresConEmail(VariablesGlobales.nIdEmpresaActual);
+=======
+            var trabajadores = TrabajadoresServices.ObtenerTrabajadoresConEmail(VariablesGlobales.nIdEmpresaActual);
+>>>>>>> 15a3e66e0cf606ca43c99ebaedc3e7ae9e70341f:GestionView/Formularios/Reportes/Viewer/RptFacturasClientes.cs
             cbTrabajadores.Properties.DataSource = trabajadores;
 
             var gestores = ProveedoresService.ObtenerGestoresConEmail(VariablesGlobales.nIdEmpresaActual);
@@ -167,13 +171,7 @@ namespace Promowork.Formularios.Reportes.Viewer
                 List<string> adjuntos = new List<string>();
                 adjuntos.Add(nombreFichero + ".PDF");
                 respuesta = Utilidades.EnviaCorreo(VariablesGlobales.nIdEmpresaActual, destinatarios, asunto, adjuntos, cuerpoCorreo, responderA, ccos, nombreRemitente);
-            if (respuesta.Trim().ToUpper().Equals("OK"))
-            {
-                tbResultado.ForeColor = Color.Green;
-            }
-            else
-            {
-                tbResultado.ForeColor = Color.Red;
+<<<<<<< HEAD:GestionView/Formularios/Reportes/Viewer/RptFacturasClientes.cs
             }
             tbResultado.Text = respuesta;
             if (respuesta.Trim().ToUpper().Equals("OK"))
@@ -184,6 +182,18 @@ namespace Promowork.Formularios.Reportes.Viewer
             {
                 tbResultado.ForeColor = Color.Red;
             }
+=======
+            }
+            tbResultado.Text = respuesta;
+            if (respuesta.Trim().ToUpper().Equals("OK"))
+            {
+                tbResultado.ForeColor = Color.Green;
+            }
+            else
+            {
+                tbResultado.ForeColor = Color.Red;
+            }
+>>>>>>> 15a3e66e0cf606ca43c99ebaedc3e7ae9e70341f:GestionView/Formularios/Reportes/Viewer/RptFacturasClientes.cs
             
 
         }

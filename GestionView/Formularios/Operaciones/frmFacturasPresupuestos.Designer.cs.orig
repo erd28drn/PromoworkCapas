@@ -80,8 +80,12 @@
             DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFacturasPresupuestos));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+<<<<<<< HEAD
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             System.Windows.Forms.Label label9;
+=======
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+>>>>>>> 15a3e66e0cf606ca43c99ebaedc3e7ae9e70341f
             this.colFacturaPresup = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colEntregada = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Pendiente = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -2294,7 +2298,11 @@
             this.splitContainer4.Panel2.Controls.Add(this.bindingNavigator1);
             this.splitContainer4.Panel2.Controls.Add(this.panel1);
             this.splitContainer4.Size = new System.Drawing.Size(851, 257);
+<<<<<<< HEAD
             this.splitContainer4.SplitterDistance = 228;
+=======
+            this.splitContainer4.SplitterDistance = 262;
+>>>>>>> 15a3e66e0cf606ca43c99ebaedc3e7ae9e70341f
             this.splitContainer4.TabIndex = 122;
             // 
             // tabDetallesFactura
