@@ -9,7 +9,7 @@ using GestionServices.Generales;
 
 namespace GestionServices.Definiciones
 {
-    public static class TrabajadoresServices
+    public static class TrabajadoresService
     {
         #region TRABAJADORES CON EMAIL
         public static List<TrabajadorConEmail> ObtenerTrabajadoresConEmail(int idEmpresa)

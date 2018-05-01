@@ -81,6 +81,7 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFacturasPresupuestos));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.Windows.Forms.Label label9;
             this.colFacturaPresup = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colEntregada = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Pendiente = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -152,7 +153,7 @@
             this.noDetalleCheckEdit = new DevExpress.XtraEditors.CheckEdit();
             this.entregadaCheckBox = new System.Windows.Forms.CheckBox();
             this.facturaCheckBox = new System.Windows.Forms.CheckBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbFacturarA = new System.Windows.Forms.ComboBox();
             this.copiaFacturaTextBox = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -359,6 +360,7 @@
             this.facturasDetDirectaTableAdapter = new GestionData.DatosPresupuestosTableAdapters.FacturasDetDirectaTableAdapter();
             this.vComprasDirectasTableAdapterFactura = new GestionData.DatosPresupuestosTableAdapters.vComprasDirectasTableAdapter();
             this.vDetallesHorasMaterialesTableAdapter = new GestionData.DatosPresupuestosTableAdapters.vDetallesHorasMaterialesTableAdapter();
+            this.tbUltimaFactura = new System.Windows.Forms.TextBox();
             anticipoLabel = new System.Windows.Forms.Label();
             copiaFacturaLabel = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
@@ -402,6 +404,7 @@
             label5 = new System.Windows.Forms.Label();
             label7 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
+            label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -960,7 +963,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer3);
-            this.splitContainer1.Size = new System.Drawing.Size(1370, 883);
+            this.splitContainer1.Size = new System.Drawing.Size(1370, 724);
             this.splitContainer1.SplitterDistance = 459;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -978,6 +981,8 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.AutoScroll = true;
+            this.splitContainer2.Panel2.Controls.Add(label9);
+            this.splitContainer2.Panel2.Controls.Add(this.tbUltimaFactura);
             this.splitContainer2.Panel2.Controls.Add(this.groupBox3);
             this.splitContainer2.Panel2.Controls.Add(label4);
             this.splitContainer2.Panel2.Controls.Add(this.cbObra);
@@ -995,7 +1000,7 @@
             this.splitContainer2.Panel2.Controls.Add(this.facturaCheckBox);
             this.splitContainer2.Panel2.Controls.Add(copiaFacturaLabel);
             this.splitContainer2.Panel2.Controls.Add(label2);
-            this.splitContainer2.Panel2.Controls.Add(this.comboBox2);
+            this.splitContainer2.Panel2.Controls.Add(this.cbFacturarA);
             this.splitContainer2.Panel2.Controls.Add(this.copiaFacturaTextBox);
             this.splitContainer2.Panel2.Controls.Add(this.button4);
             this.splitContainer2.Panel2.Controls.Add(obsFacturaLabel);
@@ -1563,6 +1568,7 @@
             this.cbObra.Size = new System.Drawing.Size(282, 21);
             this.cbObra.TabIndex = 194;
             this.cbObra.ValueMember = "IdObra";
+            this.cbObra.Validated += new System.EventHandler(this.cbObra_Validated);
             // 
             // obrasBindingSource1
             // 
@@ -1670,19 +1676,19 @@
             this.facturaCheckBox.Text = "Factura";
             this.facturaCheckBox.UseVisualStyleBackColor = true;
             // 
-            // comboBox2
+            // cbFacturarA
             // 
-            this.comboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox2.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.facturasCabBindingSource, "IdClienteFact", true));
-            this.comboBox2.DataSource = this.clientesBindingSource1;
-            this.comboBox2.DisplayMember = "DesCliente";
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(132, 109);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(282, 21);
-            this.comboBox2.TabIndex = 2;
-            this.comboBox2.ValueMember = "IdCliente";
+            this.cbFacturarA.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbFacturarA.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbFacturarA.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.facturasCabBindingSource, "IdClienteFact", true));
+            this.cbFacturarA.DataSource = this.clientesBindingSource1;
+            this.cbFacturarA.DisplayMember = "DesCliente";
+            this.cbFacturarA.FormattingEnabled = true;
+            this.cbFacturarA.Location = new System.Drawing.Point(132, 109);
+            this.cbFacturarA.Name = "cbFacturarA";
+            this.cbFacturarA.Size = new System.Drawing.Size(282, 21);
+            this.cbFacturarA.TabIndex = 2;
+            this.cbFacturarA.ValueMember = "IdCliente";
             // 
             // copiaFacturaTextBox
             // 
@@ -1784,6 +1790,7 @@
             this.idCuentaComboBox.Size = new System.Drawing.Size(282, 21);
             this.idCuentaComboBox.TabIndex = 4;
             this.idCuentaComboBox.ValueMember = "IdCuenta";
+            this.idCuentaComboBox.Validated += new System.EventHandler(this.idCuentaComboBox_Validated);
             // 
             // cuentasBancosBindingSource
             // 
@@ -1829,6 +1836,7 @@
             this.idPresupComboBox.Size = new System.Drawing.Size(282, 21);
             this.idPresupComboBox.TabIndex = 3;
             this.idPresupComboBox.ValueMember = "IdPresupCab";
+            this.idPresupComboBox.Validated += new System.EventHandler(this.idPresupComboBox_Validated);
             // 
             // presupCabBindingSource
             // 
@@ -1873,7 +1881,7 @@
             // 
             this.splitContainer3.Panel2.AutoScroll = true;
             this.splitContainer3.Panel2.Controls.Add(this.splitContainer4);
-            this.splitContainer3.Size = new System.Drawing.Size(1366, 416);
+            this.splitContainer3.Size = new System.Drawing.Size(1366, 257);
             this.splitContainer3.SplitterDistance = 511;
             this.splitContainer3.TabIndex = 1;
             // 
@@ -1883,7 +1891,7 @@
             this.xtraTabControl1.Location = new System.Drawing.Point(0, 0);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.tabDetalleHorasMateriales;
-            this.xtraTabControl1.Size = new System.Drawing.Size(511, 416);
+            this.xtraTabControl1.Size = new System.Drawing.Size(511, 257);
             this.xtraTabControl1.TabIndex = 1;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabDetallePresupuesto,
@@ -1896,7 +1904,7 @@
             this.tabDetalleHorasMateriales.Controls.Add(this.vDetallesHorasMaterialesGridControl);
             this.tabDetalleHorasMateriales.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabDetalleHorasMateriales.Name = "tabDetalleHorasMateriales";
-            this.tabDetalleHorasMateriales.Size = new System.Drawing.Size(505, 388);
+            this.tabDetalleHorasMateriales.Size = new System.Drawing.Size(505, 229);
             this.tabDetalleHorasMateriales.Text = "Detalle Horas Materiales";
             // 
             // vDetallesHorasMaterialesGridControl
@@ -1906,7 +1914,7 @@
             this.vDetallesHorasMaterialesGridControl.Location = new System.Drawing.Point(0, 0);
             this.vDetallesHorasMaterialesGridControl.MainView = this.gridView6;
             this.vDetallesHorasMaterialesGridControl.Name = "vDetallesHorasMaterialesGridControl";
-            this.vDetallesHorasMaterialesGridControl.Size = new System.Drawing.Size(505, 388);
+            this.vDetallesHorasMaterialesGridControl.Size = new System.Drawing.Size(505, 229);
             this.vDetallesHorasMaterialesGridControl.TabIndex = 0;
             this.vDetallesHorasMaterialesGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView6});
@@ -2054,7 +2062,7 @@
             this.tabDetallePresupuesto.Appearance.Header.Options.UseFont = true;
             this.tabDetallePresupuesto.Controls.Add(this.facturasDetGridControl);
             this.tabDetallePresupuesto.Name = "tabDetallePresupuesto";
-            this.tabDetallePresupuesto.Size = new System.Drawing.Size(505, 388);
+            this.tabDetallePresupuesto.Size = new System.Drawing.Size(505, 229);
             this.tabDetallePresupuesto.Text = "Detalle Presupuesto";
             // 
             // facturasDetGridControl
@@ -2066,7 +2074,7 @@
             this.facturasDetGridControl.Name = "facturasDetGridControl";
             this.facturasDetGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btnEliminar});
-            this.facturasDetGridControl.Size = new System.Drawing.Size(505, 388);
+            this.facturasDetGridControl.Size = new System.Drawing.Size(505, 229);
             this.facturasDetGridControl.TabIndex = 0;
             this.facturasDetGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -2285,8 +2293,8 @@
             this.splitContainer4.Panel2.Controls.Add(this.facturasDetGridControl1);
             this.splitContainer4.Panel2.Controls.Add(this.bindingNavigator1);
             this.splitContainer4.Panel2.Controls.Add(this.panel1);
-            this.splitContainer4.Size = new System.Drawing.Size(851, 416);
-            this.splitContainer4.SplitterDistance = 262;
+            this.splitContainer4.Size = new System.Drawing.Size(851, 257);
+            this.splitContainer4.SplitterDistance = 228;
             this.splitContainer4.TabIndex = 122;
             // 
             // tabDetallesFactura
@@ -2295,7 +2303,7 @@
             this.tabDetallesFactura.Location = new System.Drawing.Point(0, 0);
             this.tabDetallesFactura.Name = "tabDetallesFactura";
             this.tabDetallesFactura.SelectedTabPage = this.tabFacturaDirectaCliente;
-            this.tabDetallesFactura.Size = new System.Drawing.Size(851, 262);
+            this.tabDetallesFactura.Size = new System.Drawing.Size(851, 228);
             this.tabDetallesFactura.TabIndex = 122;
             this.tabDetallesFactura.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabPresupuesto,
@@ -2307,7 +2315,7 @@
             this.tabFacturaDirectaCliente.Appearance.Header.Options.UseFont = true;
             this.tabFacturaDirectaCliente.Controls.Add(this.splitContainerControl1);
             this.tabFacturaDirectaCliente.Name = "tabFacturaDirectaCliente";
-            this.tabFacturaDirectaCliente.Size = new System.Drawing.Size(845, 234);
+            this.tabFacturaDirectaCliente.Size = new System.Drawing.Size(845, 200);
             this.tabFacturaDirectaCliente.Text = "Directo Cliente";
             // 
             // splitContainerControl1
@@ -2321,7 +2329,7 @@
             this.splitContainerControl1.Panel2.Controls.Add(this.vComprasDirectasGridControl);
             this.splitContainerControl1.Panel2.Controls.Add(this.bindingNavigator3);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(845, 234);
+            this.splitContainerControl1.Size = new System.Drawing.Size(845, 200);
             this.splitContainerControl1.SplitterPosition = 414;
             this.splitContainerControl1.TabIndex = 1;
             this.splitContainerControl1.Text = "splitContainerControl1";
@@ -2335,7 +2343,7 @@
             this.facturasDetDirectaGridControl.Name = "facturasDetDirectaGridControl";
             this.facturasDetDirectaGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btQuitarCompraDirecta});
-            this.facturasDetDirectaGridControl.Size = new System.Drawing.Size(414, 209);
+            this.facturasDetDirectaGridControl.Size = new System.Drawing.Size(414, 175);
             this.facturasDetDirectaGridControl.TabIndex = 0;
             this.facturasDetDirectaGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView4});
@@ -2539,7 +2547,7 @@
             this.vComprasDirectasGridControl.Name = "vComprasDirectasGridControl";
             this.vComprasDirectasGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.AgregarCompraDirecta});
-            this.vComprasDirectasGridControl.Size = new System.Drawing.Size(426, 209);
+            this.vComprasDirectasGridControl.Size = new System.Drawing.Size(426, 175);
             this.vComprasDirectasGridControl.TabIndex = 0;
             this.vComprasDirectasGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView5});
@@ -2734,7 +2742,7 @@
             this.tabPresupuesto.Controls.Add(this.spnPorciento);
             this.tabPresupuesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPresupuesto.Name = "tabPresupuesto";
-            this.tabPresupuesto.Size = new System.Drawing.Size(845, 234);
+            this.tabPresupuesto.Size = new System.Drawing.Size(845, 200);
             this.tabPresupuesto.Text = "Presupuesto";
             // 
             // button6
@@ -3292,7 +3300,7 @@
             this.facturasDetGridControl1.Location = new System.Drawing.Point(0, 129);
             this.facturasDetGridControl1.MainView = this.gridView3;
             this.facturasDetGridControl1.Name = "facturasDetGridControl1";
-            this.facturasDetGridControl1.Size = new System.Drawing.Size(851, 21);
+            this.facturasDetGridControl1.Size = new System.Drawing.Size(834, 0);
             this.facturasDetGridControl1.TabIndex = 104;
             this.facturasDetGridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -3429,7 +3437,7 @@
             this.bindingNavigator1.MovePreviousItem = null;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = null;
-            this.bindingNavigator1.Size = new System.Drawing.Size(851, 25);
+            this.bindingNavigator1.Size = new System.Drawing.Size(834, 25);
             this.bindingNavigator1.TabIndex = 104;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -3485,7 +3493,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(851, 104);
+            this.panel1.Size = new System.Drawing.Size(834, 104);
             this.panel1.TabIndex = 105;
             // 
             // btSujetoPasivo
@@ -3819,11 +3827,28 @@
             // 
             this.vDetallesHorasMaterialesTableAdapter.ClearBeforeFill = true;
             // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new System.Drawing.Point(282, 68);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(78, 13);
+            label9.TabIndex = 198;
+            label9.Text = "Última Factura:";
+            // 
+            // tbUltimaFactura
+            // 
+            this.tbUltimaFactura.Location = new System.Drawing.Point(363, 64);
+            this.tbUltimaFactura.Name = "tbUltimaFactura";
+            this.tbUltimaFactura.ReadOnly = true;
+            this.tbUltimaFactura.Size = new System.Drawing.Size(51, 20);
+            this.tbUltimaFactura.TabIndex = 197;
+            // 
             // frmFacturasPresupuestos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 908);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.chkSoloPrevisiones);
             this.Controls.Add(this.facturaPresupCheckEdit);
             this.Controls.Add(this.cbxfacturas);
@@ -4042,7 +4067,7 @@
         private DevExpress.XtraEditors.CheckEdit noDetalleCheckEdit;
         private System.Windows.Forms.CheckBox entregadaCheckBox;
         private System.Windows.Forms.CheckBox facturaCheckBox;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbFacturarA;
         private System.Windows.Forms.TextBox copiaFacturaTextBox;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
@@ -4243,5 +4268,6 @@
         private DevExpress.XtraEditors.TextEdit tbPromedioSeleccion;
         private DevExpress.XtraEditors.TextEdit tbSumaSeleccion;
         private DevExpress.XtraEditors.TextEdit tbRecuentoSeleccion;
+        private System.Windows.Forms.TextBox tbUltimaFactura;
     }
 }

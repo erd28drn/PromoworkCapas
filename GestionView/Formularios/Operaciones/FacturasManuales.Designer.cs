@@ -58,10 +58,11 @@
             System.Windows.Forms.Label obsFacturaLabel;
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label anticipoLabel;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FacturasManuales));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.Label label9;
             this.facturasCabBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.promowork_dataDataSet = new GestionData.Promowork_dataDataSet();
             this.obrasBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -171,6 +172,7 @@
             this.anticipoTextBox = new System.Windows.Forms.TextBox();
             this.facturaIncorrectaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.facturaIncorrectaTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.FacturaIncorrectaTableAdapter();
+            this.tbUltimaFactura = new System.Windows.Forms.TextBox();
             copiaFacturaLabel = new System.Windows.Forms.Label();
             idClienteLabel = new System.Windows.Forms.Label();
             idPresupLabel = new System.Windows.Forms.Label();
@@ -200,6 +202,7 @@
             obsFacturaLabel = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             anticipoLabel = new System.Windows.Forms.Label();
+            label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.facturasCabBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.promowork_dataDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obrasBindingSource1)).BeginInit();
@@ -605,6 +608,8 @@
             this.tableAdapterManager.SalariosVentaAdminTableAdapter = null;
             this.tableAdapterManager.SalariosVentaTableAdapter = null;
             this.tableAdapterManager.SeguridadSocialTableAdapter = null;
+            this.tableAdapterManager.TiposProductosTableAdapter = null;
+            this.tableAdapterManager.TiposProveedoresTableAdapter = null;
             this.tableAdapterManager.TiposTableAdapter = null;
             this.tableAdapterManager.TrabajadoresListaTableAdapter = null;
             this.tableAdapterManager.TrabajadoresTableAdapter = null;
@@ -669,18 +674,18 @@
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.DataPropertyName = "Cantidad";
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTextBoxColumn8.HeaderText = "Cantidad";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             // 
             // dataGridViewTextBoxColumn9
             // 
             this.dataGridViewTextBoxColumn9.DataPropertyName = "Precio";
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Format = "N2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewTextBoxColumn9.HeaderText = "Precio";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             // 
@@ -958,9 +963,9 @@
             // Importe
             // 
             this.Importe.DataPropertyName = "Importe";
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.Importe.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Format = "N2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.Importe.DefaultCellStyle = dataGridViewCellStyle6;
             this.Importe.HeaderText = "Importe";
             this.Importe.Name = "Importe";
             this.Importe.ReadOnly = true;
@@ -1388,7 +1393,7 @@
             // facturaCheckBox
             // 
             this.facturaCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.facturasCabBindingSource, "Factura", true));
-            this.facturaCheckBox.Location = new System.Drawing.Point(623, 36);
+            this.facturaCheckBox.Location = new System.Drawing.Point(623, 9);
             this.facturaCheckBox.Name = "facturaCheckBox";
             this.facturaCheckBox.Size = new System.Drawing.Size(66, 22);
             this.facturaCheckBox.TabIndex = 115;
@@ -1398,7 +1403,7 @@
             // entregadaCheckBox
             // 
             this.entregadaCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.facturasCabBindingSource, "Entregada", true));
-            this.entregadaCheckBox.Location = new System.Drawing.Point(688, 36);
+            this.entregadaCheckBox.Location = new System.Drawing.Point(688, 10);
             this.entregadaCheckBox.Name = "entregadaCheckBox";
             this.entregadaCheckBox.Size = new System.Drawing.Size(84, 21);
             this.entregadaCheckBox.TabIndex = 116;
@@ -1427,7 +1432,7 @@
             // esPrevisionCheckEdit
             // 
             this.esPrevisionCheckEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.facturasCabBindingSource, "EsPrevision", true));
-            this.esPrevisionCheckEdit.Location = new System.Drawing.Point(764, 36);
+            this.esPrevisionCheckEdit.Location = new System.Drawing.Point(764, 11);
             this.esPrevisionCheckEdit.Name = "esPrevisionCheckEdit";
             this.esPrevisionCheckEdit.Properties.Caption = "Previsión";
             this.esPrevisionCheckEdit.Size = new System.Drawing.Size(75, 19);
@@ -1460,6 +1465,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(label9);
+            this.groupBox3.Controls.Add(this.tbUltimaFactura);
             this.groupBox3.Controls.Add(this.txtSerieFact);
             this.groupBox3.Controls.Add(this.chkMostrarObra);
             this.groupBox3.Controls.Add(anticipoLabel);
@@ -1543,7 +1550,7 @@
             // chkMostrarObra
             // 
             this.chkMostrarObra.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.facturasCabBindingSource, "MostrarObra", true));
-            this.chkMostrarObra.Location = new System.Drawing.Point(833, 36);
+            this.chkMostrarObra.Location = new System.Drawing.Point(833, 11);
             this.chkMostrarObra.Name = "chkMostrarObra";
             this.chkMostrarObra.Properties.Caption = "Mostrar Obra";
             this.chkMostrarObra.Size = new System.Drawing.Size(90, 19);
@@ -1565,6 +1572,23 @@
             // facturaIncorrectaTableAdapter
             // 
             this.facturaIncorrectaTableAdapter.ClearBeforeFill = true;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new System.Drawing.Point(686, 41);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(78, 13);
+            label9.TabIndex = 200;
+            label9.Text = "Última Factura:";
+            // 
+            // tbUltimaFactura
+            // 
+            this.tbUltimaFactura.Location = new System.Drawing.Point(767, 37);
+            this.tbUltimaFactura.Name = "tbUltimaFactura";
+            this.tbUltimaFactura.ReadOnly = true;
+            this.tbUltimaFactura.Size = new System.Drawing.Size(51, 20);
+            this.tbUltimaFactura.TabIndex = 199;
             // 
             // FacturasManuales
             // 
@@ -1728,5 +1752,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdFactCab;
         private System.Windows.Forms.DataGridViewCheckBoxColumn FacturaPresup;
+        private System.Windows.Forms.TextBox tbUltimaFactura;
     }
 }

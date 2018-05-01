@@ -59,11 +59,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Definiciones\TrabajadoresServices.cs" />
-    <Compile Include="Definiciones\ProveedoresServices.cs" />
+    <Compile Include="Definiciones\TrabajadoresService.cs" />
+    <Compile Include="Definiciones\ProveedoresService.cs" />
     <Compile Include="Generales\ErroresSQLSerrver.cs" />
     <Compile Include="Generales\Utilidades.cs" />
-    <Compile Include="Operaciones\ServicioCompraPoveedores.cs" />
+    <Compile Include="Operaciones\FacturasClientesService.cs" />
+    <Compile Include="Operaciones\ComprasPoveedoresService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

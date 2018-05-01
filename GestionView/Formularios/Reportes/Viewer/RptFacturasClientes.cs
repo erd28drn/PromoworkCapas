@@ -15,9 +15,9 @@ using System.IO;
 
 namespace Promowork.Formularios.Reportes.Viewer
 {
-    public partial class RptFacturasPresupImp2 : Form
+    public partial class RptFacturasClientes : Form
     {
-        public RptFacturasPresupImp2()
+        public RptFacturasClientes()
         {
             InitializeComponent();
 
@@ -27,7 +27,7 @@ namespace Promowork.Formularios.Reportes.Viewer
         DataRowView factura;
         string nombreFactura;
 
-        internal void LoadFiltro(int nIdFactCab, string reporte)
+        internal void LoadFiltro(int nIdFactCab, string reporte, bool facturaHoras=false)
         {
             this.WindowState = FormWindowState.Maximized;
             this.reportViewer1.LocalReport.ReportEmbeddedResource = reporte;
@@ -43,10 +43,43 @@ namespace Promowork.Formularios.Reportes.Viewer
             this.empresasPoblacion.FillByEmpresa(this.Promowork_dataDataSet.EmpresasPoblacion, VariablesGlobales.nIdEmpresaActual);
             this.empresasTableAdapter.FillByEmpresa(this.Promowork_dataDataSet.Empresas, VariablesGlobales.nIdEmpresaActual);
 
-            var trabajadores = TrabajadoresServices.ObtenerTrabajadoresConEmail(VariablesGlobales.nIdEmpresaActual);
+            // 
+            // reportViewer1
+            // 
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource11 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource12 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource13 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource14 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource15 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            
+            reportDataSource11.Name = "DataSet1";
+            if (facturaHoras)
+            {
+                reportDataSource11.Value = this.FacturasDetHorasImpBindingSource;
+            }
+            else
+            {
+                reportDataSource11.Value = this.FacturasDetImpBindingSource;
+            }
+            reportDataSource12.Name = "DataSet2";
+            reportDataSource12.Value = this.empresasPoblacionBindingSource;
+            reportDataSource13.Name = "DataSet3";
+            reportDataSource13.Value = this.FacturasCabImpBindingSource;
+            reportDataSource14.Name = "ComprasDirectas";
+            reportDataSource14.Value = this.vComprasDirectasBindingSource;
+            reportDataSource15.Name = "DetallesHoras";
+            reportDataSource15.Value = this.FacturasDetHorasImpBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource11);
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource12);
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource13);
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource14);
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource15);
+
+
+            var trabajadores = TrabajadoresService.ObtenerTrabajadoresConEmail(VariablesGlobales.nIdEmpresaActual);
             cbTrabajadores.Properties.DataSource = trabajadores;
 
-            var gestores = ProveedoresServices.ObtenerGestoresConEmail(VariablesGlobales.nIdEmpresaActual);
+            var gestores = ProveedoresService.ObtenerGestoresConEmail(VariablesGlobales.nIdEmpresaActual);
             cbGestor.Properties.DataSource = gestores;
 
             factura = (DataRowView)FacturasCabImpBindingSource.Current;
@@ -95,10 +128,12 @@ namespace Promowork.Formularios.Reportes.Viewer
             empresasTableAdapter.Update(Promowork_dataDataSet.Empresas);
 
             List<string> responderA = null;
+            string nombreRemitente = "";
             if (cbTrabajadores.ItemIndex != -1)
             {
                 var trabajador = (TrabajadorConEmail)cbTrabajadores.GetSelectedDataRow();
                 responderA = trabajador.EmailTrabajador.Split(';').ToList();
+                nombreRemitente = trabajador.NombreTrabajador;
             }
             else
             {
@@ -120,8 +155,8 @@ namespace Promowork.Formularios.Reportes.Viewer
 
             
             string nombreFichero = "ENVIADOS/FACTURAS/" + nombreFactura;
-            var RespuestaCrearFichero = Utilidades.ExportarReporte(reportViewer1, nombreFichero, ".PDF", "PDF");
-            if (RespuestaCrearFichero == string.Empty)
+            var respuesta = Utilidades.ExportarReporte(reportViewer1, nombreFichero, ".PDF", "PDF");
+            if (respuesta == string.Empty)
             {
                 List<string> destinatarios = factura["EmailCliente"].ToString().Split(';').ToList();
                 //destinatarios = new List<string>();
@@ -131,10 +166,19 @@ namespace Promowork.Formularios.Reportes.Viewer
                 var cuerpoCorreo = tbCuerpoMensaje.Text.Replace("\n", "<br>"); 
                 List<string> adjuntos = new List<string>();
                 adjuntos.Add(nombreFichero + ".PDF");
-                string respuestaEnviarCorreo = Utilidades.EnviaCorreo(VariablesGlobales.nIdEmpresaActual, destinatarios, asunto, adjuntos, cuerpoCorreo, responderA, ccos);
-
-                tbResultado.Text = respuestaEnviarCorreo;
+                respuesta = Utilidades.EnviaCorreo(VariablesGlobales.nIdEmpresaActual, destinatarios, asunto, adjuntos, cuerpoCorreo, responderA, ccos, nombreRemitente);
             }
+            tbResultado.Text = respuesta;
+            if (respuesta.Trim().ToUpper().Equals("OK"))
+            {
+                tbResultado.ForeColor = Color.Green;
+            }
+            else
+            {
+                tbResultado.ForeColor = Color.Red;
+            }
+            
+
         }
 
     }

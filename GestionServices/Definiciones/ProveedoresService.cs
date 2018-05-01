@@ -9,7 +9,7 @@ using GestionServices.Generales;
 
 namespace GestionServices.Definiciones
 {
-    public static class ProveedoresServices
+    public static class ProveedoresService
     {
         #region GESTORES CON EMAIL
 
@@ -17,9 +17,10 @@ namespace GestionServices.Definiciones
 
         public static List<GestorConEmail> ObtenerGestoresConEmail(int idEmpresa)
         {
-            int idGrupoGestor = 47;
+            string codGrupoGestor = "052";
             Promowork_dataEntities contexto = new Promowork_dataEntities();
 
+            int idGrupoGestor = contexto.GruposProductos.FirstOrDefault(g => g.IdEmpresa == idEmpresa && g.CodGrupo == codGrupoGestor).IdGrupo;
             var gestoresConEmail = contexto.Proveedores.Where(p => p.IdEmpresa == idEmpresa && p.Idgrupo == idGrupoGestor && !string.IsNullOrEmpty(p.EmailProveedor))
             .Select(t => new GestorConEmail()
             {

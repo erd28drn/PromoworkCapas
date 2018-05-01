@@ -37,7 +37,7 @@ namespace Promowork
             Application.SetCompatibleTextRenderingDefault(false);
            
             Thread.CurrentThread.CurrentUICulture = new  CultureInfo("es-ES");
-            
+
             try
             {
                 Application.Run(new EntradaSistema ());

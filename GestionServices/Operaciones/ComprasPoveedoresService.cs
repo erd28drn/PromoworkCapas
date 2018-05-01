@@ -4,19 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data;
+using GestionData.Entities;
 
-namespace Promowork
+namespace GestionServices.Operaciones
 {
-    public static class ServicioComprasPoveedores
+    public static class ComprasPoveedoresService
     {
 
         public static TotalesCompra CalculaTotalesCompra(BindingSource comprasDetBindingSource)
         {
-            List<ServicioComprasPoveedores.TotalesCompra> detalleCompra = new List<ServicioComprasPoveedores.TotalesCompra>();
+            List<TotalesCompra> detalleCompra = new List<TotalesCompra>();
 
             foreach (DataRowView Row in comprasDetBindingSource)
             {
-                detalleCompra.Add(new ServicioComprasPoveedores.TotalesCompra
+                detalleCompra.Add(new TotalesCompra
                 {
                     ImporteBase = Row["ImpBase"] == DBNull.Value ? 0 : (decimal)Row["ImpBase"],
                     ImporteIVA = Row["ImpIva"] == DBNull.Value ? 0 : (decimal)Row["ImpIva"],
@@ -64,16 +65,5 @@ namespace Promowork
 
         }
 
-        public class TotalesCompra
-        {
-            public decimal ImporteBase { get; set; }
-            public decimal ImporteIVA { get; set; }
-            public decimal ImporteIRPF { get; set; }
-            public decimal ImporteTotal
-            {
-                get { return ImporteBase + ImporteIVA - ImporteIRPF; }
-                set { value = ImporteTotal; }
-            }
-        }
     }
 }

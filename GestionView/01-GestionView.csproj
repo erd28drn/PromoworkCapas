@@ -85,6 +85,10 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AxInterop.AcroPDFLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Referencias\AxInterop.AcroPDFLib.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.CodeParser.v12.1, Version=12.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v12.1, Version=12.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Office.v12.1.Core, Version=12.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -113,6 +117,11 @@
     <Reference Include="DevExpress.XtraSpellChecker.v12.1, Version=12.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraTreeList.v12.1, Version=12.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraVerticalGrid.v12.1, Version=12.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="Interop.AcroPDFLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\Referencias\Interop.AcroPDFLib.dll</HintPath>
+    </Reference>
     <Reference Include="itextsharp.pdfa">
       <HintPath>..\..\..\..\Instalaciones\Visual Studio.NET 2010 (Español)\itextsharp-all-5.5.10\itextsharp.pdfa.dll</HintPath>
     </Reference>
@@ -578,11 +587,11 @@
     <Compile Include="Formularios\Reportes\Viewer\RptFacturasPresupImp.Designer.cs">
       <DependentUpon>RptFacturasPresupImp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viewer\RptFacturasPresupImp2.cs">
+    <Compile Include="Formularios\Reportes\Viewer\RptFacturasClientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Viewer\RptFacturasPresupImp2.Designer.cs">
-      <DependentUpon>RptFacturasPresupImp2.cs</DependentUpon>
+    <Compile Include="Formularios\Reportes\Viewer\RptFacturasClientes.Designer.cs">
+      <DependentUpon>RptFacturasClientes.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Reportes\Viewer\RptFacturasPresupParteImp2.cs">
       <SubType>Form</SubType>
@@ -1216,8 +1225,8 @@
     <EmbeddedResource Include="Formularios\Reportes\Viewer\RptFacturasPresupImp.resx">
       <DependentUpon>RptFacturasPresupImp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptFacturasPresupImp2.resx">
-      <DependentUpon>RptFacturasPresupImp2.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptFacturasClientes.resx">
+      <DependentUpon>RptFacturasClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Reportes\Viewer\RptFacturasPresupParteImp2.resx">
       <DependentUpon>RptFacturasPresupParteImp2.cs</DependentUpon>
@@ -1577,23 +1586,6 @@
     </PublishFile>
   </ItemGroup>
   <ItemGroup>
-    <COMReference Include="AcroPDFLib">
-      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="AxAcroPDFLib">
-      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>aximp</WrapperTool>
-      <Isolated>False</Isolated>
-    </COMReference>
     <COMReference Include="WIA">
       <Guid>{94A0E92D-43C0-494E-AC29-FD45948A5221}</Guid>
       <VersionMajor>1</VersionMajor>

@@ -15,6 +15,7 @@ using Promowork.Formularios.Operaciones;
 using GestionData;
 using GestionData.Enumeradores;
 using GestionServices.Generales;
+using GestionServices.Operaciones;
 
 namespace Promowork.Formularios.Operaciones
 {
@@ -790,7 +791,7 @@ namespace Promowork.Formularios.Operaciones
         {
             if (comprasCabBindingSource != null && comprasCabBindingSource.Count > 0)
             {
-                var totales = ServicioComprasPoveedores.CalculaTotalesCompra(comprasDetBindingSource);
+                var totales = ComprasPoveedoresService.CalculaTotalesCompra(comprasDetBindingSource);
 
                 if (totales != null)
                 {
@@ -806,7 +807,7 @@ namespace Promowork.Formularios.Operaciones
         {
             if (comprasCabBindingSource != null && comprasCabBindingSource.Count > 0)
             {
-                decimal importePagado = ServicioComprasPoveedores.CalculaTotalPagado(pagosBindingSource);
+                decimal importePagado = ComprasPoveedoresService.CalculaTotalPagado(pagosBindingSource);
                 ((DataRowView)comprasCabBindingSource.Current)["ImpPagado"] = importePagado;
             }
         }

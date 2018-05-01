@@ -46,7 +46,7 @@ namespace Promowork.Formularios.Reportes.Parametros
             
             this.EmpresasActualTableAdapter.FillByEmpresa(this.Promowork_dataDataSet.EmpresasActual, VariablesGlobales.nIdEmpresaActual);
 
-            var trabajadores = TrabajadoresServices.ObtenerTrabajadoresConEmail(VariablesGlobales.nIdEmpresaActual);
+            var trabajadores = TrabajadoresService.ObtenerTrabajadoresConEmail(VariablesGlobales.nIdEmpresaActual);
             cbTrabajadores.Properties.DataSource = trabajadores;
             
         }
@@ -151,12 +151,15 @@ namespace Promowork.Formularios.Reportes.Parametros
             tabControl1.SelectedTab = tabControl1.TabPages[2];
             Cursor.Current = Cursors.WaitCursor;
             GuardarAsuntoCuerpoMensaje();
+
             List<string> responderA=null;
+            string nombreRemitente = "";
             if (cbTrabajadores.ItemIndex != -1)
             {
                 var trabajador = (TrabajadorConEmail)cbTrabajadores.GetSelectedDataRow();
 
                 responderA = trabajador.EmailTrabajador.Split(';').ToList();
+                nombreRemitente = trabajador.NombreTrabajador;
             }
             else
             {
@@ -186,7 +189,7 @@ namespace Promowork.Formularios.Reportes.Parametros
                     string asunto = tbAsuntoObrasProveedores.Text;// "Listado de Obras Activas";
                     List<string> adjuntos= new List<string>();
                     adjuntos.Add(nombreFichero+ ".PDF");
-                    string respuestaEnviarCorreo= Utilidades.EnviaCorreo(VariablesGlobales.nIdEmpresaActual, destinatarios, asunto, adjuntos, cuerpoCorreo, responderA);
+                    string respuestaEnviarCorreo = Utilidades.EnviaCorreo(VariablesGlobales.nIdEmpresaActual, destinatarios, asunto, adjuntos, cuerpoCorreo, responderA, null, nombreRemitente);
                     proveedor.Enviado = true;
                     proveedor.Respuesta = respuestaEnviarCorreo;
                 }
@@ -198,7 +201,7 @@ namespace Promowork.Formularios.Reportes.Parametros
             }
             gridControl1.RefreshDataSource();
 
-            EnviarResumenCorreosEnviados(responderA);
+            EnviarResumenCorreosEnviados(responderA, nombreRemitente);
             this.reportViewer1.RefreshReport();
 
             Cursor.Current = Cursors.Default;
@@ -212,7 +215,7 @@ namespace Promowork.Formularios.Reportes.Parametros
             this.EmpresasActualTableAdapter.Update(Promowork_dataDataSet.EmpresasActual);
         }
 
-        private void EnviarResumenCorreosEnviados(List<string> responderA)
+        private void EnviarResumenCorreosEnviados(List<string> responderA, string nombreRemitente)
         {
             string tablaHTML = Utilidades.CrearTablaHTMLDesdeGridView(gridView1);
 
@@ -230,7 +233,7 @@ namespace Promowork.Formularios.Reportes.Parametros
 
                 //List<string> destinatarios = new List<string>();
                 //destinatarios.Add(responderA);
-                Utilidades.EnviaCorreo(VariablesGlobales.nIdEmpresaActual, responderA, "Resumen Obras Enviadas a Proveedores", adjuntos, cuerpoMensaje, responderA);
+                Utilidades.EnviaCorreo(VariablesGlobales.nIdEmpresaActual, responderA, "Resumen Obras Enviadas a Proveedores", adjuntos, cuerpoMensaje, responderA, null, nombreRemitente);
             }
 
         }

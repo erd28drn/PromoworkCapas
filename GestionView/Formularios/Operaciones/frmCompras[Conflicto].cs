@@ -18,7 +18,6 @@ using Promowork.Formularios.Operaciones;
 using GestionData;
 using GestionData.Enumeradores;
 using GestionServices.Generales;
-using GestionServices.Operaciones;
 
 namespace Promowork.Formularios.Operaciones
 {
@@ -31,7 +30,6 @@ namespace Promowork.Formularios.Operaciones
 
         int vCompra=0;
         int vProveedor=0;
-        int vProveedorAnterior = 0;
         int? vObra=0;
         int vDiasCredito=0;
         int vAlbaran = 0;
@@ -133,7 +131,6 @@ namespace Promowork.Formularios.Operaciones
 
         private void ActualizaIdCompra(int rowIndex )
         {
-            vProveedorAnterior = vProveedor;
             if (!gvComprasCab.IsFilterRow(rowIndex) && rowIndex >= 0)
             {
                 int.TryParse(gvComprasCab.GetFocusedRowCellValue(colIdCompra).ToString(), out vCompra);
@@ -334,7 +331,6 @@ namespace Promowork.Formularios.Operaciones
         {
             if (cbProveedores.ItemIndex!=-1)
             {
-                vProveedorAnterior = vProveedor;
                 vProveedor = (int)cbProveedores.EditValue;
                 
                 CargaAlbaranesProveedores();
@@ -371,23 +367,21 @@ namespace Promowork.Formularios.Operaciones
 
         private void cbProveedores_Validated(object sender, EventArgs e)
         {
-            if (cbProveedores.ItemIndex != -1 && vProveedor!=vProveedorAnterior)
+            if (cbProveedores.ItemIndex != -1 && (int)cbProveedores.EditValue != vProveedor)//NUNCA ENTRA PORQUE vProveedores se actualiza al nuevo valor.
             {
                 var proveedor = (DataRowView)cbProveedores.GetSelectedDataRow();
                 int.TryParse(proveedor["CredProveedor"].ToString(), out vDiasCredito);
 
-                //object vFormaPago = DBNull.Value;
-                //object vCuenta = DBNull.Value;
+                int? vFormaPago = null;
+                int? vCuenta = null;
 
-                //vFormaPago=proveedor["IdFormaPago"];
-                //vCuenta=proveedor["IdCuenta"];
+                vFormaPago=(int?)proveedor["IdFormaPago"];
+                vCuenta=(int?)proveedor["IdCuenta"];
 
                 ActualizaFechaVencimiento();
 
-                cbFormaPago.EditValue = proveedor["IdFormaPago"];
-                cbCuenta.EditValue = proveedor["IdCuenta"];
-
-                vProveedorAnterior = vProveedor;
+                cbFormaPago.EditValue = vFormaPago;
+                cbCuenta.EditValue = vCuenta;
             }
         }
 
@@ -742,7 +736,7 @@ namespace Promowork.Formularios.Operaciones
         {
             if (comprasCabBindingSource != null && comprasCabBindingSource.Count > 0)
             {
-                var totales = ComprasPoveedoresService.CalculaTotalesCompra(comprasDetBindingSource);
+                var totales = ServicioComprasPoveedores.CalculaTotalesCompra(comprasDetBindingSource);
 
                 if (totales != null)
                 {
@@ -758,7 +752,7 @@ namespace Promowork.Formularios.Operaciones
         {
             if (comprasCabBindingSource != null && comprasCabBindingSource.Count > 0)
             {
-                decimal importePagado = ComprasPoveedoresService.CalculaTotalPagado(pagosBindingSource);
+                decimal importePagado = ServicioComprasPoveedores.CalculaTotalPagado(pagosBindingSource);
                 ((DataRowView)comprasCabBindingSource.Current)["ImpPagado"] = importePagado;
             }
         }
@@ -771,11 +765,6 @@ namespace Promowork.Formularios.Operaciones
         private void gvPagos_RowCountChanged(object sender, EventArgs e)
         {
             CalculaTotalPagado();
-        }
-
-        private void cbProveedores_Enter(object sender, EventArgs e)
-        {
-
         }
 
        

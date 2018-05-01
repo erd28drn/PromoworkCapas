@@ -994,7 +994,7 @@ namespace Promowork.Formularios.Operaciones
                int Factura = Convert.ToInt32(FacturaAct["IdFactCab"]);
 
 
-               RptFacturasPresupImp2 frm = new RptFacturasPresupImp2();
+               RptFacturasClientes frm = new RptFacturasClientes();
                frm.LoadFiltro(Factura, "Promowork.Reportes.FacturaPresupImp2.rdlc");
                frm.MdiParent = this.MdiParent;
                frm.Show();

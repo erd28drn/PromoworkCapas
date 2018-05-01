@@ -163,9 +163,10 @@ namespace GestionServices.Generales
         #endregion VALIDAR EMAIL
 
         #region ENVIAR REPORTES POR CORREO ELECTRONICO
-        public static string EnviaCorreo(int idEmpresa, List<string> destinatarios, string asunto, List<string> adjuntos, string cuerpo, List<string> responderA, List<string> ccos=null)
+        public static string EnviaCorreo(int idEmpresa, List<string> destinatarios, string asunto, List<string> adjuntos, string cuerpo, List<string> responderA, List<string> ccos=null, string nombreRemitente="")
         {
             string mensaje="";
+            
 
             GestionData.DatosReportesNuevosTableAdapters.ServidorSMTPTableAdapter ServidorSMTPTableAdapter = new GestionData.DatosReportesNuevosTableAdapters.ServidorSMTPTableAdapter();
             var servidorSMTP = ServidorSMTPTableAdapter.GetData(idEmpresa).First();
@@ -177,11 +178,15 @@ namespace GestionServices.Generales
             smtp.UseDefaultCredentials = servidorSMTP.UsarCredencialesPorDefecto;
             smtp.Credentials = new NetworkCredential(servidorSMTP.Usuario, servidorSMTP.Clave);
 
-            
+            string from = "compras@promowork.es";//servidorSMTP.Usuario
+            if (responderA.Any())
+            {
+                from = responderA.FirstOrDefault();
+            }
 
             MailMessage msg = new MailMessage();
             msg.IsBodyHtml = true;
-            msg.From = new MailAddress("compras@promowork.es");//servidorSMTP.Usuario);
+            msg.From = new MailAddress(from, nombreRemitente);//servidorSMTP.Usuario);
             msg.Subject = asunto;
             msg.Body = cuerpo;
 

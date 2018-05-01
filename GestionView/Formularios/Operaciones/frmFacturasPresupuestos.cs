@@ -17,6 +17,7 @@ using GestionData.Enumeradores;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
 using GestionServices.Generales;
+using GestionServices.Operaciones;
 
 namespace Promowork.Formularios.Operaciones
 {
@@ -32,6 +33,7 @@ namespace Promowork.Formularios.Operaciones
         int nIdPresup = 0;
         int nIdObra = 0;
         Boolean esFactura = true;
+        DataRowView facturaCabRow;
 
         private void facturasCabBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
@@ -79,15 +81,12 @@ namespace Promowork.Formularios.Operaciones
                     //        return;
                     //    }
                     //}
-                    
-                    
-                    DataRowView Presupuesto = (DataRowView) presupCabBindingSource.Current;
-
-                    gridView1.SetFocusedRowCellValue("IdObra", Presupuesto["IdObra"]);
-
+        
                     this.Validate();
                     this.facturasCabBindingSource.EndEdit();
                     facturasCabTableAdapter.Update(datosPresupuestos.FacturasCab);
+
+                    ActuallizaUltimoNumeroFactura();
                 }
                 catch (Exception ex)
                 {
@@ -115,8 +114,14 @@ namespace Promowork.Formularios.Operaciones
             cbxfacturas.SelectedIndex = 0;
             //MessageBox.Show("hjhu");
             this.facturasCabTableAdapter.FillByAno(this.datosPresupuestos.FacturasCab, VariablesGlobales.nIdEmpresaActual, (int)comboBox1.SelectedValue, esFactura);
+
+            ActuallizaUltimoNumeroFactura();
         }
 
+        private void ActuallizaUltimoNumeroFactura()
+        {
+            tbUltimaFactura.Text = FacturasClientesService.GetUltimaFactura(VariablesGlobales.nIdEmpresaActual, (int)comboBox1.SelectedValue, esFactura).ToString();
+        }
 
 
         private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
@@ -126,6 +131,8 @@ namespace Promowork.Formularios.Operaciones
                 // MessageBox.Show("hjhu");
                 this.facturasCabTableAdapter.FillByAno(this.datosPresupuestos.FacturasCab, VariablesGlobales.nIdEmpresaActual, (int)comboBox1.SelectedValue, esFactura);
                 facturaPresupCheckEdit_CheckedChanged(null, null);
+
+                ActuallizaUltimoNumeroFactura();
             }
         }
 
@@ -142,13 +149,13 @@ namespace Promowork.Formularios.Operaciones
 
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-
+            facturaCabRow = (DataRowView)facturasCabBindingSource.Current;
             if (entregadaCheckBox.CheckState == CheckState.Checked)
             {
                 idClienteComboBox.Enabled = false;
                 idPresupComboBox.Enabled = false;
                 cbObra.Enabled = false;
-                comboBox2.Enabled = false;
+                cbFacturarA.Enabled = false;
                 idCuentaComboBox.Enabled = false;
                 fechaFacturaDateTimePicker.Enabled = false;
                 fechaVctoFactDateTimePicker.Enabled = false;
@@ -187,11 +194,18 @@ namespace Promowork.Formularios.Operaciones
                 {
                     idClienteComboBox.Enabled = true;
                     idPresupComboBox.Enabled = true;
-                    cbObra.Enabled = true;
+                    if (idPresupComboBox.SelectedIndex == -1)
+                    {
+                        cbObra.Enabled = true;
+                    }
+                    else
+                    {
+                        cbObra.Enabled = false;
+                    }
 
                 }
 
-                comboBox2.Enabled = true;
+                cbFacturarA.Enabled = true;
                 idCuentaComboBox.Enabled = true;
                 fechaFacturaDateTimePicker.Enabled = true;
                 fechaVctoFactDateTimePicker.Enabled = true;
@@ -259,16 +273,15 @@ namespace Promowork.Formularios.Operaciones
             if (facturaCheckBox.Checked == true)
             {
 
-                RptFacturasPresupImp2 frm = new RptFacturasPresupImp2();
+                RptFacturasClientes frm = new RptFacturasClientes();
                 frm.LoadFiltro(nIdFactura, "Promowork.Reportes.FacturaPresupImp2.rdlc");
                 frm.MdiParent = this.MdiParent;
                 frm.Show();
             }
             else
             {
-
-                RptFacturasPresupParteImp2 frm = new RptFacturasPresupParteImp2();
-                frm.LoadFiltro(nIdFactura);
+                RptFacturasClientes frm = new RptFacturasClientes();
+                frm.LoadFiltro(nIdFactura, "Promowork.Reportes.FacturaPresupImpParte2.rdlc");
                 frm.MdiParent = this.MdiParent;
                 frm.Show();
 
@@ -304,6 +317,8 @@ namespace Promowork.Formularios.Operaciones
             }
             this.facturasCabTableAdapter.FillByAno(this.datosPresupuestos.FacturasCab, VariablesGlobales.nIdEmpresaActual, (int)comboBox1.SelectedValue, esFactura);
             facturaPresupCheckEdit_CheckedChanged(null, null);
+
+            ActuallizaUltimoNumeroFactura();
         }
 
         private void facturaPresupCheckEdit_CheckedChanged(object sender, EventArgs e)
@@ -338,6 +353,7 @@ namespace Promowork.Formularios.Operaciones
             if (idClienteComboBox.SelectedIndex != -1)
             {
                 presupCabTableAdapter.FillByCliente(datosPresupuestos.PresupCab, (int)idClienteComboBox.SelectedValue);
+                cbFacturarA.SelectedValue = idClienteComboBox.SelectedValue;
                 obrasBindingSource1.Filter = "IdCliente=" + idClienteComboBox.SelectedValue.ToString();
             }
             else
@@ -814,6 +830,49 @@ namespace Promowork.Formularios.Operaciones
             tbRecuentoSeleccion.Text = resultado.Recuento.ToString();
             tbSumaSeleccion.Text = resultado.Suma.ToString("N2");
             tbPromedioSeleccion.Text = resultado.Promedio.ToString("N2");
+        }
+
+        private void idPresupComboBox_Validated(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(idPresupComboBox.Text))
+            {
+              facturaCabRow["IdPresup"]  = DBNull.Value;
+                try
+                {
+                    if ((decimal)gridView1.GetFocusedRowCellValue(colTotalBase) == 0)
+                    {
+                        cbObra.Enabled = true;
+                    }
+                }
+                catch { }
+            }
+            else
+            {
+                DataRowView Presupuesto = (DataRowView)presupCabBindingSource.Current;
+
+                if (Presupuesto != null)
+                {
+                    facturaCabRow["IdObra"] = Presupuesto["IdObra"];
+                    cbObra.SelectedValue = Presupuesto["IdObra"];
+                    cbObra.Enabled = false;
+                }
+            }
+        }
+
+        private void cbObra_Validated(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(cbObra.Text))
+            {
+                facturaCabRow["IdObra"] = DBNull.Value;
+            }
+        }
+
+        private void idCuentaComboBox_Validated(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(idCuentaComboBox.Text))
+            {
+                facturaCabRow["IdCuenta"] = DBNull.Value;
+            }
         }
 
     }

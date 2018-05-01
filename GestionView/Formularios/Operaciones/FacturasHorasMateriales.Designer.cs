@@ -60,10 +60,11 @@
             System.Windows.Forms.Label copiaFacturaLabel;
             System.Windows.Forms.Label anticipoLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FacturasHorasMateriales));
-            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
-            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
-            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
-            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition5 = new DevExpress.XtraGrid.StyleFormatCondition();
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition6 = new DevExpress.XtraGrid.StyleFormatCondition();
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition7 = new DevExpress.XtraGrid.StyleFormatCondition();
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition8 = new DevExpress.XtraGrid.StyleFormatCondition();
+            System.Windows.Forms.Label label9;
             this.colEntregada = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colImpPendiente = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFacturaPresup = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -318,6 +319,7 @@
             this.bindingNavigator3 = new System.Windows.Forms.BindingNavigator(this.components);
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.splitContainer7 = new System.Windows.Forms.SplitContainer();
+            this.tbUltimaFactura = new System.Windows.Forms.TextBox();
             desFormaPagoLabel = new System.Windows.Forms.Label();
             impBaseLabel = new System.Windows.Forms.Label();
             impIVALabel = new System.Windows.Forms.Label();
@@ -348,6 +350,7 @@
             label1 = new System.Windows.Forms.Label();
             copiaFacturaLabel = new System.Windows.Forms.Label();
             anticipoLabel = new System.Windows.Forms.Label();
+            label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.facturasCabBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.promowork_dataDataSet)).BeginInit();
@@ -1140,7 +1143,7 @@
             this.vFacturaDetHorasGridControl.Location = new System.Drawing.Point(0, 25);
             this.vFacturaDetHorasGridControl.MainView = this.gridView1;
             this.vFacturaDetHorasGridControl.Name = "vFacturaDetHorasGridControl";
-            this.vFacturaDetHorasGridControl.Size = new System.Drawing.Size(636, 118);
+            this.vFacturaDetHorasGridControl.Size = new System.Drawing.Size(453, 118);
             this.vFacturaDetHorasGridControl.TabIndex = 112;
             this.vFacturaDetHorasGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -1387,7 +1390,7 @@
             this.bindingNavigator1.MovePreviousItem = null;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = null;
-            this.bindingNavigator1.Size = new System.Drawing.Size(636, 25);
+            this.bindingNavigator1.Size = new System.Drawing.Size(453, 25);
             this.bindingNavigator1.TabIndex = 111;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -1447,7 +1450,7 @@
             this.vHorasTrabajadasGridControl.Location = new System.Drawing.Point(0, 25);
             this.vHorasTrabajadasGridControl.MainView = this.gridView4;
             this.vHorasTrabajadasGridControl.Name = "vHorasTrabajadasGridControl";
-            this.vHorasTrabajadasGridControl.Size = new System.Drawing.Size(636, 144);
+            this.vHorasTrabajadasGridControl.Size = new System.Drawing.Size(453, 144);
             this.vHorasTrabajadasGridControl.TabIndex = 114;
             this.vHorasTrabajadasGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView4});
@@ -1816,7 +1819,7 @@
             this.desFormaPagoComboBox.DataSource = this.formasPagoBindingSource;
             this.desFormaPagoComboBox.DisplayMember = "DesFormaPago";
             this.desFormaPagoComboBox.FormattingEnabled = true;
-            this.desFormaPagoComboBox.Location = new System.Drawing.Point(78, 329);
+            this.desFormaPagoComboBox.Location = new System.Drawing.Point(79, 329);
             this.desFormaPagoComboBox.Name = "desFormaPagoComboBox";
             this.desFormaPagoComboBox.Size = new System.Drawing.Size(189, 21);
             this.desFormaPagoComboBox.TabIndex = 117;
@@ -2183,7 +2186,7 @@
             this.facturasCabBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.facturasCabBindingNavigator.Name = "facturasCabBindingNavigator";
             this.facturasCabBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.facturasCabBindingNavigator.Size = new System.Drawing.Size(1553, 25);
+            this.facturasCabBindingNavigator.Size = new System.Drawing.Size(1370, 25);
             this.facturasCabBindingNavigator.TabIndex = 0;
             this.facturasCabBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -2455,7 +2458,7 @@
             // facturaCheckBox
             // 
             this.facturaCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.facturasCabBindingSource, "Factura", true));
-            this.facturaCheckBox.Location = new System.Drawing.Point(154, 13);
+            this.facturaCheckBox.Location = new System.Drawing.Point(15, 3);
             this.facturaCheckBox.Name = "facturaCheckBox";
             this.facturaCheckBox.Size = new System.Drawing.Size(66, 22);
             this.facturaCheckBox.TabIndex = 111;
@@ -2465,7 +2468,7 @@
             // entregadaCheckBox
             // 
             this.entregadaCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.facturasCabBindingSource, "Entregada", true));
-            this.entregadaCheckBox.Location = new System.Drawing.Point(154, 33);
+            this.entregadaCheckBox.Location = new System.Drawing.Point(91, 4);
             this.entregadaCheckBox.Name = "entregadaCheckBox";
             this.entregadaCheckBox.Size = new System.Drawing.Size(84, 21);
             this.entregadaCheckBox.TabIndex = 112;
@@ -2475,7 +2478,7 @@
             // noDetalleCheckEdit
             // 
             this.noDetalleCheckEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.facturasCabBindingSource, "NoDetalle", true));
-            this.noDetalleCheckEdit.Location = new System.Drawing.Point(242, 14);
+            this.noDetalleCheckEdit.Location = new System.Drawing.Point(259, 5);
             this.noDetalleCheckEdit.Name = "noDetalleCheckEdit";
             this.noDetalleCheckEdit.Properties.Caption = "Sin Detalle";
             this.noDetalleCheckEdit.Size = new System.Drawing.Size(75, 19);
@@ -2538,7 +2541,7 @@
             this.repositoryItemLookUpEdit3,
             this.repositoryItemLookUpEdit4,
             this.ClienteFactura});
-            this.facturasCabGridControl.Size = new System.Drawing.Size(636, 398);
+            this.facturasCabGridControl.Size = new System.Drawing.Size(453, 398);
             this.facturasCabGridControl.TabIndex = 127;
             this.facturasCabGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView6});
@@ -2571,37 +2574,37 @@
             this.colNoDetalle,
             this.colImpCobrado,
             this.colImpPendiente});
-            styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.Yellow;
-            styleFormatCondition1.Appearance.Options.UseBackColor = true;
-            styleFormatCondition1.ApplyToRow = true;
-            styleFormatCondition1.Column = this.colEntregada;
-            styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-            styleFormatCondition1.Value1 = true;
-            styleFormatCondition2.Appearance.BackColor = System.Drawing.Color.LightGray;
-            styleFormatCondition2.Appearance.Options.UseBackColor = true;
-            styleFormatCondition2.ApplyToRow = true;
-            styleFormatCondition2.Column = this.colImpPendiente;
-            styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Less;
-            styleFormatCondition2.Value1 = new decimal(new int[] {
+            styleFormatCondition5.Appearance.BackColor = System.Drawing.Color.Yellow;
+            styleFormatCondition5.Appearance.Options.UseBackColor = true;
+            styleFormatCondition5.ApplyToRow = true;
+            styleFormatCondition5.Column = this.colEntregada;
+            styleFormatCondition5.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition5.Value1 = true;
+            styleFormatCondition6.Appearance.BackColor = System.Drawing.Color.LightGray;
+            styleFormatCondition6.Appearance.Options.UseBackColor = true;
+            styleFormatCondition6.ApplyToRow = true;
+            styleFormatCondition6.Column = this.colImpPendiente;
+            styleFormatCondition6.Condition = DevExpress.XtraGrid.FormatConditionEnum.Less;
+            styleFormatCondition6.Value1 = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            styleFormatCondition3.Appearance.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Italic);
-            styleFormatCondition3.Appearance.Options.UseFont = true;
-            styleFormatCondition3.ApplyToRow = true;
-            styleFormatCondition3.Column = this.colFacturaPresup;
-            styleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.NotEqual;
-            styleFormatCondition4.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            styleFormatCondition4.Appearance.Options.UseFont = true;
-            styleFormatCondition4.ApplyToRow = true;
-            styleFormatCondition4.Column = this.colFacturaPresup;
-            styleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition7.Appearance.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Italic);
+            styleFormatCondition7.Appearance.Options.UseFont = true;
+            styleFormatCondition7.ApplyToRow = true;
+            styleFormatCondition7.Column = this.colFacturaPresup;
+            styleFormatCondition7.Condition = DevExpress.XtraGrid.FormatConditionEnum.NotEqual;
+            styleFormatCondition8.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            styleFormatCondition8.Appearance.Options.UseFont = true;
+            styleFormatCondition8.ApplyToRow = true;
+            styleFormatCondition8.Column = this.colFacturaPresup;
+            styleFormatCondition8.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
             this.gridView6.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition1,
-            styleFormatCondition2,
-            styleFormatCondition3,
-            styleFormatCondition4});
+            styleFormatCondition5,
+            styleFormatCondition6,
+            styleFormatCondition7,
+            styleFormatCondition8});
             this.gridView6.GridControl = this.facturasCabGridControl;
             this.gridView6.Name = "gridView6";
             this.gridView6.OptionsDetail.EnableMasterViewMode = false;
@@ -2854,7 +2857,7 @@
             // esPrevisionCheckEdit
             // 
             this.esPrevisionCheckEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.facturasCabBindingSource, "EsPrevision", true));
-            this.esPrevisionCheckEdit.Location = new System.Drawing.Point(242, 33);
+            this.esPrevisionCheckEdit.Location = new System.Drawing.Point(178, 5);
             this.esPrevisionCheckEdit.Name = "esPrevisionCheckEdit";
             this.esPrevisionCheckEdit.Properties.Caption = "Previsión";
             this.esPrevisionCheckEdit.Size = new System.Drawing.Size(75, 19);
@@ -2863,7 +2866,7 @@
             // chkSubTot
             // 
             this.chkSubTot.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.facturasCabBindingSource, "MostrarSubTot", true));
-            this.chkSubTot.Location = new System.Drawing.Point(315, 34);
+            this.chkSubTot.Location = new System.Drawing.Point(436, 5);
             this.chkSubTot.Name = "chkSubTot";
             this.chkSubTot.Properties.Caption = "Mostrar Subtotales ";
             this.chkSubTot.Size = new System.Drawing.Size(118, 19);
@@ -2882,7 +2885,7 @@
             // chkMostrarObra
             // 
             this.chkMostrarObra.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.facturasCabBindingSource, "MostrarObra", true));
-            this.chkMostrarObra.Location = new System.Drawing.Point(315, 14);
+            this.chkMostrarObra.Location = new System.Drawing.Point(340, 5);
             this.chkMostrarObra.Name = "chkMostrarObra";
             this.chkMostrarObra.Properties.Caption = "Mostrar Obra";
             this.chkMostrarObra.Size = new System.Drawing.Size(90, 19);
@@ -3010,8 +3013,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.vPrecioHorasFacturasGridControl);
-            this.splitContainer1.Size = new System.Drawing.Size(1553, 718);
-            this.splitContainer1.SplitterDistance = 1310;
+            this.splitContainer1.Size = new System.Drawing.Size(1370, 718);
+            this.splitContainer1.SplitterDistance = 1127;
             this.splitContainer1.TabIndex = 127;
             // 
             // splitContainer2
@@ -3029,7 +3032,7 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer4);
-            this.splitContainer2.Size = new System.Drawing.Size(1310, 718);
+            this.splitContainer2.Size = new System.Drawing.Size(1127, 718);
             this.splitContainer2.SplitterDistance = 398;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -3047,6 +3050,8 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.AutoScroll = true;
+            this.splitContainer3.Panel2.Controls.Add(label9);
+            this.splitContainer3.Panel2.Controls.Add(this.tbUltimaFactura);
             this.splitContainer3.Panel2.Controls.Add(this.unificarMaterialCheckEdit);
             this.splitContainer3.Panel2.Controls.Add(this.txtSerieFact);
             this.splitContainer3.Panel2.Controls.Add(this.facturaCheckBox);
@@ -3119,14 +3124,14 @@
             this.splitContainer3.Panel2.Controls.Add(descProntoLabel);
             this.splitContainer3.Panel2.Controls.Add(retencionLabel);
             this.splitContainer3.Panel2.Controls.Add(this.retencionTextBox);
-            this.splitContainer3.Size = new System.Drawing.Size(1310, 398);
-            this.splitContainer3.SplitterDistance = 636;
+            this.splitContainer3.Size = new System.Drawing.Size(1127, 398);
+            this.splitContainer3.SplitterDistance = 453;
             this.splitContainer3.TabIndex = 0;
             // 
             // unificarMaterialCheckEdit
             // 
             this.unificarMaterialCheckEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.facturasCabBindingSource, "UnificarMaterial", true));
-            this.unificarMaterialCheckEdit.Location = new System.Drawing.Point(424, 16);
+            this.unificarMaterialCheckEdit.Location = new System.Drawing.Point(560, 5);
             this.unificarMaterialCheckEdit.Name = "unificarMaterialCheckEdit";
             this.unificarMaterialCheckEdit.Properties.Caption = "Unificar Material";
             this.unificarMaterialCheckEdit.Size = new System.Drawing.Size(107, 19);
@@ -3146,8 +3151,8 @@
             // splitContainer4.Panel2
             // 
             this.splitContainer4.Panel2.Controls.Add(this.splitContainer6);
-            this.splitContainer4.Size = new System.Drawing.Size(1310, 316);
-            this.splitContainer4.SplitterDistance = 636;
+            this.splitContainer4.Size = new System.Drawing.Size(1127, 316);
+            this.splitContainer4.SplitterDistance = 453;
             this.splitContainer4.TabIndex = 0;
             // 
             // splitContainer5
@@ -3166,7 +3171,7 @@
             // 
             this.splitContainer5.Panel2.Controls.Add(this.vHorasTrabajadasGridControl);
             this.splitContainer5.Panel2.Controls.Add(this.bindingNavigator1);
-            this.splitContainer5.Size = new System.Drawing.Size(636, 316);
+            this.splitContainer5.Size = new System.Drawing.Size(453, 316);
             this.splitContainer5.SplitterDistance = 143;
             this.splitContainer5.TabIndex = 0;
             // 
@@ -3185,7 +3190,7 @@
             this.bindingNavigator4.MovePreviousItem = null;
             this.bindingNavigator4.Name = "bindingNavigator4";
             this.bindingNavigator4.PositionItem = null;
-            this.bindingNavigator4.Size = new System.Drawing.Size(636, 25);
+            this.bindingNavigator4.Size = new System.Drawing.Size(453, 25);
             this.bindingNavigator4.TabIndex = 116;
             this.bindingNavigator4.Text = "bindingNavigator4";
             // 
@@ -3262,12 +3267,29 @@
             this.splitContainer7.SplitterDistance = 113;
             this.splitContainer7.TabIndex = 0;
             // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new System.Drawing.Point(217, 37);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(78, 13);
+            label9.TabIndex = 202;
+            label9.Text = "Última Factura:";
+            // 
+            // tbUltimaFactura
+            // 
+            this.tbUltimaFactura.Location = new System.Drawing.Point(298, 33);
+            this.tbUltimaFactura.Name = "tbUltimaFactura";
+            this.tbUltimaFactura.ReadOnly = true;
+            this.tbUltimaFactura.Size = new System.Drawing.Size(51, 20);
+            this.tbUltimaFactura.TabIndex = 201;
+            // 
             // FacturasHorasMateriales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1553, 743);
+            this.ClientSize = new System.Drawing.Size(1370, 743);
             this.Controls.Add(this.cbxfacturas);
             this.Controls.Add(this.cbxanos);
             this.Controls.Add(this.splitContainer1);
@@ -3639,5 +3661,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colDescuentoHoras;
         private DevExpress.XtraEditors.CheckEdit unificarMaterialCheckEdit;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit ClienteFactura;
+        private System.Windows.Forms.TextBox tbUltimaFactura;
     }
 }
