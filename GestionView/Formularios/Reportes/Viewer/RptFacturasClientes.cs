@@ -12,6 +12,7 @@ using GestionData.Entities;
 using GestionServices.Generales;
 using GestionServices.Definiciones;
 using System.IO;
+using GestionData.Repositorios;
 
 namespace Promowork.Formularios.Reportes.Viewer
 {
@@ -26,8 +27,11 @@ namespace Promowork.Formularios.Reportes.Viewer
 
         DataRowView factura;
         string nombreFactura;
+        RepositorioUsuario repoUsuario = new RepositorioUsuario();
+        RepositorioFacturasCab repoFacturasCab = new RepositorioFacturasCab();
+        public DateTime? fechaEnvioFactura = null;
 
-        internal void LoadFiltro(int nIdFactCab, string reporte, bool facturaHoras=false)
+        internal void LoadFiltro(int nIdFactCab, string reporte, bool facturaHoras = false)
         {
             this.WindowState = FormWindowState.Maximized;
             this.reportViewer1.LocalReport.ReportEmbeddedResource = reporte;
@@ -51,7 +55,7 @@ namespace Promowork.Formularios.Reportes.Viewer
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource13 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource14 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource15 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            
+
             reportDataSource11.Name = "DataSet1";
             if (facturaHoras)
             {
@@ -78,16 +82,19 @@ namespace Promowork.Formularios.Reportes.Viewer
 
             var trabajadores = TrabajadoresService.ObtenerTrabajadoresConEmail(VariablesGlobales.nIdEmpresaActual);
             cbTrabajadores.Properties.DataSource = trabajadores;
+            cbTrabajadores.EditValue = VariablesGlobales.ConfiguracionUsuario.responderASeleccionado;
 
-            var gestores = ProveedoresService.ObtenerGestoresConEmail(VariablesGlobales.nIdEmpresaActual);
+            ProveedoresService servicioProveedores = new ProveedoresService();
+            var gestores = servicioProveedores.ObtenerGestoresConEmail(VariablesGlobales.nIdEmpresaActual, true);
             cbGestor.Properties.DataSource = gestores;
+            cbGestor.EditValue = VariablesGlobales.ConfiguracionUsuario.gestorSeleccionado;
 
             factura = (DataRowView)FacturasCabImpBindingSource.Current;
             DateTime Fecha = (DateTime)factura["FechaFactura"];
             nombreFactura = factura["NumFactura"].ToString() + "-" + Fecha.Year.ToString() + " " + factura["DesCliente"].ToString();
             this.Text = nombreFactura;
             this.reportViewer1.LocalReport.DisplayName = nombreFactura;
-            this.reportViewer1.LocalReport.EnableExternalImages=true;
+            this.reportViewer1.LocalReport.EnableExternalImages = true;
             this.reportViewer1.RefreshReport();
 
             tbCliente.Text = factura["DesCliente"].ToString() + " (" + factura["EmailCliente"].ToString() + ")";
@@ -117,16 +124,12 @@ namespace Promowork.Formularios.Reportes.Viewer
                 tbCliente.ToolTip = "La dirección de correo electrónico del cliente es incorrecta";
             }
 
-            
+
 
         }
 
         private void btEnviarFactura_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.empresasBindingSource.EndEdit();
-            empresasTableAdapter.Update(Promowork_dataDataSet.Empresas);
-
             List<string> responderA = null;
             string nombreRemitente = "";
             if (cbTrabajadores.ItemIndex != -1)
@@ -134,18 +137,29 @@ namespace Promowork.Formularios.Reportes.Viewer
                 var trabajador = (TrabajadorConEmail)cbTrabajadores.GetSelectedDataRow();
                 responderA = trabajador.EmailTrabajador.Split(';').ToList();
                 nombreRemitente = trabajador.NombreTrabajador;
+
+                VariablesGlobales.ConfiguracionUsuario.responderASeleccionado = (int)cbTrabajadores.EditValue;
             }
             else
             {
-                //MessageBox.Show("Debe seleccionar un valor en Responder A", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //return;
+                MessageBox.Show("Debe seleccionar un valor en Responder A", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
+
+            VariablesGlobales.ConfiguracionUsuario.gestorSeleccionado = (int)cbGestor.EditValue;
+
+            this.Validate();
+            this.empresasBindingSource.EndEdit();
+            empresasTableAdapter.Update(Promowork_dataDataSet.Empresas);
 
             List<string> ccos = null;
             if (cbGestor.ItemIndex != -1)
             {
                 var gestorSeleccionado = (GestorConEmail)cbGestor.GetSelectedDataRow();
-                ccos = gestorSeleccionado.EmailGestor.Split(';').ToList();
+                if (!string.IsNullOrWhiteSpace(gestorSeleccionado.EmailGestor))
+                {
+                    ccos = gestorSeleccionado.EmailGestor.Split(';').ToList();
+                }
             }
 
             if (!Directory.Exists("ENVIADOS/FACTURAS"))
@@ -153,40 +167,42 @@ namespace Promowork.Formularios.Reportes.Viewer
                 Directory.CreateDirectory("ENVIADOS/FACTURAS");
             }
 
-            
+
             string nombreFichero = "ENVIADOS/FACTURAS/" + nombreFactura;
             var respuesta = Utilidades.ExportarReporte(reportViewer1, nombreFichero, ".PDF", "PDF");
             if (respuesta == string.Empty)
             {
                 List<string> destinatarios = factura["EmailCliente"].ToString().Split(';').ToList();
+                
+                ////////////////////////////////
                 //destinatarios = new List<string>();
                 //destinatarios.Add("erd28drn@gmail.com");
-                
+
+                //ccos = new List<string>();
+                //ccos.Add("erd28drn@gmail.com");
+                ////////////////////////////////
+
                 var asunto = tbAsuntoMensaje.Text;
-                var cuerpoCorreo = tbCuerpoMensaje.Text.Replace("\n", "<br>"); 
+                var cuerpoCorreo = tbCuerpoMensaje.Text.Replace("\n", "<br>");
                 List<string> adjuntos = new List<string>();
                 adjuntos.Add(nombreFichero + ".PDF");
                 respuesta = Utilidades.EnviaCorreo(VariablesGlobales.nIdEmpresaActual, destinatarios, asunto, adjuntos, cuerpoCorreo, responderA, ccos, nombreRemitente);
-            if (respuesta.Trim().ToUpper().Equals("OK"))
-            {
-                tbResultado.ForeColor = Color.Green;
+                if (respuesta.Trim().ToUpper().Equals("OK"))
+                {
+                    tbResultado.ForeColor = Color.Green;
+                    repoUsuario.GuardarConfiguracionUsuario(VariablesGlobales.ConfiguracionUsuario);
+                    fechaEnvioFactura = DateTime.Now;
+                    cbFechaEnvio.Text = fechaEnvioFactura.ToString();
+                    //repoFacturasCab.GuardarFechaEnvioFacturaCliente((int)factura["IdFactCab"], fechaEnvioFactura);
+                }
+                else
+                {
+                    tbResultado.ForeColor = Color.Red;
+                }
+                tbResultado.Text = respuesta;
+                
             }
-            else
-            {
-                tbResultado.ForeColor = Color.Red;
-            }
-            tbResultado.Text = respuesta;
-            if (respuesta.Trim().ToUpper().Equals("OK"))
-            {
-                tbResultado.ForeColor = Color.Green;
-            }
-            else
-            {
-                tbResultado.ForeColor = Color.Red;
-            }
-            
 
         }
-
     }
 }

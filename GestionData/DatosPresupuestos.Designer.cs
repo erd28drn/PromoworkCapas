@@ -4238,6 +4238,10 @@ namespace GestionData {
             
             private global::System.Data.DataColumn columnMostrarPresup;
             
+            private global::System.Data.DataColumn columnUnificarMaterial;
+            
+            private global::System.Data.DataColumn columnFechaEnvioCliente;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public FacturasCabDataTable() {
@@ -4561,6 +4565,22 @@ namespace GestionData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn UnificarMaterialColumn {
+                get {
+                    return this.columnUnificarMaterial;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FechaEnvioClienteColumn {
+                get {
+                    return this.columnFechaEnvioCliente;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4631,7 +4651,9 @@ namespace GestionData {
                         decimal Total, 
                         decimal TotalCobrado, 
                         bool EsCertificacion, 
-                        bool MostrarPresup) {
+                        bool MostrarPresup, 
+                        bool UnificarMaterial, 
+                        System.DateTime FechaEnvioCliente) {
                 FacturasCabRow rowFacturasCabRow = ((FacturasCabRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -4669,7 +4691,9 @@ namespace GestionData {
                         Total,
                         TotalCobrado,
                         EsCertificacion,
-                        MostrarPresup};
+                        MostrarPresup,
+                        UnificarMaterial,
+                        FechaEnvioCliente};
                 if ((parentClientesRowByFK_FacturasCab_Clientes != null)) {
                     columnValuesArray[2] = parentClientesRowByFK_FacturasCab_Clientes[0];
                 }
@@ -4744,6 +4768,8 @@ namespace GestionData {
                 this.columnTotalCobrado = base.Columns["TotalCobrado"];
                 this.columnEsCertificacion = base.Columns["EsCertificacion"];
                 this.columnMostrarPresup = base.Columns["MostrarPresup"];
+                this.columnUnificarMaterial = base.Columns["UnificarMaterial"];
+                this.columnFechaEnvioCliente = base.Columns["FechaEnvioCliente"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4821,6 +4847,10 @@ namespace GestionData {
                 base.Columns.Add(this.columnEsCertificacion);
                 this.columnMostrarPresup = new global::System.Data.DataColumn("MostrarPresup", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMostrarPresup);
+                this.columnUnificarMaterial = new global::System.Data.DataColumn("UnificarMaterial", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUnificarMaterial);
+                this.columnFechaEnvioCliente = new global::System.Data.DataColumn("FechaEnvioCliente", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFechaEnvioCliente);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnIdFactCab}, true));
                 this.columnIdFactCab.AutoIncrement = true;
@@ -12843,6 +12873,38 @@ namespace GestionData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool UnificarMaterial {
+                get {
+                    try {
+                        return ((bool)(this[this.tableFacturasCab.UnificarMaterialColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'UnificarMaterial\' de la tabla \'FacturasCab\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFacturasCab.UnificarMaterialColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime FechaEnvioCliente {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableFacturasCab.FechaEnvioClienteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'FechaEnvioCliente\' de la tabla \'FacturasCab\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFacturasCab.FechaEnvioClienteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ClientesRow ClientesRow {
                 get {
                     return ((ClientesRow)(this.GetParentRow(this.Table.ParentRelations["FK_FacturasCab_Clientes"])));
@@ -13232,6 +13294,30 @@ namespace GestionData {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetMostrarPresupNull() {
                 this[this.tableFacturasCab.MostrarPresupColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUnificarMaterialNull() {
+                return this.IsNull(this.tableFacturasCab.UnificarMaterialColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUnificarMaterialNull() {
+                this[this.tableFacturasCab.UnificarMaterialColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFechaEnvioClienteNull() {
+                return this.IsNull(this.tableFacturasCab.FechaEnvioClienteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFechaEnvioClienteNull() {
+                this[this.tableFacturasCab.FechaEnvioClienteColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -21611,6 +21697,8 @@ FROM            PresupDet";
             tableMapping.ColumnMappings.Add("TotalCobrado", "TotalCobrado");
             tableMapping.ColumnMappings.Add("EsCertificacion", "EsCertificacion");
             tableMapping.ColumnMappings.Add("MostrarPresup", "MostrarPresup");
+            tableMapping.ColumnMappings.Add("UnificarMaterial", "UnificarMaterial");
+            tableMapping.ColumnMappings.Add("FechaEnvioCliente", "FechaEnvioCliente");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -21650,7 +21738,10 @@ FROM            PresupDet";
                 " = 1 AND [CargoMitadDesc] IS NULL) OR ([CargoMitadDesc] = @Original_CargoMitadDe" +
                 "sc)) AND ((@IsNull_EsCertificacion = 1 AND [EsCertificacion] IS NULL) OR ([EsCer" +
                 "tificacion] = @Original_EsCertificacion)) AND ((@IsNull_MostrarPresup = 1 AND [M" +
-                "ostrarPresup] IS NULL) OR ([MostrarPresup] = @Original_MostrarPresup)))";
+                "ostrarPresup] IS NULL) OR ([MostrarPresup] = @Original_MostrarPresup)) AND ((@Is" +
+                "Null_UnificarMaterial = 1 AND [UnificarMaterial] IS NULL) OR ([UnificarMaterial]" +
+                " = @Original_UnificarMaterial)) AND ((@IsNull_FechaEnvioCliente = 1 AND [FechaEn" +
+                "vioCliente] IS NULL) OR ([FechaEnvioCliente] = @Original_FechaEnvioCliente)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IdFactCab", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdFactCab", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IdEmpresa", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdEmpresa", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -21712,6 +21803,10 @@ FROM            PresupDet";
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EsCertificacion", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EsCertificacion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MostrarPresup", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MostrarPresup", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MostrarPresup", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MostrarPresup", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_UnificarMaterial", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UnificarMaterial", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UnificarMaterial", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UnificarMaterial", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FechaEnvioCliente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FechaEnvioCliente", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FechaEnvioCliente", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FechaEnvioCliente", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [FacturasCab] ([IdEmpresa], [IdCliente], [IdClienteFact], [IdObra], [" +
@@ -21720,20 +21815,21 @@ FROM            PresupDet";
                 "escPronto], [Retencion], [IVAFactura], [Cobrada], [ObsFactura], [FacturaPresup]," +
                 " [CopiaFactura], [Factura], [Entregada], [NoDetalle], [ObsFactura2], [EsPrevisio" +
                 "n], [Anticipo], [MostrarSubTot], [CargoMitadDesc], [EsCertificacion], [MostrarPr" +
-                "esup]) VALUES (@IdEmpresa, @IdCliente, @IdClienteFact, @IdObra, @IdPresup, @IdUs" +
-                "uario, @NumFactura, @SerieFact, @FechaFactura, @FechaVctoFact, @MostrarVcto, @Mo" +
-                "strarObra, @IdCuenta, @Certificacion, @DescFactura, @DescPronto, @Retencion, @IV" +
-                "AFactura, @Cobrada, @ObsFactura, @FacturaPresup, @CopiaFactura, @Factura, @Entre" +
-                "gada, @NoDetalle, @ObsFactura2, @EsPrevision, @Anticipo, @MostrarSubTot, @CargoM" +
-                "itadDesc, @EsCertificacion, @MostrarPresup);\r\nSELECT IdFactCab, IdEmpresa, IdCli" +
+                "esup], [UnificarMaterial], [FechaEnvioCliente]) VALUES (@IdEmpresa, @IdCliente, " +
+                "@IdClienteFact, @IdObra, @IdPresup, @IdUsuario, @NumFactura, @SerieFact, @FechaF" +
+                "actura, @FechaVctoFact, @MostrarVcto, @MostrarObra, @IdCuenta, @Certificacion, @" +
+                "DescFactura, @DescPronto, @Retencion, @IVAFactura, @Cobrada, @ObsFactura, @Factu" +
+                "raPresup, @CopiaFactura, @Factura, @Entregada, @NoDetalle, @ObsFactura2, @EsPrev" +
+                "ision, @Anticipo, @MostrarSubTot, @CargoMitadDesc, @EsCertificacion, @MostrarPre" +
+                "sup, @UnificarMaterial, @FechaEnvioCliente);\r\nSELECT IdFactCab, IdEmpresa, IdCli" +
                 "ente, IdClienteFact, IdObra, IdPresup, IdUsuario, NumFactura, SerieFact, FechaFa" +
                 "ctura, FechaVctoFact, MostrarVcto, MostrarObra, IdCuenta, Certificacion, DescFac" +
                 "tura, DescPronto, Retencion, IVAFactura, Cobrada, ObsFactura, FacturaPresup, Cop" +
                 "iaFactura, Factura, Entregada, NoDetalle, ObsFactura2, EsPrevision, Anticipo, Mo" +
                 "strarSubTot, CargoMitadDesc, dbo.CalculaTotalBaseFactura(IdFactCab) AS TotalBase" +
                 ", dbo.CalculaTotalFactura(IdFactCab) AS Total, dbo.CalculaTotalCobradoFactura(Id" +
-                "FactCab) AS TotalCobrado, EsCertificacion, MostrarPresup FROM FacturasCab WHERE " +
-                "(IdFactCab = SCOPE_IDENTITY())";
+                "FactCab) AS TotalCobrado, EsCertificacion, MostrarPresup, UnificarMaterial, Fech" +
+                "aEnvioCliente FROM FacturasCab WHERE (IdFactCab = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdEmpresa", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdEmpresa", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdCliente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdCliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -21767,6 +21863,8 @@ FROM            PresupDet";
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CargoMitadDesc", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CargoMitadDesc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EsCertificacion", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EsCertificacion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MostrarPresup", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MostrarPresup", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UnificarMaterial", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UnificarMaterial", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FechaEnvioCliente", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FechaEnvioCliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [FacturasCab] SET [IdEmpresa] = @IdEmpresa, [IdCliente] = @IdCliente, [IdC" +
@@ -21780,52 +21878,56 @@ FROM            PresupDet";
                 "tura, [Factura] = @Factura, [Entregada] = @Entregada, [NoDetalle] = @NoDetalle, " +
                 "[ObsFactura2] = @ObsFactura2, [EsPrevision] = @EsPrevision, [Anticipo] = @Antici" +
                 "po, [MostrarSubTot] = @MostrarSubTot, [CargoMitadDesc] = @CargoMitadDesc, [EsCer" +
-                "tificacion] = @EsCertificacion, [MostrarPresup] = @MostrarPresup WHERE (([IdFact" +
-                "Cab] = @Original_IdFactCab) AND ([IdEmpresa] = @Original_IdEmpresa) AND ([IdClie" +
-                "nte] = @Original_IdCliente) AND ((@IsNull_IdClienteFact = 1 AND [IdClienteFact] " +
-                "IS NULL) OR ([IdClienteFact] = @Original_IdClienteFact)) AND ((@IsNull_IdObra = " +
-                "1 AND [IdObra] IS NULL) OR ([IdObra] = @Original_IdObra)) AND ((@IsNull_IdPresup" +
-                " = 1 AND [IdPresup] IS NULL) OR ([IdPresup] = @Original_IdPresup)) AND ([IdUsuar" +
-                "io] = @Original_IdUsuario) AND ([NumFactura] = @Original_NumFactura) AND ((@IsNu" +
-                "ll_SerieFact = 1 AND [SerieFact] IS NULL) OR ([SerieFact] = @Original_SerieFact)" +
-                ") AND ([FechaFactura] = @Original_FechaFactura) AND ((@IsNull_FechaVctoFact = 1 " +
-                "AND [FechaVctoFact] IS NULL) OR ([FechaVctoFact] = @Original_FechaVctoFact)) AND" +
-                " ((@IsNull_MostrarVcto = 1 AND [MostrarVcto] IS NULL) OR ([MostrarVcto] = @Origi" +
-                "nal_MostrarVcto)) AND ((@IsNull_MostrarObra = 1 AND [MostrarObra] IS NULL) OR ([" +
-                "MostrarObra] = @Original_MostrarObra)) AND ((@IsNull_IdCuenta = 1 AND [IdCuenta]" +
-                " IS NULL) OR ([IdCuenta] = @Original_IdCuenta)) AND ((@IsNull_Certificacion = 1 " +
-                "AND [Certificacion] IS NULL) OR ([Certificacion] = @Original_Certificacion)) AND" +
-                " ((@IsNull_DescFactura = 1 AND [DescFactura] IS NULL) OR ([DescFactura] = @Origi" +
-                "nal_DescFactura)) AND ((@IsNull_DescPronto = 1 AND [DescPronto] IS NULL) OR ([De" +
-                "scPronto] = @Original_DescPronto)) AND ((@IsNull_Retencion = 1 AND [Retencion] I" +
-                "S NULL) OR ([Retencion] = @Original_Retencion)) AND ((@IsNull_IVAFactura = 1 AND" +
-                " [IVAFactura] IS NULL) OR ([IVAFactura] = @Original_IVAFactura)) AND ((@IsNull_C" +
-                "obrada = 1 AND [Cobrada] IS NULL) OR ([Cobrada] = @Original_Cobrada)) AND ((@IsN" +
-                "ull_ObsFactura = 1 AND [ObsFactura] IS NULL) OR ([ObsFactura] = @Original_ObsFac" +
-                "tura)) AND ((@IsNull_FacturaPresup = 1 AND [FacturaPresup] IS NULL) OR ([Factura" +
-                "Presup] = @Original_FacturaPresup)) AND ((@IsNull_CopiaFactura = 1 AND [CopiaFac" +
-                "tura] IS NULL) OR ([CopiaFactura] = @Original_CopiaFactura)) AND ((@IsNull_Factu" +
-                "ra = 1 AND [Factura] IS NULL) OR ([Factura] = @Original_Factura)) AND ((@IsNull_" +
-                "Entregada = 1 AND [Entregada] IS NULL) OR ([Entregada] = @Original_Entregada)) A" +
-                "ND ((@IsNull_NoDetalle = 1 AND [NoDetalle] IS NULL) OR ([NoDetalle] = @Original_" +
-                "NoDetalle)) AND ((@IsNull_ObsFactura2 = 1 AND [ObsFactura2] IS NULL) OR ([ObsFac" +
-                "tura2] = @Original_ObsFactura2)) AND ((@IsNull_EsPrevision = 1 AND [EsPrevision]" +
-                " IS NULL) OR ([EsPrevision] = @Original_EsPrevision)) AND ((@IsNull_Anticipo = 1" +
-                " AND [Anticipo] IS NULL) OR ([Anticipo] = @Original_Anticipo)) AND ((@IsNull_Mos" +
-                "trarSubTot = 1 AND [MostrarSubTot] IS NULL) OR ([MostrarSubTot] = @Original_Most" +
-                "rarSubTot)) AND ((@IsNull_CargoMitadDesc = 1 AND [CargoMitadDesc] IS NULL) OR ([" +
-                "CargoMitadDesc] = @Original_CargoMitadDesc)) AND ((@IsNull_EsCertificacion = 1 A" +
-                "ND [EsCertificacion] IS NULL) OR ([EsCertificacion] = @Original_EsCertificacion)" +
-                ") AND ((@IsNull_MostrarPresup = 1 AND [MostrarPresup] IS NULL) OR ([MostrarPresu" +
-                "p] = @Original_MostrarPresup)));\r\nSELECT IdFactCab, IdEmpresa, IdCliente, IdClie" +
-                "nteFact, IdObra, IdPresup, IdUsuario, NumFactura, SerieFact, FechaFactura, Fecha" +
-                "VctoFact, MostrarVcto, MostrarObra, IdCuenta, Certificacion, DescFactura, DescPr" +
-                "onto, Retencion, IVAFactura, Cobrada, ObsFactura, FacturaPresup, CopiaFactura, F" +
-                "actura, Entregada, NoDetalle, ObsFactura2, EsPrevision, Anticipo, MostrarSubTot," +
-                " CargoMitadDesc, dbo.CalculaTotalBaseFactura(IdFactCab) AS TotalBase, dbo.Calcul" +
-                "aTotalFactura(IdFactCab) AS Total, dbo.CalculaTotalCobradoFactura(IdFactCab) AS " +
-                "TotalCobrado, EsCertificacion, MostrarPresup FROM FacturasCab WHERE (IdFactCab =" +
-                " @IdFactCab)";
+                "tificacion] = @EsCertificacion, [MostrarPresup] = @MostrarPresup, [UnificarMater" +
+                "ial] = @UnificarMaterial, [FechaEnvioCliente] = @FechaEnvioCliente WHERE (([IdFa" +
+                "ctCab] = @Original_IdFactCab) AND ([IdEmpresa] = @Original_IdEmpresa) AND ([IdCl" +
+                "iente] = @Original_IdCliente) AND ((@IsNull_IdClienteFact = 1 AND [IdClienteFact" +
+                "] IS NULL) OR ([IdClienteFact] = @Original_IdClienteFact)) AND ((@IsNull_IdObra " +
+                "= 1 AND [IdObra] IS NULL) OR ([IdObra] = @Original_IdObra)) AND ((@IsNull_IdPres" +
+                "up = 1 AND [IdPresup] IS NULL) OR ([IdPresup] = @Original_IdPresup)) AND ([IdUsu" +
+                "ario] = @Original_IdUsuario) AND ([NumFactura] = @Original_NumFactura) AND ((@Is" +
+                "Null_SerieFact = 1 AND [SerieFact] IS NULL) OR ([SerieFact] = @Original_SerieFac" +
+                "t)) AND ([FechaFactura] = @Original_FechaFactura) AND ((@IsNull_FechaVctoFact = " +
+                "1 AND [FechaVctoFact] IS NULL) OR ([FechaVctoFact] = @Original_FechaVctoFact)) A" +
+                "ND ((@IsNull_MostrarVcto = 1 AND [MostrarVcto] IS NULL) OR ([MostrarVcto] = @Ori" +
+                "ginal_MostrarVcto)) AND ((@IsNull_MostrarObra = 1 AND [MostrarObra] IS NULL) OR " +
+                "([MostrarObra] = @Original_MostrarObra)) AND ((@IsNull_IdCuenta = 1 AND [IdCuent" +
+                "a] IS NULL) OR ([IdCuenta] = @Original_IdCuenta)) AND ((@IsNull_Certificacion = " +
+                "1 AND [Certificacion] IS NULL) OR ([Certificacion] = @Original_Certificacion)) A" +
+                "ND ((@IsNull_DescFactura = 1 AND [DescFactura] IS NULL) OR ([DescFactura] = @Ori" +
+                "ginal_DescFactura)) AND ((@IsNull_DescPronto = 1 AND [DescPronto] IS NULL) OR ([" +
+                "DescPronto] = @Original_DescPronto)) AND ((@IsNull_Retencion = 1 AND [Retencion]" +
+                " IS NULL) OR ([Retencion] = @Original_Retencion)) AND ((@IsNull_IVAFactura = 1 A" +
+                "ND [IVAFactura] IS NULL) OR ([IVAFactura] = @Original_IVAFactura)) AND ((@IsNull" +
+                "_Cobrada = 1 AND [Cobrada] IS NULL) OR ([Cobrada] = @Original_Cobrada)) AND ((@I" +
+                "sNull_ObsFactura = 1 AND [ObsFactura] IS NULL) OR ([ObsFactura] = @Original_ObsF" +
+                "actura)) AND ((@IsNull_FacturaPresup = 1 AND [FacturaPresup] IS NULL) OR ([Factu" +
+                "raPresup] = @Original_FacturaPresup)) AND ((@IsNull_CopiaFactura = 1 AND [CopiaF" +
+                "actura] IS NULL) OR ([CopiaFactura] = @Original_CopiaFactura)) AND ((@IsNull_Fac" +
+                "tura = 1 AND [Factura] IS NULL) OR ([Factura] = @Original_Factura)) AND ((@IsNul" +
+                "l_Entregada = 1 AND [Entregada] IS NULL) OR ([Entregada] = @Original_Entregada))" +
+                " AND ((@IsNull_NoDetalle = 1 AND [NoDetalle] IS NULL) OR ([NoDetalle] = @Origina" +
+                "l_NoDetalle)) AND ((@IsNull_ObsFactura2 = 1 AND [ObsFactura2] IS NULL) OR ([ObsF" +
+                "actura2] = @Original_ObsFactura2)) AND ((@IsNull_EsPrevision = 1 AND [EsPrevisio" +
+                "n] IS NULL) OR ([EsPrevision] = @Original_EsPrevision)) AND ((@IsNull_Anticipo =" +
+                " 1 AND [Anticipo] IS NULL) OR ([Anticipo] = @Original_Anticipo)) AND ((@IsNull_M" +
+                "ostrarSubTot = 1 AND [MostrarSubTot] IS NULL) OR ([MostrarSubTot] = @Original_Mo" +
+                "strarSubTot)) AND ((@IsNull_CargoMitadDesc = 1 AND [CargoMitadDesc] IS NULL) OR " +
+                "([CargoMitadDesc] = @Original_CargoMitadDesc)) AND ((@IsNull_EsCertificacion = 1" +
+                " AND [EsCertificacion] IS NULL) OR ([EsCertificacion] = @Original_EsCertificacio" +
+                "n)) AND ((@IsNull_MostrarPresup = 1 AND [MostrarPresup] IS NULL) OR ([MostrarPre" +
+                "sup] = @Original_MostrarPresup)) AND ((@IsNull_UnificarMaterial = 1 AND [Unifica" +
+                "rMaterial] IS NULL) OR ([UnificarMaterial] = @Original_UnificarMaterial)) AND ((" +
+                "@IsNull_FechaEnvioCliente = 1 AND [FechaEnvioCliente] IS NULL) OR ([FechaEnvioCl" +
+                "iente] = @Original_FechaEnvioCliente)));\r\nSELECT IdFactCab, IdEmpresa, IdCliente" +
+                ", IdClienteFact, IdObra, IdPresup, IdUsuario, NumFactura, SerieFact, FechaFactur" +
+                "a, FechaVctoFact, MostrarVcto, MostrarObra, IdCuenta, Certificacion, DescFactura" +
+                ", DescPronto, Retencion, IVAFactura, Cobrada, ObsFactura, FacturaPresup, CopiaFa" +
+                "ctura, Factura, Entregada, NoDetalle, ObsFactura2, EsPrevision, Anticipo, Mostra" +
+                "rSubTot, CargoMitadDesc, dbo.CalculaTotalBaseFactura(IdFactCab) AS TotalBase, db" +
+                "o.CalculaTotalFactura(IdFactCab) AS Total, dbo.CalculaTotalCobradoFactura(IdFact" +
+                "Cab) AS TotalCobrado, EsCertificacion, MostrarPresup, UnificarMaterial, FechaEnv" +
+                "ioCliente FROM FacturasCab WHERE (IdFactCab = @IdFactCab)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdEmpresa", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdEmpresa", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdCliente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdCliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -21859,6 +21961,8 @@ FROM            PresupDet";
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CargoMitadDesc", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CargoMitadDesc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EsCertificacion", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EsCertificacion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MostrarPresup", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MostrarPresup", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UnificarMaterial", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UnificarMaterial", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FechaEnvioCliente", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FechaEnvioCliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IdFactCab", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdFactCab", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IdEmpresa", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdEmpresa", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IdCliente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdCliente", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -21919,6 +22023,10 @@ FROM            PresupDet";
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EsCertificacion", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EsCertificacion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MostrarPresup", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MostrarPresup", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MostrarPresup", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MostrarPresup", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_UnificarMaterial", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UnificarMaterial", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UnificarMaterial", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UnificarMaterial", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FechaEnvioCliente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FechaEnvioCliente", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FechaEnvioCliente", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FechaEnvioCliente", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdFactCab", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdFactCab", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -21935,21 +22043,14 @@ FROM            PresupDet";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        IdFactCab, IdEmpresa, IdCliente, IdClienteFact, IdObra, IdPresup, IdUsuario, NumFactura, SerieFact, FechaFactura, FechaVctoFact, MostrarVcto, MostrarObra, 
-                         IdCuenta, Certificacion, DescFactura, DescPronto, Retencion, IVAFactura, Cobrada, ObsFactura, FacturaPresup, CopiaFactura, Factura, Entregada, NoDetalle, 
-                         ObsFactura2, EsPrevision, Anticipo, MostrarSubTot, CargoMitadDesc, dbo.CalculaTotalBaseFactura(IdFactCab) AS TotalBase, dbo.CalculaTotalFactura(IdFactCab) 
-                         AS Total, dbo.CalculaTotalCobradoFactura(IdFactCab) AS TotalCobrado, EsCertificacion, MostrarPresup
+            this._commandCollection[0].CommandText = @"SELECT        IdFactCab, IdEmpresa, IdCliente, IdClienteFact, IdObra, IdPresup, IdUsuario, NumFactura, SerieFact, FechaFactura, FechaVctoFact, MostrarVcto, MostrarObra, IdCuenta, Certificacion, DescFactura, DescPronto, Retencion, 
+                         IVAFactura, Cobrada, ObsFactura, FacturaPresup, CopiaFactura, Factura, Entregada, NoDetalle, ObsFactura2, EsPrevision, Anticipo, MostrarSubTot, CargoMitadDesc, dbo.CalculaTotalBaseFactura(IdFactCab) AS TotalBase, 
+                         dbo.CalculaTotalFactura(IdFactCab) AS Total, dbo.CalculaTotalCobradoFactura(IdFactCab) AS TotalCobrado, EsCertificacion, MostrarPresup, UnificarMaterial, FechaEnvioCliente
 FROM            FacturasCab";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT        Anticipo, CargoMitadDesc, Certificacion, Cobrada, CopiaFactura, DescFactura, DescPronto, Entregada, EsCertificacion, EsPrevision, Factura, FacturaPresup, 
-                         FechaFactura, FechaVctoFact, IVAFactura, IdCliente, IdClienteFact, IdCuenta, IdEmpresa, IdFactCab, IdObra, IdPresup, IdUsuario, MostrarObra, MostrarPresup, 
-                         MostrarSubTot, MostrarVcto, NoDetalle, NumFactura, ObsFactura, ObsFactura2, Retencion, SerieFact, dbo.CalculaTotalFactura(IdFactCab) AS Total, 
-                         dbo.CalculaTotalBaseFactura(IdFactCab) AS TotalBase, dbo.CalculaTotalCobradoFactura(IdFactCab) AS TotalCobrado
-FROM            FacturasCab
-WHERE        (IdEmpresa = @Empresa) AND (DATEPART(year, FechaFactura) = @anoFactura) AND (Factura = @Factura)
-ORDER BY FechaFactura, NumFactura, SerieFact";
+            this._commandCollection[1].CommandText = @"SELECT Anticipo, CargoMitadDesc, Certificacion, Cobrada, CopiaFactura, DescFactura, DescPronto, Entregada, EsCertificacion, EsPrevision, Factura, FacturaPresup, FechaEnvioCliente, FechaFactura, FechaVctoFact, IVAFactura, IdCliente, IdClienteFact, IdCuenta, IdEmpresa, IdFactCab, IdObra, IdPresup, IdUsuario, MostrarObra, MostrarPresup, MostrarSubTot, MostrarVcto, NoDetalle, NumFactura, ObsFactura, ObsFactura2, Retencion, SerieFact, dbo.CalculaTotalFactura(IdFactCab) AS Total, dbo.CalculaTotalBaseFactura(IdFactCab) AS TotalBase, dbo.CalculaTotalCobradoFactura(IdFactCab) AS TotalCobrado, UnificarMaterial FROM FacturasCab WHERE (IdEmpresa = @Empresa) AND (DATEPART(year, FechaFactura) = @anoFactura) AND (Factura = @Factura) ORDER BY FechaFactura, NumFactura, SerieFact";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Empresa", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdEmpresa", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@anoFactura", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -22086,7 +22187,9 @@ ORDER BY FechaFactura, NumFactura, SerieFact";
                     global::System.Nullable<bool> Original_MostrarSubTot, 
                     global::System.Nullable<bool> Original_CargoMitadDesc, 
                     global::System.Nullable<bool> Original_EsCertificacion, 
-                    global::System.Nullable<bool> Original_MostrarPresup) {
+                    global::System.Nullable<bool> Original_MostrarPresup, 
+                    global::System.Nullable<bool> Original_UnificarMaterial, 
+                    global::System.Nullable<global::System.DateTime> Original_FechaEnvioCliente) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_IdFactCab));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_IdEmpresa));
             this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_IdCliente));
@@ -22309,6 +22412,22 @@ ORDER BY FechaFactura, NumFactura, SerieFact";
                 this.Adapter.DeleteCommand.Parameters[58].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[59].Value = global::System.DBNull.Value;
             }
+            if ((Original_UnificarMaterial.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[60].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[61].Value = ((bool)(Original_UnificarMaterial.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[60].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[61].Value = global::System.DBNull.Value;
+            }
+            if ((Original_FechaEnvioCliente.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[62].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[63].Value = ((System.DateTime)(Original_FechaEnvioCliente.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[62].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[63].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -22361,7 +22480,9 @@ ORDER BY FechaFactura, NumFactura, SerieFact";
                     global::System.Nullable<bool> MostrarSubTot, 
                     global::System.Nullable<bool> CargoMitadDesc, 
                     global::System.Nullable<bool> EsCertificacion, 
-                    global::System.Nullable<bool> MostrarPresup) {
+                    global::System.Nullable<bool> MostrarPresup, 
+                    global::System.Nullable<bool> UnificarMaterial, 
+                    global::System.Nullable<global::System.DateTime> FechaEnvioCliente) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(IdEmpresa));
             this.Adapter.InsertCommand.Parameters[1].Value = ((int)(IdCliente));
             if ((IdClienteFact.HasValue == true)) {
@@ -22529,6 +22650,18 @@ ORDER BY FechaFactura, NumFactura, SerieFact";
             else {
                 this.Adapter.InsertCommand.Parameters[31].Value = global::System.DBNull.Value;
             }
+            if ((UnificarMaterial.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[32].Value = ((bool)(UnificarMaterial.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[32].Value = global::System.DBNull.Value;
+            }
+            if ((FechaEnvioCliente.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[33].Value = ((System.DateTime)(FechaEnvioCliente.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[33].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -22582,6 +22715,8 @@ ORDER BY FechaFactura, NumFactura, SerieFact";
                     global::System.Nullable<bool> CargoMitadDesc, 
                     global::System.Nullable<bool> EsCertificacion, 
                     global::System.Nullable<bool> MostrarPresup, 
+                    global::System.Nullable<bool> UnificarMaterial, 
+                    global::System.Nullable<global::System.DateTime> FechaEnvioCliente, 
                     int Original_IdFactCab, 
                     int Original_IdEmpresa, 
                     int Original_IdCliente, 
@@ -22615,6 +22750,8 @@ ORDER BY FechaFactura, NumFactura, SerieFact";
                     global::System.Nullable<bool> Original_CargoMitadDesc, 
                     global::System.Nullable<bool> Original_EsCertificacion, 
                     global::System.Nullable<bool> Original_MostrarPresup, 
+                    global::System.Nullable<bool> Original_UnificarMaterial, 
+                    global::System.Nullable<global::System.DateTime> Original_FechaEnvioCliente, 
                     int IdFactCab) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(IdEmpresa));
             this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(IdCliente));
@@ -22783,229 +22920,257 @@ ORDER BY FechaFactura, NumFactura, SerieFact";
             else {
                 this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[32].Value = ((int)(Original_IdFactCab));
-            this.Adapter.UpdateCommand.Parameters[33].Value = ((int)(Original_IdEmpresa));
-            this.Adapter.UpdateCommand.Parameters[34].Value = ((int)(Original_IdCliente));
-            if ((Original_IdClienteFact.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((int)(Original_IdClienteFact.Value));
+            if ((UnificarMaterial.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((bool)(UnificarMaterial.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
             }
-            if ((Original_IdObra.HasValue == true)) {
+            if ((FechaEnvioCliente.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((System.DateTime)(FechaEnvioCliente.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[34].Value = ((int)(Original_IdFactCab));
+            this.Adapter.UpdateCommand.Parameters[35].Value = ((int)(Original_IdEmpresa));
+            this.Adapter.UpdateCommand.Parameters[36].Value = ((int)(Original_IdCliente));
+            if ((Original_IdClienteFact.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((int)(Original_IdObra.Value));
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((int)(Original_IdClienteFact.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
             }
-            if ((Original_IdPresup.HasValue == true)) {
+            if ((Original_IdObra.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((int)(Original_IdPresup.Value));
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((int)(Original_IdObra.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[41].Value = ((int)(Original_IdUsuario));
-            this.Adapter.UpdateCommand.Parameters[42].Value = ((int)(Original_NumFactura));
+            if ((Original_IdPresup.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((int)(Original_IdPresup.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[42].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[43].Value = ((int)(Original_IdUsuario));
+            this.Adapter.UpdateCommand.Parameters[44].Value = ((int)(Original_NumFactura));
             if ((Original_SerieFact == null)) {
-                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[44].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[46].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[44].Value = ((string)(Original_SerieFact));
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((string)(Original_SerieFact));
             }
-            this.Adapter.UpdateCommand.Parameters[45].Value = ((System.DateTime)(Original_FechaFactura));
+            this.Adapter.UpdateCommand.Parameters[47].Value = ((System.DateTime)(Original_FechaFactura));
             if ((Original_FechaVctoFact.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[47].Value = ((System.DateTime)(Original_FechaVctoFact.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[47].Value = global::System.DBNull.Value;
-            }
-            if ((Original_MostrarVcto.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[49].Value = ((bool)(Original_MostrarVcto.Value));
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((System.DateTime)(Original_FechaVctoFact.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[49].Value = global::System.DBNull.Value;
             }
-            if ((Original_MostrarObra.HasValue == true)) {
+            if ((Original_MostrarVcto.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[51].Value = ((bool)(Original_MostrarObra.Value));
+                this.Adapter.UpdateCommand.Parameters[51].Value = ((bool)(Original_MostrarVcto.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[51].Value = global::System.DBNull.Value;
             }
-            if ((Original_IdCuenta.HasValue == true)) {
+            if ((Original_MostrarObra.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[53].Value = ((int)(Original_IdCuenta.Value));
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((bool)(Original_MostrarObra.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[53].Value = global::System.DBNull.Value;
             }
-            if ((Original_Certificacion.HasValue == true)) {
+            if ((Original_IdCuenta.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[55].Value = ((int)(Original_Certificacion.Value));
+                this.Adapter.UpdateCommand.Parameters[55].Value = ((int)(Original_IdCuenta.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[55].Value = global::System.DBNull.Value;
             }
-            if ((Original_DescFactura.HasValue == true)) {
+            if ((Original_Certificacion.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[56].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[57].Value = ((decimal)(Original_DescFactura.Value));
+                this.Adapter.UpdateCommand.Parameters[57].Value = ((int)(Original_Certificacion.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[56].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[57].Value = global::System.DBNull.Value;
             }
-            if ((Original_DescPronto.HasValue == true)) {
+            if ((Original_DescFactura.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[58].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[59].Value = ((decimal)(Original_DescPronto.Value));
+                this.Adapter.UpdateCommand.Parameters[59].Value = ((decimal)(Original_DescFactura.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[58].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[59].Value = global::System.DBNull.Value;
             }
-            if ((Original_Retencion.HasValue == true)) {
+            if ((Original_DescPronto.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[60].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[61].Value = ((decimal)(Original_Retencion.Value));
+                this.Adapter.UpdateCommand.Parameters[61].Value = ((decimal)(Original_DescPronto.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[60].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[61].Value = global::System.DBNull.Value;
             }
-            if ((Original_IVAFactura.HasValue == true)) {
+            if ((Original_Retencion.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[62].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[63].Value = ((decimal)(Original_IVAFactura.Value));
+                this.Adapter.UpdateCommand.Parameters[63].Value = ((decimal)(Original_Retencion.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[62].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[63].Value = global::System.DBNull.Value;
             }
-            if ((Original_Cobrada.HasValue == true)) {
+            if ((Original_IVAFactura.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[64].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[65].Value = ((bool)(Original_Cobrada.Value));
+                this.Adapter.UpdateCommand.Parameters[65].Value = ((decimal)(Original_IVAFactura.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[64].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[65].Value = global::System.DBNull.Value;
             }
-            if ((Original_ObsFactura == null)) {
+            if ((Original_Cobrada.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[66].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[67].Value = ((bool)(Original_Cobrada.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[66].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[67].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[66].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[67].Value = ((string)(Original_ObsFactura));
-            }
-            if ((Original_FacturaPresup.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[68].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[69].Value = ((bool)(Original_FacturaPresup.Value));
-            }
-            else {
+            if ((Original_ObsFactura == null)) {
                 this.Adapter.UpdateCommand.Parameters[68].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[69].Value = global::System.DBNull.Value;
             }
-            if ((Original_CopiaFactura == null)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[68].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[69].Value = ((string)(Original_ObsFactura));
+            }
+            if ((Original_FacturaPresup.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[70].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[71].Value = ((bool)(Original_FacturaPresup.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[70].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[71].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[70].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[71].Value = ((string)(Original_CopiaFactura));
-            }
-            if ((Original_Factura.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[72].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[73].Value = ((bool)(Original_Factura.Value));
-            }
-            else {
+            if ((Original_CopiaFactura == null)) {
                 this.Adapter.UpdateCommand.Parameters[72].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[73].Value = global::System.DBNull.Value;
             }
-            if ((Original_Entregada.HasValue == true)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[72].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[73].Value = ((string)(Original_CopiaFactura));
+            }
+            if ((Original_Factura.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[74].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[75].Value = ((bool)(Original_Entregada.Value));
+                this.Adapter.UpdateCommand.Parameters[75].Value = ((bool)(Original_Factura.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[74].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[75].Value = global::System.DBNull.Value;
             }
-            if ((Original_NoDetalle.HasValue == true)) {
+            if ((Original_Entregada.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[76].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[77].Value = ((bool)(Original_NoDetalle.Value));
+                this.Adapter.UpdateCommand.Parameters[77].Value = ((bool)(Original_Entregada.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[76].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[77].Value = global::System.DBNull.Value;
             }
-            if ((Original_ObsFactura2 == null)) {
+            if ((Original_NoDetalle.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[78].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[79].Value = ((bool)(Original_NoDetalle.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[78].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[79].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[78].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[79].Value = ((string)(Original_ObsFactura2));
-            }
-            if ((Original_EsPrevision.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[80].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[81].Value = ((bool)(Original_EsPrevision.Value));
-            }
-            else {
+            if ((Original_ObsFactura2 == null)) {
                 this.Adapter.UpdateCommand.Parameters[80].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[81].Value = global::System.DBNull.Value;
             }
-            if ((Original_Anticipo.HasValue == true)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[80].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[81].Value = ((string)(Original_ObsFactura2));
+            }
+            if ((Original_EsPrevision.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[82].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[83].Value = ((decimal)(Original_Anticipo.Value));
+                this.Adapter.UpdateCommand.Parameters[83].Value = ((bool)(Original_EsPrevision.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[82].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[83].Value = global::System.DBNull.Value;
             }
-            if ((Original_MostrarSubTot.HasValue == true)) {
+            if ((Original_Anticipo.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[84].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[85].Value = ((bool)(Original_MostrarSubTot.Value));
+                this.Adapter.UpdateCommand.Parameters[85].Value = ((decimal)(Original_Anticipo.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[84].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[85].Value = global::System.DBNull.Value;
             }
-            if ((Original_CargoMitadDesc.HasValue == true)) {
+            if ((Original_MostrarSubTot.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[86].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[87].Value = ((bool)(Original_CargoMitadDesc.Value));
+                this.Adapter.UpdateCommand.Parameters[87].Value = ((bool)(Original_MostrarSubTot.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[86].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[87].Value = global::System.DBNull.Value;
             }
-            if ((Original_EsCertificacion.HasValue == true)) {
+            if ((Original_CargoMitadDesc.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[88].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[89].Value = ((bool)(Original_EsCertificacion.Value));
+                this.Adapter.UpdateCommand.Parameters[89].Value = ((bool)(Original_CargoMitadDesc.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[88].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[89].Value = global::System.DBNull.Value;
             }
-            if ((Original_MostrarPresup.HasValue == true)) {
+            if ((Original_EsCertificacion.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[90].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[91].Value = ((bool)(Original_MostrarPresup.Value));
+                this.Adapter.UpdateCommand.Parameters[91].Value = ((bool)(Original_EsCertificacion.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[90].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[91].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[92].Value = ((int)(IdFactCab));
+            if ((Original_MostrarPresup.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[92].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[93].Value = ((bool)(Original_MostrarPresup.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[92].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[93].Value = global::System.DBNull.Value;
+            }
+            if ((Original_UnificarMaterial.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[94].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[95].Value = ((bool)(Original_UnificarMaterial.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[94].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[95].Value = global::System.DBNull.Value;
+            }
+            if ((Original_FechaEnvioCliente.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[96].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[97].Value = ((System.DateTime)(Original_FechaEnvioCliente.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[96].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[97].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[98].Value = ((int)(IdFactCab));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -23059,6 +23224,8 @@ ORDER BY FechaFactura, NumFactura, SerieFact";
                     global::System.Nullable<bool> CargoMitadDesc, 
                     global::System.Nullable<bool> EsCertificacion, 
                     global::System.Nullable<bool> MostrarPresup, 
+                    global::System.Nullable<bool> UnificarMaterial, 
+                    global::System.Nullable<global::System.DateTime> FechaEnvioCliente, 
                     int Original_IdFactCab, 
                     int Original_IdEmpresa, 
                     int Original_IdCliente, 
@@ -23091,8 +23258,10 @@ ORDER BY FechaFactura, NumFactura, SerieFact";
                     global::System.Nullable<bool> Original_MostrarSubTot, 
                     global::System.Nullable<bool> Original_CargoMitadDesc, 
                     global::System.Nullable<bool> Original_EsCertificacion, 
-                    global::System.Nullable<bool> Original_MostrarPresup) {
-            return this.Update(IdEmpresa, IdCliente, IdClienteFact, IdObra, IdPresup, IdUsuario, NumFactura, SerieFact, FechaFactura, FechaVctoFact, MostrarVcto, MostrarObra, IdCuenta, Certificacion, DescFactura, DescPronto, Retencion, IVAFactura, Cobrada, ObsFactura, FacturaPresup, CopiaFactura, Factura, Entregada, NoDetalle, ObsFactura2, EsPrevision, Anticipo, MostrarSubTot, CargoMitadDesc, EsCertificacion, MostrarPresup, Original_IdFactCab, Original_IdEmpresa, Original_IdCliente, Original_IdClienteFact, Original_IdObra, Original_IdPresup, Original_IdUsuario, Original_NumFactura, Original_SerieFact, Original_FechaFactura, Original_FechaVctoFact, Original_MostrarVcto, Original_MostrarObra, Original_IdCuenta, Original_Certificacion, Original_DescFactura, Original_DescPronto, Original_Retencion, Original_IVAFactura, Original_Cobrada, Original_ObsFactura, Original_FacturaPresup, Original_CopiaFactura, Original_Factura, Original_Entregada, Original_NoDetalle, Original_ObsFactura2, Original_EsPrevision, Original_Anticipo, Original_MostrarSubTot, Original_CargoMitadDesc, Original_EsCertificacion, Original_MostrarPresup, Original_IdFactCab);
+                    global::System.Nullable<bool> Original_MostrarPresup, 
+                    global::System.Nullable<bool> Original_UnificarMaterial, 
+                    global::System.Nullable<global::System.DateTime> Original_FechaEnvioCliente) {
+            return this.Update(IdEmpresa, IdCliente, IdClienteFact, IdObra, IdPresup, IdUsuario, NumFactura, SerieFact, FechaFactura, FechaVctoFact, MostrarVcto, MostrarObra, IdCuenta, Certificacion, DescFactura, DescPronto, Retencion, IVAFactura, Cobrada, ObsFactura, FacturaPresup, CopiaFactura, Factura, Entregada, NoDetalle, ObsFactura2, EsPrevision, Anticipo, MostrarSubTot, CargoMitadDesc, EsCertificacion, MostrarPresup, UnificarMaterial, FechaEnvioCliente, Original_IdFactCab, Original_IdEmpresa, Original_IdCliente, Original_IdClienteFact, Original_IdObra, Original_IdPresup, Original_IdUsuario, Original_NumFactura, Original_SerieFact, Original_FechaFactura, Original_FechaVctoFact, Original_MostrarVcto, Original_MostrarObra, Original_IdCuenta, Original_Certificacion, Original_DescFactura, Original_DescPronto, Original_Retencion, Original_IVAFactura, Original_Cobrada, Original_ObsFactura, Original_FacturaPresup, Original_CopiaFactura, Original_Factura, Original_Entregada, Original_NoDetalle, Original_ObsFactura2, Original_EsPrevision, Original_Anticipo, Original_MostrarSubTot, Original_CargoMitadDesc, Original_EsCertificacion, Original_MostrarPresup, Original_UnificarMaterial, Original_FechaEnvioCliente, Original_IdFactCab);
         }
     }
     

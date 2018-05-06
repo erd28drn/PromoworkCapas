@@ -31,7 +31,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Referencias\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
@@ -78,14 +90,9 @@
     <Compile Include="Entities\TotalesCompra.cs" />
     <Compile Include="Entities\TrabajadorConEmail.cs" />
     <Compile Include="Entities\ObrasEnviar.cs" />
-    <Compile Include="Entities\PromoworkDataModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PromoworkDataModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Entities\ResumenEnvioCorreos.cs" />
     <Compile Include="Entities\GestorConEmail.cs" />
-    <Compile Include="Enumeradores\Class1.cs" />
+    <Compile Include="Entities\ConfiguracionUsuario.cs" />
     <Compile Include="Enumeradores\CustomEnumConverter.cs" />
     <Compile Include="Enumeradores\DescriptionAttribute.cs" />
     <Compile Include="Enumeradores\EnumAlbaranUtilizado.cs" />
@@ -101,6 +108,21 @@
       <DependentUpon>masterDataSet.xsd</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Modelos\DefinicionesDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DefinicionesDataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\GeneralesDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GeneralesDataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\OperacionesDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OperacionesDataModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Promowork_dataDataSet.cs">
       <DependentUpon>Promowork_dataDataSet.xsd</DependentUpon>
@@ -124,6 +146,8 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Repositorios\RepositorioFacturasCab.cs" />
+    <Compile Include="Repositorios\RepositorioUsuario.cs" />
     <Compile Include="Settings.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -174,10 +198,6 @@
     <None Include="DatosReportesNuevos.xss">
       <DependentUpon>DatosReportesNuevos.xsd</DependentUpon>
     </None>
-    <EntityDeploy Include="Entities\PromoworkDataModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PromoworkDataModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="masterDataSet.xsc">
       <DependentUpon>masterDataSet.xsd</DependentUpon>
     </None>
@@ -189,6 +209,19 @@
     <None Include="masterDataSet.xss">
       <DependentUpon>masterDataSet.xsd</DependentUpon>
     </None>
+    <EntityDeploy Include="Modelos\DefinicionesDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DefinicionesDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Modelos\OperacionesDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>OperacionesDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Modelos\GeneralesDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GeneralesDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="packages.config" />
     <None Include="Promowork_dataDataSet.xsc">
       <DependentUpon>Promowork_dataDataSet.xsd</DependentUpon>
     </None>
@@ -211,14 +244,15 @@
     <None Include="Promowork_dataDataSetCombustible.xss">
       <DependentUpon>Promowork_dataDataSetCombustible.xsd</DependentUpon>
     </None>
+    <None Include="Properties\DataSources\GestionData.Modelos.DefinicionesDataModel.datasource" />
+    <None Include="Properties\DataSources\GestionData.Modelos.GeneralesDataModel.datasource" />
+    <None Include="Properties\DataSources\GestionData.Modelos.OperacionesDataModel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\DataSources\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

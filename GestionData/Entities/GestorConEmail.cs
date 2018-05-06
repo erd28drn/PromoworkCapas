@@ -15,7 +15,7 @@ namespace GestionData.Entities
         {
             get
             {
-                return NomGestor + " (" + EmailGestor + ")";
+                return string.IsNullOrWhiteSpace(EmailGestor)? "" : NomGestor + " (" + EmailGestor + ")";
             }
         }
     }

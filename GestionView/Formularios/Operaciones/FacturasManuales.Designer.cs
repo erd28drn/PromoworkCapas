@@ -58,11 +58,11 @@
             System.Windows.Forms.Label obsFacturaLabel;
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label anticipoLabel;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FacturasManuales));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.Label label9;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FacturasManuales));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.facturasCabBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.promowork_dataDataSet = new GestionData.Promowork_dataDataSet();
             this.obrasBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -110,13 +110,6 @@
             this.textBox19 = new System.Windows.Forms.TextBox();
             this.obsFacturaTextEdit = new DevExpress.XtraEditors.MemoEdit();
             this.facturasCabDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdCuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Obra = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdFactCab = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FacturaPresup = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.idClienteComboBox = new System.Windows.Forms.ComboBox();
             this.idPresupComboBox = new System.Windows.Forms.ComboBox();
             this.numFacturaTextBox = new System.Windows.Forms.TextBox();
@@ -167,12 +160,21 @@
             this.cbxanos = new System.Windows.Forms.ComboBox();
             this.cbxfacturas = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tbUltimaFactura = new System.Windows.Forms.TextBox();
             this.txtSerieFact = new System.Windows.Forms.TextBox();
             this.chkMostrarObra = new DevExpress.XtraEditors.CheckEdit();
             this.anticipoTextBox = new System.Windows.Forms.TextBox();
             this.facturaIncorrectaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.facturaIncorrectaTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.FacturaIncorrectaTableAdapter();
-            this.tbUltimaFactura = new System.Windows.Forms.TextBox();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdCuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Obra = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdFactCab = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FacturaPresup = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Entregada = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.FechaEnvioCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             copiaFacturaLabel = new System.Windows.Forms.Label();
             idClienteLabel = new System.Windows.Forms.Label();
             idPresupLabel = new System.Windows.Forms.Label();
@@ -493,6 +495,15 @@
             anticipoLabel.TabIndex = 122;
             anticipoLabel.Text = "Anticipo:";
             // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new System.Drawing.Point(686, 41);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(78, 13);
+            label9.TabIndex = 200;
+            label9.Text = "Última Factura:";
+            // 
             // facturasCabBindingSource
             // 
             this.facturasCabBindingSource.DataMember = "FacturasCab";
@@ -674,18 +685,18 @@
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.DataPropertyName = "Cantidad";
-            dataGridViewCellStyle4.Format = "N2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn8.HeaderText = "Cantidad";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             // 
             // dataGridViewTextBoxColumn9
             // 
             this.dataGridViewTextBoxColumn9.DataPropertyName = "Precio";
-            dataGridViewCellStyle5.Format = "N2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn9.HeaderText = "Precio";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             // 
@@ -910,7 +921,9 @@
             this.Obra,
             this.Importe,
             this.IdFactCab,
-            this.FacturaPresup});
+            this.FacturaPresup,
+            this.Entregada,
+            this.FechaEnvioCliente});
             this.facturasCabDataGridView.DataSource = this.facturasCabBindingSource;
             this.facturasCabDataGridView.Location = new System.Drawing.Point(4, 37);
             this.facturasCabDataGridView.Name = "facturasCabDataGridView";
@@ -920,72 +933,6 @@
             this.facturasCabDataGridView.Size = new System.Drawing.Size(434, 253);
             this.facturasCabDataGridView.TabIndex = 0;
             this.facturasCabDataGridView.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.facturasCabDataGridView_CellEnter);
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "NumFactura";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Número";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 50;
-            // 
-            // IdCuenta
-            // 
-            this.IdCuenta.DataPropertyName = "IdCuenta";
-            this.IdCuenta.HeaderText = "IdCuenta";
-            this.IdCuenta.Name = "IdCuenta";
-            this.IdCuenta.ReadOnly = true;
-            this.IdCuenta.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "FechaFactura";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Fecha";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 70;
-            // 
-            // Obra
-            // 
-            this.Obra.DataPropertyName = "IdObra";
-            this.Obra.DataSource = this.obrasBindingSource1;
-            this.Obra.DisplayMember = "ObraSM";
-            this.Obra.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.Obra.DisplayStyleForCurrentCellOnly = true;
-            this.Obra.HeaderText = "Obra";
-            this.Obra.Name = "Obra";
-            this.Obra.ReadOnly = true;
-            this.Obra.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Obra.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Obra.ValueMember = "IdObra";
-            this.Obra.Width = 230;
-            // 
-            // Importe
-            // 
-            this.Importe.DataPropertyName = "Importe";
-            dataGridViewCellStyle6.Format = "N2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.Importe.DefaultCellStyle = dataGridViewCellStyle6;
-            this.Importe.HeaderText = "Importe";
-            this.Importe.Name = "Importe";
-            this.Importe.ReadOnly = true;
-            this.Importe.Width = 65;
-            // 
-            // IdFactCab
-            // 
-            this.IdFactCab.DataPropertyName = "IdFactCab";
-            this.IdFactCab.HeaderText = "IdFactCab";
-            this.IdFactCab.Name = "IdFactCab";
-            this.IdFactCab.ReadOnly = true;
-            this.IdFactCab.Visible = false;
-            // 
-            // FacturaPresup
-            // 
-            this.FacturaPresup.DataPropertyName = "FacturaPresup";
-            this.FacturaPresup.HeaderText = "FacturaPresup";
-            this.FacturaPresup.Name = "FacturaPresup";
-            this.FacturaPresup.ReadOnly = true;
-            this.FacturaPresup.Visible = false;
             // 
             // idClienteComboBox
             // 
@@ -1538,6 +1485,14 @@
             this.groupBox3.TabIndex = 81;
             this.groupBox3.TabStop = false;
             // 
+            // tbUltimaFactura
+            // 
+            this.tbUltimaFactura.Location = new System.Drawing.Point(767, 37);
+            this.tbUltimaFactura.Name = "tbUltimaFactura";
+            this.tbUltimaFactura.ReadOnly = true;
+            this.tbUltimaFactura.Size = new System.Drawing.Size(51, 20);
+            this.tbUltimaFactura.TabIndex = 199;
+            // 
             // txtSerieFact
             // 
             this.txtSerieFact.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.facturasCabBindingSource, "SerieFact", true));
@@ -1573,22 +1528,87 @@
             // 
             this.facturaIncorrectaTableAdapter.ClearBeforeFill = true;
             // 
-            // label9
+            // dataGridViewTextBoxColumn6
             // 
-            label9.AutoSize = true;
-            label9.Location = new System.Drawing.Point(686, 41);
-            label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(78, 13);
-            label9.TabIndex = 200;
-            label9.Text = "Última Factura:";
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "NumFactura";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Número";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 50;
             // 
-            // tbUltimaFactura
+            // IdCuenta
             // 
-            this.tbUltimaFactura.Location = new System.Drawing.Point(767, 37);
-            this.tbUltimaFactura.Name = "tbUltimaFactura";
-            this.tbUltimaFactura.ReadOnly = true;
-            this.tbUltimaFactura.Size = new System.Drawing.Size(51, 20);
-            this.tbUltimaFactura.TabIndex = 199;
+            this.IdCuenta.DataPropertyName = "IdCuenta";
+            this.IdCuenta.HeaderText = "IdCuenta";
+            this.IdCuenta.Name = "IdCuenta";
+            this.IdCuenta.ReadOnly = true;
+            this.IdCuenta.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "FechaFactura";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Fecha";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 70;
+            // 
+            // Obra
+            // 
+            this.Obra.DataPropertyName = "IdObra";
+            this.Obra.DataSource = this.obrasBindingSource1;
+            this.Obra.DisplayMember = "ObraSM";
+            this.Obra.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.Obra.DisplayStyleForCurrentCellOnly = true;
+            this.Obra.HeaderText = "Obra";
+            this.Obra.Name = "Obra";
+            this.Obra.ReadOnly = true;
+            this.Obra.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Obra.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Obra.ValueMember = "IdObra";
+            this.Obra.Width = 230;
+            // 
+            // Importe
+            // 
+            this.Importe.DataPropertyName = "Importe";
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.Importe.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Importe.HeaderText = "Importe";
+            this.Importe.Name = "Importe";
+            this.Importe.ReadOnly = true;
+            this.Importe.Width = 65;
+            // 
+            // IdFactCab
+            // 
+            this.IdFactCab.DataPropertyName = "IdFactCab";
+            this.IdFactCab.HeaderText = "IdFactCab";
+            this.IdFactCab.Name = "IdFactCab";
+            this.IdFactCab.ReadOnly = true;
+            this.IdFactCab.Visible = false;
+            // 
+            // FacturaPresup
+            // 
+            this.FacturaPresup.DataPropertyName = "FacturaPresup";
+            this.FacturaPresup.HeaderText = "FacturaPresup";
+            this.FacturaPresup.Name = "FacturaPresup";
+            this.FacturaPresup.ReadOnly = true;
+            this.FacturaPresup.Visible = false;
+            // 
+            // Entregada
+            // 
+            this.Entregada.DataPropertyName = "Entregada";
+            this.Entregada.HeaderText = "Entregada";
+            this.Entregada.Name = "Entregada";
+            this.Entregada.ReadOnly = true;
+            this.Entregada.Visible = false;
+            // 
+            // FechaEnvioCliente
+            // 
+            this.FechaEnvioCliente.DataPropertyName = "FechaEnvioCliente";
+            this.FechaEnvioCliente.HeaderText = "FechaEnvioCliente";
+            this.FechaEnvioCliente.Name = "FechaEnvioCliente";
+            this.FechaEnvioCliente.ReadOnly = true;
+            this.FechaEnvioCliente.Visible = false;
             // 
             // FacturasManuales
             // 
@@ -1745,6 +1765,7 @@
         private GestionData.Promowork_dataDataSetTableAdapters.FacturaIncorrectaTableAdapter facturaIncorrectaTableAdapter;
         private DevExpress.XtraEditors.CheckEdit chkMostrarObra;
         private System.Windows.Forms.TextBox txtSerieFact;
+        private System.Windows.Forms.TextBox tbUltimaFactura;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdCuenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
@@ -1752,6 +1773,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdFactCab;
         private System.Windows.Forms.DataGridViewCheckBoxColumn FacturaPresup;
-        private System.Windows.Forms.TextBox tbUltimaFactura;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Entregada;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaEnvioCliente;
     }
 }

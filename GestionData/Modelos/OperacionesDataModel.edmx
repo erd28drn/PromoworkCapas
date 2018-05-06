@@ -1,0 +1,1805 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Promowork_dataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="Promowork_dataModelStoreContainer">
+          <EntitySet Name="AlbaranesCab" EntityType="Promowork_dataModel.Store.AlbaranesCab" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AlbaranesDet" EntityType="Promowork_dataModel.Store.AlbaranesDet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Cobros" EntityType="Promowork_dataModel.Store.Cobros" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ComprasCab" EntityType="Promowork_dataModel.Store.ComprasCab" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ComprasDet" EntityType="Promowork_dataModel.Store.ComprasDet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EntradasCombustibleCab" EntityType="Promowork_dataModel.Store.EntradasCombustibleCab" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EntradasCombustibleDet" EntityType="Promowork_dataModel.Store.EntradasCombustibleDet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FacturasCab" EntityType="Promowork_dataModel.Store.FacturasCab" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FacturasDet" EntityType="Promowork_dataModel.Store.FacturasDet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FacturasDetDirecta" EntityType="Promowork_dataModel.Store.FacturasDetDirecta" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FacturasDetHoras" EntityType="Promowork_dataModel.Store.FacturasDetHoras" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OperacionesBanco" EntityType="Promowork_dataModel.Store.OperacionesBanco" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PresupCab" EntityType="Promowork_dataModel.Store.PresupCab" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PresupCap" EntityType="Promowork_dataModel.Store.PresupCap" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PresupDet" EntityType="Promowork_dataModel.Store.PresupDet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PresupSub" EntityType="Promowork_dataModel.Store.PresupSub" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_AlbaranesCab_ComprasCab" Association="Promowork_dataModel.Store.FK_AlbaranesCab_ComprasCab">
+            <End Role="ComprasCab" EntitySet="ComprasCab" />
+            <End Role="AlbaranesCab" EntitySet="AlbaranesCab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AlbaranesDet_AlbaranesCab" Association="Promowork_dataModel.Store.FK_AlbaranesDet_AlbaranesCab">
+            <End Role="AlbaranesCab" EntitySet="AlbaranesCab" />
+            <End Role="AlbaranesDet" EntitySet="AlbaranesDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AlbaranesDet_AlbaranesDet" Association="Promowork_dataModel.Store.FK_AlbaranesDet_AlbaranesDet">
+            <End Role="AlbaranesDet" EntitySet="AlbaranesDet" />
+            <End Role="AlbaranesDet1" EntitySet="AlbaranesDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ComprasDet_ComprasCab" Association="Promowork_dataModel.Store.FK_ComprasDet_ComprasCab">
+            <End Role="ComprasCab" EntitySet="ComprasCab" />
+            <End Role="ComprasDet" EntitySet="ComprasDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntradasCombustibleDet_ComprasCab" Association="Promowork_dataModel.Store.FK_EntradasCombustibleDet_ComprasCab">
+            <End Role="ComprasCab" EntitySet="ComprasCab" />
+            <End Role="EntradasCombustibleDet" EntitySet="EntradasCombustibleDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FacturasCab_PresupCab" Association="Promowork_dataModel.Store.FK_FacturasCab_PresupCab">
+            <End Role="PresupCab" EntitySet="PresupCab" />
+            <End Role="FacturasCab" EntitySet="FacturasCab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FacturasDet_FacturasCab" Association="Promowork_dataModel.Store.FK_FacturasDet_FacturasCab">
+            <End Role="FacturasCab" EntitySet="FacturasCab" />
+            <End Role="FacturasDet" EntitySet="FacturasDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FacturasDet_PresupCap" Association="Promowork_dataModel.Store.FK_FacturasDet_PresupCap">
+            <End Role="PresupCap" EntitySet="PresupCap" />
+            <End Role="FacturasDet" EntitySet="FacturasDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FacturasDet_PresupDet" Association="Promowork_dataModel.Store.FK_FacturasDet_PresupDet">
+            <End Role="PresupDet" EntitySet="PresupDet" />
+            <End Role="FacturasDet" EntitySet="FacturasDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FacturasDet_PresupSub" Association="Promowork_dataModel.Store.FK_FacturasDet_PresupSub">
+            <End Role="PresupSub" EntitySet="PresupSub" />
+            <End Role="FacturasDet" EntitySet="FacturasDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FacturasDetDirecta_ComprasCab" Association="Promowork_dataModel.Store.FK_FacturasDetDirecta_ComprasCab">
+            <End Role="ComprasCab" EntitySet="ComprasCab" />
+            <End Role="FacturasDetDirecta" EntitySet="FacturasDetDirecta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FacturasDetDirecta_FacturasCab" Association="Promowork_dataModel.Store.FK_FacturasDetDirecta_FacturasCab">
+            <End Role="FacturasCab" EntitySet="FacturasCab" />
+            <End Role="FacturasDetDirecta" EntitySet="FacturasDetDirecta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FacturasDetHoras_FacturasCab" Association="Promowork_dataModel.Store.FK_FacturasDetHoras_FacturasCab">
+            <End Role="FacturasCab" EntitySet="FacturasCab" />
+            <End Role="FacturasDetHoras" EntitySet="FacturasDetHoras" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OperacionesBanco_Cobros" Association="Promowork_dataModel.Store.FK_OperacionesBanco_Cobros">
+            <End Role="Cobros" EntitySet="Cobros" />
+            <End Role="OperacionesBanco" EntitySet="OperacionesBanco" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OperacionesBanco_ComprasCab" Association="Promowork_dataModel.Store.FK_OperacionesBanco_ComprasCab">
+            <End Role="ComprasCab" EntitySet="ComprasCab" />
+            <End Role="OperacionesBanco" EntitySet="OperacionesBanco" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OtrosCobros_FacturasCab" Association="Promowork_dataModel.Store.FK_OtrosCobros_FacturasCab">
+            <End Role="FacturasCab" EntitySet="FacturasCab" />
+            <End Role="Cobros" EntitySet="Cobros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PresupCap_PresupCab" Association="Promowork_dataModel.Store.FK_PresupCap_PresupCab">
+            <End Role="PresupCab" EntitySet="PresupCab" />
+            <End Role="PresupCap" EntitySet="PresupCap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PresupDet_PresupCap" Association="Promowork_dataModel.Store.FK_PresupDet_PresupCap">
+            <End Role="PresupCap" EntitySet="PresupCap" />
+            <End Role="PresupDet" EntitySet="PresupDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PresupSub_PresupDet" Association="Promowork_dataModel.Store.FK_PresupSub_PresupDet">
+            <End Role="PresupDet" EntitySet="PresupDet" />
+            <End Role="PresupSub" EntitySet="PresupSub" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AlbaranesCab">
+          <Key>
+            <PropertyRef Name="IdAlbaranCab" />
+          </Key>
+          <Property Name="IdAlbaranCab" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdEmpresa" Type="int" />
+          <Property Name="IdObra" Type="int" />
+          <Property Name="IdProveedor" Type="int" />
+          <Property Name="NumAlbaran" Type="varchar" MaxLength="30" />
+          <Property Name="ConsecutivoAlbaran" Type="int" />
+          <Property Name="FechaAlbaran" Type="date" />
+          <Property Name="Valorado" Type="bit" />
+          <Property Name="UtilizadoEn" Type="int" />
+          <Property Name="Utilizado" Type="bit" />
+          <Property Name="FacturaRecibida" Type="bit" />
+          <Property Name="Observaciones" Type="text" />
+          <Property Name="CopiaAlbaran" Type="varchar" MaxLength="1000" />
+          <Property Name="SinAlbaran" Type="bit" />
+          <Property Name="IdCompra" Type="int" />
+          <Property Name="ModificaImporteCompra" Type="bit" />
+        </EntityType>
+        <EntityType Name="AlbaranesDet">
+          <Key>
+            <PropertyRef Name="IdAlbaranDet" />
+          </Key>
+          <Property Name="IdAlbaranDet" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdAlbaranCab" Type="int" />
+          <Property Name="IdProducto" Type="int" />
+          <Property Name="Cantidad" Type="numeric" Precision="16" Scale="6" />
+          <Property Name="Precio" Type="numeric" Precision="16" Scale="6" />
+          <Property Name="Descuento" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="IdLugarUso" Type="int" />
+          <Property Name="IdTrabajador" Type="int" />
+          <Property Name="Observaciones" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Cobros">
+          <Key>
+            <PropertyRef Name="IdCobro" />
+          </Key>
+          <Property Name="IdCobro" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsuario" Type="int" Nullable="false" />
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdCliente" Type="int" Nullable="false" />
+          <Property Name="IdObra" Type="int" />
+          <Property Name="FechaExp" Type="date" />
+          <Property Name="FechaRec" Type="date" />
+          <Property Name="FechaAbono" Type="date" />
+          <Property Name="FechaVcto" Type="date" />
+          <Property Name="IdFactCab" Type="int" />
+          <Property Name="Factura" Type="varchar" MaxLength="20" />
+          <Property Name="FechaFactura" Type="date" />
+          <Property Name="IdFormaPago" Type="int" Nullable="false" />
+          <Property Name="IdCuenta" Type="int" Nullable="false" />
+          <Property Name="ImpBase" Type="decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="ImpIVA" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Referencia" Type="varchar" MaxLength="50" />
+          <Property Name="Observ" Type="text" />
+          <Property Name="CopiaFactura" Type="varchar" MaxLength="1000" />
+          <Property Name="EnBanco" Type="bit" />
+          <Property Name="Prevision" Type="bit" />
+          <Property Name="ObsBanco" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ComprasCab">
+          <Key>
+            <PropertyRef Name="IdCompra" />
+          </Key>
+          <Property Name="IdCompra" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="idProveedor" Type="int" Nullable="false" />
+          <Property Name="IdUsuario" Type="int" />
+          <Property Name="Factura" Type="varchar" MaxLength="20" />
+          <Property Name="FechaFactura" Type="date" />
+          <Property Name="FechaRecib" Type="date" />
+          <Property Name="FechaVcto" Type="date" />
+          <Property Name="IdFormaPago" Type="int" />
+          <Property Name="IdCuenta" Type="int" />
+          <Property Name="FechaPago" Type="date" />
+          <Property Name="CopiaFactura" Type="varchar" MaxLength="1000" />
+          <Property Name="Pagada" Type="bit" />
+          <Property Name="Observ" Type="text" />
+          <Property Name="color" Type="int" />
+          <Property Name="Prevision" Type="bit" />
+          <Property Name="ObsBanco" Type="varchar" MaxLength="1000" />
+          <Property Name="CopiaFacturaImg" Type="image" />
+          <Property Name="FacturaPendiente" Type="bit" />
+          <Property Name="FacturaDirecta" Type="bit" />
+          <Property Name="ImporteTotalBase" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="ImporteTotalIVA" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="ImporteTotalIRPF" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="ImporteTotal" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="ImportePagado" Type="numeric" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="ComprasDet">
+          <Key>
+            <PropertyRef Name="IdDetCompra" />
+          </Key>
+          <Property Name="IdDetCompra" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdCompra" Type="int" Nullable="false" />
+          <Property Name="IdObra" Type="int" Nullable="false" />
+          <Property Name="ImpBase" Type="numeric" Nullable="false" Scale="2" />
+          <Property Name="ImpIva" Type="decimal" Scale="2" />
+          <Property Name="ImpIRPF" Type="decimal" Scale="2" />
+          <Property Name="ObsCompra" Type="varchar" MaxLength="100" />
+          <Property Name="Color" Type="int" />
+        </EntityType>
+        <EntityType Name="EntradasCombustibleCab">
+          <Key>
+            <PropertyRef Name="IdEntradaCab" />
+          </Key>
+          <Property Name="IdEntradaCab" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="NumFactura" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="FechaFactura" Type="date" Nullable="false" />
+          <Property Name="FechaRecib" Type="date" Nullable="false" />
+          <Property Name="FechaVcto" Type="date" Nullable="false" />
+          <Property Name="FechaPago" Type="date" Nullable="false" />
+          <Property Name="IdProveedor" Type="int" Nullable="false" />
+          <Property Name="IdFormaPago" Type="int" />
+          <Property Name="IdCuenta" Type="int" />
+        </EntityType>
+        <EntityType Name="EntradasCombustibleDet">
+          <Key>
+            <PropertyRef Name="IdEntradaDet" />
+          </Key>
+          <Property Name="IdEntradaDet" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdCompra" Type="int" Nullable="false" />
+          <Property Name="Albaran" Type="varchar" MaxLength="20" />
+          <Property Name="IdServicio" Type="int" />
+          <Property Name="Tipo" Type="numeric" Precision="10" Scale="4" />
+          <Property Name="Cantidad" Type="numeric" Precision="10" Scale="4" />
+          <Property Name="IdUmedida" Type="int" />
+          <Property Name="Precio" Type="numeric" Precision="10" Scale="4" />
+          <Property Name="ImpIVA" Type="numeric" Precision="10" Scale="4" />
+        </EntityType>
+        <EntityType Name="FacturasCab">
+          <Key>
+            <PropertyRef Name="IdFactCab" />
+          </Key>
+          <Property Name="IdFactCab" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdCliente" Type="int" Nullable="false" />
+          <Property Name="IdClienteFact" Type="int" />
+          <Property Name="IdObra" Type="int" />
+          <Property Name="IdPresup" Type="int" />
+          <Property Name="IdUsuario" Type="int" Nullable="false" />
+          <Property Name="NumFactura" Type="int" Nullable="false" />
+          <Property Name="SerieFact" Type="varchar" MaxLength="1" />
+          <Property Name="FechaFactura" Type="date" Nullable="false" />
+          <Property Name="FechaVctoFact" Type="date" />
+          <Property Name="MostrarVcto" Type="bit" />
+          <Property Name="MostrarObra" Type="bit" />
+          <Property Name="IdCuenta" Type="int" />
+          <Property Name="Certificacion" Type="int" />
+          <Property Name="DescFactura" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="DescPronto" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="Retencion" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="IVAFactura" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="Cobrada" Type="bit" />
+          <Property Name="ObsFactura" Type="varchar" MaxLength="1000" />
+          <Property Name="FacturaPresup" Type="bit" />
+          <Property Name="CopiaFactura" Type="varchar" MaxLength="1000" />
+          <Property Name="Factura" Type="bit" />
+          <Property Name="Entregada" Type="bit" />
+          <Property Name="NoDetalle" Type="bit" />
+          <Property Name="ObsFactura2" Type="varchar" MaxLength="1000" />
+          <Property Name="EsPrevision" Type="bit" />
+          <Property Name="EsCertificacion" Type="bit" />
+          <Property Name="Anticipo" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="MostrarSubTot" Type="bit" />
+          <Property Name="CargoMitadDesc" Type="bit" />
+          <Property Name="MostrarPresup" Type="bit" />
+          <Property Name="UnificarMaterial" Type="bit" />
+          <Property Name="FechaEnvioCliente" Type="datetime" />
+        </EntityType>
+        <EntityType Name="FacturasDet">
+          <Key>
+            <PropertyRef Name="IdFactDet" />
+          </Key>
+          <Property Name="IdFactDet" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdFactCab" Type="int" Nullable="false" />
+          <Property Name="IdPresupCap" Type="int" />
+          <Property Name="IdPresupDet" Type="int" />
+          <Property Name="IdPresupSub" Type="int" />
+          <Property Name="Um" Type="varchar" MaxLength="3" />
+          <Property Name="Cantidad" Type="numeric" Nullable="false" Precision="16" Scale="6" />
+          <Property Name="Precio" Type="numeric" Precision="16" Scale="6" />
+          <Property Name="DescPrecio" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="Descripcion" Type="text" />
+        </EntityType>
+        <EntityType Name="FacturasDetDirecta">
+          <Key>
+            <PropertyRef Name="IdFacturaDetDirecta" />
+          </Key>
+          <Property Name="IdFacturaDetDirecta" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdFactCab" Type="int" />
+          <Property Name="IdCompra" Type="int" />
+          <Property Name="Observaciones" Type="varchar" MaxLength="4000" />
+        </EntityType>
+        <EntityType Name="FacturasDetHoras">
+          <Key>
+            <PropertyRef Name="IdFactDetHoras" />
+          </Key>
+          <Property Name="IdFactDetHoras" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdFactCab" Type="int" Nullable="false" />
+          <Property Name="IdHoras" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OperacionesBanco">
+          <Key>
+            <PropertyRef Name="IdOpeBanco" />
+          </Key>
+          <Property Name="IdOpeBanco" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdEmpresa" Type="int" />
+          <Property Name="IdUsuario" Type="int" />
+          <Property Name="Fecha" Type="date" />
+          <Property Name="IdConBanco" Type="int" />
+          <Property Name="IdCompra" Type="int" />
+          <Property Name="IdCobro" Type="int" />
+          <Property Name="DesOperacion" Type="varchar" MaxLength="4000" />
+          <Property Name="TipoOpe" Type="varchar" MaxLength="50" />
+          <Property Name="IdFormaPago" Type="int" />
+          <Property Name="IdCuenta" Type="int" />
+          <Property Name="Importe" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="EnCuenta" Type="bit" />
+          <Property Name="SaldoAnterior" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="FechaOpe" Type="datetime" />
+          <Property Name="ObsBanco" Type="varchar" MaxLength="4000" />
+        </EntityType>
+        <EntityType Name="PresupCab">
+          <Key>
+            <PropertyRef Name="IdPresupCab" />
+          </Key>
+          <Property Name="IdPresupCab" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdCliente" Type="int" />
+          <Property Name="IdObra" Type="int" />
+          <Property Name="IdUsuario" Type="int" />
+          <Property Name="DirObraPresup" Type="varchar" MaxLength="100" />
+          <Property Name="NumPresup" Type="int" Nullable="false" />
+          <Property Name="NomPresup" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="DesPresup" Type="varchar" MaxLength="100" />
+          <Property Name="FechaPresup" Type="datetime" />
+          <Property Name="LicObraPresup" Type="nvarchar" MaxLength="30" />
+          <Property Name="Facturado" Type="bit" />
+          <Property Name="Color" Type="int" />
+          <Property Name="CopiaPresup" Type="varchar" MaxLength="1000" />
+          <Property Name="ModifCab" Type="datetime" />
+          <Property Name="CertificacionAFacturar" Type="int" />
+        </EntityType>
+        <EntityType Name="PresupCap">
+          <Key>
+            <PropertyRef Name="IdPresupCap" />
+          </Key>
+          <Property Name="IdPresupCap" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdPresupCab" Type="int" Nullable="false" />
+          <Property Name="NumCapPresup" Type="varchar" Nullable="false" MaxLength="5" />
+          <Property Name="DesCapPresup" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="ObsCapPresup" Type="text" />
+          <Property Name="Extra" Type="bit" />
+          <Property Name="Extra2" Type="bit" />
+          <Property Name="Color" Type="int" />
+          <Property Name="ModifCap" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PresupDet">
+          <Key>
+            <PropertyRef Name="IdPresupDet" />
+          </Key>
+          <Property Name="IdPresupDet" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdPresupCap" Type="int" Nullable="false" />
+          <Property Name="IdPresupCab" Type="int" />
+          <Property Name="NumPresupDet" Type="varchar" Nullable="false" MaxLength="5" />
+          <Property Name="UM" Type="varchar" MaxLength="3" />
+          <Property Name="NomPresupDet" Type="varchar" Nullable="false" MaxLength="1000" />
+          <Property Name="DesPresupDet" Type="text" />
+          <Property Name="Cantidad" Type="numeric" Precision="16" Scale="6" />
+          <Property Name="CantAbono" Type="numeric" Precision="16" Scale="6" />
+          <Property Name="CantExtra" Type="numeric" Precision="16" Scale="6" />
+          <Property Name="Precio" Type="numeric" Precision="16" Scale="6" />
+          <Property Name="aFacturar" Type="numeric" Precision="16" Scale="6" />
+          <Property Name="DescPrecio" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="Color" Type="int" />
+          <Property Name="ModifDet" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PresupSub">
+          <Key>
+            <PropertyRef Name="IdPresupSub" />
+          </Key>
+          <Property Name="IdPresupSub" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdPresupDet" Type="int" Nullable="false" />
+          <Property Name="IdPresupCap" Type="int" />
+          <Property Name="IdPresupCab" Type="int" />
+          <Property Name="NumPresupSub" Type="varchar" Nullable="false" MaxLength="5" />
+          <Property Name="UM" Type="varchar" MaxLength="3" />
+          <Property Name="NomPresupSub" Type="varchar" Nullable="false" MaxLength="1000" />
+          <Property Name="DesPresupSub" Type="text" />
+          <Property Name="Cantidad" Type="numeric" Precision="16" Scale="6" />
+          <Property Name="CantInf" Type="numeric" Precision="16" Scale="6" />
+          <Property Name="CantAbono" Type="numeric" Precision="16" Scale="6" />
+          <Property Name="CantExtra" Type="numeric" Precision="16" Scale="6" />
+          <Property Name="Precio" Type="numeric" Precision="16" Scale="6" />
+          <Property Name="aFacturar" Type="numeric" Precision="16" Scale="6" />
+          <Property Name="DescPrecio" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="Color" Type="int" />
+        </EntityType>
+        <Association Name="FK_AlbaranesCab_ComprasCab">
+          <End Role="ComprasCab" Type="Promowork_dataModel.Store.ComprasCab" Multiplicity="0..1" />
+          <End Role="AlbaranesCab" Type="Promowork_dataModel.Store.AlbaranesCab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ComprasCab">
+              <PropertyRef Name="IdCompra" />
+            </Principal>
+            <Dependent Role="AlbaranesCab">
+              <PropertyRef Name="IdCompra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AlbaranesDet_AlbaranesCab">
+          <End Role="AlbaranesCab" Type="Promowork_dataModel.Store.AlbaranesCab" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AlbaranesDet" Type="Promowork_dataModel.Store.AlbaranesDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AlbaranesCab">
+              <PropertyRef Name="IdAlbaranCab" />
+            </Principal>
+            <Dependent Role="AlbaranesDet">
+              <PropertyRef Name="IdAlbaranCab" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AlbaranesDet_AlbaranesDet">
+          <End Role="AlbaranesDet" Type="Promowork_dataModel.Store.AlbaranesDet" Multiplicity="1" />
+          <End Role="AlbaranesDet1" Type="Promowork_dataModel.Store.AlbaranesDet" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="AlbaranesDet">
+              <PropertyRef Name="IdAlbaranDet" />
+            </Principal>
+            <Dependent Role="AlbaranesDet1">
+              <PropertyRef Name="IdAlbaranDet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ComprasDet_ComprasCab">
+          <End Role="ComprasCab" Type="Promowork_dataModel.Store.ComprasCab" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ComprasDet" Type="Promowork_dataModel.Store.ComprasDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ComprasCab">
+              <PropertyRef Name="IdCompra" />
+            </Principal>
+            <Dependent Role="ComprasDet">
+              <PropertyRef Name="IdCompra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EntradasCombustibleDet_ComprasCab">
+          <End Role="ComprasCab" Type="Promowork_dataModel.Store.ComprasCab" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="EntradasCombustibleDet" Type="Promowork_dataModel.Store.EntradasCombustibleDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ComprasCab">
+              <PropertyRef Name="IdCompra" />
+            </Principal>
+            <Dependent Role="EntradasCombustibleDet">
+              <PropertyRef Name="IdCompra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FacturasCab_PresupCab">
+          <End Role="PresupCab" Type="Promowork_dataModel.Store.PresupCab" Multiplicity="0..1" />
+          <End Role="FacturasCab" Type="Promowork_dataModel.Store.FacturasCab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PresupCab">
+              <PropertyRef Name="IdPresupCab" />
+            </Principal>
+            <Dependent Role="FacturasCab">
+              <PropertyRef Name="IdPresup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FacturasDet_FacturasCab">
+          <End Role="FacturasCab" Type="Promowork_dataModel.Store.FacturasCab" Multiplicity="1" />
+          <End Role="FacturasDet" Type="Promowork_dataModel.Store.FacturasDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FacturasCab">
+              <PropertyRef Name="IdFactCab" />
+            </Principal>
+            <Dependent Role="FacturasDet">
+              <PropertyRef Name="IdFactCab" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FacturasDet_PresupCap">
+          <End Role="PresupCap" Type="Promowork_dataModel.Store.PresupCap" Multiplicity="0..1" />
+          <End Role="FacturasDet" Type="Promowork_dataModel.Store.FacturasDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PresupCap">
+              <PropertyRef Name="IdPresupCap" />
+            </Principal>
+            <Dependent Role="FacturasDet">
+              <PropertyRef Name="IdPresupCap" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FacturasDet_PresupDet">
+          <End Role="PresupDet" Type="Promowork_dataModel.Store.PresupDet" Multiplicity="0..1" />
+          <End Role="FacturasDet" Type="Promowork_dataModel.Store.FacturasDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PresupDet">
+              <PropertyRef Name="IdPresupDet" />
+            </Principal>
+            <Dependent Role="FacturasDet">
+              <PropertyRef Name="IdPresupDet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FacturasDet_PresupSub">
+          <End Role="PresupSub" Type="Promowork_dataModel.Store.PresupSub" Multiplicity="0..1" />
+          <End Role="FacturasDet" Type="Promowork_dataModel.Store.FacturasDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PresupSub">
+              <PropertyRef Name="IdPresupSub" />
+            </Principal>
+            <Dependent Role="FacturasDet">
+              <PropertyRef Name="IdPresupSub" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FacturasDetDirecta_ComprasCab">
+          <End Role="ComprasCab" Type="Promowork_dataModel.Store.ComprasCab" Multiplicity="0..1" />
+          <End Role="FacturasDetDirecta" Type="Promowork_dataModel.Store.FacturasDetDirecta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ComprasCab">
+              <PropertyRef Name="IdCompra" />
+            </Principal>
+            <Dependent Role="FacturasDetDirecta">
+              <PropertyRef Name="IdCompra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FacturasDetDirecta_FacturasCab">
+          <End Role="FacturasCab" Type="Promowork_dataModel.Store.FacturasCab" Multiplicity="0..1" />
+          <End Role="FacturasDetDirecta" Type="Promowork_dataModel.Store.FacturasDetDirecta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FacturasCab">
+              <PropertyRef Name="IdFactCab" />
+            </Principal>
+            <Dependent Role="FacturasDetDirecta">
+              <PropertyRef Name="IdFactCab" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FacturasDetHoras_FacturasCab">
+          <End Role="FacturasCab" Type="Promowork_dataModel.Store.FacturasCab" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FacturasDetHoras" Type="Promowork_dataModel.Store.FacturasDetHoras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FacturasCab">
+              <PropertyRef Name="IdFactCab" />
+            </Principal>
+            <Dependent Role="FacturasDetHoras">
+              <PropertyRef Name="IdFactCab" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OperacionesBanco_Cobros">
+          <End Role="Cobros" Type="Promowork_dataModel.Store.Cobros" Multiplicity="0..1" />
+          <End Role="OperacionesBanco" Type="Promowork_dataModel.Store.OperacionesBanco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cobros">
+              <PropertyRef Name="IdCobro" />
+            </Principal>
+            <Dependent Role="OperacionesBanco">
+              <PropertyRef Name="IdCobro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OperacionesBanco_ComprasCab">
+          <End Role="ComprasCab" Type="Promowork_dataModel.Store.ComprasCab" Multiplicity="0..1" />
+          <End Role="OperacionesBanco" Type="Promowork_dataModel.Store.OperacionesBanco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ComprasCab">
+              <PropertyRef Name="IdCompra" />
+            </Principal>
+            <Dependent Role="OperacionesBanco">
+              <PropertyRef Name="IdCompra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OtrosCobros_FacturasCab">
+          <End Role="FacturasCab" Type="Promowork_dataModel.Store.FacturasCab" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Cobros" Type="Promowork_dataModel.Store.Cobros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FacturasCab">
+              <PropertyRef Name="IdFactCab" />
+            </Principal>
+            <Dependent Role="Cobros">
+              <PropertyRef Name="IdFactCab" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PresupCap_PresupCab">
+          <End Role="PresupCab" Type="Promowork_dataModel.Store.PresupCab" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PresupCap" Type="Promowork_dataModel.Store.PresupCap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PresupCab">
+              <PropertyRef Name="IdPresupCab" />
+            </Principal>
+            <Dependent Role="PresupCap">
+              <PropertyRef Name="IdPresupCab" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PresupDet_PresupCap">
+          <End Role="PresupCap" Type="Promowork_dataModel.Store.PresupCap" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PresupDet" Type="Promowork_dataModel.Store.PresupDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PresupCap">
+              <PropertyRef Name="IdPresupCap" />
+            </Principal>
+            <Dependent Role="PresupDet">
+              <PropertyRef Name="IdPresupCap" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PresupSub_PresupDet">
+          <End Role="PresupDet" Type="Promowork_dataModel.Store.PresupDet" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PresupSub" Type="Promowork_dataModel.Store.PresupSub" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PresupDet">
+              <PropertyRef Name="IdPresupDet" />
+            </Principal>
+            <Dependent Role="PresupSub">
+              <PropertyRef Name="IdPresupDet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Promowork_dataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="OperacionesDataModel" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AlbaranesCab" EntityType="Promowork_dataModel.AlbaranesCab" />
+          <EntitySet Name="AlbaranesDet" EntityType="Promowork_dataModel.AlbaranesDet" />
+          <EntitySet Name="Cobros" EntityType="Promowork_dataModel.Cobros" />
+          <EntitySet Name="ComprasCab" EntityType="Promowork_dataModel.ComprasCab" />
+          <EntitySet Name="ComprasDet" EntityType="Promowork_dataModel.ComprasDet" />
+          <EntitySet Name="EntradasCombustibleCab" EntityType="Promowork_dataModel.EntradasCombustibleCab" />
+          <EntitySet Name="EntradasCombustibleDet" EntityType="Promowork_dataModel.EntradasCombustibleDet" />
+          <EntitySet Name="FacturasCab" EntityType="Promowork_dataModel.FacturasCab" />
+          <EntitySet Name="FacturasDet" EntityType="Promowork_dataModel.FacturasDet" />
+          <EntitySet Name="FacturasDetDirecta" EntityType="Promowork_dataModel.FacturasDetDirecta" />
+          <EntitySet Name="FacturasDetHoras" EntityType="Promowork_dataModel.FacturasDetHoras" />
+          <EntitySet Name="OperacionesBanco" EntityType="Promowork_dataModel.OperacionesBanco" />
+          <EntitySet Name="PresupCab" EntityType="Promowork_dataModel.PresupCab" />
+          <EntitySet Name="PresupCap" EntityType="Promowork_dataModel.PresupCap" />
+          <EntitySet Name="PresupDet" EntityType="Promowork_dataModel.PresupDet" />
+          <EntitySet Name="PresupSub" EntityType="Promowork_dataModel.PresupSub" />
+          <AssociationSet Name="FK_AlbaranesCab_ComprasCab" Association="Promowork_dataModel.FK_AlbaranesCab_ComprasCab">
+            <End Role="ComprasCab" EntitySet="ComprasCab" />
+            <End Role="AlbaranesCab" EntitySet="AlbaranesCab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AlbaranesDet_AlbaranesCab" Association="Promowork_dataModel.FK_AlbaranesDet_AlbaranesCab">
+            <End Role="AlbaranesCab" EntitySet="AlbaranesCab" />
+            <End Role="AlbaranesDet" EntitySet="AlbaranesDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AlbaranesDet_AlbaranesDet" Association="Promowork_dataModel.FK_AlbaranesDet_AlbaranesDet">
+            <End Role="AlbaranesDet" EntitySet="AlbaranesDet" />
+            <End Role="AlbaranesDet1" EntitySet="AlbaranesDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OperacionesBanco_Cobros" Association="Promowork_dataModel.FK_OperacionesBanco_Cobros">
+            <End Role="Cobros" EntitySet="Cobros" />
+            <End Role="OperacionesBanco" EntitySet="OperacionesBanco" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OtrosCobros_FacturasCab" Association="Promowork_dataModel.FK_OtrosCobros_FacturasCab">
+            <End Role="FacturasCab" EntitySet="FacturasCab" />
+            <End Role="Cobros" EntitySet="Cobros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ComprasDet_ComprasCab" Association="Promowork_dataModel.FK_ComprasDet_ComprasCab">
+            <End Role="ComprasCab" EntitySet="ComprasCab" />
+            <End Role="ComprasDet" EntitySet="ComprasDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EntradasCombustibleDet_ComprasCab" Association="Promowork_dataModel.FK_EntradasCombustibleDet_ComprasCab">
+            <End Role="ComprasCab" EntitySet="ComprasCab" />
+            <End Role="EntradasCombustibleDet" EntitySet="EntradasCombustibleDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FacturasDetDirecta_ComprasCab" Association="Promowork_dataModel.FK_FacturasDetDirecta_ComprasCab">
+            <End Role="ComprasCab" EntitySet="ComprasCab" />
+            <End Role="FacturasDetDirecta" EntitySet="FacturasDetDirecta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OperacionesBanco_ComprasCab" Association="Promowork_dataModel.FK_OperacionesBanco_ComprasCab">
+            <End Role="ComprasCab" EntitySet="ComprasCab" />
+            <End Role="OperacionesBanco" EntitySet="OperacionesBanco" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FacturasCab_PresupCab" Association="Promowork_dataModel.FK_FacturasCab_PresupCab">
+            <End Role="PresupCab" EntitySet="PresupCab" />
+            <End Role="FacturasCab" EntitySet="FacturasCab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FacturasDet_FacturasCab" Association="Promowork_dataModel.FK_FacturasDet_FacturasCab">
+            <End Role="FacturasCab" EntitySet="FacturasCab" />
+            <End Role="FacturasDet" EntitySet="FacturasDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FacturasDetDirecta_FacturasCab" Association="Promowork_dataModel.FK_FacturasDetDirecta_FacturasCab">
+            <End Role="FacturasCab" EntitySet="FacturasCab" />
+            <End Role="FacturasDetDirecta" EntitySet="FacturasDetDirecta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FacturasDetHoras_FacturasCab" Association="Promowork_dataModel.FK_FacturasDetHoras_FacturasCab">
+            <End Role="FacturasCab" EntitySet="FacturasCab" />
+            <End Role="FacturasDetHoras" EntitySet="FacturasDetHoras" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FacturasDet_PresupCap" Association="Promowork_dataModel.FK_FacturasDet_PresupCap">
+            <End Role="PresupCap" EntitySet="PresupCap" />
+            <End Role="FacturasDet" EntitySet="FacturasDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FacturasDet_PresupDet" Association="Promowork_dataModel.FK_FacturasDet_PresupDet">
+            <End Role="PresupDet" EntitySet="PresupDet" />
+            <End Role="FacturasDet" EntitySet="FacturasDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FacturasDet_PresupSub" Association="Promowork_dataModel.FK_FacturasDet_PresupSub">
+            <End Role="PresupSub" EntitySet="PresupSub" />
+            <End Role="FacturasDet" EntitySet="FacturasDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PresupCap_PresupCab" Association="Promowork_dataModel.FK_PresupCap_PresupCab">
+            <End Role="PresupCab" EntitySet="PresupCab" />
+            <End Role="PresupCap" EntitySet="PresupCap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PresupDet_PresupCap" Association="Promowork_dataModel.FK_PresupDet_PresupCap">
+            <End Role="PresupCap" EntitySet="PresupCap" />
+            <End Role="PresupDet" EntitySet="PresupDet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PresupSub_PresupDet" Association="Promowork_dataModel.FK_PresupSub_PresupDet">
+            <End Role="PresupDet" EntitySet="PresupDet" />
+            <End Role="PresupSub" EntitySet="PresupSub" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AlbaranesCab">
+          <Key>
+            <PropertyRef Name="IdAlbaranCab" />
+          </Key>
+          <Property Name="IdAlbaranCab" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdEmpresa" Type="Int32" />
+          <Property Name="IdObra" Type="Int32" />
+          <Property Name="IdProveedor" Type="Int32" />
+          <Property Name="NumAlbaran" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="ConsecutivoAlbaran" Type="Int32" />
+          <Property Name="FechaAlbaran" Type="DateTime" />
+          <Property Name="Valorado" Type="Boolean" />
+          <Property Name="UtilizadoEn" Type="Int32" />
+          <Property Name="Utilizado" Type="Boolean" />
+          <Property Name="FacturaRecibida" Type="Boolean" />
+          <Property Name="Observaciones" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="CopiaAlbaran" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <Property Name="SinAlbaran" Type="Boolean" />
+          <Property Name="IdCompra" Type="Int32" />
+          <Property Name="ModificaImporteCompra" Type="Boolean" />
+          <NavigationProperty Name="ComprasCab" Relationship="Promowork_dataModel.FK_AlbaranesCab_ComprasCab" FromRole="AlbaranesCab" ToRole="ComprasCab" />
+          <NavigationProperty Name="AlbaranesDet" Relationship="Promowork_dataModel.FK_AlbaranesDet_AlbaranesCab" FromRole="AlbaranesCab" ToRole="AlbaranesDet" />
+        </EntityType>
+        <EntityType Name="AlbaranesDet">
+          <Key>
+            <PropertyRef Name="IdAlbaranDet" />
+          </Key>
+          <Property Name="IdAlbaranDet" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdAlbaranCab" Type="Int32" />
+          <Property Name="IdProducto" Type="Int32" />
+          <Property Name="Cantidad" Type="Decimal" Precision="16" Scale="6" />
+          <Property Name="Precio" Type="Decimal" Precision="16" Scale="6" />
+          <Property Name="Descuento" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="IdLugarUso" Type="Int32" />
+          <Property Name="IdTrabajador" Type="Int32" />
+          <Property Name="Observaciones" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="AlbaranesCab" Relationship="Promowork_dataModel.FK_AlbaranesDet_AlbaranesCab" FromRole="AlbaranesDet" ToRole="AlbaranesCab" />
+          <NavigationProperty Name="AlbaranesDet1" Relationship="Promowork_dataModel.FK_AlbaranesDet_AlbaranesDet" FromRole="AlbaranesDet" ToRole="AlbaranesDet1" />
+          <NavigationProperty Name="AlbaranesDet2" Relationship="Promowork_dataModel.FK_AlbaranesDet_AlbaranesDet" FromRole="AlbaranesDet1" ToRole="AlbaranesDet" />
+        </EntityType>
+        <EntityType Name="Cobros">
+          <Key>
+            <PropertyRef Name="IdCobro" />
+          </Key>
+          <Property Name="IdCobro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+          <Property Name="IdEmpresa" Type="Int32" Nullable="false" />
+          <Property Name="IdCliente" Type="Int32" Nullable="false" />
+          <Property Name="IdObra" Type="Int32" />
+          <Property Name="FechaExp" Type="DateTime" />
+          <Property Name="FechaRec" Type="DateTime" />
+          <Property Name="FechaAbono" Type="DateTime" />
+          <Property Name="FechaVcto" Type="DateTime" />
+          <Property Name="IdFactCab" Type="Int32" />
+          <Property Name="Factura" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="FechaFactura" Type="DateTime" />
+          <Property Name="IdFormaPago" Type="Int32" Nullable="false" />
+          <Property Name="IdCuenta" Type="Int32" Nullable="false" />
+          <Property Name="ImpBase" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="ImpIVA" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Referencia" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Observ" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="CopiaFactura" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <Property Name="EnBanco" Type="Boolean" />
+          <Property Name="Prevision" Type="Boolean" />
+          <Property Name="ObsBanco" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="OperacionesBanco" Relationship="Promowork_dataModel.FK_OperacionesBanco_Cobros" FromRole="Cobros" ToRole="OperacionesBanco" />
+          <NavigationProperty Name="FacturasCab" Relationship="Promowork_dataModel.FK_OtrosCobros_FacturasCab" FromRole="Cobros" ToRole="FacturasCab" />
+        </EntityType>
+        <EntityType Name="ComprasCab">
+          <Key>
+            <PropertyRef Name="IdCompra" />
+          </Key>
+          <Property Name="IdCompra" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdEmpresa" Type="Int32" Nullable="false" />
+          <Property Name="idProveedor" Type="Int32" Nullable="false" />
+          <Property Name="IdUsuario" Type="Int32" />
+          <Property Name="Factura" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="FechaFactura" Type="DateTime" />
+          <Property Name="FechaRecib" Type="DateTime" />
+          <Property Name="FechaVcto" Type="DateTime" />
+          <Property Name="IdFormaPago" Type="Int32" />
+          <Property Name="IdCuenta" Type="Int32" />
+          <Property Name="FechaPago" Type="DateTime" />
+          <Property Name="CopiaFactura" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <Property Name="Pagada" Type="Boolean" />
+          <Property Name="Observ" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="color" Type="Int32" />
+          <Property Name="Prevision" Type="Boolean" />
+          <Property Name="ObsBanco" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <Property Name="CopiaFacturaImg" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="FacturaPendiente" Type="Boolean" />
+          <Property Name="FacturaDirecta" Type="Boolean" />
+          <Property Name="ImporteTotalBase" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="ImporteTotalIVA" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="ImporteTotalIRPF" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="ImporteTotal" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="ImportePagado" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="AlbaranesCab" Relationship="Promowork_dataModel.FK_AlbaranesCab_ComprasCab" FromRole="ComprasCab" ToRole="AlbaranesCab" />
+          <NavigationProperty Name="ComprasDet" Relationship="Promowork_dataModel.FK_ComprasDet_ComprasCab" FromRole="ComprasCab" ToRole="ComprasDet" />
+          <NavigationProperty Name="EntradasCombustibleDet" Relationship="Promowork_dataModel.FK_EntradasCombustibleDet_ComprasCab" FromRole="ComprasCab" ToRole="EntradasCombustibleDet" />
+          <NavigationProperty Name="FacturasDetDirecta" Relationship="Promowork_dataModel.FK_FacturasDetDirecta_ComprasCab" FromRole="ComprasCab" ToRole="FacturasDetDirecta" />
+          <NavigationProperty Name="OperacionesBanco" Relationship="Promowork_dataModel.FK_OperacionesBanco_ComprasCab" FromRole="ComprasCab" ToRole="OperacionesBanco" />
+        </EntityType>
+        <EntityType Name="ComprasDet">
+          <Key>
+            <PropertyRef Name="IdDetCompra" />
+          </Key>
+          <Property Name="IdDetCompra" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCompra" Type="Int32" Nullable="false" />
+          <Property Name="IdObra" Type="Int32" Nullable="false" />
+          <Property Name="ImpBase" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="ImpIva" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ImpIRPF" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ObsCompra" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Color" Type="Int32" />
+          <NavigationProperty Name="ComprasCab" Relationship="Promowork_dataModel.FK_ComprasDet_ComprasCab" FromRole="ComprasDet" ToRole="ComprasCab" />
+        </EntityType>
+        <EntityType Name="EntradasCombustibleCab">
+          <Key>
+            <PropertyRef Name="IdEntradaCab" />
+          </Key>
+          <Property Name="IdEntradaCab" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdEmpresa" Type="Int32" Nullable="false" />
+          <Property Name="NumFactura" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="FechaFactura" Type="DateTime" Nullable="false" />
+          <Property Name="FechaRecib" Type="DateTime" Nullable="false" />
+          <Property Name="FechaVcto" Type="DateTime" Nullable="false" />
+          <Property Name="FechaPago" Type="DateTime" Nullable="false" />
+          <Property Name="IdProveedor" Type="Int32" Nullable="false" />
+          <Property Name="IdFormaPago" Type="Int32" />
+          <Property Name="IdCuenta" Type="Int32" />
+        </EntityType>
+        <EntityType Name="EntradasCombustibleDet">
+          <Key>
+            <PropertyRef Name="IdEntradaDet" />
+          </Key>
+          <Property Name="IdEntradaDet" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCompra" Type="Int32" Nullable="false" />
+          <Property Name="Albaran" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="IdServicio" Type="Int32" />
+          <Property Name="Tipo" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="Cantidad" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="IdUmedida" Type="Int32" />
+          <Property Name="Precio" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="ImpIVA" Type="Decimal" Precision="10" Scale="4" />
+          <NavigationProperty Name="ComprasCab" Relationship="Promowork_dataModel.FK_EntradasCombustibleDet_ComprasCab" FromRole="EntradasCombustibleDet" ToRole="ComprasCab" />
+        </EntityType>
+        <EntityType Name="FacturasCab">
+          <Key>
+            <PropertyRef Name="IdFactCab" />
+          </Key>
+          <Property Name="IdFactCab" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdEmpresa" Type="Int32" Nullable="false" />
+          <Property Name="IdCliente" Type="Int32" Nullable="false" />
+          <Property Name="IdClienteFact" Type="Int32" />
+          <Property Name="IdObra" Type="Int32" />
+          <Property Name="IdPresup" Type="Int32" />
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+          <Property Name="NumFactura" Type="Int32" Nullable="false" />
+          <Property Name="SerieFact" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="FechaFactura" Type="DateTime" Nullable="false" />
+          <Property Name="FechaVctoFact" Type="DateTime" />
+          <Property Name="MostrarVcto" Type="Boolean" />
+          <Property Name="MostrarObra" Type="Boolean" />
+          <Property Name="IdCuenta" Type="Int32" />
+          <Property Name="Certificacion" Type="Int32" />
+          <Property Name="DescFactura" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="DescPronto" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="Retencion" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="IVAFactura" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="Cobrada" Type="Boolean" />
+          <Property Name="ObsFactura" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <Property Name="FacturaPresup" Type="Boolean" />
+          <Property Name="CopiaFactura" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <Property Name="Factura" Type="Boolean" />
+          <Property Name="Entregada" Type="Boolean" />
+          <Property Name="NoDetalle" Type="Boolean" />
+          <Property Name="ObsFactura2" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <Property Name="EsPrevision" Type="Boolean" />
+          <Property Name="EsCertificacion" Type="Boolean" />
+          <Property Name="Anticipo" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="MostrarSubTot" Type="Boolean" />
+          <Property Name="CargoMitadDesc" Type="Boolean" />
+          <Property Name="MostrarPresup" Type="Boolean" />
+          <Property Name="UnificarMaterial" Type="Boolean" />
+          <Property Name="FechaEnvioCliente" Type="DateTime" />
+          <NavigationProperty Name="Cobros" Relationship="Promowork_dataModel.FK_OtrosCobros_FacturasCab" FromRole="FacturasCab" ToRole="Cobros" />
+          <NavigationProperty Name="PresupCab" Relationship="Promowork_dataModel.FK_FacturasCab_PresupCab" FromRole="FacturasCab" ToRole="PresupCab" />
+          <NavigationProperty Name="FacturasDet" Relationship="Promowork_dataModel.FK_FacturasDet_FacturasCab" FromRole="FacturasCab" ToRole="FacturasDet" />
+          <NavigationProperty Name="FacturasDetDirecta" Relationship="Promowork_dataModel.FK_FacturasDetDirecta_FacturasCab" FromRole="FacturasCab" ToRole="FacturasDetDirecta" />
+          <NavigationProperty Name="FacturasDetHoras" Relationship="Promowork_dataModel.FK_FacturasDetHoras_FacturasCab" FromRole="FacturasCab" ToRole="FacturasDetHoras" />
+        </EntityType>
+        <EntityType Name="FacturasDet">
+          <Key>
+            <PropertyRef Name="IdFactDet" />
+          </Key>
+          <Property Name="IdFactDet" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdFactCab" Type="Int32" Nullable="false" />
+          <Property Name="IdPresupCap" Type="Int32" />
+          <Property Name="IdPresupDet" Type="Int32" />
+          <Property Name="IdPresupSub" Type="Int32" />
+          <Property Name="Um" Type="String" MaxLength="3" Unicode="false" FixedLength="false" />
+          <Property Name="Cantidad" Type="Decimal" Nullable="false" Precision="16" Scale="6" />
+          <Property Name="Precio" Type="Decimal" Precision="16" Scale="6" />
+          <Property Name="DescPrecio" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="FacturasCab" Relationship="Promowork_dataModel.FK_FacturasDet_FacturasCab" FromRole="FacturasDet" ToRole="FacturasCab" />
+          <NavigationProperty Name="PresupCap" Relationship="Promowork_dataModel.FK_FacturasDet_PresupCap" FromRole="FacturasDet" ToRole="PresupCap" />
+          <NavigationProperty Name="PresupDet" Relationship="Promowork_dataModel.FK_FacturasDet_PresupDet" FromRole="FacturasDet" ToRole="PresupDet" />
+          <NavigationProperty Name="PresupSub" Relationship="Promowork_dataModel.FK_FacturasDet_PresupSub" FromRole="FacturasDet" ToRole="PresupSub" />
+        </EntityType>
+        <EntityType Name="FacturasDetDirecta">
+          <Key>
+            <PropertyRef Name="IdFacturaDetDirecta" />
+          </Key>
+          <Property Name="IdFacturaDetDirecta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdFactCab" Type="Int32" />
+          <Property Name="IdCompra" Type="Int32" />
+          <Property Name="Observaciones" Type="String" MaxLength="4000" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="ComprasCab" Relationship="Promowork_dataModel.FK_FacturasDetDirecta_ComprasCab" FromRole="FacturasDetDirecta" ToRole="ComprasCab" />
+          <NavigationProperty Name="FacturasCab" Relationship="Promowork_dataModel.FK_FacturasDetDirecta_FacturasCab" FromRole="FacturasDetDirecta" ToRole="FacturasCab" />
+        </EntityType>
+        <EntityType Name="FacturasDetHoras">
+          <Key>
+            <PropertyRef Name="IdFactDetHoras" />
+          </Key>
+          <Property Name="IdFactDetHoras" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdFactCab" Type="Int32" Nullable="false" />
+          <Property Name="IdHoras" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FacturasCab" Relationship="Promowork_dataModel.FK_FacturasDetHoras_FacturasCab" FromRole="FacturasDetHoras" ToRole="FacturasCab" />
+        </EntityType>
+        <EntityType Name="OperacionesBanco">
+          <Key>
+            <PropertyRef Name="IdOpeBanco" />
+          </Key>
+          <Property Name="IdOpeBanco" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdEmpresa" Type="Int32" />
+          <Property Name="IdUsuario" Type="Int32" />
+          <Property Name="Fecha" Type="DateTime" />
+          <Property Name="IdConBanco" Type="Int32" />
+          <Property Name="IdCompra" Type="Int32" />
+          <Property Name="IdCobro" Type="Int32" />
+          <Property Name="DesOperacion" Type="String" MaxLength="4000" Unicode="false" FixedLength="false" />
+          <Property Name="TipoOpe" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="IdFormaPago" Type="Int32" />
+          <Property Name="IdCuenta" Type="Int32" />
+          <Property Name="Importe" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="EnCuenta" Type="Boolean" />
+          <Property Name="SaldoAnterior" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="FechaOpe" Type="DateTime" />
+          <Property Name="ObsBanco" Type="String" MaxLength="4000" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Cobros" Relationship="Promowork_dataModel.FK_OperacionesBanco_Cobros" FromRole="OperacionesBanco" ToRole="Cobros" />
+          <NavigationProperty Name="ComprasCab" Relationship="Promowork_dataModel.FK_OperacionesBanco_ComprasCab" FromRole="OperacionesBanco" ToRole="ComprasCab" />
+        </EntityType>
+        <EntityType Name="PresupCab">
+          <Key>
+            <PropertyRef Name="IdPresupCab" />
+          </Key>
+          <Property Name="IdPresupCab" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdEmpresa" Type="Int32" Nullable="false" />
+          <Property Name="IdCliente" Type="Int32" />
+          <Property Name="IdObra" Type="Int32" />
+          <Property Name="IdUsuario" Type="Int32" />
+          <Property Name="DirObraPresup" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="NumPresup" Type="Int32" Nullable="false" />
+          <Property Name="NomPresup" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="DesPresup" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="FechaPresup" Type="DateTime" />
+          <Property Name="LicObraPresup" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="Facturado" Type="Boolean" />
+          <Property Name="Color" Type="Int32" />
+          <Property Name="CopiaPresup" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <Property Name="ModifCab" Type="DateTime" />
+          <Property Name="CertificacionAFacturar" Type="Int32" />
+          <NavigationProperty Name="FacturasCab" Relationship="Promowork_dataModel.FK_FacturasCab_PresupCab" FromRole="PresupCab" ToRole="FacturasCab" />
+          <NavigationProperty Name="PresupCap" Relationship="Promowork_dataModel.FK_PresupCap_PresupCab" FromRole="PresupCab" ToRole="PresupCap" />
+        </EntityType>
+        <EntityType Name="PresupCap">
+          <Key>
+            <PropertyRef Name="IdPresupCap" />
+          </Key>
+          <Property Name="IdPresupCap" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdPresupCab" Type="Int32" Nullable="false" />
+          <Property Name="NumCapPresup" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="false" />
+          <Property Name="DesCapPresup" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="ObsCapPresup" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Extra" Type="Boolean" />
+          <Property Name="Extra2" Type="Boolean" />
+          <Property Name="Color" Type="Int32" />
+          <Property Name="ModifCap" Type="DateTime" />
+          <NavigationProperty Name="FacturasDet" Relationship="Promowork_dataModel.FK_FacturasDet_PresupCap" FromRole="PresupCap" ToRole="FacturasDet" />
+          <NavigationProperty Name="PresupCab" Relationship="Promowork_dataModel.FK_PresupCap_PresupCab" FromRole="PresupCap" ToRole="PresupCab" />
+          <NavigationProperty Name="PresupDet" Relationship="Promowork_dataModel.FK_PresupDet_PresupCap" FromRole="PresupCap" ToRole="PresupDet" />
+        </EntityType>
+        <EntityType Name="PresupDet">
+          <Key>
+            <PropertyRef Name="IdPresupDet" />
+          </Key>
+          <Property Name="IdPresupDet" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdPresupCap" Type="Int32" Nullable="false" />
+          <Property Name="IdPresupCab" Type="Int32" />
+          <Property Name="NumPresupDet" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="false" />
+          <Property Name="UM" Type="String" MaxLength="3" Unicode="false" FixedLength="false" />
+          <Property Name="NomPresupDet" Type="String" Nullable="false" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <Property Name="DesPresupDet" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Cantidad" Type="Decimal" Precision="16" Scale="6" />
+          <Property Name="CantAbono" Type="Decimal" Precision="16" Scale="6" />
+          <Property Name="CantExtra" Type="Decimal" Precision="16" Scale="6" />
+          <Property Name="Precio" Type="Decimal" Precision="16" Scale="6" />
+          <Property Name="aFacturar" Type="Decimal" Precision="16" Scale="6" />
+          <Property Name="DescPrecio" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="Color" Type="Int32" />
+          <Property Name="ModifDet" Type="DateTime" />
+          <NavigationProperty Name="FacturasDet" Relationship="Promowork_dataModel.FK_FacturasDet_PresupDet" FromRole="PresupDet" ToRole="FacturasDet" />
+          <NavigationProperty Name="PresupCap" Relationship="Promowork_dataModel.FK_PresupDet_PresupCap" FromRole="PresupDet" ToRole="PresupCap" />
+          <NavigationProperty Name="PresupSub" Relationship="Promowork_dataModel.FK_PresupSub_PresupDet" FromRole="PresupDet" ToRole="PresupSub" />
+        </EntityType>
+        <EntityType Name="PresupSub">
+          <Key>
+            <PropertyRef Name="IdPresupSub" />
+          </Key>
+          <Property Name="IdPresupSub" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdPresupDet" Type="Int32" Nullable="false" />
+          <Property Name="IdPresupCap" Type="Int32" />
+          <Property Name="IdPresupCab" Type="Int32" />
+          <Property Name="NumPresupSub" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="false" />
+          <Property Name="UM" Type="String" MaxLength="3" Unicode="false" FixedLength="false" />
+          <Property Name="NomPresupSub" Type="String" Nullable="false" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <Property Name="DesPresupSub" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Cantidad" Type="Decimal" Precision="16" Scale="6" />
+          <Property Name="CantInf" Type="Decimal" Precision="16" Scale="6" />
+          <Property Name="CantAbono" Type="Decimal" Precision="16" Scale="6" />
+          <Property Name="CantExtra" Type="Decimal" Precision="16" Scale="6" />
+          <Property Name="Precio" Type="Decimal" Precision="16" Scale="6" />
+          <Property Name="aFacturar" Type="Decimal" Precision="16" Scale="6" />
+          <Property Name="DescPrecio" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="Color" Type="Int32" />
+          <NavigationProperty Name="FacturasDet" Relationship="Promowork_dataModel.FK_FacturasDet_PresupSub" FromRole="PresupSub" ToRole="FacturasDet" />
+          <NavigationProperty Name="PresupDet" Relationship="Promowork_dataModel.FK_PresupSub_PresupDet" FromRole="PresupSub" ToRole="PresupDet" />
+        </EntityType>
+        <Association Name="FK_AlbaranesCab_ComprasCab">
+          <End Role="ComprasCab" Type="Promowork_dataModel.ComprasCab" Multiplicity="0..1" />
+          <End Role="AlbaranesCab" Type="Promowork_dataModel.AlbaranesCab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ComprasCab">
+              <PropertyRef Name="IdCompra" />
+            </Principal>
+            <Dependent Role="AlbaranesCab">
+              <PropertyRef Name="IdCompra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AlbaranesDet_AlbaranesCab">
+          <End Role="AlbaranesCab" Type="Promowork_dataModel.AlbaranesCab" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AlbaranesDet" Type="Promowork_dataModel.AlbaranesDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AlbaranesCab">
+              <PropertyRef Name="IdAlbaranCab" />
+            </Principal>
+            <Dependent Role="AlbaranesDet">
+              <PropertyRef Name="IdAlbaranCab" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AlbaranesDet_AlbaranesDet">
+          <End Role="AlbaranesDet" Type="Promowork_dataModel.AlbaranesDet" Multiplicity="1" />
+          <End Role="AlbaranesDet1" Type="Promowork_dataModel.AlbaranesDet" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="AlbaranesDet">
+              <PropertyRef Name="IdAlbaranDet" />
+            </Principal>
+            <Dependent Role="AlbaranesDet1">
+              <PropertyRef Name="IdAlbaranDet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OperacionesBanco_Cobros">
+          <End Role="Cobros" Type="Promowork_dataModel.Cobros" Multiplicity="0..1" />
+          <End Role="OperacionesBanco" Type="Promowork_dataModel.OperacionesBanco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cobros">
+              <PropertyRef Name="IdCobro" />
+            </Principal>
+            <Dependent Role="OperacionesBanco">
+              <PropertyRef Name="IdCobro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OtrosCobros_FacturasCab">
+          <End Role="FacturasCab" Type="Promowork_dataModel.FacturasCab" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Cobros" Type="Promowork_dataModel.Cobros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FacturasCab">
+              <PropertyRef Name="IdFactCab" />
+            </Principal>
+            <Dependent Role="Cobros">
+              <PropertyRef Name="IdFactCab" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ComprasDet_ComprasCab">
+          <End Role="ComprasCab" Type="Promowork_dataModel.ComprasCab" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ComprasDet" Type="Promowork_dataModel.ComprasDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ComprasCab">
+              <PropertyRef Name="IdCompra" />
+            </Principal>
+            <Dependent Role="ComprasDet">
+              <PropertyRef Name="IdCompra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EntradasCombustibleDet_ComprasCab">
+          <End Role="ComprasCab" Type="Promowork_dataModel.ComprasCab" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="EntradasCombustibleDet" Type="Promowork_dataModel.EntradasCombustibleDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ComprasCab">
+              <PropertyRef Name="IdCompra" />
+            </Principal>
+            <Dependent Role="EntradasCombustibleDet">
+              <PropertyRef Name="IdCompra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FacturasDetDirecta_ComprasCab">
+          <End Role="ComprasCab" Type="Promowork_dataModel.ComprasCab" Multiplicity="0..1" />
+          <End Role="FacturasDetDirecta" Type="Promowork_dataModel.FacturasDetDirecta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ComprasCab">
+              <PropertyRef Name="IdCompra" />
+            </Principal>
+            <Dependent Role="FacturasDetDirecta">
+              <PropertyRef Name="IdCompra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OperacionesBanco_ComprasCab">
+          <End Role="ComprasCab" Type="Promowork_dataModel.ComprasCab" Multiplicity="0..1" />
+          <End Role="OperacionesBanco" Type="Promowork_dataModel.OperacionesBanco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ComprasCab">
+              <PropertyRef Name="IdCompra" />
+            </Principal>
+            <Dependent Role="OperacionesBanco">
+              <PropertyRef Name="IdCompra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FacturasCab_PresupCab">
+          <End Role="PresupCab" Type="Promowork_dataModel.PresupCab" Multiplicity="0..1" />
+          <End Role="FacturasCab" Type="Promowork_dataModel.FacturasCab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PresupCab">
+              <PropertyRef Name="IdPresupCab" />
+            </Principal>
+            <Dependent Role="FacturasCab">
+              <PropertyRef Name="IdPresup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FacturasDet_FacturasCab">
+          <End Role="FacturasCab" Type="Promowork_dataModel.FacturasCab" Multiplicity="1" />
+          <End Role="FacturasDet" Type="Promowork_dataModel.FacturasDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FacturasCab">
+              <PropertyRef Name="IdFactCab" />
+            </Principal>
+            <Dependent Role="FacturasDet">
+              <PropertyRef Name="IdFactCab" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FacturasDetDirecta_FacturasCab">
+          <End Role="FacturasCab" Type="Promowork_dataModel.FacturasCab" Multiplicity="0..1" />
+          <End Role="FacturasDetDirecta" Type="Promowork_dataModel.FacturasDetDirecta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FacturasCab">
+              <PropertyRef Name="IdFactCab" />
+            </Principal>
+            <Dependent Role="FacturasDetDirecta">
+              <PropertyRef Name="IdFactCab" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FacturasDetHoras_FacturasCab">
+          <End Role="FacturasCab" Type="Promowork_dataModel.FacturasCab" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FacturasDetHoras" Type="Promowork_dataModel.FacturasDetHoras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FacturasCab">
+              <PropertyRef Name="IdFactCab" />
+            </Principal>
+            <Dependent Role="FacturasDetHoras">
+              <PropertyRef Name="IdFactCab" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FacturasDet_PresupCap">
+          <End Role="PresupCap" Type="Promowork_dataModel.PresupCap" Multiplicity="0..1" />
+          <End Role="FacturasDet" Type="Promowork_dataModel.FacturasDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PresupCap">
+              <PropertyRef Name="IdPresupCap" />
+            </Principal>
+            <Dependent Role="FacturasDet">
+              <PropertyRef Name="IdPresupCap" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FacturasDet_PresupDet">
+          <End Role="PresupDet" Type="Promowork_dataModel.PresupDet" Multiplicity="0..1" />
+          <End Role="FacturasDet" Type="Promowork_dataModel.FacturasDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PresupDet">
+              <PropertyRef Name="IdPresupDet" />
+            </Principal>
+            <Dependent Role="FacturasDet">
+              <PropertyRef Name="IdPresupDet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FacturasDet_PresupSub">
+          <End Role="PresupSub" Type="Promowork_dataModel.PresupSub" Multiplicity="0..1" />
+          <End Role="FacturasDet" Type="Promowork_dataModel.FacturasDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PresupSub">
+              <PropertyRef Name="IdPresupSub" />
+            </Principal>
+            <Dependent Role="FacturasDet">
+              <PropertyRef Name="IdPresupSub" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PresupCap_PresupCab">
+          <End Role="PresupCab" Type="Promowork_dataModel.PresupCab" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PresupCap" Type="Promowork_dataModel.PresupCap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PresupCab">
+              <PropertyRef Name="IdPresupCab" />
+            </Principal>
+            <Dependent Role="PresupCap">
+              <PropertyRef Name="IdPresupCab" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PresupDet_PresupCap">
+          <End Role="PresupCap" Type="Promowork_dataModel.PresupCap" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PresupDet" Type="Promowork_dataModel.PresupDet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PresupCap">
+              <PropertyRef Name="IdPresupCap" />
+            </Principal>
+            <Dependent Role="PresupDet">
+              <PropertyRef Name="IdPresupCap" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PresupSub_PresupDet">
+          <End Role="PresupDet" Type="Promowork_dataModel.PresupDet" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PresupSub" Type="Promowork_dataModel.PresupSub" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PresupDet">
+              <PropertyRef Name="IdPresupDet" />
+            </Principal>
+            <Dependent Role="PresupSub">
+              <PropertyRef Name="IdPresupDet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Promowork_dataModelStoreContainer" CdmEntityContainer="OperacionesDataModel">
+          <EntitySetMapping Name="AlbaranesCab">
+            <EntityTypeMapping TypeName="Promowork_dataModel.AlbaranesCab">
+              <MappingFragment StoreEntitySet="AlbaranesCab">
+                <ScalarProperty Name="IdAlbaranCab" ColumnName="IdAlbaranCab" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdObra" ColumnName="IdObra" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="NumAlbaran" ColumnName="NumAlbaran" />
+                <ScalarProperty Name="ConsecutivoAlbaran" ColumnName="ConsecutivoAlbaran" />
+                <ScalarProperty Name="FechaAlbaran" ColumnName="FechaAlbaran" />
+                <ScalarProperty Name="Valorado" ColumnName="Valorado" />
+                <ScalarProperty Name="UtilizadoEn" ColumnName="UtilizadoEn" />
+                <ScalarProperty Name="Utilizado" ColumnName="Utilizado" />
+                <ScalarProperty Name="FacturaRecibida" ColumnName="FacturaRecibida" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="CopiaAlbaran" ColumnName="CopiaAlbaran" />
+                <ScalarProperty Name="SinAlbaran" ColumnName="SinAlbaran" />
+                <ScalarProperty Name="IdCompra" ColumnName="IdCompra" />
+                <ScalarProperty Name="ModificaImporteCompra" ColumnName="ModificaImporteCompra" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AlbaranesDet">
+            <EntityTypeMapping TypeName="Promowork_dataModel.AlbaranesDet">
+              <MappingFragment StoreEntitySet="AlbaranesDet">
+                <ScalarProperty Name="IdAlbaranDet" ColumnName="IdAlbaranDet" />
+                <ScalarProperty Name="IdAlbaranCab" ColumnName="IdAlbaranCab" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Descuento" ColumnName="Descuento" />
+                <ScalarProperty Name="IdLugarUso" ColumnName="IdLugarUso" />
+                <ScalarProperty Name="IdTrabajador" ColumnName="IdTrabajador" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cobros">
+            <EntityTypeMapping TypeName="Promowork_dataModel.Cobros">
+              <MappingFragment StoreEntitySet="Cobros">
+                <ScalarProperty Name="IdCobro" ColumnName="IdCobro" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="IdObra" ColumnName="IdObra" />
+                <ScalarProperty Name="FechaExp" ColumnName="FechaExp" />
+                <ScalarProperty Name="FechaRec" ColumnName="FechaRec" />
+                <ScalarProperty Name="FechaAbono" ColumnName="FechaAbono" />
+                <ScalarProperty Name="FechaVcto" ColumnName="FechaVcto" />
+                <ScalarProperty Name="IdFactCab" ColumnName="IdFactCab" />
+                <ScalarProperty Name="Factura" ColumnName="Factura" />
+                <ScalarProperty Name="FechaFactura" ColumnName="FechaFactura" />
+                <ScalarProperty Name="IdFormaPago" ColumnName="IdFormaPago" />
+                <ScalarProperty Name="IdCuenta" ColumnName="IdCuenta" />
+                <ScalarProperty Name="ImpBase" ColumnName="ImpBase" />
+                <ScalarProperty Name="ImpIVA" ColumnName="ImpIVA" />
+                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+                <ScalarProperty Name="Observ" ColumnName="Observ" />
+                <ScalarProperty Name="CopiaFactura" ColumnName="CopiaFactura" />
+                <ScalarProperty Name="EnBanco" ColumnName="EnBanco" />
+                <ScalarProperty Name="Prevision" ColumnName="Prevision" />
+                <ScalarProperty Name="ObsBanco" ColumnName="ObsBanco" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ComprasCab">
+            <EntityTypeMapping TypeName="Promowork_dataModel.ComprasCab">
+              <MappingFragment StoreEntitySet="ComprasCab">
+                <ScalarProperty Name="IdCompra" ColumnName="IdCompra" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Factura" ColumnName="Factura" />
+                <ScalarProperty Name="FechaFactura" ColumnName="FechaFactura" />
+                <ScalarProperty Name="FechaRecib" ColumnName="FechaRecib" />
+                <ScalarProperty Name="FechaVcto" ColumnName="FechaVcto" />
+                <ScalarProperty Name="IdFormaPago" ColumnName="IdFormaPago" />
+                <ScalarProperty Name="IdCuenta" ColumnName="IdCuenta" />
+                <ScalarProperty Name="FechaPago" ColumnName="FechaPago" />
+                <ScalarProperty Name="CopiaFactura" ColumnName="CopiaFactura" />
+                <ScalarProperty Name="Pagada" ColumnName="Pagada" />
+                <ScalarProperty Name="Observ" ColumnName="Observ" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="Prevision" ColumnName="Prevision" />
+                <ScalarProperty Name="ObsBanco" ColumnName="ObsBanco" />
+                <ScalarProperty Name="CopiaFacturaImg" ColumnName="CopiaFacturaImg" />
+                <ScalarProperty Name="FacturaPendiente" ColumnName="FacturaPendiente" />
+                <ScalarProperty Name="FacturaDirecta" ColumnName="FacturaDirecta" />
+                <ScalarProperty Name="ImporteTotalBase" ColumnName="ImporteTotalBase" />
+                <ScalarProperty Name="ImporteTotalIVA" ColumnName="ImporteTotalIVA" />
+                <ScalarProperty Name="ImporteTotalIRPF" ColumnName="ImporteTotalIRPF" />
+                <ScalarProperty Name="ImporteTotal" ColumnName="ImporteTotal" />
+                <ScalarProperty Name="ImportePagado" ColumnName="ImportePagado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ComprasDet">
+            <EntityTypeMapping TypeName="Promowork_dataModel.ComprasDet">
+              <MappingFragment StoreEntitySet="ComprasDet">
+                <ScalarProperty Name="IdDetCompra" ColumnName="IdDetCompra" />
+                <ScalarProperty Name="IdCompra" ColumnName="IdCompra" />
+                <ScalarProperty Name="IdObra" ColumnName="IdObra" />
+                <ScalarProperty Name="ImpBase" ColumnName="ImpBase" />
+                <ScalarProperty Name="ImpIva" ColumnName="ImpIva" />
+                <ScalarProperty Name="ImpIRPF" ColumnName="ImpIRPF" />
+                <ScalarProperty Name="ObsCompra" ColumnName="ObsCompra" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EntradasCombustibleCab">
+            <EntityTypeMapping TypeName="Promowork_dataModel.EntradasCombustibleCab">
+              <MappingFragment StoreEntitySet="EntradasCombustibleCab">
+                <ScalarProperty Name="IdEntradaCab" ColumnName="IdEntradaCab" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="NumFactura" ColumnName="NumFactura" />
+                <ScalarProperty Name="FechaFactura" ColumnName="FechaFactura" />
+                <ScalarProperty Name="FechaRecib" ColumnName="FechaRecib" />
+                <ScalarProperty Name="FechaVcto" ColumnName="FechaVcto" />
+                <ScalarProperty Name="FechaPago" ColumnName="FechaPago" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="IdFormaPago" ColumnName="IdFormaPago" />
+                <ScalarProperty Name="IdCuenta" ColumnName="IdCuenta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EntradasCombustibleDet">
+            <EntityTypeMapping TypeName="Promowork_dataModel.EntradasCombustibleDet">
+              <MappingFragment StoreEntitySet="EntradasCombustibleDet">
+                <ScalarProperty Name="IdEntradaDet" ColumnName="IdEntradaDet" />
+                <ScalarProperty Name="IdCompra" ColumnName="IdCompra" />
+                <ScalarProperty Name="Albaran" ColumnName="Albaran" />
+                <ScalarProperty Name="IdServicio" ColumnName="IdServicio" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="IdUmedida" ColumnName="IdUmedida" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="ImpIVA" ColumnName="ImpIVA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FacturasCab">
+            <EntityTypeMapping TypeName="Promowork_dataModel.FacturasCab">
+              <MappingFragment StoreEntitySet="FacturasCab">
+                <ScalarProperty Name="IdFactCab" ColumnName="IdFactCab" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="IdClienteFact" ColumnName="IdClienteFact" />
+                <ScalarProperty Name="IdObra" ColumnName="IdObra" />
+                <ScalarProperty Name="IdPresup" ColumnName="IdPresup" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="NumFactura" ColumnName="NumFactura" />
+                <ScalarProperty Name="SerieFact" ColumnName="SerieFact" />
+                <ScalarProperty Name="FechaFactura" ColumnName="FechaFactura" />
+                <ScalarProperty Name="FechaVctoFact" ColumnName="FechaVctoFact" />
+                <ScalarProperty Name="MostrarVcto" ColumnName="MostrarVcto" />
+                <ScalarProperty Name="MostrarObra" ColumnName="MostrarObra" />
+                <ScalarProperty Name="IdCuenta" ColumnName="IdCuenta" />
+                <ScalarProperty Name="Certificacion" ColumnName="Certificacion" />
+                <ScalarProperty Name="DescFactura" ColumnName="DescFactura" />
+                <ScalarProperty Name="DescPronto" ColumnName="DescPronto" />
+                <ScalarProperty Name="Retencion" ColumnName="Retencion" />
+                <ScalarProperty Name="IVAFactura" ColumnName="IVAFactura" />
+                <ScalarProperty Name="Cobrada" ColumnName="Cobrada" />
+                <ScalarProperty Name="ObsFactura" ColumnName="ObsFactura" />
+                <ScalarProperty Name="FacturaPresup" ColumnName="FacturaPresup" />
+                <ScalarProperty Name="CopiaFactura" ColumnName="CopiaFactura" />
+                <ScalarProperty Name="Factura" ColumnName="Factura" />
+                <ScalarProperty Name="Entregada" ColumnName="Entregada" />
+                <ScalarProperty Name="NoDetalle" ColumnName="NoDetalle" />
+                <ScalarProperty Name="ObsFactura2" ColumnName="ObsFactura2" />
+                <ScalarProperty Name="EsPrevision" ColumnName="EsPrevision" />
+                <ScalarProperty Name="EsCertificacion" ColumnName="EsCertificacion" />
+                <ScalarProperty Name="Anticipo" ColumnName="Anticipo" />
+                <ScalarProperty Name="MostrarSubTot" ColumnName="MostrarSubTot" />
+                <ScalarProperty Name="CargoMitadDesc" ColumnName="CargoMitadDesc" />
+                <ScalarProperty Name="MostrarPresup" ColumnName="MostrarPresup" />
+                <ScalarProperty Name="UnificarMaterial" ColumnName="UnificarMaterial" />
+                <ScalarProperty Name="FechaEnvioCliente" ColumnName="FechaEnvioCliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FacturasDet">
+            <EntityTypeMapping TypeName="Promowork_dataModel.FacturasDet">
+              <MappingFragment StoreEntitySet="FacturasDet">
+                <ScalarProperty Name="IdFactDet" ColumnName="IdFactDet" />
+                <ScalarProperty Name="IdFactCab" ColumnName="IdFactCab" />
+                <ScalarProperty Name="IdPresupCap" ColumnName="IdPresupCap" />
+                <ScalarProperty Name="IdPresupDet" ColumnName="IdPresupDet" />
+                <ScalarProperty Name="IdPresupSub" ColumnName="IdPresupSub" />
+                <ScalarProperty Name="Um" ColumnName="Um" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="DescPrecio" ColumnName="DescPrecio" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FacturasDetDirecta">
+            <EntityTypeMapping TypeName="Promowork_dataModel.FacturasDetDirecta">
+              <MappingFragment StoreEntitySet="FacturasDetDirecta">
+                <ScalarProperty Name="IdFacturaDetDirecta" ColumnName="IdFacturaDetDirecta" />
+                <ScalarProperty Name="IdFactCab" ColumnName="IdFactCab" />
+                <ScalarProperty Name="IdCompra" ColumnName="IdCompra" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FacturasDetHoras">
+            <EntityTypeMapping TypeName="Promowork_dataModel.FacturasDetHoras">
+              <MappingFragment StoreEntitySet="FacturasDetHoras">
+                <ScalarProperty Name="IdFactDetHoras" ColumnName="IdFactDetHoras" />
+                <ScalarProperty Name="IdFactCab" ColumnName="IdFactCab" />
+                <ScalarProperty Name="IdHoras" ColumnName="IdHoras" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OperacionesBanco">
+            <EntityTypeMapping TypeName="Promowork_dataModel.OperacionesBanco">
+              <MappingFragment StoreEntitySet="OperacionesBanco">
+                <ScalarProperty Name="IdOpeBanco" ColumnName="IdOpeBanco" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="IdConBanco" ColumnName="IdConBanco" />
+                <ScalarProperty Name="IdCompra" ColumnName="IdCompra" />
+                <ScalarProperty Name="IdCobro" ColumnName="IdCobro" />
+                <ScalarProperty Name="DesOperacion" ColumnName="DesOperacion" />
+                <ScalarProperty Name="TipoOpe" ColumnName="TipoOpe" />
+                <ScalarProperty Name="IdFormaPago" ColumnName="IdFormaPago" />
+                <ScalarProperty Name="IdCuenta" ColumnName="IdCuenta" />
+                <ScalarProperty Name="Importe" ColumnName="Importe" />
+                <ScalarProperty Name="EnCuenta" ColumnName="EnCuenta" />
+                <ScalarProperty Name="SaldoAnterior" ColumnName="SaldoAnterior" />
+                <ScalarProperty Name="FechaOpe" ColumnName="FechaOpe" />
+                <ScalarProperty Name="ObsBanco" ColumnName="ObsBanco" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PresupCab">
+            <EntityTypeMapping TypeName="Promowork_dataModel.PresupCab">
+              <MappingFragment StoreEntitySet="PresupCab">
+                <ScalarProperty Name="IdPresupCab" ColumnName="IdPresupCab" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="IdObra" ColumnName="IdObra" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="DirObraPresup" ColumnName="DirObraPresup" />
+                <ScalarProperty Name="NumPresup" ColumnName="NumPresup" />
+                <ScalarProperty Name="NomPresup" ColumnName="NomPresup" />
+                <ScalarProperty Name="DesPresup" ColumnName="DesPresup" />
+                <ScalarProperty Name="FechaPresup" ColumnName="FechaPresup" />
+                <ScalarProperty Name="LicObraPresup" ColumnName="LicObraPresup" />
+                <ScalarProperty Name="Facturado" ColumnName="Facturado" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="CopiaPresup" ColumnName="CopiaPresup" />
+                <ScalarProperty Name="ModifCab" ColumnName="ModifCab" />
+                <ScalarProperty Name="CertificacionAFacturar" ColumnName="CertificacionAFacturar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PresupCap">
+            <EntityTypeMapping TypeName="Promowork_dataModel.PresupCap">
+              <MappingFragment StoreEntitySet="PresupCap">
+                <ScalarProperty Name="IdPresupCap" ColumnName="IdPresupCap" />
+                <ScalarProperty Name="IdPresupCab" ColumnName="IdPresupCab" />
+                <ScalarProperty Name="NumCapPresup" ColumnName="NumCapPresup" />
+                <ScalarProperty Name="DesCapPresup" ColumnName="DesCapPresup" />
+                <ScalarProperty Name="ObsCapPresup" ColumnName="ObsCapPresup" />
+                <ScalarProperty Name="Extra" ColumnName="Extra" />
+                <ScalarProperty Name="Extra2" ColumnName="Extra2" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="ModifCap" ColumnName="ModifCap" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PresupDet">
+            <EntityTypeMapping TypeName="Promowork_dataModel.PresupDet">
+              <MappingFragment StoreEntitySet="PresupDet">
+                <ScalarProperty Name="IdPresupDet" ColumnName="IdPresupDet" />
+                <ScalarProperty Name="IdPresupCap" ColumnName="IdPresupCap" />
+                <ScalarProperty Name="IdPresupCab" ColumnName="IdPresupCab" />
+                <ScalarProperty Name="NumPresupDet" ColumnName="NumPresupDet" />
+                <ScalarProperty Name="UM" ColumnName="UM" />
+                <ScalarProperty Name="NomPresupDet" ColumnName="NomPresupDet" />
+                <ScalarProperty Name="DesPresupDet" ColumnName="DesPresupDet" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="CantAbono" ColumnName="CantAbono" />
+                <ScalarProperty Name="CantExtra" ColumnName="CantExtra" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="aFacturar" ColumnName="aFacturar" />
+                <ScalarProperty Name="DescPrecio" ColumnName="DescPrecio" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="ModifDet" ColumnName="ModifDet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PresupSub">
+            <EntityTypeMapping TypeName="Promowork_dataModel.PresupSub">
+              <MappingFragment StoreEntitySet="PresupSub">
+                <ScalarProperty Name="IdPresupSub" ColumnName="IdPresupSub" />
+                <ScalarProperty Name="IdPresupDet" ColumnName="IdPresupDet" />
+                <ScalarProperty Name="IdPresupCap" ColumnName="IdPresupCap" />
+                <ScalarProperty Name="IdPresupCab" ColumnName="IdPresupCab" />
+                <ScalarProperty Name="NumPresupSub" ColumnName="NumPresupSub" />
+                <ScalarProperty Name="UM" ColumnName="UM" />
+                <ScalarProperty Name="NomPresupSub" ColumnName="NomPresupSub" />
+                <ScalarProperty Name="DesPresupSub" ColumnName="DesPresupSub" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="CantInf" ColumnName="CantInf" />
+                <ScalarProperty Name="CantAbono" ColumnName="CantAbono" />
+                <ScalarProperty Name="CantExtra" ColumnName="CantExtra" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="aFacturar" ColumnName="aFacturar" />
+                <ScalarProperty Name="DescPrecio" ColumnName="DescPrecio" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="OperacionesDataModel">
+        <EntityTypeShape EntityType="Promowork_dataModel.AlbaranesCab" Width="1.5" PointX="7.5" PointY="3.375" Height="4.480205078125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Promowork_dataModel.AlbaranesDet" Width="1.5" PointX="9.75" PointY="4" Height="3.3263964843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="Promowork_dataModel.Cobros" Width="1.5" PointX="5.25" PointY="8.375" Height="5.634013671875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Promowork_dataModel.ComprasCab" Width="1.5" PointX="5.25" PointY="0.75" Height="6.7878222656249978" IsExpanded="true" />
+        <EntityTypeShape EntityType="Promowork_dataModel.ComprasDet" Width="1.5" PointX="7.5" PointY="14.625" Height="2.7494921874999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="Promowork_dataModel.EntradasCombustibleCab" Width="1.5" PointX="0.75" PointY="3.5" Height="2.9417936197916665" IsExpanded="true" />
+        <EntityTypeShape EntityType="Promowork_dataModel.EntradasCombustibleDet" Width="1.5" PointX="7.5" PointY="18.125" Height="2.9417936197916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="Promowork_dataModel.FacturasCab" Width="1.5" PointX="3" PointY="8" Height="8.7108365885416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="Promowork_dataModel.FacturasDet" Width="1.5" PointX="9.75" PointY="17.125" Height="3.7109993489583317" IsExpanded="true" />
+        <EntityTypeShape EntityType="Promowork_dataModel.FacturasDetDirecta" Width="1.5" PointX="5.25" PointY="15.375" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="Promowork_dataModel.FacturasDetHoras" Width="1.5" PointX="5.25" PointY="22.125" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="Promowork_dataModel.OperacionesBanco" Width="1.5" PointX="7.5" PointY="8.875" Height="4.4802050781250031" IsExpanded="true" />
+        <EntityTypeShape EntityType="Promowork_dataModel.PresupCab" Width="1.5" PointX="0.75" PointY="12.75" Height="4.4802050781250031" IsExpanded="true" />
+        <EntityTypeShape EntityType="Promowork_dataModel.PresupCap" Width="1.5" PointX="3" PointY="26.125" Height="3.3263964843750031" IsExpanded="true" />
+        <EntityTypeShape EntityType="Promowork_dataModel.PresupDet" Width="1.5" PointX="5.25" PointY="25.5" Height="4.4802050781250031" IsExpanded="true" />
+        <EntityTypeShape EntityType="Promowork_dataModel.PresupSub" Width="1.5" PointX="7.5" PointY="25.5" Height="4.480205078124996" IsExpanded="true" />
+        <AssociationConnector Association="Promowork_dataModel.FK_AlbaranesCab_ComprasCab" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="5.4564111328124989" />
+          <ConnectorPoint PointX="7.5" PointY="5.4564111328124989" />
+        </AssociationConnector>
+        <AssociationConnector Association="Promowork_dataModel.FK_AlbaranesDet_AlbaranesCab" ManuallyRouted="false">
+          <ConnectorPoint PointX="9" PointY="5.6631982421875" />
+          <ConnectorPoint PointX="9.75" PointY="5.6631982421875" />
+        </AssociationConnector>
+        <AssociationConnector Association="Promowork_dataModel.FK_AlbaranesDet_AlbaranesDet" ManuallyRouted="false">
+          <ConnectorPoint PointX="10.281923076923077" PointY="7.326396484375" />
+          <ConnectorPoint PointX="10.281923076923077" PointY="7.576396484375" />
+          <ConnectorPoint PointX="10.728461538461538" PointY="7.576396484375" />
+          <ConnectorPoint PointX="10.728461538461538" PointY="7.326396484375" />
+        </AssociationConnector>
+        <AssociationConnector Association="Promowork_dataModel.FK_OperacionesBanco_Cobros" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="11.115102539062502" />
+          <ConnectorPoint PointX="7.041666666666667" PointY="11.1151025390625" />
+          <ConnectorPoint PointX="7.364583333333333" PointY="11.115102539062502" />
+          <ConnectorPoint PointX="7.5" PointY="11.115102539062502" />
+        </AssociationConnector>
+        <AssociationConnector Association="Promowork_dataModel.FK_OtrosCobros_FacturasCab" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="11.1920068359375" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="11.1920068359375" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="11.1920068359375" />
+          <ConnectorPoint PointX="5.25" PointY="11.1920068359375" />
+        </AssociationConnector>
+        <AssociationConnector Association="Promowork_dataModel.FK_ComprasDet_ComprasCab" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="7.5378222656249978" />
+          <ConnectorPoint PointX="7.28125" PointY="8.0690722656249978" />
+          <ConnectorPoint PointX="7.28125" PointY="15.999746093749998" />
+          <ConnectorPoint PointX="7.5" PointY="15.999746093749998" />
+        </AssociationConnector>
+        <AssociationConnector Association="Promowork_dataModel.FK_EntradasCombustibleDet_ComprasCab" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.7130769230769234" PointY="7.5378222656249978" />
+          <ConnectorPoint PointX="7.125" PointY="7.9497453425480744" />
+          <ConnectorPoint PointX="7.125" PointY="19.595896809895834" />
+          <ConnectorPoint PointX="7.5" PointY="19.595896809895834" />
+        </AssociationConnector>
+        <AssociationConnector Association="Promowork_dataModel.FK_FacturasDetDirecta_ComprasCab" ManuallyRouted="false">
+          <ConnectorPoint PointX="5.25" PointY="7.5378222656249978" />
+          <ConnectorPoint PointX="4.875" PointY="7.9128222656249978" />
+          <ConnectorPoint PointX="4.875" PointY="14.998847153846153" />
+          <ConnectorPoint PointX="5.2511528461538459" PointY="15.375" />
+        </AssociationConnector>
+        <AssociationConnector Association="Promowork_dataModel.FK_OperacionesBanco_ComprasCab" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="7.4697443425480747" />
+          <ConnectorPoint PointX="7.21875" PointY="7.9384943425480747" />
+          <ConnectorPoint PointX="7.21875" PointY="9.9637992695312576" />
+          <ConnectorPoint PointX="7.5" PointY="9.9637992695312576" />
+        </AssociationConnector>
+        <AssociationConnector Association="Promowork_dataModel.FK_FacturasCab_PresupCab" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="14.730418294270834" />
+          <ConnectorPoint PointX="3" PointY="14.730418294270834" />
+        </AssociationConnector>
+        <AssociationConnector Association="Promowork_dataModel.FK_FacturasDet_FacturasCab" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="14.3170068359375" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="14.3170068359375" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="14.3170068359375" />
+          <ConnectorPoint PointX="7.041666666666667" PointY="14.317006835937498" />
+          <ConnectorPoint PointX="7.364583333333333" PointY="14.3170068359375" />
+          <ConnectorPoint PointX="10.5" PointY="14.3170068359375" />
+          <ConnectorPoint PointX="10.5" PointY="17.125" />
+        </AssociationConnector>
+        <AssociationConnector Association="Promowork_dataModel.FK_FacturasDetDirecta_FacturasCab" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="16.042918294270834" />
+          <ConnectorPoint PointX="5.25" PointY="16.042918294270834" />
+        </AssociationConnector>
+        <AssociationConnector Association="Promowork_dataModel.FK_FacturasDetHoras_FacturasCab" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.75" PointY="16.710836588541667" />
+          <ConnectorPoint PointX="3.75" PointY="23.018992513020834" />
+          <ConnectorPoint PointX="4.041666666666667" PointY="23.018992513020834" />
+          <ConnectorPoint PointX="4.208333333333333" PointY="23.018992513020834" />
+          <ConnectorPoint PointX="5.25" PointY="23.018992513020834" />
+        </AssociationConnector>
+        <AssociationConnector Association="Promowork_dataModel.FK_FacturasDet_PresupCap" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.125" PointY="26.125" />
+          <ConnectorPoint PointX="4.125" PointY="17.836293945312498" />
+          <ConnectorPoint PointX="7.041666666666667" PointY="17.836293945312498" />
+          <ConnectorPoint PointX="7.208333333333333" PointY="17.836293945312498" />
+          <ConnectorPoint PointX="9.75" PointY="17.836293945312498" />
+        </AssociationConnector>
+        <AssociationConnector Association="Promowork_dataModel.FK_FacturasDet_PresupDet" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="25.501152846153843" />
+          <ConnectorPoint PointX="7.1261528461538433" PointY="25.125" />
+          <ConnectorPoint PointX="10.010414166666665" PointY="25.125" />
+          <ConnectorPoint PointX="10.177080833333333" PointY="25.125" />
+          <ConnectorPoint PointX="10.5" PointY="25.125" />
+          <ConnectorPoint PointX="10.5" PointY="20.835999348958332" />
+        </AssociationConnector>
+        <AssociationConnector Association="Promowork_dataModel.FK_FacturasDet_PresupSub" ManuallyRouted="false">
+          <ConnectorPoint PointX="9" PointY="27.740102539062498" />
+          <ConnectorPoint PointX="10.0937475" PointY="27.740102539062498" />
+          <ConnectorPoint PointX="10.0937475" PointY="20.835999348958332" />
+        </AssociationConnector>
+        <AssociationConnector Association="Promowork_dataModel.FK_PresupCap_PresupCab" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="17.230205078125003" />
+          <ConnectorPoint PointX="1.5" PointY="27.7881982421875" />
+          <ConnectorPoint PointX="3" PointY="27.7881982421875" />
+        </AssociationConnector>
+        <AssociationConnector Association="Promowork_dataModel.FK_PresupDet_PresupCap" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="27.7881982421875" />
+          <ConnectorPoint PointX="5.25" PointY="27.7881982421875" />
+        </AssociationConnector>
+        <AssociationConnector Association="Promowork_dataModel.FK_PresupSub_PresupDet" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="27.771931462139413" />
+          <ConnectorPoint PointX="7.5" PointY="27.771931462139413" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -36,22 +36,23 @@
             System.Windows.Forms.Label label3;
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tbCliente = new DevExpress.XtraEditors.TextEdit();
             this.cbTrabajadores = new DevExpress.XtraEditors.LookUpEdit();
             this.tbAsuntoMensaje = new DevExpress.XtraEditors.TextEdit();
             this.btEnviarFactura = new DevExpress.XtraEditors.SimpleButton();
             this.lbGestor = new DevExpress.XtraEditors.LabelControl();
             this.cbGestor = new DevExpress.XtraEditors.LookUpEdit();
             this.tbCuerpoMensaje = new DevExpress.XtraEditors.MemoEdit();
-            this.tbCliente = new DevExpress.XtraEditors.TextEdit();
             this.tbResultado = new DevExpress.XtraEditors.MemoEdit();
-            this.FacturasDetImpBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.Promowork_dataDataSet = new GestionData.Promowork_dataDataSet();
-            this.empresasPoblacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cbFechaEnvio = new DevExpress.XtraEditors.TextEdit();
             this.FacturasCabImpBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Promowork_dataDataSet = new GestionData.Promowork_dataDataSet();
+            this.empresasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.FacturasDetImpBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.empresasPoblacionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vComprasDirectasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DatosPresupuestos = new GestionData.DatosPresupuestos();
             this.FacturasDetHorasImpBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.empresasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.GestoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.FacturasDetImpTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.FacturasDetImpTableAdapter();
             this.FacturasCabImpTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.FacturasCabImpTableAdapter();
@@ -66,20 +67,21 @@
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbCliente.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbTrabajadores.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbAsuntoMensaje.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbGestor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbCuerpoMensaje.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbCliente.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbResultado.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FacturasDetImpBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Promowork_dataDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.empresasPoblacionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbFechaEnvio.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FacturasCabImpBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Promowork_dataDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.empresasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FacturasDetImpBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.empresasPoblacionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vComprasDirectasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DatosPresupuestos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FacturasDetHorasImpBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.empresasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GestoresBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -110,6 +112,24 @@
             asuntoSinAlbaranLabel.TabIndex = 6;
             asuntoSinAlbaranLabel.Text = "Asunto Mensaje:";
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(711, 21);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(49, 13);
+            label2.TabIndex = 13;
+            label2.Text = "Enviar a:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(702, 118);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(58, 13);
+            label3.TabIndex = 15;
+            label3.Text = "Resultado:";
+            // 
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -120,6 +140,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.cbFechaEnvio);
             this.panel1.Controls.Add(label3);
             this.panel1.Controls.Add(label2);
             this.panel1.Controls.Add(this.tbCliente);
@@ -138,6 +159,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1370, 180);
             this.panel1.TabIndex = 1;
+            // 
+            // tbCliente
+            // 
+            this.tbCliente.Location = new System.Drawing.Point(766, 17);
+            this.tbCliente.Name = "tbCliente";
+            this.tbCliente.Properties.ReadOnly = true;
+            this.tbCliente.Size = new System.Drawing.Size(411, 20);
+            this.tbCliente.TabIndex = 10;
             // 
             // cbTrabajadores
             // 
@@ -201,32 +230,6 @@
             this.tbCuerpoMensaje.Size = new System.Drawing.Size(528, 111);
             this.tbCuerpoMensaje.TabIndex = 4;
             // 
-            // tbCliente
-            // 
-            this.tbCliente.Location = new System.Drawing.Point(766, 17);
-            this.tbCliente.Name = "tbCliente";
-            this.tbCliente.Properties.ReadOnly = true;
-            this.tbCliente.Size = new System.Drawing.Size(411, 20);
-            this.tbCliente.TabIndex = 10;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(711, 21);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(49, 13);
-            label2.TabIndex = 13;
-            label2.Text = "Enviar a:";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(702, 118);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(58, 13);
-            label3.TabIndex = 15;
-            label3.Text = "Resultado:";
-            // 
             // tbResultado
             // 
             this.tbResultado.Location = new System.Drawing.Point(766, 114);
@@ -237,25 +240,41 @@
             this.tbResultado.Size = new System.Drawing.Size(411, 49);
             this.tbResultado.TabIndex = 14;
             // 
-            // FacturasDetImpBindingSource
+            // cbFechaEnvio
             // 
-            this.FacturasDetImpBindingSource.DataMember = "FacturasDetImp";
-            this.FacturasDetImpBindingSource.DataSource = this.Promowork_dataDataSet;
+            this.cbFechaEnvio.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.FacturasCabImpBindingSource, "FechaEnvioCliente", true));
+            this.cbFechaEnvio.Location = new System.Drawing.Point(1213, 52);
+            this.cbFechaEnvio.Name = "cbFechaEnvio";
+            this.cbFechaEnvio.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.cbFechaEnvio.Properties.Appearance.Options.UseFont = true;
+            this.cbFechaEnvio.Properties.ReadOnly = true;
+            this.cbFechaEnvio.Size = new System.Drawing.Size(126, 20);
+            this.cbFechaEnvio.TabIndex = 16;
+            // 
+            // FacturasCabImpBindingSource
+            // 
+            this.FacturasCabImpBindingSource.DataMember = "FacturasCabImp";
+            this.FacturasCabImpBindingSource.DataSource = this.Promowork_dataDataSet;
             // 
             // Promowork_dataDataSet
             // 
             this.Promowork_dataDataSet.DataSetName = "Promowork_dataDataSet";
             this.Promowork_dataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // empresasBindingSource
+            // 
+            this.empresasBindingSource.DataMember = "Empresas";
+            this.empresasBindingSource.DataSource = this.Promowork_dataDataSet;
+            // 
+            // FacturasDetImpBindingSource
+            // 
+            this.FacturasDetImpBindingSource.DataMember = "FacturasDetImp";
+            this.FacturasDetImpBindingSource.DataSource = this.Promowork_dataDataSet;
+            // 
             // empresasPoblacionBindingSource
             // 
             this.empresasPoblacionBindingSource.DataMember = "EmpresasPoblacion";
             this.empresasPoblacionBindingSource.DataSource = this.Promowork_dataDataSet;
-            // 
-            // FacturasCabImpBindingSource
-            // 
-            this.FacturasCabImpBindingSource.DataMember = "FacturasCabImp";
-            this.FacturasCabImpBindingSource.DataSource = this.Promowork_dataDataSet;
             // 
             // vComprasDirectasBindingSource
             // 
@@ -271,11 +290,6 @@
             // 
             this.FacturasDetHorasImpBindingSource.DataMember = "FacturasDetHorasImp";
             this.FacturasDetHorasImpBindingSource.DataSource = this.Promowork_dataDataSet;
-            // 
-            // empresasBindingSource
-            // 
-            this.empresasBindingSource.DataMember = "Empresas";
-            this.empresasBindingSource.DataSource = this.Promowork_dataDataSet;
             // 
             // GestoresBindingSource
             // 
@@ -310,34 +324,35 @@
             // 
             this.GestoresTableAdapter.ClearBeforeFill = true;
             // 
-            // RptFacturasPresupImp2
+            // RptFacturasClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 697);
             this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.panel1);
-            this.Name = "RptFacturasPresupImp2";
+            this.Name = "RptFacturasClientes";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Presupuesto Actual";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbCliente.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbTrabajadores.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbAsuntoMensaje.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbGestor.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbCuerpoMensaje.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbCliente.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbResultado.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FacturasDetImpBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Promowork_dataDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.empresasPoblacionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbFechaEnvio.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FacturasCabImpBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Promowork_dataDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.empresasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FacturasDetImpBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.empresasPoblacionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vComprasDirectasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DatosPresupuestos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FacturasDetHorasImpBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.empresasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GestoresBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -371,5 +386,6 @@
         private DevExpress.XtraEditors.LookUpEdit cbTrabajadores;
         private DevExpress.XtraEditors.TextEdit tbCliente;
         private DevExpress.XtraEditors.MemoEdit tbResultado;
+        private DevExpress.XtraEditors.TextEdit cbFechaEnvio;
     }
 }

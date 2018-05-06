@@ -16,6 +16,8 @@ using GestionData;
 using GestionData.Enumeradores;
 using GestionServices.Generales;
 using GestionServices.Operaciones;
+using GestionData.Repositorios;
+
 
 namespace Promowork.Formularios.Operaciones
 {
@@ -27,6 +29,7 @@ namespace Promowork.Formularios.Operaciones
         }
 
         Boolean esFactura = true;
+        RepositorioFacturasCab repoFacturasCab = new RepositorioFacturasCab();
 
         private void facturasCabBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
@@ -154,7 +157,7 @@ namespace Promowork.Formularios.Operaciones
 
         private void ActuallizaUltimoNumeroFactura()
         {
-            tbUltimaFactura.Text = FacturasClientesService.GetUltimaFactura(VariablesGlobales.nIdEmpresaActual, (int)cbxanos.SelectedValue, esFactura).ToString();
+            tbUltimaFactura.Text = repoFacturasCab.GetUltimaFactura(VariablesGlobales.nIdEmpresaActual, (int)cbxanos.SelectedValue, esFactura).ToString();
         }
 
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
@@ -551,8 +554,15 @@ namespace Promowork.Formularios.Operaciones
            {
                RptFacturasClientes frm = new RptFacturasClientes();
                 frm.LoadFiltro(nIdFactura, "Promowork.Reportes.FacturaManualImp2.rdlc");
-                frm.MdiParent = this.MdiParent;
-                frm.Show();
+                //frm.MdiParent = this.MdiParent;
+                frm.ShowDialog();
+                if (frm.fechaEnvioFactura != null)
+                {
+                    facturasCabDataGridView.CurrentRow.Cells["FechaEnvioCliente"].Value = frm.fechaEnvioFactura;
+                    facturasCabDataGridView.CurrentRow.Cells["Entregada"].Value = true;
+
+                    facturasCabBindingNavigatorSaveItem_Click(null, null);
+                }
 
                //RptFacturasManualImp2 frm = new RptFacturasManualImp2();
                //frm.LoadFiltro(Factura);

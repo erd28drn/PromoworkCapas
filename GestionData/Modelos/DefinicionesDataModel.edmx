@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Promowork_dataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="Promowork_dataModelStoreContainer">
+          <EntitySet Name="Clientes" EntityType="Promowork_dataModel.Store.Clientes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Proveedores" EntityType="Promowork_dataModel.Store.Proveedores" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="IdCliente" />
+          </Key>
+          <Property Name="IdCliente" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdEmpresa" Type="int" />
+          <Property Name="NumCliente" Type="int" />
+          <Property Name="DesCliente" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="DNINIFCliente" Type="varchar" MaxLength="20" />
+          <Property Name="NumSSCliente" Type="varchar" MaxLength="20" />
+          <Property Name="DirCliente" Type="varchar" MaxLength="100" />
+          <Property Name="IdPoblacion" Type="int" />
+          <Property Name="DirFiscalCliente" Type="varchar" MaxLength="100" />
+          <Property Name="IdPobFiscal" Type="int" />
+          <Property Name="TelCliente" Type="varchar" MaxLength="50" />
+          <Property Name="FaxCliente" Type="varchar" MaxLength="50" />
+          <Property Name="CelCliente" Type="varchar" MaxLength="50" />
+          <Property Name="EmailCliente" Type="varchar" MaxLength="50" />
+          <Property Name="WebCliente" Type="varchar" MaxLength="50" />
+          <Property Name="NomContacto" Type="varchar" MaxLength="50" />
+          <Property Name="TelContacto" Type="varchar" MaxLength="50" />
+          <Property Name="EmailContacto" Type="varchar" MaxLength="50" />
+          <Property Name="CredCliente" Type="tinyint" />
+          <Property Name="IdFormaPago" Type="int" />
+          <Property Name="IdCuenta" Type="int" />
+          <Property Name="AdjCliente" Type="varchar" MaxLength="1000" />
+          <Property Name="ObsCliente" Type="varchar" MaxLength="1000" />
+          <Property Name="ActivoCliente" Type="bit" />
+        </EntityType>
+        <EntityType Name="Proveedores">
+          <Key>
+            <PropertyRef Name="IdProveedor" />
+          </Key>
+          <Property Name="IdProveedor" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="IdParticipante" Type="int" />
+          <Property Name="NumProveedor" Type="int" Nullable="false" />
+          <Property Name="SerieProveedor" Type="varchar" MaxLength="1" />
+          <Property Name="DesProveedor" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="DNINIFProveedor" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="DirProveedor" Type="varchar" MaxLength="100" />
+          <Property Name="IdPoblacion" Type="int" />
+          <Property Name="DirFiscalProveedor" Type="varchar" MaxLength="100" />
+          <Property Name="IdPobFiscal" Type="int" />
+          <Property Name="TelProveedor" Type="nvarchar" MaxLength="30" />
+          <Property Name="FaxProveedor" Type="nvarchar" MaxLength="20" />
+          <Property Name="CelProveedor" Type="nvarchar" MaxLength="20" />
+          <Property Name="EmailProveedor" Type="nvarchar" MaxLength="50" />
+          <Property Name="WebProveedor" Type="varchar" MaxLength="50" />
+          <Property Name="NomContacto" Type="nvarchar" MaxLength="50" />
+          <Property Name="TelContacto" Type="nvarchar" MaxLength="20" />
+          <Property Name="EmailContacto" Type="nvarchar" MaxLength="50" />
+          <Property Name="CredProveedor" Type="int" />
+          <Property Name="IdFormaPago" Type="int" />
+          <Property Name="IdCuenta" Type="int" />
+          <Property Name="ObsProveedor" Type="nvarchar" MaxLength="255" />
+          <Property Name="ActivoProveedor" Type="bit" />
+          <Property Name="ProveedorCombustible" Type="bit" />
+          <Property Name="IdTipoProveedor" Type="int" />
+          <Property Name="Idgrupo" Type="int" />
+          <Property Name="EsGestor" Type="bit" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Promowork_dataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="DefinicionesDataModel" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Clientes" EntityType="Promowork_dataModel.Clientes" />
+          <EntitySet Name="Proveedores" EntityType="Promowork_dataModel.Proveedores" />
+        </EntityContainer>
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="IdCliente" />
+          </Key>
+          <Property Name="IdCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdEmpresa" Type="Int32" />
+          <Property Name="NumCliente" Type="Int32" />
+          <Property Name="DesCliente" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="DNINIFCliente" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="NumSSCliente" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="DirCliente" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="IdPoblacion" Type="Int32" />
+          <Property Name="DirFiscalCliente" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="IdPobFiscal" Type="Int32" />
+          <Property Name="TelCliente" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="FaxCliente" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CelCliente" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="EmailCliente" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="WebCliente" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="NomContacto" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="TelContacto" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="EmailContacto" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CredCliente" Type="Byte" />
+          <Property Name="IdFormaPago" Type="Int32" />
+          <Property Name="IdCuenta" Type="Int32" />
+          <Property Name="AdjCliente" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <Property Name="ObsCliente" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <Property Name="ActivoCliente" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Proveedores">
+          <Key>
+            <PropertyRef Name="IdProveedor" />
+          </Key>
+          <Property Name="IdProveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdEmpresa" Type="Int32" Nullable="false" />
+          <Property Name="IdParticipante" Type="Int32" />
+          <Property Name="NumProveedor" Type="Int32" Nullable="false" />
+          <Property Name="SerieProveedor" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="DesProveedor" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="DNINIFProveedor" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="DirProveedor" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="IdPoblacion" Type="Int32" />
+          <Property Name="DirFiscalProveedor" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="IdPobFiscal" Type="Int32" />
+          <Property Name="TelProveedor" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="FaxProveedor" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="CelProveedor" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="EmailProveedor" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="WebProveedor" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="NomContacto" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="TelContacto" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="EmailContacto" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CredProveedor" Type="Int32" />
+          <Property Name="IdFormaPago" Type="Int32" />
+          <Property Name="IdCuenta" Type="Int32" />
+          <Property Name="ObsProveedor" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="ActivoProveedor" Type="Boolean" />
+          <Property Name="ProveedorCombustible" Type="Boolean" />
+          <Property Name="IdTipoProveedor" Type="Int32" />
+          <Property Name="Idgrupo" Type="Int32" />
+          <Property Name="EsGestor" Type="Boolean" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Promowork_dataModelStoreContainer" CdmEntityContainer="DefinicionesDataModel">
+          <EntitySetMapping Name="Clientes">
+            <EntityTypeMapping TypeName="Promowork_dataModel.Clientes">
+              <MappingFragment StoreEntitySet="Clientes">
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="NumCliente" ColumnName="NumCliente" />
+                <ScalarProperty Name="DesCliente" ColumnName="DesCliente" />
+                <ScalarProperty Name="DNINIFCliente" ColumnName="DNINIFCliente" />
+                <ScalarProperty Name="NumSSCliente" ColumnName="NumSSCliente" />
+                <ScalarProperty Name="DirCliente" ColumnName="DirCliente" />
+                <ScalarProperty Name="IdPoblacion" ColumnName="IdPoblacion" />
+                <ScalarProperty Name="DirFiscalCliente" ColumnName="DirFiscalCliente" />
+                <ScalarProperty Name="IdPobFiscal" ColumnName="IdPobFiscal" />
+                <ScalarProperty Name="TelCliente" ColumnName="TelCliente" />
+                <ScalarProperty Name="FaxCliente" ColumnName="FaxCliente" />
+                <ScalarProperty Name="CelCliente" ColumnName="CelCliente" />
+                <ScalarProperty Name="EmailCliente" ColumnName="EmailCliente" />
+                <ScalarProperty Name="WebCliente" ColumnName="WebCliente" />
+                <ScalarProperty Name="NomContacto" ColumnName="NomContacto" />
+                <ScalarProperty Name="TelContacto" ColumnName="TelContacto" />
+                <ScalarProperty Name="EmailContacto" ColumnName="EmailContacto" />
+                <ScalarProperty Name="CredCliente" ColumnName="CredCliente" />
+                <ScalarProperty Name="IdFormaPago" ColumnName="IdFormaPago" />
+                <ScalarProperty Name="IdCuenta" ColumnName="IdCuenta" />
+                <ScalarProperty Name="AdjCliente" ColumnName="AdjCliente" />
+                <ScalarProperty Name="ObsCliente" ColumnName="ObsCliente" />
+                <ScalarProperty Name="ActivoCliente" ColumnName="ActivoCliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proveedores">
+            <EntityTypeMapping TypeName="Promowork_dataModel.Proveedores">
+              <MappingFragment StoreEntitySet="Proveedores">
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdParticipante" ColumnName="IdParticipante" />
+                <ScalarProperty Name="NumProveedor" ColumnName="NumProveedor" />
+                <ScalarProperty Name="SerieProveedor" ColumnName="SerieProveedor" />
+                <ScalarProperty Name="DesProveedor" ColumnName="DesProveedor" />
+                <ScalarProperty Name="DNINIFProveedor" ColumnName="DNINIFProveedor" />
+                <ScalarProperty Name="DirProveedor" ColumnName="DirProveedor" />
+                <ScalarProperty Name="IdPoblacion" ColumnName="IdPoblacion" />
+                <ScalarProperty Name="DirFiscalProveedor" ColumnName="DirFiscalProveedor" />
+                <ScalarProperty Name="IdPobFiscal" ColumnName="IdPobFiscal" />
+                <ScalarProperty Name="TelProveedor" ColumnName="TelProveedor" />
+                <ScalarProperty Name="FaxProveedor" ColumnName="FaxProveedor" />
+                <ScalarProperty Name="CelProveedor" ColumnName="CelProveedor" />
+                <ScalarProperty Name="EmailProveedor" ColumnName="EmailProveedor" />
+                <ScalarProperty Name="WebProveedor" ColumnName="WebProveedor" />
+                <ScalarProperty Name="NomContacto" ColumnName="NomContacto" />
+                <ScalarProperty Name="TelContacto" ColumnName="TelContacto" />
+                <ScalarProperty Name="EmailContacto" ColumnName="EmailContacto" />
+                <ScalarProperty Name="CredProveedor" ColumnName="CredProveedor" />
+                <ScalarProperty Name="IdFormaPago" ColumnName="IdFormaPago" />
+                <ScalarProperty Name="IdCuenta" ColumnName="IdCuenta" />
+                <ScalarProperty Name="ObsProveedor" ColumnName="ObsProveedor" />
+                <ScalarProperty Name="ActivoProveedor" ColumnName="ActivoProveedor" />
+                <ScalarProperty Name="ProveedorCombustible" ColumnName="ProveedorCombustible" />
+                <ScalarProperty Name="IdTipoProveedor" ColumnName="IdTipoProveedor" />
+                <ScalarProperty Name="Idgrupo" ColumnName="Idgrupo" />
+                <ScalarProperty Name="EsGestor" ColumnName="EsGestor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="DefinicionesDataModel" ZoomLevel="66">
+        <EntityTypeShape EntityType="Promowork_dataModel.Clientes" Width="1.5" PointX="0.75" PointY="0.75" Height="5.634013671875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Promowork_dataModel.Proveedores" Width="1.5" PointX="2.75" PointY="0.75" Height="6.4032194010416656" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

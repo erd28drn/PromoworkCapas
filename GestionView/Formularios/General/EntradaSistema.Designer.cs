@@ -34,10 +34,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EntradaSistema));
             this.promowork_dataDataSet = new GestionData.Promowork_dataDataSet();
             this.tableAdapterManager = new GestionData.Promowork_dataDataSetTableAdapters.TableAdapterManager();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbUsuario = new System.Windows.Forms.ComboBox();
             this.usuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbEmpresa = new System.Windows.Forms.ComboBox();
+            this.accesosUsuariosEmpresasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.empresasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,14 +49,13 @@
             this.button2 = new System.Windows.Forms.Button();
             this.usuariosTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.UsuariosTableAdapter();
             this.empresasTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.EmpresasTableAdapter();
-            this.accesosUsuariosEmpresasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.accesosUsuariosEmpresasTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.AccesosUsuariosEmpresasTableAdapter();
             mesEmpresaLabel = new System.Windows.Forms.Label();
             anoEmpresaLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.promowork_dataDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuariosBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.empresasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accesosUsuariosEmpresasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.empresasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // mesEmpresaLabel
@@ -83,6 +83,7 @@
             // 
             // tableAdapterManager
             // 
+            this.tableAdapterManager.AccesosEmpresasTableAdapter = null;
             this.tableAdapterManager.AdjuntosObrasTableAdapter = null;
             this.tableAdapterManager.AnticiposTableAdapter = null;
             this.tableAdapterManager.AnticiposTrabajadoresTableAdapter = null;
@@ -94,6 +95,7 @@
             this.tableAdapterManager.CobrosTableAdapter = null;
             this.tableAdapterManager.ComprasCabTableAdapter = null;
             this.tableAdapterManager.ComprasDetTableAdapter = null;
+            this.tableAdapterManager.ConceptosBancosTableAdapter = null;
             this.tableAdapterManager.Connection = null;
             this.tableAdapterManager.ContratosTrabajadoresTableAdapter = null;
             this.tableAdapterManager.CopiasHorasTableAdapter = null;
@@ -101,19 +103,27 @@
             this.tableAdapterManager.CuentasTableAdapter = null;
             this.tableAdapterManager.CursosTableAdapter = null;
             this.tableAdapterManager.CursosTrabajadoresTableAdapter = null;
+            this.tableAdapterManager.DescuentosFacturasTableAdapter = null;
             this.tableAdapterManager.EmpresasActualTableAdapter = null;
             this.tableAdapterManager.EmpresasTableAdapter = null;
             this.tableAdapterManager.EstadoCivilTableAdapter = null;
+            this.tableAdapterManager.FabricantesTableAdapter = null;
+            this.tableAdapterManager.FacturasCabListaTableAdapter = null;
             this.tableAdapterManager.FacturasCabTableAdapter = null;
+            this.tableAdapterManager.FacturasDetHorasTableAdapter = null;
             this.tableAdapterManager.FacturasDetTableAdapter = null;
             this.tableAdapterManager.FestivosEmpresasTableAdapter = null;
+            this.tableAdapterManager.FestivosObrasDiaTableAdapter = null;
             this.tableAdapterManager.FestivosObrasTableAdapter = null;
             this.tableAdapterManager.FormasPagoTableAdapter = null;
+            this.tableAdapterManager.GruposProductosTableAdapter = null;
             this.tableAdapterManager.HijosTrabajadoresTableAdapter = null;
             this.tableAdapterManager.HorasAdminTableAdapter = null;
             this.tableAdapterManager.HorasTrabajadasTableAdapter = null;
+            this.tableAdapterManager.HorasTrabajadoresTableAdapter = null;
             this.tableAdapterManager.NacionesTableAdapter = null;
             this.tableAdapterManager.ObrasTableAdapter = null;
+            this.tableAdapterManager.OperacionesBancoTableAdapter = null;
             this.tableAdapterManager.PagosTableAdapter = null;
             this.tableAdapterManager.ParticipantesTableAdapter = null;
             this.tableAdapterManager.PartObrasTableAdapter = null;
@@ -128,6 +138,7 @@
             this.tableAdapterManager.PresupSubTableAdapter = null;
             this.tableAdapterManager.ProductosTableAdapter = null;
             this.tableAdapterManager.ProductosUtilizadosTableAdapter = null;
+            this.tableAdapterManager.ProductosUtTrabajadoresTableAdapter = null;
             this.tableAdapterManager.ProveedoresTableAdapter = null;
             this.tableAdapterManager.Provincias1TableAdapter = null;
             this.tableAdapterManager.ProvinciasTableAdapter = null;
@@ -136,6 +147,8 @@
             this.tableAdapterManager.SalariosVentaAdminTableAdapter = null;
             this.tableAdapterManager.SalariosVentaTableAdapter = null;
             this.tableAdapterManager.SeguridadSocialTableAdapter = null;
+            this.tableAdapterManager.TiposProductosTableAdapter = null;
+            this.tableAdapterManager.TiposProveedoresTableAdapter = null;
             this.tableAdapterManager.TiposTableAdapter = null;
             this.tableAdapterManager.TrabajadoresListaTableAdapter = null;
             this.tableAdapterManager.TrabajadoresTableAdapter = null;
@@ -143,22 +156,22 @@
             this.tableAdapterManager.UpdateOrder = GestionData.Promowork_dataDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.UsuariosTableAdapter = null;
             // 
-            // comboBox1
+            // cbUsuario
             // 
-            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox1.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.usuariosBindingSource, "IdUsuario", true));
-            this.comboBox1.DataSource = this.usuariosBindingSource;
-            this.comboBox1.DisplayMember = "NomUsuario";
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(69, 18);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(174, 21);
-            this.comboBox1.TabIndex = 0;
-            this.comboBox1.ValueMember = "IdUsuario";
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cbUsuario.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbUsuario.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbUsuario.DataSource = this.usuariosBindingSource;
+            this.cbUsuario.DisplayMember = "NomUsuario";
+            this.cbUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbUsuario.FormattingEnabled = true;
+            this.cbUsuario.Location = new System.Drawing.Point(69, 18);
+            this.cbUsuario.Name = "cbUsuario";
+            this.cbUsuario.Size = new System.Drawing.Size(174, 21);
+            this.cbUsuario.TabIndex = 0;
+            this.cbUsuario.ValueMember = "IdUsuario";
+            this.cbUsuario.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cbUsuario.SelectedValueChanged += new System.EventHandler(this.cbUsuario_SelectedValueChanged);
             // 
             // usuariosBindingSource
             // 
@@ -174,21 +187,25 @@
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 1;
             // 
-            // comboBox2
+            // cbEmpresa
             // 
-            this.comboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox2.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.usuariosBindingSource, "UltEmpresa", true));
-            this.comboBox2.DataSource = this.accesosUsuariosEmpresasBindingSource;
-            this.comboBox2.DisplayMember = "DesEmpresa";
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(69, 94);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(174, 21);
-            this.comboBox2.TabIndex = 2;
-            this.comboBox2.ValueMember = "IdEmpresa";
+            this.cbEmpresa.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbEmpresa.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbEmpresa.DataSource = this.accesosUsuariosEmpresasBindingSource;
+            this.cbEmpresa.DisplayMember = "DesEmpresa";
+            this.cbEmpresa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbEmpresa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbEmpresa.FormattingEnabled = true;
+            this.cbEmpresa.Location = new System.Drawing.Point(69, 94);
+            this.cbEmpresa.Name = "cbEmpresa";
+            this.cbEmpresa.Size = new System.Drawing.Size(174, 21);
+            this.cbEmpresa.TabIndex = 2;
+            this.cbEmpresa.ValueMember = "IdEmpresa";
+            // 
+            // accesosUsuariosEmpresasBindingSource
+            // 
+            this.accesosUsuariosEmpresasBindingSource.DataMember = "AccesosUsuariosEmpresas";
+            this.accesosUsuariosEmpresasBindingSource.DataSource = this.promowork_dataDataSet;
             // 
             // empresasBindingSource
             // 
@@ -224,7 +241,6 @@
             // 
             // mesEmpresaTextBox
             // 
-            this.mesEmpresaTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuariosBindingSource, "MesUsuario", true));
             this.mesEmpresaTextBox.Location = new System.Drawing.Point(69, 128);
             this.mesEmpresaTextBox.Name = "mesEmpresaTextBox";
             this.mesEmpresaTextBox.Size = new System.Drawing.Size(33, 20);
@@ -232,7 +248,6 @@
             // 
             // anoEmpresaTextBox
             // 
-            this.anoEmpresaTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.usuariosBindingSource, "AnoUsuario", true));
             this.anoEmpresaTextBox.Location = new System.Drawing.Point(202, 128);
             this.anoEmpresaTextBox.Name = "anoEmpresaTextBox";
             this.anoEmpresaTextBox.Size = new System.Drawing.Size(41, 20);
@@ -267,11 +282,6 @@
             // 
             this.empresasTableAdapter.ClearBeforeFill = true;
             // 
-            // accesosUsuariosEmpresasBindingSource
-            // 
-            this.accesosUsuariosEmpresasBindingSource.DataMember = "AccesosUsuariosEmpresas";
-            this.accesosUsuariosEmpresasBindingSource.DataSource = this.promowork_dataDataSet;
-            // 
             // accesosUsuariosEmpresasTableAdapter
             // 
             this.accesosUsuariosEmpresasTableAdapter.ClearBeforeFill = true;
@@ -292,9 +302,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.cbEmpresa);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbUsuario);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -304,8 +314,8 @@
             this.Load += new System.EventHandler(this.Accesos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.promowork_dataDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuariosBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.empresasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accesosUsuariosEmpresasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.empresasBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -315,9 +325,9 @@
 
         private GestionData.Promowork_dataDataSet promowork_dataDataSet;
         private GestionData.Promowork_dataDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbUsuario;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbEmpresa;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

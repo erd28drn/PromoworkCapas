@@ -7,7 +7,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01-GestionView", "GestionVi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03-GestionServices", "GestionServices\03-GestionServices.csproj", "{7C2F29B4-88C7-4BC6-AB3C-CCF1BC313E67}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestPromowork", "TestPromowork\TestPromowork.csproj", "{9FC9145D-27ED-4445-AE6A-F855270FC4A7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2F748EFD-1272-4B2E-98B5-B9EEA8910179}"
+	ProjectSection(SolutionItems) = preProject
+		Gestion.vsmdi = Gestion.vsmdi
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Gestion.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -47,6 +59,16 @@ Global
 		{7C2F29B4-88C7-4BC6-AB3C-CCF1BC313E67}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{7C2F29B4-88C7-4BC6-AB3C-CCF1BC313E67}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{7C2F29B4-88C7-4BC6-AB3C-CCF1BC313E67}.Release|x86.ActiveCfg = Release|Any CPU
+		{9FC9145D-27ED-4445-AE6A-F855270FC4A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FC9145D-27ED-4445-AE6A-F855270FC4A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FC9145D-27ED-4445-AE6A-F855270FC4A7}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{9FC9145D-27ED-4445-AE6A-F855270FC4A7}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{9FC9145D-27ED-4445-AE6A-F855270FC4A7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9FC9145D-27ED-4445-AE6A-F855270FC4A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FC9145D-27ED-4445-AE6A-F855270FC4A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FC9145D-27ED-4445-AE6A-F855270FC4A7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{9FC9145D-27ED-4445-AE6A-F855270FC4A7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{9FC9145D-27ED-4445-AE6A-F855270FC4A7}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

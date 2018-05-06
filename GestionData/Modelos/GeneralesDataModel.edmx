@@ -1,0 +1,462 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Promowork_dataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="Promowork_dataModelStoreContainer">
+          <EntitySet Name="AccesosEmpresas" EntityType="Promowork_dataModel.Store.AccesosEmpresas" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AccesosOpciones" EntityType="Promowork_dataModel.Store.AccesosOpciones" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Empresas" EntityType="Promowork_dataModel.Store.Empresas" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Usuarios" EntityType="Promowork_dataModel.Store.Usuarios" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_AccesosEmpresas_Empresas" Association="Promowork_dataModel.Store.FK_AccesosEmpresas_Empresas">
+            <End Role="Empresas" EntitySet="Empresas" />
+            <End Role="AccesosEmpresas" EntitySet="AccesosEmpresas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AccesosEmpresas_Usuarios" Association="Promowork_dataModel.Store.FK_AccesosEmpresas_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="AccesosEmpresas" EntitySet="AccesosEmpresas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AccesosOpciones_Usuarios" Association="Promowork_dataModel.Store.FK_AccesosOpciones_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="AccesosOpciones" EntitySet="AccesosOpciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuarios_Empresas" Association="Promowork_dataModel.Store.FK_Usuarios_Empresas">
+            <End Role="Empresas" EntitySet="Empresas" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AccesosEmpresas">
+          <Key>
+            <PropertyRef Name="IdAccesoEmp" />
+          </Key>
+          <Property Name="IdAccesoEmp" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsuario" Type="int" />
+          <Property Name="IdEmpresa" Type="int" />
+          <Property Name="Acceso" Type="bit" />
+        </EntityType>
+        <EntityType Name="AccesosOpciones">
+          <Key>
+            <PropertyRef Name="IdAccesoOpcion" />
+          </Key>
+          <Property Name="IdAccesoOpcion" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsuario" Type="int" />
+          <Property Name="IdOpcion" Type="int" />
+          <Property Name="Nivel" Type="int" />
+          <Property Name="Acceso" Type="bit" />
+        </EntityType>
+        <EntityType Name="Empresas">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+          </Key>
+          <Property Name="IdEmpresa" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NIFEmpresa" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="DesEmpresa" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="DirEmpresa" Type="varchar" MaxLength="100" />
+          <Property Name="IdPoblacion" Type="int" />
+          <Property Name="TelEmpresa" Type="varchar" MaxLength="50" />
+          <Property Name="CelEmpresa" Type="varchar" MaxLength="50" />
+          <Property Name="FaxEmpresa" Type="varchar" MaxLength="50" />
+          <Property Name="EmailEmpresa" Type="varchar" MaxLength="50" />
+          <Property Name="WebEmpresa" Type="varchar" MaxLength="50" />
+          <Property Name="IntEmpresa" Type="bit" />
+          <Property Name="LogoEmpresa" Type="varchar" MaxLength="255" />
+          <Property Name="MesEmpresa" Type="tinyint" Nullable="false" />
+          <Property Name="AnoEmpresa" Type="int" Nullable="false" />
+          <Property Name="FestEmpresa" Type="bit" />
+          <Property Name="TrabEmpresa" Type="int" />
+          <Property Name="ClieEmpresa" Type="int" />
+          <Property Name="ProvEmpresa" Type="int" />
+          <Property Name="ObraEmpresa" Type="int" />
+          <Property Name="PresupEmpresa" Type="int" />
+          <Property Name="FactEmpresa" Type="int" />
+          <Property Name="DirImagEmpresa" Type="text" />
+          <Property Name="PathSalva" Type="varchar" MaxLength="255" />
+          <Property Name="PathRestaura" Type="varchar" MaxLength="255" />
+          <Property Name="ActivoEmpresa" Type="bit" />
+          <Property Name="UltimaEmpresa" Type="bit" />
+          <Property Name="DigCompNum" Type="tinyint" />
+          <Property Name="HorasDia" Type="numeric" Precision="4" Scale="2" />
+          <Property Name="AsuntoSinAlbaran" Type="varchar" MaxLength="100" />
+          <Property Name="CuerpoMensajeSinAlbaran" Type="varchar" MaxLength="4000" />
+          <Property Name="AsuntoObrasProveedores" Type="varchar" MaxLength="100" />
+          <Property Name="CuerpoMensajeObrasProveedores" Type="varchar" MaxLength="4000" />
+          <Property Name="AsuntoEnvioFacturas" Type="varchar" MaxLength="100" />
+          <Property Name="CuerpoEnvioFacturas" Type="varchar" MaxLength="4000" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NomUsuario" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="DesUsuario" Type="varchar" MaxLength="50" />
+          <Property Name="ClaveUsuario" Type="varchar" MaxLength="24" />
+          <Property Name="AdminUsuario" Type="bit" />
+          <Property Name="ActivoUsuario" Type="bit" />
+          <Property Name="UltimoUsuario" Type="bit" />
+          <Property Name="UltEmpresa" Type="int" />
+          <Property Name="MesUsuario" Type="tinyint" />
+          <Property Name="AnoUsuario" Type="int" />
+          <Property Name="ImageFondo" Type="varchar" MaxLength="1000" />
+          <Property Name="PathSalva" Type="varchar" MaxLength="1000" />
+          <Property Name="PathRestaura" Type="varchar" MaxLength="1000" />
+          <Property Name="Scanner" Type="varchar" MaxLength="200" />
+          <Property Name="ConfiguracionUsuario" Type="varchar" MaxLength="4000" />
+        </EntityType>
+        <Association Name="FK_AccesosEmpresas_Empresas">
+          <End Role="Empresas" Type="Promowork_dataModel.Store.Empresas" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AccesosEmpresas" Type="Promowork_dataModel.Store.AccesosEmpresas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresas">
+              <PropertyRef Name="IdEmpresa" />
+            </Principal>
+            <Dependent Role="AccesosEmpresas">
+              <PropertyRef Name="IdEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AccesosEmpresas_Usuarios">
+          <End Role="Usuarios" Type="Promowork_dataModel.Store.Usuarios" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AccesosEmpresas" Type="Promowork_dataModel.Store.AccesosEmpresas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="AccesosEmpresas">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AccesosOpciones_Usuarios">
+          <End Role="Usuarios" Type="Promowork_dataModel.Store.Usuarios" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AccesosOpciones" Type="Promowork_dataModel.Store.AccesosOpciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="AccesosOpciones">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuarios_Empresas">
+          <End Role="Empresas" Type="Promowork_dataModel.Store.Empresas" Multiplicity="0..1" />
+          <End Role="Usuarios" Type="Promowork_dataModel.Store.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresas">
+              <PropertyRef Name="IdEmpresa" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="UltEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Promowork_dataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="GeneralesDataModel" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AccesosEmpresas" EntityType="Promowork_dataModel.AccesosEmpresas" />
+          <EntitySet Name="AccesosOpciones" EntityType="Promowork_dataModel.AccesosOpciones" />
+          <EntitySet Name="Empresas" EntityType="Promowork_dataModel.Empresas" />
+          <EntitySet Name="Usuarios" EntityType="Promowork_dataModel.Usuarios" />
+          <AssociationSet Name="FK_AccesosEmpresas_Empresas" Association="Promowork_dataModel.FK_AccesosEmpresas_Empresas">
+            <End Role="Empresas" EntitySet="Empresas" />
+            <End Role="AccesosEmpresas" EntitySet="AccesosEmpresas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AccesosEmpresas_Usuarios" Association="Promowork_dataModel.FK_AccesosEmpresas_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="AccesosEmpresas" EntitySet="AccesosEmpresas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AccesosOpciones_Usuarios" Association="Promowork_dataModel.FK_AccesosOpciones_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="AccesosOpciones" EntitySet="AccesosOpciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuarios_Empresas" Association="Promowork_dataModel.FK_Usuarios_Empresas">
+            <End Role="Empresas" EntitySet="Empresas" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AccesosEmpresas">
+          <Key>
+            <PropertyRef Name="IdAccesoEmp" />
+          </Key>
+          <Property Name="IdAccesoEmp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsuario" Type="Int32" />
+          <Property Name="IdEmpresa" Type="Int32" />
+          <Property Name="Acceso" Type="Boolean" />
+          <NavigationProperty Name="Empresas" Relationship="Promowork_dataModel.FK_AccesosEmpresas_Empresas" FromRole="AccesosEmpresas" ToRole="Empresas" />
+          <NavigationProperty Name="Usuarios" Relationship="Promowork_dataModel.FK_AccesosEmpresas_Usuarios" FromRole="AccesosEmpresas" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="AccesosOpciones">
+          <Key>
+            <PropertyRef Name="IdAccesoOpcion" />
+          </Key>
+          <Property Name="IdAccesoOpcion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdUsuario" Type="Int32" />
+          <Property Name="IdOpcion" Type="Int32" />
+          <Property Name="Nivel" Type="Int32" />
+          <Property Name="Acceso" Type="Boolean" />
+          <NavigationProperty Name="Usuarios" Relationship="Promowork_dataModel.FK_AccesosOpciones_Usuarios" FromRole="AccesosOpciones" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="Empresas">
+          <Key>
+            <PropertyRef Name="IdEmpresa" />
+          </Key>
+          <Property Name="IdEmpresa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NIFEmpresa" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="DesEmpresa" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="DirEmpresa" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="IdPoblacion" Type="Int32" />
+          <Property Name="TelEmpresa" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CelEmpresa" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="FaxEmpresa" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="EmailEmpresa" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="WebEmpresa" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="IntEmpresa" Type="Boolean" />
+          <Property Name="LogoEmpresa" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="MesEmpresa" Type="Byte" Nullable="false" />
+          <Property Name="AnoEmpresa" Type="Int32" Nullable="false" />
+          <Property Name="FestEmpresa" Type="Boolean" />
+          <Property Name="TrabEmpresa" Type="Int32" />
+          <Property Name="ClieEmpresa" Type="Int32" />
+          <Property Name="ProvEmpresa" Type="Int32" />
+          <Property Name="ObraEmpresa" Type="Int32" />
+          <Property Name="PresupEmpresa" Type="Int32" />
+          <Property Name="FactEmpresa" Type="Int32" />
+          <Property Name="DirImagEmpresa" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="PathSalva" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="PathRestaura" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="ActivoEmpresa" Type="Boolean" />
+          <Property Name="UltimaEmpresa" Type="Boolean" />
+          <Property Name="DigCompNum" Type="Byte" />
+          <Property Name="HorasDia" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="AsuntoSinAlbaran" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="CuerpoMensajeSinAlbaran" Type="String" MaxLength="4000" Unicode="false" FixedLength="false" />
+          <Property Name="AsuntoObrasProveedores" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="CuerpoMensajeObrasProveedores" Type="String" MaxLength="4000" Unicode="false" FixedLength="false" />
+          <Property Name="AsuntoEnvioFacturas" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="CuerpoEnvioFacturas" Type="String" MaxLength="4000" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="AccesosEmpresas" Relationship="Promowork_dataModel.FK_AccesosEmpresas_Empresas" FromRole="Empresas" ToRole="AccesosEmpresas" />
+          <NavigationProperty Name="Usuarios" Relationship="Promowork_dataModel.FK_Usuarios_Empresas" FromRole="Empresas" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomUsuario" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="DesUsuario" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ClaveUsuario" Type="String" MaxLength="24" Unicode="false" FixedLength="false" />
+          <Property Name="AdminUsuario" Type="Boolean" />
+          <Property Name="ActivoUsuario" Type="Boolean" />
+          <Property Name="UltimoUsuario" Type="Boolean" />
+          <Property Name="UltEmpresa" Type="Int32" />
+          <Property Name="MesUsuario" Type="Byte" />
+          <Property Name="AnoUsuario" Type="Int32" />
+          <Property Name="ImageFondo" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <Property Name="PathSalva" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <Property Name="PathRestaura" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <Property Name="Scanner" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="ConfiguracionUsuario" Type="String" MaxLength="4000" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="AccesosEmpresas" Relationship="Promowork_dataModel.FK_AccesosEmpresas_Usuarios" FromRole="Usuarios" ToRole="AccesosEmpresas" />
+          <NavigationProperty Name="AccesosOpciones" Relationship="Promowork_dataModel.FK_AccesosOpciones_Usuarios" FromRole="Usuarios" ToRole="AccesosOpciones" />
+          <NavigationProperty Name="Empresas" Relationship="Promowork_dataModel.FK_Usuarios_Empresas" FromRole="Usuarios" ToRole="Empresas" />
+        </EntityType>
+        <Association Name="FK_AccesosEmpresas_Empresas">
+          <End Role="Empresas" Type="Promowork_dataModel.Empresas" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AccesosEmpresas" Type="Promowork_dataModel.AccesosEmpresas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresas">
+              <PropertyRef Name="IdEmpresa" />
+            </Principal>
+            <Dependent Role="AccesosEmpresas">
+              <PropertyRef Name="IdEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AccesosEmpresas_Usuarios">
+          <End Role="Usuarios" Type="Promowork_dataModel.Usuarios" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AccesosEmpresas" Type="Promowork_dataModel.AccesosEmpresas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="AccesosEmpresas">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AccesosOpciones_Usuarios">
+          <End Role="Usuarios" Type="Promowork_dataModel.Usuarios" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AccesosOpciones" Type="Promowork_dataModel.AccesosOpciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="AccesosOpciones">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuarios_Empresas">
+          <End Role="Empresas" Type="Promowork_dataModel.Empresas" Multiplicity="0..1" />
+          <End Role="Usuarios" Type="Promowork_dataModel.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresas">
+              <PropertyRef Name="IdEmpresa" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="UltEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Promowork_dataModelStoreContainer" CdmEntityContainer="GeneralesDataModel">
+          <EntitySetMapping Name="AccesosEmpresas">
+            <EntityTypeMapping TypeName="Promowork_dataModel.AccesosEmpresas">
+              <MappingFragment StoreEntitySet="AccesosEmpresas">
+                <ScalarProperty Name="IdAccesoEmp" ColumnName="IdAccesoEmp" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="Acceso" ColumnName="Acceso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccesosOpciones">
+            <EntityTypeMapping TypeName="Promowork_dataModel.AccesosOpciones">
+              <MappingFragment StoreEntitySet="AccesosOpciones">
+                <ScalarProperty Name="IdAccesoOpcion" ColumnName="IdAccesoOpcion" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="IdOpcion" ColumnName="IdOpcion" />
+                <ScalarProperty Name="Nivel" ColumnName="Nivel" />
+                <ScalarProperty Name="Acceso" ColumnName="Acceso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empresas">
+            <EntityTypeMapping TypeName="Promowork_dataModel.Empresas">
+              <MappingFragment StoreEntitySet="Empresas">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="NIFEmpresa" ColumnName="NIFEmpresa" />
+                <ScalarProperty Name="DesEmpresa" ColumnName="DesEmpresa" />
+                <ScalarProperty Name="DirEmpresa" ColumnName="DirEmpresa" />
+                <ScalarProperty Name="IdPoblacion" ColumnName="IdPoblacion" />
+                <ScalarProperty Name="TelEmpresa" ColumnName="TelEmpresa" />
+                <ScalarProperty Name="CelEmpresa" ColumnName="CelEmpresa" />
+                <ScalarProperty Name="FaxEmpresa" ColumnName="FaxEmpresa" />
+                <ScalarProperty Name="EmailEmpresa" ColumnName="EmailEmpresa" />
+                <ScalarProperty Name="WebEmpresa" ColumnName="WebEmpresa" />
+                <ScalarProperty Name="IntEmpresa" ColumnName="IntEmpresa" />
+                <ScalarProperty Name="LogoEmpresa" ColumnName="LogoEmpresa" />
+                <ScalarProperty Name="MesEmpresa" ColumnName="MesEmpresa" />
+                <ScalarProperty Name="AnoEmpresa" ColumnName="AnoEmpresa" />
+                <ScalarProperty Name="FestEmpresa" ColumnName="FestEmpresa" />
+                <ScalarProperty Name="TrabEmpresa" ColumnName="TrabEmpresa" />
+                <ScalarProperty Name="ClieEmpresa" ColumnName="ClieEmpresa" />
+                <ScalarProperty Name="ProvEmpresa" ColumnName="ProvEmpresa" />
+                <ScalarProperty Name="ObraEmpresa" ColumnName="ObraEmpresa" />
+                <ScalarProperty Name="PresupEmpresa" ColumnName="PresupEmpresa" />
+                <ScalarProperty Name="FactEmpresa" ColumnName="FactEmpresa" />
+                <ScalarProperty Name="DirImagEmpresa" ColumnName="DirImagEmpresa" />
+                <ScalarProperty Name="PathSalva" ColumnName="PathSalva" />
+                <ScalarProperty Name="PathRestaura" ColumnName="PathRestaura" />
+                <ScalarProperty Name="ActivoEmpresa" ColumnName="ActivoEmpresa" />
+                <ScalarProperty Name="UltimaEmpresa" ColumnName="UltimaEmpresa" />
+                <ScalarProperty Name="DigCompNum" ColumnName="DigCompNum" />
+                <ScalarProperty Name="HorasDia" ColumnName="HorasDia" />
+                <ScalarProperty Name="AsuntoSinAlbaran" ColumnName="AsuntoSinAlbaran" />
+                <ScalarProperty Name="CuerpoMensajeSinAlbaran" ColumnName="CuerpoMensajeSinAlbaran" />
+                <ScalarProperty Name="AsuntoObrasProveedores" ColumnName="AsuntoObrasProveedores" />
+                <ScalarProperty Name="CuerpoMensajeObrasProveedores" ColumnName="CuerpoMensajeObrasProveedores" />
+                <ScalarProperty Name="AsuntoEnvioFacturas" ColumnName="AsuntoEnvioFacturas" />
+                <ScalarProperty Name="CuerpoEnvioFacturas" ColumnName="CuerpoEnvioFacturas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="Promowork_dataModel.Usuarios">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="NomUsuario" ColumnName="NomUsuario" />
+                <ScalarProperty Name="DesUsuario" ColumnName="DesUsuario" />
+                <ScalarProperty Name="ClaveUsuario" ColumnName="ClaveUsuario" />
+                <ScalarProperty Name="AdminUsuario" ColumnName="AdminUsuario" />
+                <ScalarProperty Name="ActivoUsuario" ColumnName="ActivoUsuario" />
+                <ScalarProperty Name="UltimoUsuario" ColumnName="UltimoUsuario" />
+                <ScalarProperty Name="UltEmpresa" ColumnName="UltEmpresa" />
+                <ScalarProperty Name="MesUsuario" ColumnName="MesUsuario" />
+                <ScalarProperty Name="AnoUsuario" ColumnName="AnoUsuario" />
+                <ScalarProperty Name="ImageFondo" ColumnName="ImageFondo" />
+                <ScalarProperty Name="PathSalva" ColumnName="PathSalva" />
+                <ScalarProperty Name="PathRestaura" ColumnName="PathRestaura" />
+                <ScalarProperty Name="Scanner" ColumnName="Scanner" />
+                <ScalarProperty Name="ConfiguracionUsuario" ColumnName="ConfiguracionUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="GeneralesDataModel" ZoomLevel="31">
+        <EntityTypeShape EntityType="Promowork_dataModel.AccesosEmpresas" Width="1.5" PointX="5.25" PointY="3.75" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="Promowork_dataModel.AccesosOpciones" Width="1.5" PointX="5.25" PointY="7" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="Promowork_dataModel.Empresas" Width="1.5" PointX="0.75" PointY="1.25" Height="7.9416308593749978" IsExpanded="true" />
+        <EntityTypeShape EntityType="Promowork_dataModel.Usuarios" Width="1.5" PointX="3" PointY="5.875" Height="4.480205078125" IsExpanded="true" />
+        <AssociationConnector Association="Promowork_dataModel.FK_AccesosEmpresas_Empresas" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="4.78125" />
+          <ConnectorPoint PointX="5.25" PointY="4.78125" />
+        </AssociationConnector>
+        <AssociationConnector Association="Promowork_dataModel.FK_AccesosEmpresas_Usuarios" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.75" PointY="5.875" />
+          <ConnectorPoint PointX="3.75" PointY="5.359377" />
+          <ConnectorPoint PointX="5.25" PointY="5.359377" />
+        </AssociationConnector>
+        <AssociationConnector Association="Promowork_dataModel.FK_AccesosOpciones_Usuarios" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="8.0862939453125" />
+          <ConnectorPoint PointX="5.25" PointY="8.0862939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="Promowork_dataModel.FK_Usuarios_Empresas" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="7.5333154296874989" />
+          <ConnectorPoint PointX="3" PointY="7.5333154296874989" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

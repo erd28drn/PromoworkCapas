@@ -9,6 +9,8 @@ using System.Security.Cryptography;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using GestionServices.Generales;
+using GestionData.Entities;
+using Newtonsoft.Json;
 
 namespace Promowork.Formularios.General
 {
@@ -25,10 +27,10 @@ namespace Promowork.Formularios.General
             this.empresasTableAdapter.Fill(this.promowork_dataDataSet.Empresas);
          
             this.usuariosTableAdapter.FillByActivo(this.promowork_dataDataSet.Usuarios);
-            this.accesosUsuariosEmpresasTableAdapter.FillByUsuario(promowork_dataDataSet.AccesosUsuariosEmpresas, Convert.ToInt32(comboBox1.SelectedValue));
+            this.accesosUsuariosEmpresasTableAdapter.FillByUsuario(promowork_dataDataSet.AccesosUsuariosEmpresas, Convert.ToInt32(cbUsuario.SelectedValue));
 
             DataRowView usuario = (DataRowView)usuariosBindingSource.Current;
-            comboBox2.SelectedValue = (int)usuario["UltEmpresa"];
+            cbEmpresa.SelectedValue = (int)usuario["UltEmpresa"];
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -44,7 +46,7 @@ namespace Promowork.Formularios.General
 
            // MessageBox.Show(Convert.ToString(promowork_dataDataSet.Tables["Usuarios"].Rows[Convert.ToInt32(comboBox1.SelectedIndex)]["ClaveUsuario"]));
 
-            if (Convert.ToString(promowork_dataDataSet.Tables["Usuarios"].Rows[Convert.ToInt32(comboBox1.SelectedIndex)]["ClaveUsuario"]) == Convert.ToBase64String(tmpClaveHash) || VariablesGlobales.nIdUsuarioActual == Convert.ToInt32(comboBox1.SelectedValue))
+            if (Convert.ToString(promowork_dataDataSet.Tables["Usuarios"].Rows[Convert.ToInt32(cbUsuario.SelectedIndex)]["ClaveUsuario"]) == Convert.ToBase64String(tmpClaveHash) || VariablesGlobales.nIdUsuarioActual == Convert.ToInt32(cbUsuario.SelectedValue))
             {
                 //MessageBox.Show("Clave Correcta");
                 
@@ -63,14 +65,21 @@ namespace Promowork.Formularios.General
                 }
 
 
-                if (comboBox2.SelectedIndex != -1)
+                if (cbEmpresa.SelectedIndex != -1)
                 {
                     var usuarioSelecionado = (DataRowView)usuariosBindingSource.Current;
-                    VariablesGlobales.nIdUsuarioActual = Convert.ToInt32(comboBox1.SelectedValue);
+                    VariablesGlobales.nIdUsuarioActual = Convert.ToInt32(cbUsuario.SelectedValue);
                     VariablesGlobales.bEsAdmin = Convert.ToBoolean(usuarioSelecionado["AdminUsuario"]);
-                    VariablesGlobales.nIdEmpresaActual = Convert.ToInt32(comboBox2.SelectedValue);
+                    VariablesGlobales.nIdEmpresaActual = Convert.ToInt32(cbEmpresa.SelectedValue);
                     VariablesGlobales.nAnoActual = Convert.ToInt32(anoEmpresaTextBox.Text);
                     VariablesGlobales.nMesActual = Convert.ToByte(mesEmpresaTextBox.Text);
+
+                    VariablesGlobales.ConfiguracionUsuario.idUsuario = Convert.ToInt32(cbUsuario.SelectedValue);
+                    VariablesGlobales.ConfiguracionUsuario.empresaSeleccionada = Convert.ToInt32(cbEmpresa.SelectedValue);
+                    VariablesGlobales.ConfiguracionUsuario.anoSeleccionado = Convert.ToInt32(anoEmpresaTextBox.Text);
+                    VariablesGlobales.ConfiguracionUsuario.mesSeleccionado = Convert.ToByte(mesEmpresaTextBox.Text);
+
+                    //usuarioSelecionado["ConfiguracionUsuario"] = JsonConvert.SerializeObject(VariablesGlobales.ConfiguracionUsuario);
 
                     for (int i = 0; i < promowork_dataDataSet.Usuarios.Count; i++)
                     {
@@ -78,16 +87,16 @@ namespace Promowork.Formularios.General
                         promowork_dataDataSet.Tables["Usuarios"].Rows[i]["UltimoUsuario"] = 0;
                     }
 
-                    promowork_dataDataSet.Tables["Usuarios"].Rows[Convert.ToInt32(comboBox1.SelectedIndex)]["UltimoUsuario"] = 1;
+                    promowork_dataDataSet.Tables["Usuarios"].Rows[Convert.ToInt32(cbUsuario.SelectedIndex)]["UltimoUsuario"] = 1;
 
                     for (int i = 0; i < promowork_dataDataSet.Empresas.Count; i++)
                     {
 
                         promowork_dataDataSet.Tables["Empresas"].Rows[i]["UltimaEmpresa"] = 0;
                     }
-                    promowork_dataDataSet.Tables["Empresas"].Rows[Convert.ToInt32(comboBox2.SelectedIndex)]["UltimaEmpresa"] = 1;
-                    promowork_dataDataSet.Tables["Empresas"].Rows[Convert.ToInt32(comboBox2.SelectedIndex)]["AnoEmpresa"] = Convert.ToInt32(anoEmpresaTextBox.Text);
-                    promowork_dataDataSet.Tables["Empresas"].Rows[Convert.ToInt32(comboBox2.SelectedIndex)]["MesEmpresa"] = Convert.ToInt32(mesEmpresaTextBox.Text);
+                    promowork_dataDataSet.Tables["Empresas"].Rows[Convert.ToInt32(cbEmpresa.SelectedIndex)]["UltimaEmpresa"] = 1;
+                    promowork_dataDataSet.Tables["Empresas"].Rows[Convert.ToInt32(cbEmpresa.SelectedIndex)]["AnoEmpresa"] = Convert.ToInt32(anoEmpresaTextBox.Text);
+                    promowork_dataDataSet.Tables["Empresas"].Rows[Convert.ToInt32(cbEmpresa.SelectedIndex)]["MesEmpresa"] = Convert.ToInt32(mesEmpresaTextBox.Text);
 
                 }
                 else
@@ -130,10 +139,10 @@ namespace Promowork.Formularios.General
                     this.empresasTableAdapter.Fill(this.promowork_dataDataSet.Empresas);
 
                     this.usuariosTableAdapter.FillByActivo(this.promowork_dataDataSet.Usuarios);
-                    this.accesosUsuariosEmpresasTableAdapter.FillByUsuario(promowork_dataDataSet.AccesosUsuariosEmpresas, Convert.ToInt32(comboBox1.SelectedValue));
+                    this.accesosUsuariosEmpresasTableAdapter.FillByUsuario(promowork_dataDataSet.AccesosUsuariosEmpresas, Convert.ToInt32(cbUsuario.SelectedValue));
 
                     DataRowView usuario = (DataRowView)usuariosBindingSource.Current;
-                    comboBox2.SelectedValue = (int)usuario["UltEmpresa"];
+                    cbEmpresa.SelectedValue = (int)usuario["UltEmpresa"];
 
                 }
                 catch (SqlException ex)
@@ -148,10 +157,10 @@ namespace Promowork.Formularios.General
                         this.empresasTableAdapter.Fill(this.promowork_dataDataSet.Empresas);
 
                         this.usuariosTableAdapter.FillByActivo(this.promowork_dataDataSet.Usuarios);
-                        this.accesosUsuariosEmpresasTableAdapter.FillByUsuario(promowork_dataDataSet.AccesosUsuariosEmpresas, Convert.ToInt32(comboBox1.SelectedValue));
+                        this.accesosUsuariosEmpresasTableAdapter.FillByUsuario(promowork_dataDataSet.AccesosUsuariosEmpresas, Convert.ToInt32(cbUsuario.SelectedValue));
 
                         DataRowView usuario = (DataRowView)usuariosBindingSource.Current;
-                        comboBox2.SelectedValue = (int)usuario["UltEmpresa"];
+                        cbEmpresa.SelectedValue = (int)usuario["UltEmpresa"];
                     }
 
                 }
@@ -163,12 +172,33 @@ namespace Promowork.Formularios.General
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedIndex != -1)
-            {
-                this.accesosUsuariosEmpresasTableAdapter.FillByUsuario(promowork_dataDataSet.AccesosUsuariosEmpresas, Convert.ToInt32(comboBox1.SelectedValue));
+            
+        }
 
-                DataRowView usuario = (DataRowView)usuariosBindingSource.Current;
-                comboBox2.SelectedValue = usuario["UltEmpresa"]==DBNull.Value?-1:(int)usuario["UltEmpresa"];
+        private void cbUsuario_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cbUsuario.SelectedIndex != -1)
+            {
+                this.accesosUsuariosEmpresasTableAdapter.FillByUsuario(promowork_dataDataSet.AccesosUsuariosEmpresas, (int)cbUsuario.SelectedValue);
+
+                DataRow usuario = promowork_dataDataSet.Usuarios.FindByIdUsuario((int)cbUsuario.SelectedValue);
+                //cbEmpresa.SelectedValue = usuario["UltEmpresa"] == DBNull.Value ? -1 : (int)usuario["UltEmpresa"];
+
+                VariablesGlobales.ConfiguracionUsuario = JsonConvert.DeserializeObject<ConfiguracionUsuario>(usuario["ConfiguracionUsuario"].ToString());
+
+                if (VariablesGlobales.ConfiguracionUsuario != null)
+                {
+                    cbEmpresa.SelectedValue = VariablesGlobales.ConfiguracionUsuario.empresaSeleccionada;
+                    mesEmpresaTextBox.Text = VariablesGlobales.ConfiguracionUsuario.mesSeleccionado.ToString();
+                    anoEmpresaTextBox.Text = VariablesGlobales.ConfiguracionUsuario.anoSeleccionado.ToString();
+                }
+                else
+                {
+                    cbEmpresa.SelectedIndex = 0;
+                    mesEmpresaTextBox.Text = DateTime.Today.Month.ToString();
+                    anoEmpresaTextBox.Text = DateTime.Today.Year.ToString();
+                }
+
             }
         }
 

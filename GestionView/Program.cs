@@ -13,16 +13,19 @@ using Promowork.Formularios.Reportes.Viewer;
 using Promowork.Formularios.Operaciones;
 using GestionData;
 using GestionData.Enumeradores;
+using GestionData.Entities;
+using GestionData.Repositorios;
 
 namespace Promowork
 {
     class VariablesGlobales
     {
-       public static int nIdUsuarioActual = 0;
-       public static bool bEsAdmin = false;
-       public static int nIdEmpresaActual = 0;
-       public static int nAnoActual = 0;
-       public static byte nMesActual = 0;
+        public static int nIdUsuarioActual = 0;
+        public static bool bEsAdmin = false;
+        public static int nIdEmpresaActual = 0;
+        public static int nAnoActual = 0;
+        public static byte nMesActual = 0;
+        public static ConfiguracionUsuario ConfiguracionUsuario = new ConfiguracionUsuario();
     }
     
     static class Program
@@ -44,6 +47,9 @@ namespace Promowork
                 if (VariablesGlobales.nIdEmpresaActual != 0 && VariablesGlobales.nIdUsuarioActual != 0 && VariablesGlobales.nAnoActual != 0 && VariablesGlobales.nMesActual != 0)
                 {
                     Application.Run(new Principal ());
+
+                    RepositorioUsuario repoUsuario = new RepositorioUsuario();
+                    repoUsuario.GuardarConfiguracionUsuario(VariablesGlobales.ConfiguracionUsuario);
                 }
             }
             catch (Exception ex)

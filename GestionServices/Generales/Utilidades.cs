@@ -178,30 +178,33 @@ namespace GestionServices.Generales
             smtp.UseDefaultCredentials = servidorSMTP.UsarCredencialesPorDefecto;
             smtp.Credentials = new NetworkCredential(servidorSMTP.Usuario, servidorSMTP.Clave);
 
+            MailMessage msg = new MailMessage();
+
             string from = "compras@promowork.es";//servidorSMTP.Usuario
-            if (responderA.Any())
+            if (responderA!=null && responderA.Any())
             {
                 from = responderA.FirstOrDefault();
+                foreach (string responder in responderA)
+                {
+                    msg.ReplyToList.Add(new MailAddress(responder));
+                }
             }
-
-            MailMessage msg = new MailMessage();
+           
             msg.IsBodyHtml = true;
             msg.From = new MailAddress(from, nombreRemitente);//servidorSMTP.Usuario);
             msg.Subject = asunto;
             msg.Body = cuerpo;
 
-            foreach (string responder in responderA)
-            {
-                msg.ReplyToList.Add(new MailAddress(responder));
-            }
-
             foreach (string destinatario in destinatarios)
             {
                 msg.To.Add(new MailAddress(destinatario.Trim()));
             }
-            foreach (string cco in ccos)
+            if (ccos != null)
             {
-                msg.Bcc.Add(new MailAddress(cco.Trim()));
+                foreach (string cco in ccos)
+                {
+                    msg.Bcc.Add(new MailAddress(cco.Trim()));
+                }
             }
 
             if (adjuntos != null)

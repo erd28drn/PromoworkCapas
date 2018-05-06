@@ -18,6 +18,7 @@ using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
 using GestionServices.Generales;
 using GestionServices.Operaciones;
+using GestionData.Repositorios;
 
 namespace Promowork.Formularios.Operaciones
 {
@@ -34,6 +35,8 @@ namespace Promowork.Formularios.Operaciones
         int nIdObra = 0;
         Boolean esFactura = true;
         DataRowView facturaCabRow;
+
+        RepositorioFacturasCab repoFacturasCab = new RepositorioFacturasCab();
 
         private void facturasCabBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
@@ -120,7 +123,7 @@ namespace Promowork.Formularios.Operaciones
 
         private void ActuallizaUltimoNumeroFactura()
         {
-            tbUltimaFactura.Text = FacturasClientesService.GetUltimaFactura(VariablesGlobales.nIdEmpresaActual, (int)comboBox1.SelectedValue, esFactura).ToString();
+            tbUltimaFactura.Text = repoFacturasCab.GetUltimaFactura(VariablesGlobales.nIdEmpresaActual, (int)comboBox1.SelectedValue, esFactura).ToString();
         }
 
 
@@ -275,8 +278,15 @@ namespace Promowork.Formularios.Operaciones
 
                 RptFacturasClientes frm = new RptFacturasClientes();
                 frm.LoadFiltro(nIdFactura, "Promowork.Reportes.FacturaPresupImp2.rdlc");
-                frm.MdiParent = this.MdiParent;
-                frm.Show();
+                //frm.MdiParent = this.MdiParent;
+                frm.ShowDialog();
+                if (frm.fechaEnvioFactura != null)
+                {
+                    gridView1.SetFocusedRowCellValue(colFechaEnvioCliente, frm.fechaEnvioFactura);
+                    gridView1.SetFocusedRowCellValue(colEntregada, true);
+
+                    facturasCabBindingNavigatorSaveItem_Click(null, null);
+                }
             }
             else
             {

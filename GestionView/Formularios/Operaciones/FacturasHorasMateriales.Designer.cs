@@ -59,12 +59,12 @@
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label copiaFacturaLabel;
             System.Windows.Forms.Label anticipoLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FacturasHorasMateriales));
-            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition5 = new DevExpress.XtraGrid.StyleFormatCondition();
-            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition6 = new DevExpress.XtraGrid.StyleFormatCondition();
-            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition7 = new DevExpress.XtraGrid.StyleFormatCondition();
-            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition8 = new DevExpress.XtraGrid.StyleFormatCondition();
             System.Windows.Forms.Label label9;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FacturasHorasMateriales));
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
             this.colEntregada = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colImpPendiente = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFacturaPresup = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -310,6 +310,7 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.tbUltimaFactura = new System.Windows.Forms.TextBox();
             this.unificarMaterialCheckEdit = new DevExpress.XtraEditors.CheckEdit();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
@@ -319,7 +320,7 @@
             this.bindingNavigator3 = new System.Windows.Forms.BindingNavigator(this.components);
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.splitContainer7 = new System.Windows.Forms.SplitContainer();
-            this.tbUltimaFactura = new System.Windows.Forms.TextBox();
+            this.colFechaEnvioCliente = new DevExpress.XtraGrid.Columns.GridColumn();
             desFormaPagoLabel = new System.Windows.Forms.Label();
             impBaseLabel = new System.Windows.Forms.Label();
             impIVALabel = new System.Windows.Forms.Label();
@@ -739,6 +740,15 @@
             this.colFacturaPresup.FieldName = "FacturaPresup";
             this.colFacturaPresup.Name = "colFacturaPresup";
             this.colFacturaPresup.OptionsColumn.AllowEdit = false;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new System.Drawing.Point(217, 37);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(78, 13);
+            label9.TabIndex = 202;
+            label9.Text = "Última Factura:";
             // 
             // colCobrada
             // 
@@ -2573,38 +2583,39 @@
             this.colEntregada,
             this.colNoDetalle,
             this.colImpCobrado,
-            this.colImpPendiente});
-            styleFormatCondition5.Appearance.BackColor = System.Drawing.Color.Yellow;
-            styleFormatCondition5.Appearance.Options.UseBackColor = true;
-            styleFormatCondition5.ApplyToRow = true;
-            styleFormatCondition5.Column = this.colEntregada;
-            styleFormatCondition5.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-            styleFormatCondition5.Value1 = true;
-            styleFormatCondition6.Appearance.BackColor = System.Drawing.Color.LightGray;
-            styleFormatCondition6.Appearance.Options.UseBackColor = true;
-            styleFormatCondition6.ApplyToRow = true;
-            styleFormatCondition6.Column = this.colImpPendiente;
-            styleFormatCondition6.Condition = DevExpress.XtraGrid.FormatConditionEnum.Less;
-            styleFormatCondition6.Value1 = new decimal(new int[] {
+            this.colImpPendiente,
+            this.colFechaEnvioCliente});
+            styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.Yellow;
+            styleFormatCondition1.Appearance.Options.UseBackColor = true;
+            styleFormatCondition1.ApplyToRow = true;
+            styleFormatCondition1.Column = this.colEntregada;
+            styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition1.Value1 = true;
+            styleFormatCondition2.Appearance.BackColor = System.Drawing.Color.LightGray;
+            styleFormatCondition2.Appearance.Options.UseBackColor = true;
+            styleFormatCondition2.ApplyToRow = true;
+            styleFormatCondition2.Column = this.colImpPendiente;
+            styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Less;
+            styleFormatCondition2.Value1 = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            styleFormatCondition7.Appearance.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Italic);
-            styleFormatCondition7.Appearance.Options.UseFont = true;
-            styleFormatCondition7.ApplyToRow = true;
-            styleFormatCondition7.Column = this.colFacturaPresup;
-            styleFormatCondition7.Condition = DevExpress.XtraGrid.FormatConditionEnum.NotEqual;
-            styleFormatCondition8.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            styleFormatCondition8.Appearance.Options.UseFont = true;
-            styleFormatCondition8.ApplyToRow = true;
-            styleFormatCondition8.Column = this.colFacturaPresup;
-            styleFormatCondition8.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition3.Appearance.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Italic);
+            styleFormatCondition3.Appearance.Options.UseFont = true;
+            styleFormatCondition3.ApplyToRow = true;
+            styleFormatCondition3.Column = this.colFacturaPresup;
+            styleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.NotEqual;
+            styleFormatCondition4.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            styleFormatCondition4.Appearance.Options.UseFont = true;
+            styleFormatCondition4.ApplyToRow = true;
+            styleFormatCondition4.Column = this.colFacturaPresup;
+            styleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
             this.gridView6.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition5,
-            styleFormatCondition6,
-            styleFormatCondition7,
-            styleFormatCondition8});
+            styleFormatCondition1,
+            styleFormatCondition2,
+            styleFormatCondition3,
+            styleFormatCondition4});
             this.gridView6.GridControl = this.facturasCabGridControl;
             this.gridView6.Name = "gridView6";
             this.gridView6.OptionsDetail.EnableMasterViewMode = false;
@@ -3128,6 +3139,14 @@
             this.splitContainer3.SplitterDistance = 453;
             this.splitContainer3.TabIndex = 0;
             // 
+            // tbUltimaFactura
+            // 
+            this.tbUltimaFactura.Location = new System.Drawing.Point(298, 33);
+            this.tbUltimaFactura.Name = "tbUltimaFactura";
+            this.tbUltimaFactura.ReadOnly = true;
+            this.tbUltimaFactura.Size = new System.Drawing.Size(51, 20);
+            this.tbUltimaFactura.TabIndex = 201;
+            // 
             // unificarMaterialCheckEdit
             // 
             this.unificarMaterialCheckEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.facturasCabBindingSource, "UnificarMaterial", true));
@@ -3267,22 +3286,10 @@
             this.splitContainer7.SplitterDistance = 113;
             this.splitContainer7.TabIndex = 0;
             // 
-            // label9
+            // colFechaEnvioCliente
             // 
-            label9.AutoSize = true;
-            label9.Location = new System.Drawing.Point(217, 37);
-            label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(78, 13);
-            label9.TabIndex = 202;
-            label9.Text = "Última Factura:";
-            // 
-            // tbUltimaFactura
-            // 
-            this.tbUltimaFactura.Location = new System.Drawing.Point(298, 33);
-            this.tbUltimaFactura.Name = "tbUltimaFactura";
-            this.tbUltimaFactura.ReadOnly = true;
-            this.tbUltimaFactura.Size = new System.Drawing.Size(51, 20);
-            this.tbUltimaFactura.TabIndex = 201;
+            this.colFechaEnvioCliente.FieldName = "FechaEnvioCliente";
+            this.colFechaEnvioCliente.Name = "colFechaEnvioCliente";
             // 
             // FacturasHorasMateriales
             // 
@@ -3662,5 +3669,6 @@
         private DevExpress.XtraEditors.CheckEdit unificarMaterialCheckEdit;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit ClienteFactura;
         private System.Windows.Forms.TextBox tbUltimaFactura;
+        private DevExpress.XtraGrid.Columns.GridColumn colFechaEnvioCliente;
     }
 }
