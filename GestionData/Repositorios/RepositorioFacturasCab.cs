@@ -11,15 +11,23 @@ namespace GestionData.Repositorios
     {
         OperacionesDataModel contextoOperaciones = new OperacionesDataModel();
 
-        public int GetUltimaFactura(int empresa, int anoFactura, bool esFactura)
+        public string GetUltimaFactura(int empresa, int anoFactura, bool esFactura)
         {
-            int ultimaFactura = 0;
-            var facturasEmpresaAno = contextoOperaciones.FacturasCab.Where(f => f.IdEmpresa == empresa && f.FechaFactura.Year == anoFactura && f.EsPrevision == false && f.Factura == esFactura);
+            string ultimaFactura = "";
+            var facturasEmpresaAno = contextoOperaciones.FacturasCab.Where(f => f.IdEmpresa == empresa && f.FechaFactura.Year == anoFactura && f.EsPrevision == false && f.Factura == true);
             //contexto.Refresh(System.Data.Objects.RefreshMode.StoreWins, facturasEmpresaAno);
             if (facturasEmpresaAno.Any())
             {
-                ultimaFactura = facturasEmpresaAno.Max(f => f.NumFactura);
+                ultimaFactura = facturasEmpresaAno.Max(f => f.NumFactura).ToString(); ;
             }
+            facturasEmpresaAno = contextoOperaciones.FacturasCab.Where(f => f.IdEmpresa == empresa && f.FechaFactura.Year == anoFactura && f.EsPrevision == false && f.Factura == false);
+            //contexto.Refresh(System.Data.Objects.RefreshMode.StoreWins, facturasEmpresaAno);
+            if (facturasEmpresaAno.Any())
+            {
+                ultimaFactura = ultimaFactura +" - "+facturasEmpresaAno.Max(f => f.NumFactura).ToString(); ;
+            }
+
+
             return ultimaFactura;
         }
 

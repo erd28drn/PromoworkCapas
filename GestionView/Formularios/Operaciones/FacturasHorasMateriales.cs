@@ -247,7 +247,7 @@ namespace Promowork.Formularios.Operaciones
 
         private void ActuallizaUltimoNumeroFactura()
         {
-            tbUltimaFactura.Text = repoFacturasCab.GetUltimaFactura(VariablesGlobales.nIdEmpresaActual, (int)cbxanos.SelectedValue, esFactura).ToString();
+            tbUltimaFactura.Text = repoFacturasCab.GetUltimaFactura(VariablesGlobales.nIdEmpresaActual, (int)cbxanos.SelectedValue, esFactura);
         }
 
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)

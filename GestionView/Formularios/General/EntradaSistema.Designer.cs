@@ -39,7 +39,6 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.cbEmpresa = new System.Windows.Forms.ComboBox();
             this.accesosUsuariosEmpresasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.empresasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,14 +47,12 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.usuariosTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.UsuariosTableAdapter();
-            this.empresasTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.EmpresasTableAdapter();
             this.accesosUsuariosEmpresasTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.AccesosUsuariosEmpresasTableAdapter();
             mesEmpresaLabel = new System.Windows.Forms.Label();
             anoEmpresaLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.promowork_dataDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuariosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accesosUsuariosEmpresasBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.empresasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // mesEmpresaLabel
@@ -170,7 +167,6 @@
             this.cbUsuario.Size = new System.Drawing.Size(174, 21);
             this.cbUsuario.TabIndex = 0;
             this.cbUsuario.ValueMember = "IdUsuario";
-            this.cbUsuario.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             this.cbUsuario.SelectedValueChanged += new System.EventHandler(this.cbUsuario_SelectedValueChanged);
             // 
             // usuariosBindingSource
@@ -206,11 +202,6 @@
             // 
             this.accesosUsuariosEmpresasBindingSource.DataMember = "AccesosUsuariosEmpresas";
             this.accesosUsuariosEmpresasBindingSource.DataSource = this.promowork_dataDataSet;
-            // 
-            // empresasBindingSource
-            // 
-            this.empresasBindingSource.DataMember = "Empresas";
-            this.empresasBindingSource.DataSource = this.promowork_dataDataSet;
             // 
             // label1
             // 
@@ -278,10 +269,6 @@
             // 
             this.usuariosTableAdapter.ClearBeforeFill = true;
             // 
-            // empresasTableAdapter
-            // 
-            this.empresasTableAdapter.ClearBeforeFill = true;
-            // 
             // accesosUsuariosEmpresasTableAdapter
             // 
             this.accesosUsuariosEmpresasTableAdapter.ClearBeforeFill = true;
@@ -315,7 +302,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.promowork_dataDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuariosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accesosUsuariosEmpresasBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.empresasBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -337,8 +323,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.BindingSource usuariosBindingSource;
         private GestionData.Promowork_dataDataSetTableAdapters.UsuariosTableAdapter usuariosTableAdapter;
-        private System.Windows.Forms.BindingSource empresasBindingSource;
-        private GestionData.Promowork_dataDataSetTableAdapters.EmpresasTableAdapter empresasTableAdapter;
         private System.Windows.Forms.BindingSource accesosUsuariosEmpresasBindingSource;
         private GestionData.Promowork_dataDataSetTableAdapters.AccesosUsuariosEmpresasTableAdapter accesosUsuariosEmpresasTableAdapter;
     }

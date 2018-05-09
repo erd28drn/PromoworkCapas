@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using GestionServices.Generales;
 using GestionData.Entities;
 using Newtonsoft.Json;
+using GestionData.Repositorios;
 
 namespace Promowork.Formularios.General
 {
@@ -21,16 +22,20 @@ namespace Promowork.Formularios.General
             InitializeComponent();
         }
         bool ok = false;
+        UsuariosService usuarioService = new UsuariosService();
+        RepositorioUsuario repoUsuario = new RepositorioUsuario();
+        int? idUsuario = null;
+        DataRow usuario;
        private void Accesos_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'promowork_dataDataSet.Empresas' table. You can move, or remove it, as needed.
-            this.empresasTableAdapter.Fill(this.promowork_dataDataSet.Empresas);
+            //this.empresasTableAdapter.Fill(this.promowork_dataDataSet.Empresas);
          
             this.usuariosTableAdapter.FillByActivo(this.promowork_dataDataSet.Usuarios);
-            this.accesosUsuariosEmpresasTableAdapter.FillByUsuario(promowork_dataDataSet.AccesosUsuariosEmpresas, Convert.ToInt32(cbUsuario.SelectedValue));
+            //this.accesosUsuariosEmpresasTableAdapter.FillByUsuario(promowork_dataDataSet.AccesosUsuariosEmpresas, Convert.ToInt32(cbUsuario.SelectedValue));
 
-            DataRowView usuario = (DataRowView)usuariosBindingSource.Current;
-            cbEmpresa.SelectedValue = (int)usuario["UltEmpresa"];
+            //DataRowView usuario = (DataRowView)usuariosBindingSource.Current;
+            //cbEmpresa.SelectedValue = (int)usuario["UltEmpresa"];
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -40,16 +45,17 @@ namespace Promowork.Formularios.General
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string sClave=textBox1.Text;
-            byte[] tmpClave=ASCIIEncoding.ASCII.GetBytes(sClave);
-            byte[] tmpClaveHash = new MD5CryptoServiceProvider().ComputeHash(tmpClave);
+            //string sClave=textBox1.Text;
+            //byte[] tmpClave=ASCIIEncoding.ASCII.GetBytes(sClave);
+            //byte[] tmpClaveHash = new MD5CryptoServiceProvider().ComputeHash(tmpClave);
 
            // MessageBox.Show(Convert.ToString(promowork_dataDataSet.Tables["Usuarios"].Rows[Convert.ToInt32(comboBox1.SelectedIndex)]["ClaveUsuario"]));
 
-            if (Convert.ToString(promowork_dataDataSet.Tables["Usuarios"].Rows[Convert.ToInt32(cbUsuario.SelectedIndex)]["ClaveUsuario"]) == Convert.ToBase64String(tmpClaveHash) || VariablesGlobales.nIdUsuarioActual == Convert.ToInt32(cbUsuario.SelectedValue))
-            {
+            //if (Convert.ToString(promowork_dataDataSet.Tables["Usuarios"].Rows[Convert.ToInt32(cbUsuario.SelectedIndex)]["ClaveUsuario"]) == Convert.ToBase64String(tmpClaveHash) || VariablesGlobales.nIdUsuarioActual == Convert.ToInt32(cbUsuario.SelectedValue))
+            //{
                 //MessageBox.Show("Clave Correcta");
-                
+            if (usuarioService.ValidarClave(idUsuario, textBox1.Text))
+            {
 
                 try
                 {
@@ -67,9 +73,8 @@ namespace Promowork.Formularios.General
 
                 if (cbEmpresa.SelectedIndex != -1)
                 {
-                    var usuarioSelecionado = (DataRowView)usuariosBindingSource.Current;
                     VariablesGlobales.nIdUsuarioActual = Convert.ToInt32(cbUsuario.SelectedValue);
-                    VariablesGlobales.bEsAdmin = Convert.ToBoolean(usuarioSelecionado["AdminUsuario"]);
+                    VariablesGlobales.bEsAdmin = Convert.ToBoolean(usuario["AdminUsuario"]);
                     VariablesGlobales.nIdEmpresaActual = Convert.ToInt32(cbEmpresa.SelectedValue);
                     VariablesGlobales.nAnoActual = Convert.ToInt32(anoEmpresaTextBox.Text);
                     VariablesGlobales.nMesActual = Convert.ToByte(mesEmpresaTextBox.Text);
@@ -81,22 +86,22 @@ namespace Promowork.Formularios.General
 
                     //usuarioSelecionado["ConfiguracionUsuario"] = JsonConvert.SerializeObject(VariablesGlobales.ConfiguracionUsuario);
 
-                    for (int i = 0; i < promowork_dataDataSet.Usuarios.Count; i++)
-                    {
+                    //for (int i = 0; i < promowork_dataDataSet.Usuarios.Count; i++)
+                    //{
 
-                        promowork_dataDataSet.Tables["Usuarios"].Rows[i]["UltimoUsuario"] = 0;
-                    }
+                    //    promowork_dataDataSet.Tables["Usuarios"].Rows[i]["UltimoUsuario"] = 0;
+                    //}
 
-                    promowork_dataDataSet.Tables["Usuarios"].Rows[Convert.ToInt32(cbUsuario.SelectedIndex)]["UltimoUsuario"] = 1;
+                   // promowork_dataDataSet.Tables["Usuarios"].Rows[Convert.ToInt32(cbUsuario.SelectedIndex)]["UltimoUsuario"] = 1;
 
-                    for (int i = 0; i < promowork_dataDataSet.Empresas.Count; i++)
-                    {
+                    //for (int i = 0; i < promowork_dataDataSet.Empresas.Count; i++)
+                    //{
 
-                        promowork_dataDataSet.Tables["Empresas"].Rows[i]["UltimaEmpresa"] = 0;
-                    }
-                    promowork_dataDataSet.Tables["Empresas"].Rows[Convert.ToInt32(cbEmpresa.SelectedIndex)]["UltimaEmpresa"] = 1;
-                    promowork_dataDataSet.Tables["Empresas"].Rows[Convert.ToInt32(cbEmpresa.SelectedIndex)]["AnoEmpresa"] = Convert.ToInt32(anoEmpresaTextBox.Text);
-                    promowork_dataDataSet.Tables["Empresas"].Rows[Convert.ToInt32(cbEmpresa.SelectedIndex)]["MesEmpresa"] = Convert.ToInt32(mesEmpresaTextBox.Text);
+                    //    promowork_dataDataSet.Tables["Empresas"].Rows[i]["UltimaEmpresa"] = 0;
+                    //}
+                    //////////promowork_dataDataSet.Tables["Empresas"].Rows[Convert.ToInt32(cbEmpresa.SelectedIndex)]["UltimaEmpresa"] = 1;
+                    //////////promowork_dataDataSet.Tables["Empresas"].Rows[Convert.ToInt32(cbEmpresa.SelectedIndex)]["AnoEmpresa"] = Convert.ToInt32(anoEmpresaTextBox.Text);
+                    //////////promowork_dataDataSet.Tables["Empresas"].Rows[Convert.ToInt32(cbEmpresa.SelectedIndex)]["MesEmpresa"] = Convert.ToInt32(mesEmpresaTextBox.Text);
 
                 }
                 else
@@ -117,12 +122,16 @@ namespace Promowork.Formularios.General
             {
                 try
                 {
-                    this.Validate();
-                    this.usuariosBindingSource.EndEdit();
-                    usuariosTableAdapter.Update(promowork_dataDataSet.Usuarios);
+                    usuarioService.EstablecerUltimoUsuario(idUsuario);
+                    //this.Validate();
+                    //this.usuariosBindingSource.EndEdit();
+                    //usuariosTableAdapter.Update(promowork_dataDataSet.Usuarios);
 
-                    this.empresasBindingSource.EndEdit();
-                    empresasTableAdapter.Update(promowork_dataDataSet.Empresas);
+                    //this.empresasBindingSource.EndEdit();
+                    //empresasTableAdapter.Update(promowork_dataDataSet.Empresas);
+
+                    
+                    //repoUsuario.GuardarConfiguracionUsuario(VariablesGlobales.ConfiguracionUsuario);
 
                     this.Close();
                 }
@@ -136,13 +145,12 @@ namespace Promowork.Formularios.General
                     VariablesGlobales.nAnoActual = 0;
                     VariablesGlobales.nMesActual = 0;
 
-                    this.empresasTableAdapter.Fill(this.promowork_dataDataSet.Empresas);
+                    //this.empresasTableAdapter.Fill(this.promowork_dataDataSet.Empresas);
 
                     this.usuariosTableAdapter.FillByActivo(this.promowork_dataDataSet.Usuarios);
-                    this.accesosUsuariosEmpresasTableAdapter.FillByUsuario(promowork_dataDataSet.AccesosUsuariosEmpresas, Convert.ToInt32(cbUsuario.SelectedValue));
+                    //this.accesosUsuariosEmpresasTableAdapter.FillByUsuario(promowork_dataDataSet.AccesosUsuariosEmpresas, Convert.ToInt32(cbUsuario.SelectedValue));
 
-                    DataRowView usuario = (DataRowView)usuariosBindingSource.Current;
-                    cbEmpresa.SelectedValue = (int)usuario["UltEmpresa"];
+                    cbEmpresa.SelectedValue = VariablesGlobales.ConfiguracionUsuario.empresaSeleccionada;
 
                 }
                 catch (SqlException ex)
@@ -154,13 +162,12 @@ namespace Promowork.Formularios.General
                         VariablesGlobales.nAnoActual = 0;
                         VariablesGlobales.nMesActual = 0;
 
-                        this.empresasTableAdapter.Fill(this.promowork_dataDataSet.Empresas);
+                        //this.empresasTableAdapter.Fill(this.promowork_dataDataSet.Empresas);
 
                         this.usuariosTableAdapter.FillByActivo(this.promowork_dataDataSet.Usuarios);
                         this.accesosUsuariosEmpresasTableAdapter.FillByUsuario(promowork_dataDataSet.AccesosUsuariosEmpresas, Convert.ToInt32(cbUsuario.SelectedValue));
 
-                        DataRowView usuario = (DataRowView)usuariosBindingSource.Current;
-                        cbEmpresa.SelectedValue = (int)usuario["UltEmpresa"];
+                        cbEmpresa.SelectedValue = VariablesGlobales.ConfiguracionUsuario.empresaSeleccionada;
                     }
 
                 }
@@ -170,18 +177,15 @@ namespace Promowork.Formularios.General
             
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void cbUsuario_SelectedValueChanged(object sender, EventArgs e)
+       private void cbUsuario_SelectedValueChanged(object sender, EventArgs e)
         {
             if (cbUsuario.SelectedIndex != -1)
             {
+                idUsuario = (int)cbUsuario.SelectedValue;
+
                 this.accesosUsuariosEmpresasTableAdapter.FillByUsuario(promowork_dataDataSet.AccesosUsuariosEmpresas, (int)cbUsuario.SelectedValue);
 
-                DataRow usuario = promowork_dataDataSet.Usuarios.FindByIdUsuario((int)cbUsuario.SelectedValue);
+                usuario = promowork_dataDataSet.Usuarios.FindByIdUsuario((int)cbUsuario.SelectedValue);
                 //cbEmpresa.SelectedValue = usuario["UltEmpresa"] == DBNull.Value ? -1 : (int)usuario["UltEmpresa"];
 
                 VariablesGlobales.ConfiguracionUsuario = JsonConvert.DeserializeObject<ConfiguracionUsuario>(usuario["ConfiguracionUsuario"].ToString());
@@ -199,6 +203,10 @@ namespace Promowork.Formularios.General
                     anoEmpresaTextBox.Text = DateTime.Today.Year.ToString();
                 }
 
+            }
+            else
+            {
+                idUsuario = null;
             }
         }
 

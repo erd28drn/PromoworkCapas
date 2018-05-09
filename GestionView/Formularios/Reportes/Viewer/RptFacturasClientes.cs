@@ -99,6 +99,8 @@ namespace Promowork.Formularios.Reportes.Viewer
 
             tbCliente.Text = factura["DesCliente"].ToString() + " (" + factura["EmailCliente"].ToString() + ")";
 
+            cbEmailsCliente.Properties.DataSource = factura["EmailCliente"].ToString().Split(';').ToList();
+
             List<string> destinatarios = factura["EmailCliente"].ToString().Split(';').ToList();
             bool emailOK = false;
             foreach (string destinatario in destinatarios)
@@ -204,5 +206,6 @@ namespace Promowork.Formularios.Reportes.Viewer
             }
 
         }
+
     }
 }

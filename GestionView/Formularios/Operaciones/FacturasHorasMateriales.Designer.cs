@@ -273,6 +273,7 @@
             this.colFactura = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNoDetalle = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colImpCobrado = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colFechaEnvioCliente = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIdEmpresa2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIdUsuario = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFechaVctoFact = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -320,7 +321,6 @@
             this.bindingNavigator3 = new System.Windows.Forms.BindingNavigator(this.components);
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.splitContainer7 = new System.Windows.Forms.SplitContainer();
-            this.colFechaEnvioCliente = new DevExpress.XtraGrid.Columns.GridColumn();
             desFormaPagoLabel = new System.Windows.Forms.Label();
             impBaseLabel = new System.Windows.Forms.Label();
             impIVALabel = new System.Windows.Forms.Label();
@@ -712,6 +712,15 @@
             anticipoLabel.TabIndex = 126;
             anticipoLabel.Text = "Anticipo:";
             // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new System.Drawing.Point(186, 37);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(111, 13);
+            label9.TabIndex = 202;
+            label9.Text = "Últimos Consecutivos:";
+            // 
             // colEntregada
             // 
             this.colEntregada.AppearanceHeader.Options.UseTextOptions = true;
@@ -740,15 +749,6 @@
             this.colFacturaPresup.FieldName = "FacturaPresup";
             this.colFacturaPresup.Name = "colFacturaPresup";
             this.colFacturaPresup.OptionsColumn.AllowEdit = false;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new System.Drawing.Point(217, 37);
-            label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(78, 13);
-            label9.TabIndex = 202;
-            label9.Text = "Última Factura:";
             // 
             // colCobrada
             // 
@@ -2777,6 +2777,11 @@
             this.colImpCobrado.VisibleIndex = 6;
             this.colImpCobrado.Width = 69;
             // 
+            // colFechaEnvioCliente
+            // 
+            this.colFechaEnvioCliente.FieldName = "FechaEnvioCliente";
+            this.colFechaEnvioCliente.Name = "colFechaEnvioCliente";
+            // 
             // colIdEmpresa2
             // 
             this.colIdEmpresa2.FieldName = "IdEmpresa";
@@ -3285,11 +3290,6 @@
             this.splitContainer7.Size = new System.Drawing.Size(670, 170);
             this.splitContainer7.SplitterDistance = 113;
             this.splitContainer7.TabIndex = 0;
-            // 
-            // colFechaEnvioCliente
-            // 
-            this.colFechaEnvioCliente.FieldName = "FechaEnvioCliente";
-            this.colFechaEnvioCliente.Name = "colFechaEnvioCliente";
             // 
             // FacturasHorasMateriales
             // 

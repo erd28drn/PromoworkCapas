@@ -136,6 +136,7 @@
             this.TotalPagar = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTotalCobrado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colEsCertificacion = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colFechaEnvioCliente = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tbUltimaFactura = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tbPromedioSeleccion = new DevExpress.XtraEditors.TextEdit();
@@ -361,7 +362,6 @@
             this.facturasDetDirectaTableAdapter = new GestionData.DatosPresupuestosTableAdapters.FacturasDetDirectaTableAdapter();
             this.vComprasDirectasTableAdapterFactura = new GestionData.DatosPresupuestosTableAdapters.vComprasDirectasTableAdapter();
             this.vDetallesHorasMaterialesTableAdapter = new GestionData.DatosPresupuestosTableAdapters.vDetallesHorasMaterialesTableAdapter();
-            this.colFechaEnvioCliente = new DevExpress.XtraGrid.Columns.GridColumn();
             anticipoLabel = new System.Windows.Forms.Label();
             copiaFacturaLabel = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
@@ -908,6 +908,15 @@
             label8.TabIndex = 23;
             label8.Text = "Recuento:";
             // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new System.Drawing.Point(251, 68);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(111, 13);
+            label9.TabIndex = 198;
+            label9.Text = "Últimos Consecutivos:";
+            // 
             // colFacturaPresup
             // 
             this.colFacturaPresup.FieldName = "FacturaPresup";
@@ -947,15 +956,6 @@
             // 
             this.colFacturaDirecta1.FieldName = "FacturaDirecta";
             this.colFacturaDirecta1.Name = "colFacturaDirecta1";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new System.Drawing.Point(282, 68);
-            label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(78, 13);
-            label9.TabIndex = 198;
-            label9.Text = "Última Factura:";
             // 
             // splitContainer1
             // 
@@ -1523,6 +1523,14 @@
             this.colEsCertificacion.Caption = "Cerificación";
             this.colEsCertificacion.FieldName = "EsCertificacion";
             this.colEsCertificacion.Name = "colEsCertificacion";
+            // 
+            // colFechaEnvioCliente
+            // 
+            this.colFechaEnvioCliente.Caption = "Fecha Envio";
+            this.colFechaEnvioCliente.FieldName = "FechaEnvioCliente";
+            this.colFechaEnvioCliente.Name = "colFechaEnvioCliente";
+            this.colFechaEnvioCliente.Visible = true;
+            this.colFechaEnvioCliente.VisibleIndex = 14;
             // 
             // tbUltimaFactura
             // 
@@ -3845,14 +3853,6 @@
             // vDetallesHorasMaterialesTableAdapter
             // 
             this.vDetallesHorasMaterialesTableAdapter.ClearBeforeFill = true;
-            // 
-            // colFechaEnvioCliente
-            // 
-            this.colFechaEnvioCliente.Caption = "Fecha Envio";
-            this.colFechaEnvioCliente.FieldName = "FechaEnvioCliente";
-            this.colFechaEnvioCliente.Name = "colFechaEnvioCliente";
-            this.colFechaEnvioCliente.Visible = true;
-            this.colFechaEnvioCliente.VisibleIndex = 14;
             // 
             // frmFacturasPresupuestos
             // 
