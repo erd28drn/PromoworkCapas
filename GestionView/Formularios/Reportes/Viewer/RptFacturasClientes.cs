@@ -97,10 +97,8 @@ namespace Promowork.Formularios.Reportes.Viewer
             this.reportViewer1.LocalReport.EnableExternalImages = true;
             this.reportViewer1.RefreshReport();
 
-            tbCliente.Text = factura["DesCliente"].ToString() + " (" + factura["EmailCliente"].ToString() + ")";
-
-            cbEmailsCliente.Properties.DataSource = factura["EmailCliente"].ToString().Split(';').ToList();
-
+           
+            
             List<string> destinatarios = factura["EmailCliente"].ToString().Split(';').ToList();
             bool emailOK = false;
             foreach (string destinatario in destinatarios)
@@ -119,6 +117,13 @@ namespace Promowork.Formularios.Reportes.Viewer
             if (emailOK)
             {
                 btEnviarFactura.Enabled = true;
+                tbCliente.Text = factura["DesCliente"].ToString();// +" (" + factura["EmailCliente"].ToString() + ")";
+
+                foreach (string email in factura["EmailCliente"].ToString().Split(';').ToList())
+                {
+                    cbEmailsCliente.Properties.Items.Add(email, true);
+                }
+                cbEmailsCliente.Properties.SelectAllItemVisible = false;
             }
             else
             {
@@ -144,7 +149,22 @@ namespace Promowork.Formularios.Reportes.Viewer
             }
             else
             {
-                MessageBox.Show("Debe seleccionar un valor en Responder A", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Debe seleccionar un valor en Remitente", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            List<string> destinatarios = new List<string>();
+            foreach (DevExpress.XtraEditors.Controls.CheckedListBoxItem item in cbEmailsCliente.Properties.GetItems())
+            {
+                if (item.CheckState == CheckState.Checked)
+                {
+                    destinatarios.Add(item.Value.ToString());
+                }
+            }
+
+            if (destinatarios.Count == 0)
+            {
+                MessageBox.Show("Debe seleccionar al menos un Email del cliente, para enviar la Factura", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -174,7 +194,9 @@ namespace Promowork.Formularios.Reportes.Viewer
             var respuesta = Utilidades.ExportarReporte(reportViewer1, nombreFichero, ".PDF", "PDF");
             if (respuesta == string.Empty)
             {
-                List<string> destinatarios = factura["EmailCliente"].ToString().Split(';').ToList();
+                
+
+                 //destinatarios = factura["EmailCliente"].ToString().Split(';').ToList();
                 
                 ////////////////////////////////
                 //destinatarios = new List<string>();

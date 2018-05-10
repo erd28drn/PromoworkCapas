@@ -79,6 +79,10 @@ namespace Promowork.Formularios.General
                     VariablesGlobales.nAnoActual = Convert.ToInt32(anoEmpresaTextBox.Text);
                     VariablesGlobales.nMesActual = Convert.ToByte(mesEmpresaTextBox.Text);
 
+                    if (VariablesGlobales.ConfiguracionUsuario == null)
+                    {
+                        VariablesGlobales.ConfiguracionUsuario = new ConfiguracionUsuario();
+                    }
                     VariablesGlobales.ConfiguracionUsuario.idUsuario = Convert.ToInt32(cbUsuario.SelectedValue);
                     VariablesGlobales.ConfiguracionUsuario.empresaSeleccionada = Convert.ToInt32(cbEmpresa.SelectedValue);
                     VariablesGlobales.ConfiguracionUsuario.anoSeleccionado = Convert.ToInt32(anoEmpresaTextBox.Text);
@@ -131,7 +135,7 @@ namespace Promowork.Formularios.General
                     //empresasTableAdapter.Update(promowork_dataDataSet.Empresas);
 
                     
-                    //repoUsuario.GuardarConfiguracionUsuario(VariablesGlobales.ConfiguracionUsuario);
+                    repoUsuario.GuardarConfiguracionUsuario(VariablesGlobales.ConfiguracionUsuario);
 
                     this.Close();
                 }

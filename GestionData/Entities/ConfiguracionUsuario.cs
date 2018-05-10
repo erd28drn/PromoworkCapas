@@ -8,7 +8,6 @@ namespace GestionData.Entities
    public class ConfiguracionUsuario
     {
         public int? idUsuario { get; set; }
-        public bool? esAdmin { get; set; }
         public int? empresaSeleccionada { get; set; }
         public int? anoSeleccionado { get; set; }
         public int? mesSeleccionado { get; set; }
