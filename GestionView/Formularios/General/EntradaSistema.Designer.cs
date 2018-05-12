@@ -32,27 +32,24 @@
             System.Windows.Forms.Label mesEmpresaLabel;
             System.Windows.Forms.Label anoEmpresaLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EntradaSistema));
-            this.promowork_dataDataSet = new GestionData.Promowork_dataDataSet();
-            this.tableAdapterManager = new GestionData.Promowork_dataDataSetTableAdapters.TableAdapterManager();
             this.cbUsuario = new System.Windows.Forms.ComboBox();
             this.usuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbClave = new System.Windows.Forms.TextBox();
             this.cbEmpresa = new System.Windows.Forms.ComboBox();
-            this.accesosUsuariosEmpresasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.empresasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.mesEmpresaTextBox = new System.Windows.Forms.TextBox();
-            this.anoEmpresaTextBox = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAceptar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.usuariosTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.UsuariosTableAdapter();
-            this.accesosUsuariosEmpresasTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.AccesosUsuariosEmpresasTableAdapter();
+            this.tbMes = new System.Windows.Forms.NumericUpDown();
+            this.tbAno = new System.Windows.Forms.NumericUpDown();
             mesEmpresaLabel = new System.Windows.Forms.Label();
             anoEmpresaLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.promowork_dataDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuariosBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.accesosUsuariosEmpresasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.empresasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbMes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbAno)).BeginInit();
             this.SuspendLayout();
             // 
             // mesEmpresaLabel
@@ -67,91 +64,11 @@
             // anoEmpresaLabel
             // 
             anoEmpresaLabel.AutoSize = true;
-            anoEmpresaLabel.Location = new System.Drawing.Point(171, 132);
+            anoEmpresaLabel.Location = new System.Drawing.Point(148, 132);
             anoEmpresaLabel.Name = "anoEmpresaLabel";
             anoEmpresaLabel.Size = new System.Drawing.Size(29, 13);
             anoEmpresaLabel.TabIndex = 9;
             anoEmpresaLabel.Text = "Año:";
-            // 
-            // promowork_dataDataSet
-            // 
-            this.promowork_dataDataSet.DataSetName = "Promowork_dataDataSet";
-            this.promowork_dataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.AccesosEmpresasTableAdapter = null;
-            this.tableAdapterManager.AdjuntosObrasTableAdapter = null;
-            this.tableAdapterManager.AnticiposTableAdapter = null;
-            this.tableAdapterManager.AnticiposTrabajadoresTableAdapter = null;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.BajasMedicaTableAdapter = null;
-            this.tableAdapterManager.BancosTableAdapter = null;
-            this.tableAdapterManager.CategoriasTableAdapter = null;
-            this.tableAdapterManager.ClientesTableAdapter = null;
-            this.tableAdapterManager.CobrosTableAdapter = null;
-            this.tableAdapterManager.ComprasCabTableAdapter = null;
-            this.tableAdapterManager.ComprasDetTableAdapter = null;
-            this.tableAdapterManager.ConceptosBancosTableAdapter = null;
-            this.tableAdapterManager.Connection = null;
-            this.tableAdapterManager.ContratosTrabajadoresTableAdapter = null;
-            this.tableAdapterManager.CopiasHorasTableAdapter = null;
-            this.tableAdapterManager.CrucesTrabajadoresTableAdapter = null;
-            this.tableAdapterManager.CuentasTableAdapter = null;
-            this.tableAdapterManager.CursosTableAdapter = null;
-            this.tableAdapterManager.CursosTrabajadoresTableAdapter = null;
-            this.tableAdapterManager.DescuentosFacturasTableAdapter = null;
-            this.tableAdapterManager.EmpresasActualTableAdapter = null;
-            this.tableAdapterManager.EmpresasTableAdapter = null;
-            this.tableAdapterManager.EstadoCivilTableAdapter = null;
-            this.tableAdapterManager.FabricantesTableAdapter = null;
-            this.tableAdapterManager.FacturasCabListaTableAdapter = null;
-            this.tableAdapterManager.FacturasCabTableAdapter = null;
-            this.tableAdapterManager.FacturasDetHorasTableAdapter = null;
-            this.tableAdapterManager.FacturasDetTableAdapter = null;
-            this.tableAdapterManager.FestivosEmpresasTableAdapter = null;
-            this.tableAdapterManager.FestivosObrasDiaTableAdapter = null;
-            this.tableAdapterManager.FestivosObrasTableAdapter = null;
-            this.tableAdapterManager.FormasPagoTableAdapter = null;
-            this.tableAdapterManager.GruposProductosTableAdapter = null;
-            this.tableAdapterManager.HijosTrabajadoresTableAdapter = null;
-            this.tableAdapterManager.HorasAdminTableAdapter = null;
-            this.tableAdapterManager.HorasTrabajadasTableAdapter = null;
-            this.tableAdapterManager.HorasTrabajadoresTableAdapter = null;
-            this.tableAdapterManager.NacionesTableAdapter = null;
-            this.tableAdapterManager.ObrasTableAdapter = null;
-            this.tableAdapterManager.OperacionesBancoTableAdapter = null;
-            this.tableAdapterManager.PagosTableAdapter = null;
-            this.tableAdapterManager.ParticipantesTableAdapter = null;
-            this.tableAdapterManager.PartObrasTableAdapter = null;
-            this.tableAdapterManager.PartPresupTableAdapter = null;
-            this.tableAdapterManager.Poblaciones1TableAdapter = null;
-            this.tableAdapterManager.PoblacionesProvincias1TableAdapter = null;
-            this.tableAdapterManager.PoblacionesProvinciasTableAdapter = null;
-            this.tableAdapterManager.PoblacionesTableAdapter = null;
-            this.tableAdapterManager.PresupCabTableAdapter = null;
-            this.tableAdapterManager.PresupCapTableAdapter = null;
-            this.tableAdapterManager.PresupDetTableAdapter = null;
-            this.tableAdapterManager.PresupSubTableAdapter = null;
-            this.tableAdapterManager.ProductosTableAdapter = null;
-            this.tableAdapterManager.ProductosUtilizadosTableAdapter = null;
-            this.tableAdapterManager.ProductosUtTrabajadoresTableAdapter = null;
-            this.tableAdapterManager.ProveedoresTableAdapter = null;
-            this.tableAdapterManager.Provincias1TableAdapter = null;
-            this.tableAdapterManager.ProvinciasTableAdapter = null;
-            this.tableAdapterManager.PuestosTrabajoTableAdapter = null;
-            this.tableAdapterManager.SalariosTiposTableAdapter = null;
-            this.tableAdapterManager.SalariosVentaAdminTableAdapter = null;
-            this.tableAdapterManager.SalariosVentaTableAdapter = null;
-            this.tableAdapterManager.SeguridadSocialTableAdapter = null;
-            this.tableAdapterManager.TiposProductosTableAdapter = null;
-            this.tableAdapterManager.TiposProveedoresTableAdapter = null;
-            this.tableAdapterManager.TiposTableAdapter = null;
-            this.tableAdapterManager.TrabajadoresListaTableAdapter = null;
-            this.tableAdapterManager.TrabajadoresTableAdapter = null;
-            this.tableAdapterManager.UMedidasTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = GestionData.Promowork_dataDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.UsuariosTableAdapter = null;
             // 
             // cbUsuario
             // 
@@ -171,23 +88,23 @@
             // 
             // usuariosBindingSource
             // 
-            this.usuariosBindingSource.DataMember = "Usuarios";
-            this.usuariosBindingSource.DataSource = this.promowork_dataDataSet;
+            this.usuariosBindingSource.DataSource = typeof(GestionData.Modelos.Usuarios);
             // 
-            // textBox1
+            // tbClave
             // 
-            this.textBox1.Location = new System.Drawing.Point(69, 52);
-            this.textBox1.MaxLength = 20;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '*';
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
+            this.tbClave.Location = new System.Drawing.Point(69, 52);
+            this.tbClave.MaxLength = 20;
+            this.tbClave.Name = "tbClave";
+            this.tbClave.PasswordChar = '*';
+            this.tbClave.Size = new System.Drawing.Size(100, 20);
+            this.tbClave.TabIndex = 1;
+            this.tbClave.TextChanged += new System.EventHandler(this.tbClave_TextChanged);
             // 
             // cbEmpresa
             // 
             this.cbEmpresa.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cbEmpresa.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbEmpresa.DataSource = this.accesosUsuariosEmpresasBindingSource;
+            this.cbEmpresa.DataSource = this.empresasBindingSource;
             this.cbEmpresa.DisplayMember = "DesEmpresa";
             this.cbEmpresa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEmpresa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -197,11 +114,11 @@
             this.cbEmpresa.Size = new System.Drawing.Size(174, 21);
             this.cbEmpresa.TabIndex = 2;
             this.cbEmpresa.ValueMember = "IdEmpresa";
+            this.cbEmpresa.SelectedValueChanged += new System.EventHandler(this.cbEmpresa_SelectedValueChanged);
             // 
-            // accesosUsuariosEmpresasBindingSource
+            // empresasBindingSource
             // 
-            this.accesosUsuariosEmpresasBindingSource.DataMember = "AccesosUsuariosEmpresas";
-            this.accesosUsuariosEmpresasBindingSource.DataSource = this.promowork_dataDataSet;
+            this.empresasBindingSource.DataSource = typeof(GestionData.Modelos.Empresas);
             // 
             // label1
             // 
@@ -230,29 +147,15 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Empresa:";
             // 
-            // mesEmpresaTextBox
+            // btnAceptar
             // 
-            this.mesEmpresaTextBox.Location = new System.Drawing.Point(69, 128);
-            this.mesEmpresaTextBox.Name = "mesEmpresaTextBox";
-            this.mesEmpresaTextBox.Size = new System.Drawing.Size(33, 20);
-            this.mesEmpresaTextBox.TabIndex = 3;
-            // 
-            // anoEmpresaTextBox
-            // 
-            this.anoEmpresaTextBox.Location = new System.Drawing.Point(202, 128);
-            this.anoEmpresaTextBox.Name = "anoEmpresaTextBox";
-            this.anoEmpresaTextBox.Size = new System.Drawing.Size(41, 20);
-            this.anoEmpresaTextBox.TabIndex = 4;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(94, 180);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Aceptar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnAceptar.Location = new System.Drawing.Point(94, 180);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btnAceptar.TabIndex = 5;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -265,32 +168,68 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // usuariosTableAdapter
+            // tbMes
             // 
-            this.usuariosTableAdapter.ClearBeforeFill = true;
+            this.tbMes.Location = new System.Drawing.Point(69, 128);
+            this.tbMes.Maximum = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            this.tbMes.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.tbMes.Name = "tbMes";
+            this.tbMes.Size = new System.Drawing.Size(48, 20);
+            this.tbMes.TabIndex = 10;
+            this.tbMes.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
-            // accesosUsuariosEmpresasTableAdapter
+            // tbAno
             // 
-            this.accesosUsuariosEmpresasTableAdapter.ClearBeforeFill = true;
+            this.tbAno.Location = new System.Drawing.Point(181, 128);
+            this.tbAno.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.tbAno.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.tbAno.Name = "tbAno";
+            this.tbAno.Size = new System.Drawing.Size(62, 20);
+            this.tbAno.TabIndex = 11;
+            this.tbAno.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // EntradaSistema
             // 
-            this.AcceptButton = this.button1;
+            this.AcceptButton = this.btnAceptar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button2;
             this.ClientSize = new System.Drawing.Size(269, 215);
+            this.Controls.Add(this.tbAno);
+            this.Controls.Add(this.tbMes);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAceptar);
             this.Controls.Add(anoEmpresaLabel);
-            this.Controls.Add(this.anoEmpresaTextBox);
             this.Controls.Add(mesEmpresaLabel);
-            this.Controls.Add(this.mesEmpresaTextBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbEmpresa);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbClave);
             this.Controls.Add(this.cbUsuario);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -299,9 +238,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Acceso al Sistema";
             this.Load += new System.EventHandler(this.Accesos_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.promowork_dataDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usuariosBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.accesosUsuariosEmpresasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.empresasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbMes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbAno)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -309,21 +249,17 @@
 
         #endregion
 
-        private GestionData.Promowork_dataDataSet promowork_dataDataSet;
-        private GestionData.Promowork_dataDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.ComboBox cbUsuario;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbClave;
         private System.Windows.Forms.ComboBox cbEmpresa;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox mesEmpresaTextBox;
-        private System.Windows.Forms.TextBox anoEmpresaTextBox;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.BindingSource usuariosBindingSource;
-        private GestionData.Promowork_dataDataSetTableAdapters.UsuariosTableAdapter usuariosTableAdapter;
-        private System.Windows.Forms.BindingSource accesosUsuariosEmpresasBindingSource;
-        private GestionData.Promowork_dataDataSetTableAdapters.AccesosUsuariosEmpresasTableAdapter accesosUsuariosEmpresasTableAdapter;
+        private System.Windows.Forms.BindingSource empresasBindingSource;
+        private System.Windows.Forms.NumericUpDown tbMes;
+        private System.Windows.Forms.NumericUpDown tbAno;
     }
 }

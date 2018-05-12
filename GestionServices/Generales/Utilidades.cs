@@ -273,6 +273,19 @@ namespace GestionServices.Generales
             return tablaHtml;
         }
         #endregion CREAR TABLA DESDE GRIDVIEW
+
+
+        public static bool ValidarMes(string mes)
+        { 
+            int mesInt=0;
+            int.TryParse(mes, out mesInt);
+
+            if (mesInt >= 1 && mesInt <= 12)
+            {
+                return true;
+            }
+            return false;
+        }
         
     }
 }

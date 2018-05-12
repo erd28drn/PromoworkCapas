@@ -70,6 +70,7 @@
   <ItemGroup>
     <Compile Include="Definiciones\TrabajadoresService.cs" />
     <Compile Include="Definiciones\ProveedoresService.cs" />
+    <Compile Include="Generales\EmpresasService.cs" />
     <Compile Include="Generales\ErroresSQLSerrver.cs" />
     <Compile Include="Generales\UsuariosService.cs" />
     <Compile Include="Generales\Utilidades.cs" />

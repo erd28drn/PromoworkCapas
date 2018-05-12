@@ -12,6 +12,10 @@ using GestionServices.Generales;
 using GestionData.Entities;
 using Newtonsoft.Json;
 using GestionData.Repositorios;
+//using GestionData.Modelos;
+//using System.Data.Entity;
+//using System.Data.Objects;
+//using System.Data.Objects.DataClasses;
 
 namespace Promowork.Formularios.General
 {
@@ -21,21 +25,24 @@ namespace Promowork.Formularios.General
         {
             InitializeComponent();
         }
+
         bool ok = false;
-        UsuariosService usuarioService = new UsuariosService();
         RepositorioUsuario repoUsuario = new RepositorioUsuario();
-        int? idUsuario = null;
-        DataRow usuario;
+        RepositorioEmpresa repoEmpresa = new RepositorioEmpresa();
+        UsuariosService usuariosService = new UsuariosService();
+        EmpresasService empresasService = new EmpresasService();
+        ConfiguracionUsuario configuracionUsuario = new ConfiguracionUsuario();
+        List<GestionData.Modelos.Usuarios> usuarios;
+        GestionData.Modelos.Usuarios usuarioSeleccionado;
+
        private void Accesos_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'promowork_dataDataSet.Empresas' table. You can move, or remove it, as needed.
-            //this.empresasTableAdapter.Fill(this.promowork_dataDataSet.Empresas);
-         
-            this.usuariosTableAdapter.FillByActivo(this.promowork_dataDataSet.Usuarios);
-            //this.accesosUsuariosEmpresasTableAdapter.FillByUsuario(promowork_dataDataSet.AccesosUsuariosEmpresas, Convert.ToInt32(cbUsuario.SelectedValue));
-
-            //DataRowView usuario = (DataRowView)usuariosBindingSource.Current;
-            //cbEmpresa.SelectedValue = (int)usuario["UltEmpresa"];
+           usuarios = repoUsuario.GetAllActivos();
+           usuariosBindingSource.DataSource = usuarios;
+           if (VariablesGlobales.nIdUsuarioActual != 0)
+           {
+               cbUsuario.SelectedValue = VariablesGlobales.nIdUsuarioActual;
+           }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -45,73 +52,34 @@ namespace Promowork.Formularios.General
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //string sClave=textBox1.Text;
-            //byte[] tmpClave=ASCIIEncoding.ASCII.GetBytes(sClave);
-            //byte[] tmpClaveHash = new MD5CryptoServiceProvider().ComputeHash(tmpClave);
-
-           // MessageBox.Show(Convert.ToString(promowork_dataDataSet.Tables["Usuarios"].Rows[Convert.ToInt32(comboBox1.SelectedIndex)]["ClaveUsuario"]));
-
-            //if (Convert.ToString(promowork_dataDataSet.Tables["Usuarios"].Rows[Convert.ToInt32(cbUsuario.SelectedIndex)]["ClaveUsuario"]) == Convert.ToBase64String(tmpClaveHash) || VariablesGlobales.nIdUsuarioActual == Convert.ToInt32(cbUsuario.SelectedValue))
-            //{
-                //MessageBox.Show("Clave Correcta");
-            if (usuarioService.ValidarClave(idUsuario, textBox1.Text))
+            if ((int)cbUsuario.SelectedValue== VariablesGlobales.nIdUsuarioActual || usuariosService.ValidarClave(usuarioSeleccionado.IdUsuario, tbClave.Text))
             {
-
-                try
-                {
-
-                    DateTime FechaTest = new DateTime(Convert.ToInt32(anoEmpresaTextBox.Text), Convert.ToInt32(mesEmpresaTextBox.Text), 1);
-
-                    ok = true;
-                }
-                catch
-                {
-                    ok = false;
-                    MessageBox.Show("Mes o Año Incorrecto", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
 
                 if (cbEmpresa.SelectedIndex != -1)
                 {
-                    VariablesGlobales.nIdUsuarioActual = Convert.ToInt32(cbUsuario.SelectedValue);
-                    VariablesGlobales.bEsAdmin = Convert.ToBoolean(usuario["AdminUsuario"]);
-                    VariablesGlobales.nIdEmpresaActual = Convert.ToInt32(cbEmpresa.SelectedValue);
-                    VariablesGlobales.nAnoActual = Convert.ToInt32(anoEmpresaTextBox.Text);
-                    VariablesGlobales.nMesActual = Convert.ToByte(mesEmpresaTextBox.Text);
+                    VariablesGlobales.nIdUsuarioActual = usuarioSeleccionado.IdUsuario;
+                    VariablesGlobales.bEsAdmin = usuarioSeleccionado.AdminUsuario.Value;
+                    VariablesGlobales.nIdEmpresaActual = (int)cbEmpresa.SelectedValue;
+                    VariablesGlobales.nAnoActual = (int)tbAno.Value;
+                    VariablesGlobales.nMesActual =  (byte)tbMes.Value;
 
-                    if (VariablesGlobales.ConfiguracionUsuario == null)
-                    {
-                        VariablesGlobales.ConfiguracionUsuario = new ConfiguracionUsuario();
-                    }
-                    VariablesGlobales.ConfiguracionUsuario.idUsuario = Convert.ToInt32(cbUsuario.SelectedValue);
-                    VariablesGlobales.ConfiguracionUsuario.empresaSeleccionada = Convert.ToInt32(cbEmpresa.SelectedValue);
-                    VariablesGlobales.ConfiguracionUsuario.anoSeleccionado = Convert.ToInt32(anoEmpresaTextBox.Text);
-                    VariablesGlobales.ConfiguracionUsuario.mesSeleccionado = Convert.ToByte(mesEmpresaTextBox.Text);
+                    configuracionUsuario.idUsuario = usuarioSeleccionado.IdUsuario;
+                    configuracionUsuario.empresaSeleccionada = (int)cbEmpresa.SelectedValue;
+                    configuracionUsuario.anoSeleccionado = (int)tbAno.Value;
+                    configuracionUsuario.mesSeleccionado = (byte)tbMes.Value;
 
-                    //usuarioSelecionado["ConfiguracionUsuario"] = JsonConvert.SerializeObject(VariablesGlobales.ConfiguracionUsuario);
+                    VariablesGlobales.ConfiguracionUsuario = configuracionUsuario;
 
-                    //for (int i = 0; i < promowork_dataDataSet.Usuarios.Count; i++)
-                    //{
+                    usuariosService.EstablecerUltimoUsuario(usuarioSeleccionado.IdUsuario);
 
-                    //    promowork_dataDataSet.Tables["Usuarios"].Rows[i]["UltimoUsuario"] = 0;
-                    //}
+                    repoUsuario.GuardarConfiguracionUsuario(configuracionUsuario);
 
-                   // promowork_dataDataSet.Tables["Usuarios"].Rows[Convert.ToInt32(cbUsuario.SelectedIndex)]["UltimoUsuario"] = 1;
-
-                    //for (int i = 0; i < promowork_dataDataSet.Empresas.Count; i++)
-                    //{
-
-                    //    promowork_dataDataSet.Tables["Empresas"].Rows[i]["UltimaEmpresa"] = 0;
-                    //}
-                    //////////promowork_dataDataSet.Tables["Empresas"].Rows[Convert.ToInt32(cbEmpresa.SelectedIndex)]["UltimaEmpresa"] = 1;
-                    //////////promowork_dataDataSet.Tables["Empresas"].Rows[Convert.ToInt32(cbEmpresa.SelectedIndex)]["AnoEmpresa"] = Convert.ToInt32(anoEmpresaTextBox.Text);
-                    //////////promowork_dataDataSet.Tables["Empresas"].Rows[Convert.ToInt32(cbEmpresa.SelectedIndex)]["MesEmpresa"] = Convert.ToInt32(mesEmpresaTextBox.Text);
-
+                    this.Close();
+                   
                 }
                 else
                 {
-                    ok = false;
-                    MessageBox.Show("Tiene que seleccionar la Empresa en la cual va a trabajar.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Es obligatorio seleccionar la Empresa en la cual va a trabajar.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
 
@@ -122,97 +90,70 @@ namespace Promowork.Formularios.General
             }
 
 
-            if (ok == true)
-            {
-                try
-                {
-                    usuarioService.EstablecerUltimoUsuario(idUsuario);
-                    //this.Validate();
-                    //this.usuariosBindingSource.EndEdit();
-                    //usuariosTableAdapter.Update(promowork_dataDataSet.Usuarios);
-
-                    //this.empresasBindingSource.EndEdit();
-                    //empresasTableAdapter.Update(promowork_dataDataSet.Empresas);
-
-                    
-                    repoUsuario.GuardarConfiguracionUsuario(VariablesGlobales.ConfiguracionUsuario);
-
-                    this.Close();
-                }
-                catch (DBConcurrencyException)
-                {
-
-                    MessageBox.Show("No se Pudo Salvar la Información. El Registro fue modificado por otro Usuario.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Stop);
-
-                    VariablesGlobales.nIdUsuarioActual = 0;
-                    VariablesGlobales.nIdEmpresaActual = 0;
-                    VariablesGlobales.nAnoActual = 0;
-                    VariablesGlobales.nMesActual = 0;
-
-                    //this.empresasTableAdapter.Fill(this.promowork_dataDataSet.Empresas);
-
-                    this.usuariosTableAdapter.FillByActivo(this.promowork_dataDataSet.Usuarios);
-                    //this.accesosUsuariosEmpresasTableAdapter.FillByUsuario(promowork_dataDataSet.AccesosUsuariosEmpresas, Convert.ToInt32(cbUsuario.SelectedValue));
-
-                    cbEmpresa.SelectedValue = VariablesGlobales.ConfiguracionUsuario.empresaSeleccionada;
-
-                }
-                catch (SqlException ex)
-                {
-                    if (ErroresSQLServer.ManipulaErrorSQL(ex, this.Text))
-                    {
-                        VariablesGlobales.nIdUsuarioActual = 0;
-                        VariablesGlobales.nIdEmpresaActual = 0;
-                        VariablesGlobales.nAnoActual = 0;
-                        VariablesGlobales.nMesActual = 0;
-
-                        //this.empresasTableAdapter.Fill(this.promowork_dataDataSet.Empresas);
-
-                        this.usuariosTableAdapter.FillByActivo(this.promowork_dataDataSet.Usuarios);
-                        this.accesosUsuariosEmpresasTableAdapter.FillByUsuario(promowork_dataDataSet.AccesosUsuariosEmpresas, Convert.ToInt32(cbUsuario.SelectedValue));
-
-                        cbEmpresa.SelectedValue = VariablesGlobales.ConfiguracionUsuario.empresaSeleccionada;
-                    }
-
-                }
-
-               
-            }
+            //if (false)
+            //{
+            //    VariablesGlobales.nIdUsuarioActual = 0;
+            //    VariablesGlobales.nIdEmpresaActual = 0;
+            //    VariablesGlobales.nAnoActual = 0;
+            //    VariablesGlobales.nMesActual = 0;
+            //}
             
         }
 
        private void cbUsuario_SelectedValueChanged(object sender, EventArgs e)
         {
+            HabilitaDeshabilitaBtnAceptar();
             if (cbUsuario.SelectedIndex != -1)
             {
-                idUsuario = (int)cbUsuario.SelectedValue;
+                
+                usuarioSeleccionado = usuarios.FirstOrDefault(u => u.IdUsuario == (int)cbUsuario.SelectedValue);
+                var empresasUsuario = repoEmpresa.GetEmpresasUsuario(usuarioSeleccionado.IdUsuario);
 
-                this.accesosUsuariosEmpresasTableAdapter.FillByUsuario(promowork_dataDataSet.AccesosUsuariosEmpresas, (int)cbUsuario.SelectedValue);
+                empresasBindingSource.DataSource = empresasUsuario;
 
-                usuario = promowork_dataDataSet.Usuarios.FindByIdUsuario((int)cbUsuario.SelectedValue);
-                //cbEmpresa.SelectedValue = usuario["UltEmpresa"] == DBNull.Value ? -1 : (int)usuario["UltEmpresa"];
 
-                VariablesGlobales.ConfiguracionUsuario = JsonConvert.DeserializeObject<ConfiguracionUsuario>(usuario["ConfiguracionUsuario"].ToString());
+                configuracionUsuario = JsonConvert.DeserializeObject<ConfiguracionUsuario>(usuarioSeleccionado.ConfiguracionUsuario);
 
-                if (VariablesGlobales.ConfiguracionUsuario != null)
+                if (configuracionUsuario != null)
                 {
-                    cbEmpresa.SelectedValue = VariablesGlobales.ConfiguracionUsuario.empresaSeleccionada;
-                    mesEmpresaTextBox.Text = VariablesGlobales.ConfiguracionUsuario.mesSeleccionado.ToString();
-                    anoEmpresaTextBox.Text = VariablesGlobales.ConfiguracionUsuario.anoSeleccionado.ToString();
+                    cbEmpresa.SelectedValue = configuracionUsuario.empresaSeleccionada;
+                    tbMes.Value = configuracionUsuario.mesSeleccionado.Value;
+                    tbAno.Value = configuracionUsuario.anoSeleccionado.Value;
                 }
                 else
                 {
                     cbEmpresa.SelectedIndex = 0;
-                    mesEmpresaTextBox.Text = DateTime.Today.Month.ToString();
-                    anoEmpresaTextBox.Text = DateTime.Today.Year.ToString();
+                    tbMes.Value = DateTime.Today.Month;
+                    tbAno.Value = DateTime.Today.Year;
                 }
 
             }
-            else
-            {
-                idUsuario = null;
-            }
+           
         }
+
+       private void HabilitaDeshabilitaBtnAceptar()
+       {
+           if (cbUsuario.SelectedIndex != -1 && cbEmpresa.SelectedIndex != -1 && (tbClave.Text.Trim().Length>=3 || (int)cbUsuario.SelectedValue== VariablesGlobales.nIdUsuarioActual))
+           {
+               btnAceptar.Enabled = true;
+           }
+           else
+           {
+               btnAceptar.Enabled = false;
+           }
+       }
+
+       private void cbEmpresa_SelectedValueChanged(object sender, EventArgs e)
+       {
+           HabilitaDeshabilitaBtnAceptar();
+       }
+
+       private void tbClave_TextChanged(object sender, EventArgs e)
+       {
+           HabilitaDeshabilitaBtnAceptar();
+       }
+
+
 
        
     }

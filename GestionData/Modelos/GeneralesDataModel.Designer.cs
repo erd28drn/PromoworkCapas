@@ -1437,6 +1437,30 @@ namespace GestionData.Modelos
         private global::System.String _CuerpoEnvioFacturas;
         partial void OnCuerpoEnvioFacturasChanging(global::System.String value);
         partial void OnCuerpoEnvioFacturasChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ConfiguracionEmpresa
+        {
+            get
+            {
+                return _ConfiguracionEmpresa;
+            }
+            set
+            {
+                OnConfiguracionEmpresaChanging(value);
+                ReportPropertyChanging("ConfiguracionEmpresa");
+                _ConfiguracionEmpresa = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ConfiguracionEmpresa");
+                OnConfiguracionEmpresaChanged();
+            }
+        }
+        private global::System.String _ConfiguracionEmpresa;
+        partial void OnConfiguracionEmpresaChanging(global::System.String value);
+        partial void OnConfiguracionEmpresaChanged();
 
         #endregion
 

@@ -28,11 +28,15 @@ namespace Promowork.Formularios.Reportes.Viewer
         DataRowView factura;
         string nombreFactura;
         RepositorioUsuario repoUsuario = new RepositorioUsuario();
+        RepositorioEmpresa repoEmpresa = new RepositorioEmpresa();
         RepositorioFacturasCab repoFacturasCab = new RepositorioFacturasCab();
         public DateTime? fechaEnvioFactura = null;
+        ConfiguracionEmpresa configuracionEmpresa;
 
         internal void LoadFiltro(int nIdFactCab, string reporte, bool facturaHoras = false)
         {
+            configuracionEmpresa = repoEmpresa.GetConfiguracionEmpresa(VariablesGlobales.nIdEmpresaActual);
+
             this.WindowState = FormWindowState.Maximized;
             this.reportViewer1.LocalReport.ReportEmbeddedResource = reporte;
 
@@ -214,10 +218,16 @@ namespace Promowork.Formularios.Reportes.Viewer
                 if (respuesta.Trim().ToUpper().Equals("OK"))
                 {
                     tbResultado.ForeColor = Color.Green;
-                    repoUsuario.GuardarConfiguracionUsuario(VariablesGlobales.ConfiguracionUsuario);
                     fechaEnvioFactura = DateTime.Now;
                     cbFechaEnvio.Text = fechaEnvioFactura.ToString();
-                    //repoFacturasCab.GuardarFechaEnvioFacturaCliente((int)factura["IdFactCab"], fechaEnvioFactura);
+
+                    repoUsuario.GuardarConfiguracionUsuario(VariablesGlobales.ConfiguracionUsuario);
+
+                    configuracionEmpresa.idEmpresa = VariablesGlobales.nIdEmpresaActual;
+                    configuracionEmpresa.asuntoEnvioFacturas = tbAsuntoMensaje.Text;
+                    configuracionEmpresa.CuerpoEnvioFacturas = tbCuerpoMensaje.Text;
+                    repoEmpresa.GuardarConfiguracionEmpresa(configuracionEmpresa);
+
                 }
                 else
                 {

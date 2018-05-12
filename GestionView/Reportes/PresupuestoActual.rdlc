@@ -1046,6 +1046,7 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>7.20708cm</Top>
+        <Left>0cm</Left>
         <Height>2.84124cm</Height>
         <Width>17.82026cm</Width>
         <Style>
@@ -3270,6 +3271,7 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>0cm</Top>
+        <Left>0cm</Left>
         <Height>6.44124cm</Height>
         <Width>32.87443cm</Width>
         <ZIndex>1</ZIndex>
@@ -3405,6 +3407,7 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>10.70465cm</Top>
+        <Left>0cm</Left>
         <Height>2.52291cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>2</ZIndex>
@@ -3444,7 +3447,7 @@
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value> PROMOWORK SYSTEMS, S.L. ejecutará los trabajos descritos en el presupuesto y que son los que se han tenido en cuenta a la hora de fijar estos precio, pero no vendrá obligada a ejecutar otros trabajos que se detecten una vez que se actúe y sean consecuencias de la patología o vicios ocultos, constructivos o de otra índole, imposibles de determinar a simple vista, cuya aparición podrá suponer un incremento del precio fijado. Cualquier trabajo no incluído en el presupuesto, como consecuencia de lo descrito en este apartado será objeto de facturación independiente, y el precio será el convenido y aceptado por ambas partes.</Value>
+                              <Value> PROMOWORK SYSTEMS, S.L. ejecutará los trabajos descritos en el presupuesto y que son los que se han tenido en cuenta a la hora de fijar estos precio, pero no vendrá obligada a ejecutar otros trabajos que se detecten una vez que se actúe y sean consecuencias de la patología o vicios ocultos, constructivos o de otra índole, imposibles de determinar a simple vista, cuya aparición podrá suponer un incremento del precio fijado. Cualquier trabajo no incluído en el presupuesto, como consecuencia de lo descrito en este apartado será objeto de facturación independiente, y el precio será el convenido y aceptado por ambas partes, antes de la realización de los mismos.</Value>
                               <Style>
                                 <FontStyle>Normal</FontStyle>
                                 <FontSize>11pt</FontSize>
@@ -3486,6 +3489,7 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>13.40396cm</Top>
+        <Left>0cm</Left>
         <Height>3.93654cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>3</ZIndex>
@@ -3568,6 +3572,7 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>17.5169cm</Top>
+        <Left>0cm</Left>
         <Height>2.47841cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>4</ZIndex>
@@ -3650,6 +3655,7 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>24.08753cm</Top>
+        <Left>0cm</Left>
         <Height>0.90841cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>5</ZIndex>
@@ -3712,8 +3718,8 @@
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value>OFICIAL : A 21,80 €/ HORA
-PEÓN: 19,00 €/ HORA</Value>
+                              <Value>OFICIAL : A 23,00 €/ HORA
+PEÓN: 21,00 €/ HORA</Value>
                               <Style>
                                 <FontStyle>Normal</FontStyle>
                                 <FontSize>11pt</FontSize>
@@ -3756,6 +3762,7 @@ PEÓN: 19,00 €/ HORA</Value>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>20.1717cm</Top>
+        <Left>0cm</Left>
         <Height>3.73944cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>6</ZIndex>
@@ -3838,6 +3845,7 @@ PEÓN: 19,00 €/ HORA</Value>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>25.17232cm</Top>
+        <Left>0cm</Left>
         <Height>1.88737cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>7</ZIndex>
@@ -3920,6 +3928,7 @@ PEÓN: 19,00 €/ HORA</Value>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>27.23608cm</Top>
+        <Left>0cm</Left>
         <Height>0.88194cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>8</ZIndex>
@@ -3959,7 +3968,7 @@ PEÓN: 19,00 €/ HORA</Value>
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value> Irán a cargo de PROMOWORK SYSTEMS SL el  plan de Seguridad y Salud en fase de Ejecución de la Obra, en el caso de que fuese necesaria su contratación de acuerdo con la legislación vigente.</Value>
+                              <Value> Irán a cargo del cliente: El  plan de Seguridad y Salud en fase de Ejecución de la Obra, en el caso de que fuese necesaria su contratación de acuerdo con la legislación vigente.</Value>
                               <Style>
                                 <FontStyle>Normal</FontStyle>
                                 <FontSize>11pt</FontSize>
@@ -4002,6 +4011,7 @@ PEÓN: 19,00 €/ HORA</Value>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>28.29441cm</Top>
+        <Left>0cm</Left>
         <Height>1.78979cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>9</ZIndex>
@@ -4084,6 +4094,7 @@ PEÓN: 19,00 €/ HORA</Value>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>37.34316cm</Top>
+        <Left>0cm</Left>
         <Height>2.94569cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>10</ZIndex>
@@ -4165,6 +4176,7 @@ PEÓN: 19,00 €/ HORA</Value>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>30.26058cm</Top>
+        <Left>0cm</Left>
         <Height>2.34625cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>11</ZIndex>
@@ -4246,6 +4258,7 @@ PEÓN: 19,00 €/ HORA</Value>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>32.78322cm</Top>
+        <Left>0cm</Left>
         <Height>4.38356cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>12</ZIndex>
@@ -4327,6 +4340,7 @@ PEÓN: 19,00 €/ HORA</Value>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>40.46525cm</Top>
+        <Left>0cm</Left>
         <Height>1.79476cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>13</ZIndex>
@@ -4407,7 +4421,8 @@ PEÓN: 19,00 €/ HORA</Value>
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>44.8441cm</Top>
+        <Top>44.84409cm</Top>
+        <Left>0cm</Left>
         <Height>1.46403cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>14</ZIndex>
@@ -4525,6 +4540,7 @@ PEÓN: 19,00 €/ HORA</Value>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>50.20191cm</Top>
+        <Left>0cm</Left>
         <Height>1.42436cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>15</ZIndex>
@@ -4606,6 +4622,7 @@ PEÓN: 19,00 €/ HORA</Value>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>42.43639cm</Top>
+        <Left>0cm</Left>
         <Height>2.23131cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>16</ZIndex>
@@ -4687,6 +4704,7 @@ PEÓN: 19,00 €/ HORA</Value>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>46.48451cm</Top>
+        <Left>0cm</Left>
         <Height>0.91694cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>17</ZIndex>
@@ -4804,6 +4822,7 @@ PEÓN: 19,00 €/ HORA</Value>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>47.57784cm</Top>
+        <Left>0cm</Left>
         <Height>1.5084cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>18</ZIndex>
@@ -4912,6 +4931,7 @@ PEÓN: 19,00 €/ HORA</Value>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>49.26264cm</Top>
+        <Left>0cm</Left>
         <Height>0.76289cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>19</ZIndex>
@@ -5198,6 +5218,7 @@ PEÓN: 19,00 €/ HORA</Value>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>51.80264cm</Top>
+        <Left>0cm</Left>
         <Height>12.28755cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>20</ZIndex>
@@ -5238,6 +5259,7 @@ PEÓN: 19,00 €/ HORA</Value>
         </Paragraphs>
         <rd:DefaultName>Textbox18</rd:DefaultName>
         <Top>64.26657cm</Top>
+        <Left>0cm</Left>
         <Height>1.49049cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>21</ZIndex>
@@ -5283,6 +5305,7 @@ PEÓN: 19,00 €/ HORA</Value>
         </Paragraphs>
         <rd:DefaultName>Textbox18</rd:DefaultName>
         <Top>65.93345cm</Top>
+        <Left>0cm</Left>
         <Height>2.41653cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>22</ZIndex>
@@ -5393,6 +5416,7 @@ PEÓN: 19,00 €/ HORA</Value>
         </Paragraphs>
         <rd:DefaultName>Textbox18</rd:DefaultName>
         <Top>68.52637cm</Top>
+        <Left>0cm</Left>
         <Height>4.60744cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>23</ZIndex>
@@ -5414,7 +5438,7 @@ PEÓN: 19,00 €/ HORA</Value>
   <Width>12.94269in</Width>
   <Page>
     <PageHeader>
-      <Height>6.08792cm</Height>
+      <Height>7.11125cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -5446,6 +5470,7 @@ PEÓN: 19,00 €/ HORA</Value>
           </Paragraphs>
           <rd:DefaultName>FechaPresup</rd:DefaultName>
           <Top>4.28792cm</Top>
+          <Left>0cm</Left>
           <Height>0.6cm</Height>
           <Width>17.82026cm</Width>
           <Style>
@@ -5484,6 +5509,7 @@ PEÓN: 19,00 €/ HORA</Value>
           </Paragraphs>
           <rd:DefaultName>LicObraPresup</rd:DefaultName>
           <Top>5.48792cm</Top>
+          <Left>0cm</Left>
           <Height>0.6cm</Height>
           <Width>17.82026cm</Width>
           <ZIndex>1</ZIndex>
@@ -5531,6 +5557,7 @@ PEÓN: 19,00 €/ HORA</Value>
           </Paragraphs>
           <rd:DefaultName>NumCliente</rd:DefaultName>
           <Top>4.88792cm</Top>
+          <Left>0cm</Left>
           <Height>0.6cm</Height>
           <Width>17.82026cm</Width>
           <ZIndex>2</ZIndex>
@@ -5708,6 +5735,7 @@ PEÓN: 19,00 €/ HORA</Value>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>DesEmpresa</rd:DefaultName>
+          <Left>0cm</Left>
           <Height>3.55563cm</Height>
           <Width>7.20638cm</Width>
           <ZIndex>3</ZIndex>
@@ -5741,6 +5769,7 @@ PEÓN: 19,00 €/ HORA</Value>
           </Paragraphs>
           <rd:DefaultName>NomPresup</rd:DefaultName>
           <Top>3.55563cm</Top>
+          <Left>0cm</Left>
           <Height>0.73229cm</Height>
           <Width>17.82026cm</Width>
           <ZIndex>4</ZIndex>
@@ -5770,6 +5799,37 @@ PEÓN: 19,00 €/ HORA</Value>
             </Border>
           </Style>
         </Image>
+        <Textbox Name="LicObraPresup2">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Despues de haber calculado el presupuestos para la ejecución de los trabajos por ustedes demandados y teniendo siempre presente lo hablado ustedes y yo, las partidas a realizar suben:</Value>
+                  <Style>
+                    <FontWeight>Normal</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>LicObraPresup</rd:DefaultName>
+          <Top>6.08792cm</Top>
+          <Height>1.02333cm</Height>
+          <Width>17.82026cm</Width>
+          <ZIndex>6</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
       </ReportItems>
       <Style>
         <Border>
@@ -5803,7 +5863,7 @@ PEÓN: 19,00 €/ HORA</Value>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>PageNumber</rd:DefaultName>
-          <Top>0.2293cm</Top>
+          <Top>0.22929cm</Top>
           <Left>7.20638cm</Left>
           <Height>0.6cm</Height>
           <Width>10.61388cm</Width>
@@ -5836,7 +5896,8 @@ PEÓN: 19,00 €/ HORA</Value>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox123</rd:DefaultName>
-          <Top>0.2293cm</Top>
+          <Top>0.22929cm</Top>
+          <Left>0cm</Left>
           <Height>0.6cm</Height>
           <Width>7.20638cm</Width>
           <ZIndex>1</ZIndex>

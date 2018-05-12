@@ -10,7 +10,7 @@ namespace GestionData.Entities
         public int? idUsuario { get; set; }
         public int? empresaSeleccionada { get; set; }
         public int? anoSeleccionado { get; set; }
-        public int? mesSeleccionado { get; set; }
+        public byte? mesSeleccionado { get; set; }
         public int? responderASeleccionado { get; set; }
         public int? gestorSeleccionado { get; set; }
 

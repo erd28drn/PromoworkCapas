@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using GestionData.Repositorios;
 using System.Security.Cryptography;
+using GestionData.Entities;
 
 namespace GestionServices.Generales
 {
     public class UsuariosService
     {
         RepositorioUsuario repoUsuario= new RepositorioUsuario();
+
         public bool ValidarClave(int? idUsuario, string clave)
         {
             bool result = false;
@@ -22,16 +24,24 @@ namespace GestionServices.Generales
             return result;
         }
 
-        public bool EstablecerUltimoUsuario(int? idUsuario)
+        public RespuestasServicios  EstablecerUltimoUsuario(int? idUsuario)
         {
-            bool result = false;
-            if (idUsuario != null)
+            var respueta = new RespuestasServicios();
+            try
             {
-                repoUsuario.SetAllUltimoUsuarioFalse();
-                repoUsuario.SetUltimoUsuario(idUsuario.Value);
-                result= true;
+                if (idUsuario != null)
+                {
+                    repoUsuario.SetAllUltimoUsuarioFalse();
+                    repoUsuario.SetUltimoUsuario(idUsuario.Value);
+                    respueta.ResultadoOk = true;
+                }
             }
-            return result;
+            catch (Exception ex)
+            {
+                respueta.ResultadoOk = false;
+                respueta.Mensaje = ex.Message;
+            }
+            return respueta;
         }
     }
 }

@@ -87,6 +87,8 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Entities\ConfiguracionEmpresa.cs" />
+    <Compile Include="Entities\RespuestasServicios.cs" />
     <Compile Include="Entities\TotalesCompra.cs" />
     <Compile Include="Entities\TrabajadorConEmail.cs" />
     <Compile Include="Entities\ObrasEnviar.cs" />
@@ -146,6 +148,7 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Repositorios\RepositorioEmpresa.cs" />
     <Compile Include="Repositorios\RepositorioFacturasCab.cs" />
     <Compile Include="Repositorios\RepositorioUsuario.cs" />
     <Compile Include="Settings.cs" />

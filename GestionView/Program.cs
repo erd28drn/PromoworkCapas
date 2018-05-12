@@ -26,6 +26,7 @@ namespace Promowork
         public static int nAnoActual = 0;
         public static byte nMesActual = 0;
         public static ConfiguracionUsuario ConfiguracionUsuario = new ConfiguracionUsuario();
+        public static ConfiguracionEmpresa ConfiguracionEmpresa = new ConfiguracionEmpresa();
     }
     
     static class Program
@@ -48,8 +49,8 @@ namespace Promowork
                 {
                     Application.Run(new Principal ());
 
-                    RepositorioUsuario repoUsuario = new RepositorioUsuario();
-                    repoUsuario.GuardarConfiguracionUsuario(VariablesGlobales.ConfiguracionUsuario);
+                    //RepositorioUsuario repoUsuario = new RepositorioUsuario();
+                    //repoUsuario.GuardarConfiguracionUsuario(VariablesGlobales.ConfiguracionUsuario);
                 }
             }
             catch (Exception ex)

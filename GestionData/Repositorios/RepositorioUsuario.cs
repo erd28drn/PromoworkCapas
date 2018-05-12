@@ -17,6 +17,16 @@ namespace GestionData.Repositorios
             return contextoGenerales.Usuarios.FirstOrDefault(u => u.IdUsuario == idUsuario);
         }
 
+        public List<Usuarios> GetAll()
+        {
+            return contextoGenerales.Usuarios.ToList();
+        }
+
+        public List<Usuarios> GetAllActivos()
+        {
+            return contextoGenerales.Usuarios.Where(u => u.ActivoUsuario.Value == true).OrderByDescending(u => u.UltimoUsuario.Value).ToList();
+        }
+
         public void SetAllUltimoUsuarioFalse()
         {
             foreach (var usuario in contextoGenerales.Usuarios)
@@ -32,6 +42,20 @@ namespace GestionData.Repositorios
             contextoGenerales.SaveChanges();
         }
 
+        public ConfiguracionUsuario GetConfiguracionUsuario(int idUsuario)
+        {
+            ConfiguracionUsuario configuracionUsuario = new ConfiguracionUsuario();
+            var usuario =contextoGenerales.Usuarios.FirstOrDefault(u=> u.IdUsuario==idUsuario);
+            if (usuario != null && usuario.ConfiguracionUsuario!=null)
+            {
+                try
+                {
+                    configuracionUsuario = JsonConvert.DeserializeObject<ConfiguracionUsuario>(usuario.ConfiguracionUsuario);
+                }
+                catch { }
+            }
+            return configuracionUsuario;
+        }
 
         public bool GuardarConfiguracionUsuario(ConfiguracionUsuario configuracionUsuario)
         {

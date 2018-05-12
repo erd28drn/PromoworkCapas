@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Promowork_dataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="Promowork_dataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="Promowork_dataModelStoreContainer">
           <EntitySet Name="AccesosEmpresas" EntityType="Promowork_dataModel.Store.AccesosEmpresas" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="AccesosOpciones" EntityType="Promowork_dataModel.Store.AccesosOpciones" store:Type="Tables" Schema="dbo" />
@@ -84,6 +84,7 @@
           <Property Name="CuerpoMensajeObrasProveedores" Type="varchar" MaxLength="4000" />
           <Property Name="AsuntoEnvioFacturas" Type="varchar" MaxLength="100" />
           <Property Name="CuerpoEnvioFacturas" Type="varchar" MaxLength="4000" />
+          <Property Name="ConfiguracionEmpresa" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
@@ -103,7 +104,7 @@
           <Property Name="PathSalva" Type="varchar" MaxLength="1000" />
           <Property Name="PathRestaura" Type="varchar" MaxLength="1000" />
           <Property Name="Scanner" Type="varchar" MaxLength="200" />
-          <Property Name="ConfiguracionUsuario" Type="varchar" MaxLength="4000" />
+          <Property Name="ConfiguracionUsuario" Type="varchar(max)" />
         </EntityType>
         <Association Name="FK_AccesosEmpresas_Empresas">
           <End Role="Empresas" Type="Promowork_dataModel.Store.Empresas" Multiplicity="0..1">
@@ -159,8 +160,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Promowork_dataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -248,6 +248,7 @@
           <Property Name="CuerpoEnvioFacturas" Type="String" MaxLength="4000" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="AccesosEmpresas" Relationship="Promowork_dataModel.FK_AccesosEmpresas_Empresas" FromRole="Empresas" ToRole="AccesosEmpresas" />
           <NavigationProperty Name="Usuarios" Relationship="Promowork_dataModel.FK_Usuarios_Empresas" FromRole="Empresas" ToRole="Usuarios" />
+          <Property Type="String" Name="ConfiguracionEmpresa" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
@@ -356,6 +357,7 @@
           <EntitySetMapping Name="Empresas">
             <EntityTypeMapping TypeName="Promowork_dataModel.Empresas">
               <MappingFragment StoreEntitySet="Empresas">
+                <ScalarProperty Name="ConfiguracionEmpresa" ColumnName="ConfiguracionEmpresa" />
                 <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
                 <ScalarProperty Name="NIFEmpresa" ColumnName="NIFEmpresa" />
                 <ScalarProperty Name="DesEmpresa" ColumnName="DesEmpresa" />
@@ -434,7 +436,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="GeneralesDataModel" ZoomLevel="31">
+      <Diagram Name="GeneralesDataModel" ZoomLevel="77">
         <EntityTypeShape EntityType="Promowork_dataModel.AccesosEmpresas" Width="1.5" PointX="5.25" PointY="3.75" Height="2.1725878906249996" IsExpanded="true" />
         <EntityTypeShape EntityType="Promowork_dataModel.AccesosOpciones" Width="1.5" PointX="5.25" PointY="7" Height="2.1725878906249996" IsExpanded="true" />
         <EntityTypeShape EntityType="Promowork_dataModel.Empresas" Width="1.5" PointX="0.75" PointY="1.25" Height="7.9416308593749978" IsExpanded="true" />
