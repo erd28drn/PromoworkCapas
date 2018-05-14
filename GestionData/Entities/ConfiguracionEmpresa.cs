@@ -14,6 +14,8 @@ namespace GestionData.Entities
         public string cuerpoMensajeObrasProveedores { get; set; }
         public string asuntoEnvioFacturas { get; set; }
         public string CuerpoEnvioFacturas { get; set; }
+        public decimal PrecioHoraOficial { get; set; }
+        public decimal PrecioHoraPeon { get; set; }
 
     }
 

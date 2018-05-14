@@ -32,7 +32,9 @@ namespace Promowork.Formularios.General
         UsuariosService usuariosService = new UsuariosService();
         EmpresasService empresasService = new EmpresasService();
         ConfiguracionUsuario configuracionUsuario = new ConfiguracionUsuario();
+        ConfiguracionEmpresa configuracionEmpresa = new ConfiguracionEmpresa();
         List<GestionData.Modelos.Usuarios> usuarios;
+        List<GestionData.Modelos.Empresas> empresasUsuario;
         GestionData.Modelos.Usuarios usuarioSeleccionado;
 
        private void Accesos_Load(object sender, EventArgs e)
@@ -68,12 +70,18 @@ namespace Promowork.Formularios.General
                     configuracionUsuario.anoSeleccionado = (int)tbAno.Value;
                     configuracionUsuario.mesSeleccionado = (byte)tbMes.Value;
 
-                    VariablesGlobales.ConfiguracionUsuario = configuracionUsuario;
+                    //VariablesGlobales.ConfiguracionUsuario = configuracionUsuario;
 
                     usuariosService.EstablecerUltimoUsuario(usuarioSeleccionado.IdUsuario);
-
                     repoUsuario.GuardarConfiguracionUsuario(configuracionUsuario);
 
+                    //var configuracionEmpresaJson= empresasUsuario.FirstOrDefault(emp=> emp.IdEmpresa== (int)cbEmpresa.SelectedValue).ConfiguracionEmpresa;
+                    //if (!string.IsNullOrWhiteSpace(configuracionEmpresaJson))
+                    //{
+                    //    configuracionEmpresa = JsonConvert.DeserializeObject<ConfiguracionEmpresa>(configuracionEmpresaJson);
+                    //    VariablesGlobales.ConfiguracionEmpresa = configuracionEmpresa;
+                    //}
+                    
                     this.Close();
                    
                 }
@@ -88,15 +96,6 @@ namespace Promowork.Formularios.General
             {
                 MessageBox.Show("Contraseña Incorrecta",this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
-            //if (false)
-            //{
-            //    VariablesGlobales.nIdUsuarioActual = 0;
-            //    VariablesGlobales.nIdEmpresaActual = 0;
-            //    VariablesGlobales.nAnoActual = 0;
-            //    VariablesGlobales.nMesActual = 0;
-            //}
             
         }
 
@@ -107,7 +106,7 @@ namespace Promowork.Formularios.General
             {
                 
                 usuarioSeleccionado = usuarios.FirstOrDefault(u => u.IdUsuario == (int)cbUsuario.SelectedValue);
-                var empresasUsuario = repoEmpresa.GetEmpresasUsuario(usuarioSeleccionado.IdUsuario);
+                empresasUsuario = repoEmpresa.GetEmpresasUsuario(usuarioSeleccionado.IdUsuario);
 
                 empresasBindingSource.DataSource = empresasUsuario;
 

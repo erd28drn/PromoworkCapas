@@ -31,11 +31,13 @@ namespace Promowork.Formularios.Reportes.Viewer
         RepositorioEmpresa repoEmpresa = new RepositorioEmpresa();
         RepositorioFacturasCab repoFacturasCab = new RepositorioFacturasCab();
         public DateTime? fechaEnvioFactura = null;
+        ConfiguracionUsuario configuracionUsuario;
         ConfiguracionEmpresa configuracionEmpresa;
 
         internal void LoadFiltro(int nIdFactCab, string reporte, bool facturaHoras = false)
         {
-            configuracionEmpresa = repoEmpresa.GetConfiguracionEmpresa(VariablesGlobales.nIdEmpresaActual);
+            configuracionUsuario = repoUsuario.GetConfiguracionUsuario(VariablesGlobales.nIdUsuarioActual) ?? new ConfiguracionUsuario();
+            configuracionEmpresa = repoEmpresa.GetConfiguracionEmpresa(VariablesGlobales.nIdEmpresaActual) ?? new ConfiguracionEmpresa();
 
             this.WindowState = FormWindowState.Maximized;
             this.reportViewer1.LocalReport.ReportEmbeddedResource = reporte;
@@ -86,12 +88,12 @@ namespace Promowork.Formularios.Reportes.Viewer
 
             var trabajadores = TrabajadoresService.ObtenerTrabajadoresConEmail(VariablesGlobales.nIdEmpresaActual);
             cbTrabajadores.Properties.DataSource = trabajadores;
-            cbTrabajadores.EditValue = VariablesGlobales.ConfiguracionUsuario.responderASeleccionado;
+            cbTrabajadores.EditValue = configuracionUsuario.responderASeleccionado;
 
             ProveedoresService servicioProveedores = new ProveedoresService();
             var gestores = servicioProveedores.ObtenerGestoresConEmail(VariablesGlobales.nIdEmpresaActual, true);
             cbGestor.Properties.DataSource = gestores;
-            cbGestor.EditValue = VariablesGlobales.ConfiguracionUsuario.gestorSeleccionado;
+            cbGestor.EditValue = configuracionUsuario.gestorSeleccionado;
 
             factura = (DataRowView)FacturasCabImpBindingSource.Current;
             DateTime Fecha = (DateTime)factura["FechaFactura"];
@@ -149,7 +151,7 @@ namespace Promowork.Formularios.Reportes.Viewer
                 responderA = trabajador.EmailTrabajador.Split(';').ToList();
                 nombreRemitente = trabajador.NombreTrabajador;
 
-                VariablesGlobales.ConfiguracionUsuario.responderASeleccionado = (int)cbTrabajadores.EditValue;
+                configuracionUsuario.responderASeleccionado = (int)cbTrabajadores.EditValue;
             }
             else
             {
@@ -172,7 +174,7 @@ namespace Promowork.Formularios.Reportes.Viewer
                 return;
             }
 
-            VariablesGlobales.ConfiguracionUsuario.gestorSeleccionado = (int)cbGestor.EditValue;
+            configuracionUsuario.gestorSeleccionado = (int)cbGestor.EditValue;
 
             this.Validate();
             this.empresasBindingSource.EndEdit();
@@ -221,7 +223,7 @@ namespace Promowork.Formularios.Reportes.Viewer
                     fechaEnvioFactura = DateTime.Now;
                     cbFechaEnvio.Text = fechaEnvioFactura.ToString();
 
-                    repoUsuario.GuardarConfiguracionUsuario(VariablesGlobales.ConfiguracionUsuario);
+                    repoUsuario.GuardarConfiguracionUsuario(configuracionUsuario);
 
                     configuracionEmpresa.idEmpresa = VariablesGlobales.nIdEmpresaActual;
                     configuracionEmpresa.asuntoEnvioFacturas = tbAsuntoMensaje.Text;

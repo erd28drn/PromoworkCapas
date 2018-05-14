@@ -25,8 +25,8 @@ namespace Promowork
         public static int nIdEmpresaActual = 0;
         public static int nAnoActual = 0;
         public static byte nMesActual = 0;
-        public static ConfiguracionUsuario ConfiguracionUsuario = new ConfiguracionUsuario();
-        public static ConfiguracionEmpresa ConfiguracionEmpresa = new ConfiguracionEmpresa();
+        //public static ConfiguracionUsuario ConfiguracionUsuario = new ConfiguracionUsuario();
+        //public static ConfiguracionEmpresa ConfiguracionEmpresa = new ConfiguracionEmpresa();
     }
     
     static class Program
