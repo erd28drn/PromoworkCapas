@@ -153,6 +153,7 @@
             this.colSalVenta = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIdObra = new DevExpress.XtraGrid.Columns.GridColumn();
             this.salariosVentaGridControl = new DevExpress.XtraGrid.GridControl();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             dNINIFClienteLabel = new System.Windows.Forms.Label();
             desClienteLabel = new System.Windows.Forms.Label();
             dirClienteLabel = new System.Windows.Forms.Label();
@@ -299,7 +300,7 @@
             // credClienteLabel
             // 
             credClienteLabel.AutoSize = true;
-            credClienteLabel.Location = new System.Drawing.Point(673, 321);
+            credClienteLabel.Location = new System.Drawing.Point(673, 349);
             credClienteLabel.Name = "credClienteLabel";
             credClienteLabel.Size = new System.Drawing.Size(69, 13);
             credClienteLabel.TabIndex = 24;
@@ -308,7 +309,7 @@
             // idFormaPagoLabel
             // 
             idFormaPagoLabel.AutoSize = true;
-            idFormaPagoLabel.Location = new System.Drawing.Point(675, 269);
+            idFormaPagoLabel.Location = new System.Drawing.Point(675, 295);
             idFormaPagoLabel.Name = "idFormaPagoLabel";
             idFormaPagoLabel.Size = new System.Drawing.Size(67, 13);
             idFormaPagoLabel.TabIndex = 26;
@@ -317,7 +318,7 @@
             // obsClienteLabel
             // 
             obsClienteLabel.AutoSize = true;
-            obsClienteLabel.Location = new System.Drawing.Point(427, 318);
+            obsClienteLabel.Location = new System.Drawing.Point(427, 319);
             obsClienteLabel.Name = "obsClienteLabel";
             obsClienteLabel.Size = new System.Drawing.Size(81, 13);
             obsClienteLabel.TabIndex = 28;
@@ -326,7 +327,7 @@
             // activoClienteLabel
             // 
             activoClienteLabel.AutoSize = true;
-            activoClienteLabel.Location = new System.Drawing.Point(859, 321);
+            activoClienteLabel.Location = new System.Drawing.Point(859, 349);
             activoClienteLabel.Name = "activoClienteLabel";
             activoClienteLabel.Size = new System.Drawing.Size(40, 13);
             activoClienteLabel.TabIndex = 30;
@@ -335,7 +336,7 @@
             // webClienteLabel
             // 
             webClienteLabel.AutoSize = true;
-            webClienteLabel.Location = new System.Drawing.Point(475, 294);
+            webClienteLabel.Location = new System.Drawing.Point(475, 295);
             webClienteLabel.Name = "webClienteLabel";
             webClienteLabel.Size = new System.Drawing.Size(33, 13);
             webClienteLabel.TabIndex = 32;
@@ -353,7 +354,7 @@
             // idCuentaLabel
             // 
             idCuentaLabel.AutoSize = true;
-            idCuentaLabel.Location = new System.Drawing.Point(698, 294);
+            idCuentaLabel.Location = new System.Drawing.Point(698, 322);
             idCuentaLabel.Name = "idCuentaLabel";
             idCuentaLabel.Size = new System.Drawing.Size(44, 13);
             idCuentaLabel.TabIndex = 37;
@@ -434,7 +435,7 @@
             // copiaFacturaLabel
             // 
             copiaFacturaLabel.AutoSize = true;
-            copiaFacturaLabel.Location = new System.Drawing.Point(449, 363);
+            copiaFacturaLabel.Location = new System.Drawing.Point(449, 391);
             copiaFacturaLabel.Name = "copiaFacturaLabel";
             copiaFacturaLabel.Size = new System.Drawing.Size(59, 13);
             copiaFacturaLabel.TabIndex = 112;
@@ -519,6 +520,8 @@
             this.tableAdapterManager.SalariosVentaAdminTableAdapter = null;
             this.tableAdapterManager.SalariosVentaTableAdapter = null;
             this.tableAdapterManager.SeguridadSocialTableAdapter = null;
+            this.tableAdapterManager.TiposProductosTableAdapter = null;
+            this.tableAdapterManager.TiposProveedoresTableAdapter = null;
             this.tableAdapterManager.TiposTableAdapter = null;
             this.tableAdapterManager.TrabajadoresListaTableAdapter = null;
             this.tableAdapterManager.TrabajadoresTableAdapter = null;
@@ -698,7 +701,7 @@
             this.clientesDataGridView.Location = new System.Drawing.Point(12, 28);
             this.clientesDataGridView.Name = "clientesDataGridView";
             this.clientesDataGridView.ReadOnly = true;
-            this.clientesDataGridView.Size = new System.Drawing.Size(393, 491);
+            this.clientesDataGridView.Size = new System.Drawing.Size(393, 519);
             this.clientesDataGridView.TabIndex = 0;
             this.clientesDataGridView.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.clientesDataGridView_CellEnter);
             // 
@@ -800,9 +803,11 @@
             // 
             this.emailClienteTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientesBindingSource, "EmailCliente", true));
             this.emailClienteTextBox.Location = new System.Drawing.Point(514, 263);
+            this.emailClienteTextBox.MaxLength = 500;
             this.emailClienteTextBox.Name = "emailClienteTextBox";
-            this.emailClienteTextBox.Size = new System.Drawing.Size(155, 20);
+            this.emailClienteTextBox.Size = new System.Drawing.Size(406, 20);
             this.emailClienteTextBox.TabIndex = 16;
+            this.toolTip1.SetToolTip(this.emailClienteTextBox, "Puede escribir varios emails separados por ;");
             // 
             // nomContactoTextBox
             // 
@@ -831,7 +836,7 @@
             // credClienteTextBox
             // 
             this.credClienteTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientesBindingSource, "CredCliente", true));
-            this.credClienteTextBox.Location = new System.Drawing.Point(748, 318);
+            this.credClienteTextBox.Location = new System.Drawing.Point(748, 346);
             this.credClienteTextBox.Name = "credClienteTextBox";
             this.credClienteTextBox.Size = new System.Drawing.Size(50, 20);
             this.credClienteTextBox.TabIndex = 24;
@@ -842,7 +847,7 @@
             this.idFormaPagoComboBox.DataSource = this.formasPagoBindingSource;
             this.idFormaPagoComboBox.DisplayMember = "DesFormaPago";
             this.idFormaPagoComboBox.FormattingEnabled = true;
-            this.idFormaPagoComboBox.Location = new System.Drawing.Point(748, 263);
+            this.idFormaPagoComboBox.Location = new System.Drawing.Point(748, 289);
             this.idFormaPagoComboBox.Name = "idFormaPagoComboBox";
             this.idFormaPagoComboBox.Size = new System.Drawing.Size(144, 21);
             this.idFormaPagoComboBox.TabIndex = 22;
@@ -856,17 +861,17 @@
             // obsClienteTextBox
             // 
             this.obsClienteTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientesBindingSource, "ObsCliente", true));
-            this.obsClienteTextBox.Location = new System.Drawing.Point(514, 315);
+            this.obsClienteTextBox.Location = new System.Drawing.Point(514, 316);
             this.obsClienteTextBox.Multiline = true;
             this.obsClienteTextBox.Name = "obsClienteTextBox";
-            this.obsClienteTextBox.Size = new System.Drawing.Size(155, 39);
+            this.obsClienteTextBox.Size = new System.Drawing.Size(155, 50);
             this.obsClienteTextBox.TabIndex = 18;
             // 
             // activoClienteCheckBox
             // 
             this.activoClienteCheckBox.AutoSize = true;
             this.activoClienteCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.clientesBindingSource, "ActivoCliente", true));
-            this.activoClienteCheckBox.Location = new System.Drawing.Point(905, 321);
+            this.activoClienteCheckBox.Location = new System.Drawing.Point(905, 349);
             this.activoClienteCheckBox.Name = "activoClienteCheckBox";
             this.activoClienteCheckBox.Size = new System.Drawing.Size(15, 14);
             this.activoClienteCheckBox.TabIndex = 14;
@@ -879,7 +884,7 @@
             // webClienteTextBox
             // 
             this.webClienteTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientesBindingSource, "WebCliente", true));
-            this.webClienteTextBox.Location = new System.Drawing.Point(514, 289);
+            this.webClienteTextBox.Location = new System.Drawing.Point(514, 290);
             this.webClienteTextBox.Name = "webClienteTextBox";
             this.webClienteTextBox.Size = new System.Drawing.Size(155, 20);
             this.webClienteTextBox.TabIndex = 17;
@@ -887,7 +892,7 @@
             // button1
             // 
             this.button1.Image = global::Promowork.Properties.Resources.bindingNavigatorAddNewItem_Image;
-            this.button1.Location = new System.Drawing.Point(898, 263);
+            this.button1.Location = new System.Drawing.Point(898, 289);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(22, 21);
             this.button1.TabIndex = 36;
@@ -909,7 +914,7 @@
             this.idCuentaComboBox.DisplayMember = "CuentaBanco";
             this.idCuentaComboBox.DropDownWidth = 250;
             this.idCuentaComboBox.FormattingEnabled = true;
-            this.idCuentaComboBox.Location = new System.Drawing.Point(748, 290);
+            this.idCuentaComboBox.Location = new System.Drawing.Point(748, 318);
             this.idCuentaComboBox.Name = "idCuentaComboBox";
             this.idCuentaComboBox.Size = new System.Drawing.Size(144, 21);
             this.idCuentaComboBox.TabIndex = 23;
@@ -1071,7 +1076,7 @@
             // button2
             // 
             this.button2.Image = global::Promowork.Properties.Resources.bindingNavigatorAddNewItem_Image;
-            this.button2.Location = new System.Drawing.Point(898, 290);
+            this.button2.Location = new System.Drawing.Point(898, 318);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(22, 21);
             this.button2.TabIndex = 56;
@@ -1118,14 +1123,14 @@
             // copiaFacturaTextBox
             // 
             this.copiaFacturaTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.clientesBindingSource, "AdjCliente", true));
-            this.copiaFacturaTextBox.Location = new System.Drawing.Point(514, 360);
+            this.copiaFacturaTextBox.Location = new System.Drawing.Point(514, 388);
             this.copiaFacturaTextBox.Name = "copiaFacturaTextBox";
             this.copiaFacturaTextBox.Size = new System.Drawing.Size(270, 20);
             this.copiaFacturaTextBox.TabIndex = 25;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(865, 358);
+            this.button5.Location = new System.Drawing.Point(865, 386);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(31, 23);
             this.button5.TabIndex = 27;
@@ -1136,7 +1141,7 @@
             // button6
             // 
             this.button6.Image = global::Promowork.Properties.Resources.bindingNavigatorDeleteItem_Image;
-            this.button6.Location = new System.Drawing.Point(903, 358);
+            this.button6.Location = new System.Drawing.Point(903, 386);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(22, 23);
             this.button6.TabIndex = 28;
@@ -1145,7 +1150,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(790, 358);
+            this.button7.Location = new System.Drawing.Point(790, 386);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(69, 23);
             this.button7.TabIndex = 26;
@@ -1282,7 +1287,7 @@
             // salariosVentaGridControl
             // 
             this.salariosVentaGridControl.DataSource = this.salariosVentaBindingSource;
-            this.salariosVentaGridControl.Location = new System.Drawing.Point(411, 386);
+            this.salariosVentaGridControl.Location = new System.Drawing.Point(411, 414);
             this.salariosVentaGridControl.MainView = this.gridView1;
             this.salariosVentaGridControl.Name = "salariosVentaGridControl";
             this.salariosVentaGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -1298,7 +1303,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(945, 539);
+            this.ClientSize = new System.Drawing.Size(945, 565);
             this.Controls.Add(this.salariosVentaGridControl);
             this.Controls.Add(copiaFacturaLabel);
             this.Controls.Add(this.copiaFacturaTextBox);
@@ -1497,5 +1502,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colSalVenta;
         private DevExpress.XtraGrid.Columns.GridColumn colIdObra;
         private DevExpress.XtraGrid.GridControl salariosVentaGridControl;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

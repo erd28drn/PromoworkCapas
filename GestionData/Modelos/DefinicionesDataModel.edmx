@@ -97,7 +97,7 @@
           <Property Name="TelCliente" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="FaxCliente" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="CelCliente" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="EmailCliente" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="EmailCliente" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
           <Property Name="WebCliente" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="NomContacto" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="TelContacto" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />

@@ -23,6 +23,7 @@ using System.Net.Mail;
 using System.Net;
 using GestionData;
 using GestionData.Entities;
+using GestionData.Modelos;
 
 
 namespace GestionServices.Generales
@@ -166,65 +167,78 @@ namespace GestionServices.Generales
         public static string EnviaCorreo(int idEmpresa, List<string> destinatarios, string asunto, List<string> adjuntos, string cuerpo, List<string> responderA, List<string> ccos=null, string nombreRemitente="")
         {
             string mensaje="";
-            
-
-            GestionData.DatosReportesNuevosTableAdapters.ServidorSMTPTableAdapter ServidorSMTPTableAdapter = new GestionData.DatosReportesNuevosTableAdapters.ServidorSMTPTableAdapter();
-            var servidorSMTP = ServidorSMTPTableAdapter.GetData(idEmpresa).First();
-
-            SmtpClient smtp = new SmtpClient();
-            smtp.Host = servidorSMTP.NombreServidorSMTP;
-            smtp.Port = servidorSMTP.PuertoSMTP;
-            smtp.EnableSsl = servidorSMTP.HabilitarSSL;
-            smtp.UseDefaultCredentials = servidorSMTP.UsarCredencialesPorDefecto;
-            smtp.Credentials = new NetworkCredential(servidorSMTP.Usuario, servidorSMTP.Clave);
-
-            MailMessage msg = new MailMessage();
-
-            string from = "compras@promowork.es";//servidorSMTP.Usuario
-            if (responderA!=null && responderA.Any())
-            {
-                from = responderA.FirstOrDefault();
-                foreach (string responder in responderA)
-                {
-                    msg.ReplyToList.Add(new MailAddress(responder));
-                }
-            }
-           
-            msg.IsBodyHtml = true;
-            msg.From = new MailAddress(from, nombreRemitente);//servidorSMTP.Usuario);
-            msg.Subject = asunto;
-            msg.Body = cuerpo;
-
-            foreach (string destinatario in destinatarios)
-            {
-                msg.To.Add(new MailAddress(destinatario.Trim()));
-            }
-            if (ccos != null)
-            {
-                foreach (string cco in ccos)
-                {
-                    msg.Bcc.Add(new MailAddress(cco.Trim()));
-                }
-            }
-
-            if (adjuntos != null)
-            {
-                foreach (string adjunto in adjuntos)
-                {
-                    Attachment attachment = new Attachment(adjunto);
-                    msg.Attachments.Add(attachment);
-                }
-            }
-
+            GeneralesDataModel contextoGeneral = new GeneralesDataModel();
+            ServidorSMTP servidorSMTP = null;
             try
             {
-                smtp.Send(msg);
-                msg.Dispose();
-                mensaje = "OK";
+                servidorSMTP = contextoGeneral.ServidorSMTP.FirstOrDefault(s => s.IdEmpresa == idEmpresa);
             }
             catch (Exception ex)
             {
-                mensaje = "Error al enviar correo electrónico: " + ex.Message;
+                mensaje = "Ocurrió un error al obtener los datos del servidor SMTP. " + ex.Message;
+            }
+
+            if (servidorSMTP != null)
+            {
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = servidorSMTP.NombreServidorSMTP;
+                smtp.Port = servidorSMTP.PuertoSMTP.Value;
+                smtp.EnableSsl = servidorSMTP.HabilitarSSL.Value;
+                smtp.UseDefaultCredentials = servidorSMTP.UsarCredencialesPorDefecto.Value;
+                smtp.Credentials = new NetworkCredential(servidorSMTP.Usuario, servidorSMTP.Clave);
+
+                MailMessage msg = new MailMessage();
+
+                string from = "compras@promowork.es";//servidorSMTP.Usuario
+                if (responderA != null && responderA.Any())
+                {
+                    from = responderA.FirstOrDefault();
+                    foreach (string responder in responderA)
+                    {
+                        msg.ReplyToList.Add(new MailAddress(responder));
+                    }
+                }
+
+                msg.IsBodyHtml = true;
+                msg.From = new MailAddress(from, nombreRemitente);//servidorSMTP.Usuario);
+                msg.Subject = asunto;
+                msg.Body = cuerpo;
+
+                foreach (string destinatario in destinatarios)
+                {
+                    msg.To.Add(new MailAddress(destinatario.Trim()));
+                }
+                if (ccos != null)
+                {
+                    foreach (string cco in ccos)
+                    {
+                        msg.Bcc.Add(new MailAddress(cco.Trim()));
+                    }
+                }
+
+                if (adjuntos != null)
+                {
+                    foreach (string adjunto in adjuntos)
+                    {
+                        Attachment attachment = new Attachment(adjunto);
+                        msg.Attachments.Add(attachment);
+                    }
+                }
+
+                try
+                {
+                    smtp.Send(msg);
+                    msg.Dispose();
+                    mensaje = "OK";
+                }
+                catch (Exception ex)
+                {
+                    mensaje = "Error al enviar correo electrónico: " + ex.Message;
+                }
+            }
+            else
+            {
+                mensaje = "No existen datos de servidor SMTP para la empresa actual";
             }
 
             return mensaje;

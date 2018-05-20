@@ -104,28 +104,25 @@ namespace Promowork.Formularios.General
             HabilitaDeshabilitaBtnAceptar();
             if (cbUsuario.SelectedIndex != -1)
             {
-                
+
                 usuarioSeleccionado = usuarios.FirstOrDefault(u => u.IdUsuario == (int)cbUsuario.SelectedValue);
                 empresasUsuario = repoEmpresa.GetEmpresasUsuario(usuarioSeleccionado.IdUsuario);
 
                 empresasBindingSource.DataSource = empresasUsuario;
 
 
-                configuracionUsuario = JsonConvert.DeserializeObject<ConfiguracionUsuario>(usuarioSeleccionado.ConfiguracionUsuario);
-
-                if (configuracionUsuario != null)
+                try
                 {
-                    cbEmpresa.SelectedValue = configuracionUsuario.empresaSeleccionada;
-                    tbMes.Value = configuracionUsuario.mesSeleccionado.Value;
-                    tbAno.Value = configuracionUsuario.anoSeleccionado.Value;
+                    configuracionUsuario = JsonConvert.DeserializeObject<ConfiguracionUsuario>(usuarioSeleccionado.ConfiguracionUsuario) ?? new ConfiguracionUsuario();
                 }
-                else
+                catch
                 {
-                    cbEmpresa.SelectedIndex = 0;
-                    tbMes.Value = DateTime.Today.Month;
-                    tbAno.Value = DateTime.Today.Year;
+                    configuracionUsuario = new ConfiguracionUsuario();
                 }
 
+                cbEmpresa.SelectedValue = configuracionUsuario.empresaSeleccionada ?? empresasUsuario.FirstOrDefault().IdEmpresa;
+                tbMes.Value = configuracionUsuario.mesSeleccionado ?? DateTime.Today.Month;
+                tbAno.Value = configuracionUsuario.anoSeleccionado ?? DateTime.Today.Year;
             }
            
         }

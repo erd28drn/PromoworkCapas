@@ -23,6 +23,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("Promowork_dataModel", "FK_AccesosEmpresas_Usuarios", "Usuarios", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(GestionData.Modelos.Usuarios), "AccesosEmpresas", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GestionData.Modelos.AccesosEmpresas), true)]
 [assembly: EdmRelationshipAttribute("Promowork_dataModel", "FK_AccesosOpciones_Usuarios", "Usuarios", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(GestionData.Modelos.Usuarios), "AccesosOpciones", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GestionData.Modelos.AccesosOpciones), true)]
 [assembly: EdmRelationshipAttribute("Promowork_dataModel", "FK_Usuarios_Empresas", "Empresas", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(GestionData.Modelos.Empresas), "Usuarios", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GestionData.Modelos.Usuarios), true)]
+[assembly: EdmRelationshipAttribute("Promowork_dataModel", "FK_ServidorSMTP_Empresas", "Empresas", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(GestionData.Modelos.Empresas), "ServidorSMTP", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GestionData.Modelos.ServidorSMTP), true)]
 
 #endregion
 
@@ -137,6 +138,22 @@ namespace GestionData.Modelos
             }
         }
         private ObjectSet<Usuarios> _Usuarios;
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        public ObjectSet<ServidorSMTP> ServidorSMTP
+        {
+            get
+            {
+                if ((_ServidorSMTP == null))
+                {
+                    _ServidorSMTP = base.CreateObjectSet<ServidorSMTP>("ServidorSMTP");
+                }
+                return _ServidorSMTP;
+            }
+        }
+        private ObjectSet<ServidorSMTP> _ServidorSMTP;
 
         #endregion
 
@@ -172,6 +189,14 @@ namespace GestionData.Modelos
         public void AddToUsuarios(Usuarios usuarios)
         {
             base.AddObject("Usuarios", usuarios);
+        }
+    
+        /// <summary>
+        /// Método desusado para agregar un nuevo objeto al EntitySet ServidorSMTP. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
+        /// </summary>
+        public void AddToServidorSMTP(ServidorSMTP servidorSMTP)
+        {
+            base.AddObject("ServidorSMTP", servidorSMTP);
         }
 
         #endregion
@@ -1507,6 +1532,295 @@ namespace GestionData.Modelos
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Usuarios>("Promowork_dataModel.FK_Usuarios_Empresas", "Usuarios", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Promowork_dataModel", "FK_ServidorSMTP_Empresas", "ServidorSMTP")]
+        public EntityCollection<ServidorSMTP> ServidorSMTP
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ServidorSMTP>("Promowork_dataModel.FK_ServidorSMTP_Empresas", "ServidorSMTP");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ServidorSMTP>("Promowork_dataModel.FK_ServidorSMTP_Empresas", "ServidorSMTP", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No hay documentación de metadatos disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Promowork_dataModel", Name="ServidorSMTP")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class ServidorSMTP : EntityObject
+    {
+        #region Método de generador
+    
+        /// <summary>
+        /// Crear un nuevo objeto ServidorSMTP.
+        /// </summary>
+        /// <param name="idSMTP">Valor inicial de la propiedad IdSMTP.</param>
+        public static ServidorSMTP CreateServidorSMTP(global::System.Int32 idSMTP)
+        {
+            ServidorSMTP servidorSMTP = new ServidorSMTP();
+            servidorSMTP.IdSMTP = idSMTP;
+            return servidorSMTP;
+        }
+
+        #endregion
+
+        #region Propiedades primitivas
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 IdSMTP
+        {
+            get
+            {
+                return _IdSMTP;
+            }
+            set
+            {
+                if (_IdSMTP != value)
+                {
+                    OnIdSMTPChanging(value);
+                    ReportPropertyChanging("IdSMTP");
+                    _IdSMTP = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("IdSMTP");
+                    OnIdSMTPChanged();
+                }
+            }
+        }
+        private global::System.Int32 _IdSMTP;
+        partial void OnIdSMTPChanging(global::System.Int32 value);
+        partial void OnIdSMTPChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdEmpresa
+        {
+            get
+            {
+                return _IdEmpresa;
+            }
+            set
+            {
+                OnIdEmpresaChanging(value);
+                ReportPropertyChanging("IdEmpresa");
+                _IdEmpresa = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdEmpresa");
+                OnIdEmpresaChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdEmpresa;
+        partial void OnIdEmpresaChanging(Nullable<global::System.Int32> value);
+        partial void OnIdEmpresaChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String NombreServidorSMTP
+        {
+            get
+            {
+                return _NombreServidorSMTP;
+            }
+            set
+            {
+                OnNombreServidorSMTPChanging(value);
+                ReportPropertyChanging("NombreServidorSMTP");
+                _NombreServidorSMTP = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("NombreServidorSMTP");
+                OnNombreServidorSMTPChanged();
+            }
+        }
+        private global::System.String _NombreServidorSMTP;
+        partial void OnNombreServidorSMTPChanging(global::System.String value);
+        partial void OnNombreServidorSMTPChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> PuertoSMTP
+        {
+            get
+            {
+                return _PuertoSMTP;
+            }
+            set
+            {
+                OnPuertoSMTPChanging(value);
+                ReportPropertyChanging("PuertoSMTP");
+                _PuertoSMTP = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PuertoSMTP");
+                OnPuertoSMTPChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _PuertoSMTP;
+        partial void OnPuertoSMTPChanging(Nullable<global::System.Int32> value);
+        partial void OnPuertoSMTPChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> HabilitarSSL
+        {
+            get
+            {
+                return _HabilitarSSL;
+            }
+            set
+            {
+                OnHabilitarSSLChanging(value);
+                ReportPropertyChanging("HabilitarSSL");
+                _HabilitarSSL = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("HabilitarSSL");
+                OnHabilitarSSLChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _HabilitarSSL;
+        partial void OnHabilitarSSLChanging(Nullable<global::System.Boolean> value);
+        partial void OnHabilitarSSLChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> UsarCredencialesPorDefecto
+        {
+            get
+            {
+                return _UsarCredencialesPorDefecto;
+            }
+            set
+            {
+                OnUsarCredencialesPorDefectoChanging(value);
+                ReportPropertyChanging("UsarCredencialesPorDefecto");
+                _UsarCredencialesPorDefecto = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UsarCredencialesPorDefecto");
+                OnUsarCredencialesPorDefectoChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _UsarCredencialesPorDefecto;
+        partial void OnUsarCredencialesPorDefectoChanging(Nullable<global::System.Boolean> value);
+        partial void OnUsarCredencialesPorDefectoChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Usuario
+        {
+            get
+            {
+                return _Usuario;
+            }
+            set
+            {
+                OnUsuarioChanging(value);
+                ReportPropertyChanging("Usuario");
+                _Usuario = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Usuario");
+                OnUsuarioChanged();
+            }
+        }
+        private global::System.String _Usuario;
+        partial void OnUsuarioChanging(global::System.String value);
+        partial void OnUsuarioChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Clave
+        {
+            get
+            {
+                return _Clave;
+            }
+            set
+            {
+                OnClaveChanging(value);
+                ReportPropertyChanging("Clave");
+                _Clave = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Clave");
+                OnClaveChanged();
+            }
+        }
+        private global::System.String _Clave;
+        partial void OnClaveChanging(global::System.String value);
+        partial void OnClaveChanged();
+
+        #endregion
+
+    
+        #region Propiedades de navegación
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Promowork_dataModel", "FK_ServidorSMTP_Empresas", "Empresas")]
+        public Empresas Empresas
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Empresas>("Promowork_dataModel.FK_ServidorSMTP_Empresas", "Empresas").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Empresas>("Promowork_dataModel.FK_ServidorSMTP_Empresas", "Empresas").Value = value;
+            }
+        }
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Empresas> EmpresasReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Empresas>("Promowork_dataModel.FK_ServidorSMTP_Empresas", "Empresas");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Empresas>("Promowork_dataModel.FK_ServidorSMTP_Empresas", "Empresas", value);
                 }
             }
         }

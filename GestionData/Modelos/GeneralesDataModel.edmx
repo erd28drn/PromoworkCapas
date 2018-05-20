@@ -9,6 +9,7 @@
           <EntitySet Name="AccesosEmpresas" EntityType="Promowork_dataModel.Store.AccesosEmpresas" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="AccesosOpciones" EntityType="Promowork_dataModel.Store.AccesosOpciones" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Empresas" EntityType="Promowork_dataModel.Store.Empresas" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ServidorSMTP" EntityType="Promowork_dataModel.Store.ServidorSMTP" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Usuarios" EntityType="Promowork_dataModel.Store.Usuarios" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK_AccesosEmpresas_Empresas" Association="Promowork_dataModel.Store.FK_AccesosEmpresas_Empresas">
             <End Role="Empresas" EntitySet="Empresas" />
@@ -21,6 +22,10 @@
           <AssociationSet Name="FK_AccesosOpciones_Usuarios" Association="Promowork_dataModel.Store.FK_AccesosOpciones_Usuarios">
             <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="AccesosOpciones" EntitySet="AccesosOpciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServidorSMTP_Empresas" Association="Promowork_dataModel.Store.FK_ServidorSMTP_Empresas">
+            <End Role="Empresas" EntitySet="Empresas" />
+            <End Role="ServidorSMTP" EntitySet="ServidorSMTP" />
           </AssociationSet>
           <AssociationSet Name="FK_Usuarios_Empresas" Association="Promowork_dataModel.Store.FK_Usuarios_Empresas">
             <End Role="Empresas" EntitySet="Empresas" />
@@ -86,6 +91,19 @@
           <Property Name="CuerpoEnvioFacturas" Type="varchar" MaxLength="4000" />
           <Property Name="ConfiguracionEmpresa" Type="varchar(max)" />
         </EntityType>
+        <EntityType Name="ServidorSMTP">
+          <Key>
+            <PropertyRef Name="IdSMTP" />
+          </Key>
+          <Property Name="IdSMTP" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdEmpresa" Type="int" />
+          <Property Name="NombreServidorSMTP" Type="varchar" MaxLength="50" />
+          <Property Name="PuertoSMTP" Type="int" />
+          <Property Name="HabilitarSSL" Type="bit" />
+          <Property Name="UsarCredencialesPorDefecto" Type="bit" />
+          <Property Name="Usuario" Type="varchar" MaxLength="50" />
+          <Property Name="Clave" Type="varchar" MaxLength="30" />
+        </EntityType>
         <EntityType Name="Usuarios">
           <Key>
             <PropertyRef Name="IdUsuario" />
@@ -148,6 +166,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ServidorSMTP_Empresas">
+          <End Role="Empresas" Type="Promowork_dataModel.Store.Empresas" Multiplicity="0..1" />
+          <End Role="ServidorSMTP" Type="Promowork_dataModel.Store.ServidorSMTP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresas">
+              <PropertyRef Name="IdEmpresa" />
+            </Principal>
+            <Dependent Role="ServidorSMTP">
+              <PropertyRef Name="IdEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Usuarios_Empresas">
           <End Role="Empresas" Type="Promowork_dataModel.Store.Empresas" Multiplicity="0..1" />
           <End Role="Usuarios" Type="Promowork_dataModel.Store.Usuarios" Multiplicity="*" />
@@ -184,6 +214,11 @@
           <AssociationSet Name="FK_Usuarios_Empresas" Association="Promowork_dataModel.FK_Usuarios_Empresas">
             <End Role="Empresas" EntitySet="Empresas" />
             <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <EntitySet Name="ServidorSMTP" EntityType="Promowork_dataModel.ServidorSMTP" />
+          <AssociationSet Name="FK_ServidorSMTP_Empresas" Association="Promowork_dataModel.FK_ServidorSMTP_Empresas">
+            <End Role="Empresas" EntitySet="Empresas" />
+            <End Role="ServidorSMTP" EntitySet="ServidorSMTP" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="AccesosEmpresas">
@@ -249,6 +284,7 @@
           <NavigationProperty Name="AccesosEmpresas" Relationship="Promowork_dataModel.FK_AccesosEmpresas_Empresas" FromRole="Empresas" ToRole="AccesosEmpresas" />
           <NavigationProperty Name="Usuarios" Relationship="Promowork_dataModel.FK_Usuarios_Empresas" FromRole="Empresas" ToRole="Usuarios" />
           <Property Type="String" Name="ConfiguracionEmpresa" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ServidorSMTP" Relationship="Promowork_dataModel.FK_ServidorSMTP_Empresas" FromRole="Empresas" ToRole="ServidorSMTP" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
@@ -324,6 +360,32 @@
             </Principal>
             <Dependent Role="Usuarios">
               <PropertyRef Name="UltEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ServidorSMTP">
+          <Key>
+            <PropertyRef Name="IdSMTP" />
+          </Key>
+          <Property Type="Int32" Name="IdSMTP" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="IdEmpresa" />
+          <Property Type="String" Name="NombreServidorSMTP" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="PuertoSMTP" />
+          <Property Type="Boolean" Name="HabilitarSSL" />
+          <Property Type="Boolean" Name="UsarCredencialesPorDefecto" />
+          <Property Type="String" Name="Usuario" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Clave" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Empresas" Relationship="Promowork_dataModel.FK_ServidorSMTP_Empresas" FromRole="ServidorSMTP" ToRole="Empresas" />
+        </EntityType>
+        <Association Name="FK_ServidorSMTP_Empresas">
+          <End Type="Promowork_dataModel.Empresas" Role="Empresas" Multiplicity="0..1" />
+          <End Type="Promowork_dataModel.ServidorSMTP" Role="ServidorSMTP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresas">
+              <PropertyRef Name="IdEmpresa" />
+            </Principal>
+            <Dependent Role="ServidorSMTP">
+              <PropertyRef Name="IdEmpresa" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -416,6 +478,20 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="ServidorSMTP">
+            <EntityTypeMapping TypeName="Promowork_dataModel.ServidorSMTP">
+              <MappingFragment StoreEntitySet="ServidorSMTP">
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="UsarCredencialesPorDefecto" ColumnName="UsarCredencialesPorDefecto" />
+                <ScalarProperty Name="HabilitarSSL" ColumnName="HabilitarSSL" />
+                <ScalarProperty Name="PuertoSMTP" ColumnName="PuertoSMTP" />
+                <ScalarProperty Name="NombreServidorSMTP" ColumnName="NombreServidorSMTP" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdSMTP" ColumnName="IdSMTP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -442,21 +518,27 @@
         <EntityTypeShape EntityType="Promowork_dataModel.Empresas" Width="1.5" PointX="0.75" PointY="1.25" Height="7.9416308593749978" IsExpanded="true" />
         <EntityTypeShape EntityType="Promowork_dataModel.Usuarios" Width="1.5" PointX="3" PointY="5.875" Height="4.480205078125" IsExpanded="true" />
         <AssociationConnector Association="Promowork_dataModel.FK_AccesosEmpresas_Empresas" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="4.78125" />
-          <ConnectorPoint PointX="5.25" PointY="4.78125" />
+          <ConnectorPoint PointX="2.25" PointY="5.31224609375" />
+          <ConnectorPoint PointX="5.25" PointY="5.31224609375" />
         </AssociationConnector>
         <AssociationConnector Association="Promowork_dataModel.FK_AccesosEmpresas_Usuarios" ManuallyRouted="false">
-          <ConnectorPoint PointX="3.75" PointY="5.875" />
-          <ConnectorPoint PointX="3.75" PointY="5.359377" />
-          <ConnectorPoint PointX="5.25" PointY="5.359377" />
+          <ConnectorPoint PointX="4.5" PointY="5.875" />
+          <ConnectorPoint PointX="4.875" PointY="5.5" />
+          <ConnectorPoint PointX="4.875" PointY="6.297587890625" />
+          <ConnectorPoint PointX="5.25" PointY="5.922587890625" />
         </AssociationConnector>
         <AssociationConnector Association="Promowork_dataModel.FK_AccesosOpciones_Usuarios" ManuallyRouted="false">
           <ConnectorPoint PointX="4.5" PointY="8.0862939453125" />
           <ConnectorPoint PointX="5.25" PointY="8.0862939453125" />
         </AssociationConnector>
         <AssociationConnector Association="Promowork_dataModel.FK_Usuarios_Empresas" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="7.5333154296874989" />
-          <ConnectorPoint PointX="3" PointY="7.5333154296874989" />
+          <ConnectorPoint PointX="2.25" PointY="7.7256168619791667" />
+          <ConnectorPoint PointX="3" PointY="7.7256168619791667" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Promowork_dataModel.ServidorSMTP" Width="1.5" PointX="3" PointY="2" Height="2.7494921874999996" />
+        <AssociationConnector Association="Promowork_dataModel.FK_ServidorSMTP_Empresas" >
+          <ConnectorPoint PointX="2.25" PointY="3.37474609375" />
+          <ConnectorPoint PointX="3" PointY="3.37474609375" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

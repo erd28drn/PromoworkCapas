@@ -372,7 +372,7 @@
           <DataField>NumFactura</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-		<Field Name="ImpTotalBase">
+        <Field Name="ImpTotalBase">
           <DataField>ImpTotalBase</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
@@ -380,7 +380,7 @@
           <DataField>ImpTotalBaseDescuentos</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
-		<Field Name="ImpTotal">
+        <Field Name="ImpTotal">
           <DataField>ImpTotal</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
@@ -7731,7 +7731,7 @@ End Function</Code>
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=First(Fields!ImpTotal.Value, "DataSet3")*First(Fields!Retencion.Value, "DataSet3")/100</Value>
+                  <Value>=First(Fields!ImpTotalBaseDescuentos.Value, "DataSet3")*First(Fields!Retencion.Value, "DataSet3")/100</Value>
                   <Style>
                     <FontSize>8pt</FontSize>
                     <Format>#,0.00'€';(#,0.00'€');''</Format>
@@ -7769,7 +7769,7 @@ End Function</Code>
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=First(Fields!ImpTotal.Value, "DataSet3")*(1-(First(Fields!Retencion.Value, "DataSet3")/100))-First(Fields!Anticipo.Value, "DataSet3")</Value>
+                  <Value>=First(Fields!ImpTotal.Value, "DataSet3")-(First(Fields!ImpTotalBaseDescuentos.Value, "DataSet3")*First(Fields!Retencion.Value, "DataSet3")/100)-First(Fields!Anticipo.Value, "DataSet3")</Value>
                   <Style>
                     <FontSize>12pt</FontSize>
                     <FontWeight>Bold</FontWeight>
