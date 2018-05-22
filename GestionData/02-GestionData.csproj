@@ -101,7 +101,7 @@
     <Compile Include="Enumeradores\EnumCargaAlbaranes.cs" />
     <Compile Include="Enumeradores\EnumCargaFacturas.cs" />
     <Compile Include="Enumeradores\EnumEnhanced.cs" />
-    <Compile Include="Helpers\EmpresaHelper.cs" />
+    <Compile Include="Helpers\GeneralHelper.cs" />
     <Compile Include="masterDataSet.cs">
       <DependentUpon>masterDataSet.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -148,6 +148,8 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Repositorios\RepositorioTrabajador.cs" />
+    <Compile Include="Repositorios\RepositorioCliente.cs" />
     <Compile Include="Repositorios\RepositorioEmpresa.cs" />
     <Compile Include="Repositorios\RepositorioFacturasCab.cs" />
     <Compile Include="Repositorios\RepositorioUsuario.cs" />

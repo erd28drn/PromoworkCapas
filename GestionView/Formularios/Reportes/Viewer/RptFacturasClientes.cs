@@ -13,6 +13,7 @@ using GestionServices.Generales;
 using GestionServices.Definiciones;
 using System.IO;
 using GestionData.Repositorios;
+using GestionData.Helpers;
 
 namespace Promowork.Formularios.Reportes.Viewer
 {
@@ -30,19 +31,25 @@ namespace Promowork.Formularios.Reportes.Viewer
         RepositorioUsuario repoUsuario = new RepositorioUsuario();
         RepositorioEmpresa repoEmpresa = new RepositorioEmpresa();
         RepositorioFacturasCab repoFacturasCab = new RepositorioFacturasCab();
+        RepositorioTrabajador repoTrabajador = new RepositorioTrabajador();
         public DateTime? fechaEnvioFactura = null;
         ConfiguracionUsuario configuracionUsuario;
         ConfiguracionEmpresa configuracionEmpresa;
+        private int idFactura;
 
         internal void LoadFiltro(int nIdFactCab, string reporte, bool facturaHoras = false)
         {
+            idFactura = nIdFactCab;
             configuracionUsuario = repoUsuario.GetConfiguracionUsuario(VariablesGlobales.nIdUsuarioActual) ?? new ConfiguracionUsuario();
             configuracionEmpresa = repoEmpresa.GetConfiguracionEmpresa(VariablesGlobales.nIdEmpresaActual) ?? new ConfiguracionEmpresa();
+
+            tbAsuntoMensaje.Text = configuracionEmpresa.asuntoEnvioFacturas;
+            tbCuerpoMensaje.Text = configuracionEmpresa.CuerpoEnvioFacturas;
 
             this.WindowState = FormWindowState.Maximized;
             this.reportViewer1.LocalReport.ReportEmbeddedResource = reporte;
 
-            this.GestoresTableAdapter.FillByConEmail(this.Promowork_dataDataSet.Gestores, VariablesGlobales.nIdEmpresaActual);
+            //this.GestoresTableAdapter.FillByConEmail(this.Promowork_dataDataSet.Gestores, VariablesGlobales.nIdEmpresaActual);
 
             // TODO: This line of code loads data into the 'Promowork_dataDataSet.PresupuestoActual' table. You can move, or remove it, as needed.
             this.FacturasDetImpTableAdapter.FillByFactura(this.Promowork_dataDataSet.FacturasDetImp, nIdFactCab);
@@ -51,7 +58,22 @@ namespace Promowork.Formularios.Reportes.Viewer
             this.FacturasDetHorasImpTableAdapter.FillbyFactura(this.Promowork_dataDataSet.FacturasDetHorasImp, nIdFactCab);
             // TODO: This line of code loads data into the 'Promowork_dataDataSet.EmpresasActual' table. You can move, or remove it, as needed.
             this.empresasPoblacion.FillByEmpresa(this.Promowork_dataDataSet.EmpresasPoblacion, VariablesGlobales.nIdEmpresaActual);
-            this.empresasTableAdapter.FillByEmpresa(this.Promowork_dataDataSet.Empresas, VariablesGlobales.nIdEmpresaActual);
+            //this.empresasTableAdapter.FillByEmpresa(this.Promowork_dataDataSet.Empresas, VariablesGlobales.nIdEmpresaActual);
+
+            factura = (DataRowView)FacturasCabImpBindingSource.Current;
+
+            tbCliente.Text = factura["DesCliente"].ToString();
+
+            var trabajadores = repoTrabajador.GetTrabajadoresConEmail(VariablesGlobales.nIdEmpresaActual);
+            cbTrabajadores.Properties.DataSource = trabajadores;
+            cbTrabajadores.EditValue = configuracionUsuario.responderASeleccionado;
+
+            ProveedoresService servicioProveedores = new ProveedoresService();
+            var gestores = servicioProveedores.ObtenerGestoresConEmail(VariablesGlobales.nIdEmpresaActual, true);
+            cbGestor.Properties.DataSource = gestores;
+            cbGestor.EditValue = configuracionUsuario.gestorSeleccionado;
+
+            RellenaEmailCliente();
 
             // 
             // reportViewer1
@@ -85,17 +107,8 @@ namespace Promowork.Formularios.Reportes.Viewer
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource14);
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource15);
 
+            
 
-            var trabajadores = TrabajadoresService.ObtenerTrabajadoresConEmail(VariablesGlobales.nIdEmpresaActual);
-            cbTrabajadores.Properties.DataSource = trabajadores;
-            cbTrabajadores.EditValue = configuracionUsuario.responderASeleccionado;
-
-            ProveedoresService servicioProveedores = new ProveedoresService();
-            var gestores = servicioProveedores.ObtenerGestoresConEmail(VariablesGlobales.nIdEmpresaActual, true);
-            cbGestor.Properties.DataSource = gestores;
-            cbGestor.EditValue = configuracionUsuario.gestorSeleccionado;
-
-            factura = (DataRowView)FacturasCabImpBindingSource.Current;
             DateTime Fecha = (DateTime)factura["FechaFactura"];
             nombreFactura = factura["NumFactura"].ToString() + "-" + Fecha.Year.ToString() + " " + factura["DesCliente"].ToString();
             this.Text = nombreFactura;
@@ -103,13 +116,18 @@ namespace Promowork.Formularios.Reportes.Viewer
             this.reportViewer1.LocalReport.EnableExternalImages = true;
             this.reportViewer1.RefreshReport();
 
-           
             
+        }
+
+        private void RellenaEmailCliente()
+        {
             List<string> destinatarios = factura["EmailCliente"].ToString().Split(';').ToList();
+            cbEmailsCliente.Properties.Items.Clear();
+            btEnviarFactura.Enabled = false;
             bool emailOK = false;
             foreach (string destinatario in destinatarios)
             {
-                if (Utilidades.ValidarEmail(destinatario))
+                if (GeneralHelper.ValidarEmail(destinatario))
                 {
                     emailOK = true;
                 }
@@ -122,9 +140,10 @@ namespace Promowork.Formularios.Reportes.Viewer
 
             if (emailOK)
             {
+                tbCliente.ForeColor = Color.Black;
+                tbCliente.ToolTip = "";
                 btEnviarFactura.Enabled = true;
-                tbCliente.Text = factura["DesCliente"].ToString();// +" (" + factura["EmailCliente"].ToString() + ")";
-
+                
                 foreach (string email in factura["EmailCliente"].ToString().Split(';').ToList())
                 {
                     cbEmailsCliente.Properties.Items.Add(email, true);
@@ -136,9 +155,6 @@ namespace Promowork.Formularios.Reportes.Viewer
                 tbCliente.ForeColor = Color.Red;
                 tbCliente.ToolTip = "La dirección de correo electrónico del cliente es incorrecta";
             }
-
-
-
         }
 
         private void btEnviarFactura_Click(object sender, EventArgs e)
@@ -239,6 +255,18 @@ namespace Promowork.Formularios.Reportes.Viewer
                 
             }
 
+        }
+
+        private void btAddEmail_Click(object sender, EventArgs e)
+        {
+            rptFacturasClientesAddEmail frm = new rptFacturasClientesAddEmail(factura);
+            frm.ShowDialog();
+            if (frm.DialogResult == System.Windows.Forms.DialogResult.OK)
+            {
+                this.FacturasCabImpTableAdapter.FillByFactura(this.Promowork_dataDataSet.FacturasCabImp, idFactura);
+                factura = (DataRowView)FacturasCabImpBindingSource.Current;
+                RellenaEmailCliente();
+            }
         }
 
     }

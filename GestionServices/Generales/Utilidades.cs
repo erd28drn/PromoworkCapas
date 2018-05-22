@@ -127,42 +127,6 @@ namespace GestionServices.Generales
 
         #endregion EXPORTA REPORTES EN PDF Y XLS
 
-        #region VALIDAR EMAIL
-        public static bool ValidarEmail(string emails)
-        {
-            if (string.IsNullOrEmpty(emails))
-            {
-                return false;
-            }
-
-            try
-            {
-                var lstEmail= emails.Split(';').ToList();
-                foreach (var email in lstEmail)
-                {
-                    new MailAddress(email.Trim());
-                }
-                return true;
-            }
-            catch (FormatException)
-            {
-                return false;
-            }
-            catch (ArgumentNullException)
-            {
-                return false;
-            }
-            catch (ArgumentException)
-            {
-                return false;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
-        #endregion VALIDAR EMAIL
-
         #region ENVIAR REPORTES POR CORREO ELECTRONICO
         public static string EnviaCorreo(int idEmpresa, List<string> destinatarios, string asunto, List<string> adjuntos, string cuerpo, List<string> responderA, List<string> ccos=null, string nombreRemitente="")
         {

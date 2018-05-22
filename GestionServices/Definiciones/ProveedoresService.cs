@@ -7,6 +7,7 @@ using GestionData.Entities;
 using GestionData.Modelos;
 using GestionServices.Generales;
 using GestionData.Promowork_dataDataSetTableAdapters;
+using GestionData.Helpers;
 
 
 namespace GestionServices.Definiciones
@@ -32,7 +33,7 @@ namespace GestionServices.Definiciones
                 EmailGestor = t.EmailProveedor
             }).ToList();
 
-            var gestoresConEmailValido= gestoresConEmail.Where(g => Utilidades.ValidarEmail(g.EmailGestor)).ToList();  
+            var gestoresConEmailValido= gestoresConEmail.Where(g => GeneralHelper.ValidarEmail(g.EmailGestor)).ToList();  
 
             if (primeroVacio)
             {

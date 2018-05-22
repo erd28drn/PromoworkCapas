@@ -96,6 +96,22 @@ namespace GestionData.Modelos
             }
         }
         private ObjectSet<Proveedores> _Proveedores;
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        public ObjectSet<Trabajadores> Trabajadores
+        {
+            get
+            {
+                if ((_Trabajadores == null))
+                {
+                    _Trabajadores = base.CreateObjectSet<Trabajadores>("Trabajadores");
+                }
+                return _Trabajadores;
+            }
+        }
+        private ObjectSet<Trabajadores> _Trabajadores;
 
         #endregion
 
@@ -115,6 +131,14 @@ namespace GestionData.Modelos
         public void AddToProveedores(Proveedores proveedores)
         {
             base.AddObject("Proveedores", proveedores);
+        }
+    
+        /// <summary>
+        /// Método desusado para agregar un nuevo objeto al EntitySet Trabajadores. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
+        /// </summary>
+        public void AddToTrabajadores(Trabajadores trabajadores)
+        {
+            base.AddObject("Trabajadores", trabajadores);
         }
 
         #endregion
@@ -1443,6 +1467,863 @@ namespace GestionData.Modelos
         private Nullable<global::System.Boolean> _EsGestor;
         partial void OnEsGestorChanging(Nullable<global::System.Boolean> value);
         partial void OnEsGestorChanged();
+
+        #endregion
+
+    
+    }
+    
+    /// <summary>
+    /// No hay documentación de metadatos disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Promowork_dataModel", Name="Trabajadores")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Trabajadores : EntityObject
+    {
+        #region Método de generador
+    
+        /// <summary>
+        /// Crear un nuevo objeto Trabajadores.
+        /// </summary>
+        /// <param name="idTrabajador">Valor inicial de la propiedad IdTrabajador.</param>
+        /// <param name="idEmpresa">Valor inicial de la propiedad IdEmpresa.</param>
+        /// <param name="numTrabajador">Valor inicial de la propiedad NumTrabajador.</param>
+        /// <param name="nomTrabajador">Valor inicial de la propiedad NomTrabajador.</param>
+        /// <param name="idCategoria">Valor inicial de la propiedad IdCategoria.</param>
+        public static Trabajadores CreateTrabajadores(global::System.Int32 idTrabajador, global::System.Int32 idEmpresa, global::System.Int32 numTrabajador, global::System.String nomTrabajador, global::System.Int32 idCategoria)
+        {
+            Trabajadores trabajadores = new Trabajadores();
+            trabajadores.IdTrabajador = idTrabajador;
+            trabajadores.IdEmpresa = idEmpresa;
+            trabajadores.NumTrabajador = numTrabajador;
+            trabajadores.NomTrabajador = nomTrabajador;
+            trabajadores.IdCategoria = idCategoria;
+            return trabajadores;
+        }
+
+        #endregion
+
+        #region Propiedades primitivas
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 IdTrabajador
+        {
+            get
+            {
+                return _IdTrabajador;
+            }
+            set
+            {
+                if (_IdTrabajador != value)
+                {
+                    OnIdTrabajadorChanging(value);
+                    ReportPropertyChanging("IdTrabajador");
+                    _IdTrabajador = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("IdTrabajador");
+                    OnIdTrabajadorChanged();
+                }
+            }
+        }
+        private global::System.Int32 _IdTrabajador;
+        partial void OnIdTrabajadorChanging(global::System.Int32 value);
+        partial void OnIdTrabajadorChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 IdEmpresa
+        {
+            get
+            {
+                return _IdEmpresa;
+            }
+            set
+            {
+                OnIdEmpresaChanging(value);
+                ReportPropertyChanging("IdEmpresa");
+                _IdEmpresa = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdEmpresa");
+                OnIdEmpresaChanged();
+            }
+        }
+        private global::System.Int32 _IdEmpresa;
+        partial void OnIdEmpresaChanging(global::System.Int32 value);
+        partial void OnIdEmpresaChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String DNITrabajador
+        {
+            get
+            {
+                return _DNITrabajador;
+            }
+            set
+            {
+                OnDNITrabajadorChanging(value);
+                ReportPropertyChanging("DNITrabajador");
+                _DNITrabajador = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("DNITrabajador");
+                OnDNITrabajadorChanged();
+            }
+        }
+        private global::System.String _DNITrabajador;
+        partial void OnDNITrabajadorChanging(global::System.String value);
+        partial void OnDNITrabajadorChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 NumTrabajador
+        {
+            get
+            {
+                return _NumTrabajador;
+            }
+            set
+            {
+                OnNumTrabajadorChanging(value);
+                ReportPropertyChanging("NumTrabajador");
+                _NumTrabajador = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("NumTrabajador");
+                OnNumTrabajadorChanged();
+            }
+        }
+        private global::System.Int32 _NumTrabajador;
+        partial void OnNumTrabajadorChanging(global::System.Int32 value);
+        partial void OnNumTrabajadorChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String NomTrabajador
+        {
+            get
+            {
+                return _NomTrabajador;
+            }
+            set
+            {
+                OnNomTrabajadorChanging(value);
+                ReportPropertyChanging("NomTrabajador");
+                _NomTrabajador = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("NomTrabajador");
+                OnNomTrabajadorChanged();
+            }
+        }
+        private global::System.String _NomTrabajador;
+        partial void OnNomTrabajadorChanging(global::System.String value);
+        partial void OnNomTrabajadorChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ApeTrabajador
+        {
+            get
+            {
+                return _ApeTrabajador;
+            }
+            set
+            {
+                OnApeTrabajadorChanging(value);
+                ReportPropertyChanging("ApeTrabajador");
+                _ApeTrabajador = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ApeTrabajador");
+                OnApeTrabajadorChanged();
+            }
+        }
+        private global::System.String _ApeTrabajador;
+        partial void OnApeTrabajadorChanging(global::System.String value);
+        partial void OnApeTrabajadorChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String DirTrabajador
+        {
+            get
+            {
+                return _DirTrabajador;
+            }
+            set
+            {
+                OnDirTrabajadorChanging(value);
+                ReportPropertyChanging("DirTrabajador");
+                _DirTrabajador = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("DirTrabajador");
+                OnDirTrabajadorChanged();
+            }
+        }
+        private global::System.String _DirTrabajador;
+        partial void OnDirTrabajadorChanging(global::System.String value);
+        partial void OnDirTrabajadorChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdPoblacion
+        {
+            get
+            {
+                return _IdPoblacion;
+            }
+            set
+            {
+                OnIdPoblacionChanging(value);
+                ReportPropertyChanging("IdPoblacion");
+                _IdPoblacion = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdPoblacion");
+                OnIdPoblacionChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdPoblacion;
+        partial void OnIdPoblacionChanging(Nullable<global::System.Int32> value);
+        partial void OnIdPoblacionChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String TelTrabajador
+        {
+            get
+            {
+                return _TelTrabajador;
+            }
+            set
+            {
+                OnTelTrabajadorChanging(value);
+                ReportPropertyChanging("TelTrabajador");
+                _TelTrabajador = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("TelTrabajador");
+                OnTelTrabajadorChanged();
+            }
+        }
+        private global::System.String _TelTrabajador;
+        partial void OnTelTrabajadorChanging(global::System.String value);
+        partial void OnTelTrabajadorChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String CelTrabajador
+        {
+            get
+            {
+                return _CelTrabajador;
+            }
+            set
+            {
+                OnCelTrabajadorChanging(value);
+                ReportPropertyChanging("CelTrabajador");
+                _CelTrabajador = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("CelTrabajador");
+                OnCelTrabajadorChanged();
+            }
+        }
+        private global::System.String _CelTrabajador;
+        partial void OnCelTrabajadorChanging(global::System.String value);
+        partial void OnCelTrabajadorChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ExtTrabajador
+        {
+            get
+            {
+                return _ExtTrabajador;
+            }
+            set
+            {
+                OnExtTrabajadorChanging(value);
+                ReportPropertyChanging("ExtTrabajador");
+                _ExtTrabajador = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ExtTrabajador");
+                OnExtTrabajadorChanged();
+            }
+        }
+        private global::System.String _ExtTrabajador;
+        partial void OnExtTrabajadorChanging(global::System.String value);
+        partial void OnExtTrabajadorChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String EmailTrabajador
+        {
+            get
+            {
+                return _EmailTrabajador;
+            }
+            set
+            {
+                OnEmailTrabajadorChanging(value);
+                ReportPropertyChanging("EmailTrabajador");
+                _EmailTrabajador = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("EmailTrabajador");
+                OnEmailTrabajadorChanged();
+            }
+        }
+        private global::System.String _EmailTrabajador;
+        partial void OnEmailTrabajadorChanging(global::System.String value);
+        partial void OnEmailTrabajadorChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 IdCategoria
+        {
+            get
+            {
+                return _IdCategoria;
+            }
+            set
+            {
+                OnIdCategoriaChanging(value);
+                ReportPropertyChanging("IdCategoria");
+                _IdCategoria = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdCategoria");
+                OnIdCategoriaChanged();
+            }
+        }
+        private global::System.Int32 _IdCategoria;
+        partial void OnIdCategoriaChanging(global::System.Int32 value);
+        partial void OnIdCategoriaChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdPuestoTrab
+        {
+            get
+            {
+                return _IdPuestoTrab;
+            }
+            set
+            {
+                OnIdPuestoTrabChanging(value);
+                ReportPropertyChanging("IdPuestoTrab");
+                _IdPuestoTrab = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdPuestoTrab");
+                OnIdPuestoTrabChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdPuestoTrab;
+        partial void OnIdPuestoTrabChanging(Nullable<global::System.Int32> value);
+        partial void OnIdPuestoTrabChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> NacTrabajador
+        {
+            get
+            {
+                return _NacTrabajador;
+            }
+            set
+            {
+                OnNacTrabajadorChanging(value);
+                ReportPropertyChanging("NacTrabajador");
+                _NacTrabajador = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("NacTrabajador");
+                OnNacTrabajadorChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _NacTrabajador;
+        partial void OnNacTrabajadorChanging(Nullable<global::System.DateTime> value);
+        partial void OnNacTrabajadorChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> AltaTrabajador
+        {
+            get
+            {
+                return _AltaTrabajador;
+            }
+            set
+            {
+                OnAltaTrabajadorChanging(value);
+                ReportPropertyChanging("AltaTrabajador");
+                _AltaTrabajador = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AltaTrabajador");
+                OnAltaTrabajadorChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _AltaTrabajador;
+        partial void OnAltaTrabajadorChanging(Nullable<global::System.DateTime> value);
+        partial void OnAltaTrabajadorChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> BajaTrabajador
+        {
+            get
+            {
+                return _BajaTrabajador;
+            }
+            set
+            {
+                OnBajaTrabajadorChanging(value);
+                ReportPropertyChanging("BajaTrabajador");
+                _BajaTrabajador = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("BajaTrabajador");
+                OnBajaTrabajadorChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _BajaTrabajador;
+        partial void OnBajaTrabajadorChanging(Nullable<global::System.DateTime> value);
+        partial void OnBajaTrabajadorChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdContrato
+        {
+            get
+            {
+                return _IdContrato;
+            }
+            set
+            {
+                OnIdContratoChanging(value);
+                ReportPropertyChanging("IdContrato");
+                _IdContrato = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdContrato");
+                OnIdContratoChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdContrato;
+        partial void OnIdContratoChanging(Nullable<global::System.Int32> value);
+        partial void OnIdContratoChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String NumSSTrabajado
+        {
+            get
+            {
+                return _NumSSTrabajado;
+            }
+            set
+            {
+                OnNumSSTrabajadoChanging(value);
+                ReportPropertyChanging("NumSSTrabajado");
+                _NumSSTrabajado = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("NumSSTrabajado");
+                OnNumSSTrabajadoChanged();
+            }
+        }
+        private global::System.String _NumSSTrabajado;
+        partial void OnNumSSTrabajadoChanging(global::System.String value);
+        partial void OnNumSSTrabajadoChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdEstCivil
+        {
+            get
+            {
+                return _IdEstCivil;
+            }
+            set
+            {
+                OnIdEstCivilChanging(value);
+                ReportPropertyChanging("IdEstCivil");
+                _IdEstCivil = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdEstCivil");
+                OnIdEstCivilChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdEstCivil;
+        partial void OnIdEstCivilChanging(Nullable<global::System.Int32> value);
+        partial void OnIdEstCivilChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> HipTrabajador
+        {
+            get
+            {
+                return _HipTrabajador;
+            }
+            set
+            {
+                OnHipTrabajadorChanging(value);
+                ReportPropertyChanging("HipTrabajador");
+                _HipTrabajador = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("HipTrabajador");
+                OnHipTrabajadorChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _HipTrabajador;
+        partial void OnHipTrabajadorChanging(Nullable<global::System.Boolean> value);
+        partial void OnHipTrabajadorChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdNacion
+        {
+            get
+            {
+                return _IdNacion;
+            }
+            set
+            {
+                OnIdNacionChanging(value);
+                ReportPropertyChanging("IdNacion");
+                _IdNacion = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdNacion");
+                OnIdNacionChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdNacion;
+        partial void OnIdNacionChanging(Nullable<global::System.Int32> value);
+        partial void OnIdNacionChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdCuenta
+        {
+            get
+            {
+                return _IdCuenta;
+            }
+            set
+            {
+                OnIdCuentaChanging(value);
+                ReportPropertyChanging("IdCuenta");
+                _IdCuenta = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdCuenta");
+                OnIdCuentaChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdCuenta;
+        partial void OnIdCuentaChanging(Nullable<global::System.Int32> value);
+        partial void OnIdCuentaChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String CopDNITrabajador
+        {
+            get
+            {
+                return _CopDNITrabajador;
+            }
+            set
+            {
+                OnCopDNITrabajadorChanging(value);
+                ReportPropertyChanging("CopDNITrabajador");
+                _CopDNITrabajador = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("CopDNITrabajador");
+                OnCopDNITrabajadorChanged();
+            }
+        }
+        private global::System.String _CopDNITrabajador;
+        partial void OnCopDNITrabajadorChanging(global::System.String value);
+        partial void OnCopDNITrabajadorChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String CopDNITrabajador1
+        {
+            get
+            {
+                return _CopDNITrabajador1;
+            }
+            set
+            {
+                OnCopDNITrabajador1Changing(value);
+                ReportPropertyChanging("CopDNITrabajador1");
+                _CopDNITrabajador1 = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("CopDNITrabajador1");
+                OnCopDNITrabajador1Changed();
+            }
+        }
+        private global::System.String _CopDNITrabajador1;
+        partial void OnCopDNITrabajador1Changing(global::System.String value);
+        partial void OnCopDNITrabajador1Changed();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String FotoTrabajador
+        {
+            get
+            {
+                return _FotoTrabajador;
+            }
+            set
+            {
+                OnFotoTrabajadorChanging(value);
+                ReportPropertyChanging("FotoTrabajador");
+                _FotoTrabajador = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("FotoTrabajador");
+                OnFotoTrabajadorChanged();
+            }
+        }
+        private global::System.String _FotoTrabajador;
+        partial void OnFotoTrabajadorChanging(global::System.String value);
+        partial void OnFotoTrabajadorChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String CVTRabajador
+        {
+            get
+            {
+                return _CVTRabajador;
+            }
+            set
+            {
+                OnCVTRabajadorChanging(value);
+                ReportPropertyChanging("CVTRabajador");
+                _CVTRabajador = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("CVTRabajador");
+                OnCVTRabajadorChanged();
+            }
+        }
+        private global::System.String _CVTRabajador;
+        partial void OnCVTRabajadorChanging(global::System.String value);
+        partial void OnCVTRabajadorChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ObsTrabajador
+        {
+            get
+            {
+                return _ObsTrabajador;
+            }
+            set
+            {
+                OnObsTrabajadorChanging(value);
+                ReportPropertyChanging("ObsTrabajador");
+                _ObsTrabajador = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ObsTrabajador");
+                OnObsTrabajadorChanged();
+            }
+        }
+        private global::System.String _ObsTrabajador;
+        partial void OnObsTrabajadorChanging(global::System.String value);
+        partial void OnObsTrabajadorChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> SalMes
+        {
+            get
+            {
+                return _SalMes;
+            }
+            set
+            {
+                OnSalMesChanging(value);
+                ReportPropertyChanging("SalMes");
+                _SalMes = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SalMes");
+                OnSalMesChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _SalMes;
+        partial void OnSalMesChanging(Nullable<global::System.Boolean> value);
+        partial void OnSalMesChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> ExtraSoloFinSemana
+        {
+            get
+            {
+                return _ExtraSoloFinSemana;
+            }
+            set
+            {
+                OnExtraSoloFinSemanaChanging(value);
+                ReportPropertyChanging("ExtraSoloFinSemana");
+                _ExtraSoloFinSemana = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ExtraSoloFinSemana");
+                OnExtraSoloFinSemanaChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _ExtraSoloFinSemana;
+        partial void OnExtraSoloFinSemanaChanging(Nullable<global::System.Boolean> value);
+        partial void OnExtraSoloFinSemanaChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> SinHorasExtras
+        {
+            get
+            {
+                return _SinHorasExtras;
+            }
+            set
+            {
+                OnSinHorasExtrasChanging(value);
+                ReportPropertyChanging("SinHorasExtras");
+                _SinHorasExtras = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SinHorasExtras");
+                OnSinHorasExtrasChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _SinHorasExtras;
+        partial void OnSinHorasExtrasChanging(Nullable<global::System.Boolean> value);
+        partial void OnSinHorasExtrasChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> ActivoTrabajador
+        {
+            get
+            {
+                return _ActivoTrabajador;
+            }
+            set
+            {
+                OnActivoTrabajadorChanging(value);
+                ReportPropertyChanging("ActivoTrabajador");
+                _ActivoTrabajador = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ActivoTrabajador");
+                OnActivoTrabajadorChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _ActivoTrabajador;
+        partial void OnActivoTrabajadorChanging(Nullable<global::System.Boolean> value);
+        partial void OnActivoTrabajadorChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> Externo
+        {
+            get
+            {
+                return _Externo;
+            }
+            set
+            {
+                OnExternoChanging(value);
+                ReportPropertyChanging("Externo");
+                _Externo = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Externo");
+                OnExternoChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _Externo;
+        partial void OnExternoChanging(Nullable<global::System.Boolean> value);
+        partial void OnExternoChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Clave
+        {
+            get
+            {
+                return _Clave;
+            }
+            set
+            {
+                OnClaveChanging(value);
+                ReportPropertyChanging("Clave");
+                _Clave = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Clave");
+                OnClaveChanged();
+            }
+        }
+        private global::System.String _Clave;
+        partial void OnClaveChanging(global::System.String value);
+        partial void OnClaveChanged();
 
         #endregion
 

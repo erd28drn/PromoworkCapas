@@ -10,6 +10,8 @@ using System.IO;
 using GestionServices.Generales;
 using GestionServices.Definiciones;
 using GestionData.Entities;
+using GestionData.Repositorios;
+using GestionData.Helpers;
 
 namespace Promowork.Formularios.Reportes.Parametros
 {
@@ -27,6 +29,13 @@ namespace Promowork.Formularios.Reportes.Parametros
         DateTime FechaFin;
         IEnumerable<ResumenEnvioCorreos> proveedores;
 
+        RepositorioUsuario repoUsuario = new RepositorioUsuario();
+        RepositorioEmpresa repoEmpresa = new RepositorioEmpresa();
+        RepositorioTrabajador repoTrabajador = new RepositorioTrabajador();
+        ConfiguracionUsuario configuracionUsuario;
+        ConfiguracionEmpresa configuracionEmpresa;
+        int? idUsuario = null;
+
         private void rptParametrosSinAlbaran_Load(object sender, EventArgs e)
         {
              nMes = VariablesGlobales.nMesActual;
@@ -38,10 +47,13 @@ namespace Promowork.Formularios.Reportes.Parametros
             dateTimePicker1.Value = FechaIni;
             dateTimePicker2.Value = FechaFin;
             dateTimePicker2.MinDate = FechaIni;
+
+            configuracionUsuario = repoUsuario.GetConfiguracionUsuario(VariablesGlobales.nIdUsuarioActual);
+            configuracionEmpresa = repoEmpresa.GetConfiguracionEmpresa(VariablesGlobales.nIdEmpresaActual);
             
             this.EmpresasActualTableAdapter.FillByEmpresa(this.Promowork_dataDataSet.EmpresasActual, VariablesGlobales.nIdEmpresaActual);
 
-            var trabajadores= TrabajadoresService.ObtenerTrabajadoresConEmail(VariablesGlobales.nIdEmpresaActual);
+            var trabajadores = repoTrabajador.GetTrabajadoresConEmail(VariablesGlobales.nIdEmpresaActual);
             cbTrabajadores.Properties.DataSource = trabajadores;
             
         }
@@ -80,10 +92,10 @@ namespace Promowork.Formularios.Reportes.Parametros
                     .Select(p => new ResumenEnvioCorreos
                     {
                         IdProveedor = p.IdProveedor,
-                        Marca = Utilidades.ValidarEmail(p.EmailProveedor),
+                        Marca = GeneralHelper.ValidarEmail(p.EmailProveedor),
                         Proveedor = p.DesProveedor,
                         Email = p.EmailProveedor,
-                        Valido = Utilidades.ValidarEmail(p.EmailProveedor),
+                        Valido = GeneralHelper.ValidarEmail(p.EmailProveedor),
                         Enviado = false
                     }).ToList();
                 gridControl1.DataSource = proveedores;
@@ -99,25 +111,6 @@ namespace Promowork.Formularios.Reportes.Parametros
        
         }
 
-        private void fillbySinAlbaranToolStripButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void fillbySinAlbaranToolStripButton_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void fillbySinAlbaranToolStripButton_Click_2(object sender, EventArgs e)
-        {
-
-        }
-
-        private void fillbySinAlbaranToolStripButton_Click_3(object sender, EventArgs e)
-        {
-
-        }
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -125,15 +118,7 @@ namespace Promowork.Formularios.Reportes.Parametros
             GuardarAsuntoCuerpoMensaje();
 
             var cuerpoCorreo = cuerpoMensajeSinAlbaranTextEdit.Text.Replace("\n", "<br>"); 
-                
-                //"<p>Con el fin de poder verificar sus facturas, rogamos nos envien copia de los siguientes albaranes a compras@promowork.es " +
-                //                "Ya que NO disponemos de ellos. Para ello, será necesario que conste la firma y el DNI de la persona autorizada que realizó " +
-                //                "la retirada del material o autorizó la escarga.</p>" +
-                //                "<p>Sin otro particular,<br>" +
-                //                "Le saludo muy cordialmente,</p>" +
-                //                "<p>Oscar Urpi<br>" +
-                //                "Dpto.Compras.</p>";
-
+            
             List<string> responderA=null;
             string nombreRemitente = "";
             if (cbTrabajadores.ItemIndex != -1)
@@ -213,9 +198,17 @@ namespace Promowork.Formularios.Reportes.Parametros
 
         private void GuardarAsuntoCuerpoMensaje()
         {
+
             this.Validate();
             this.EmpresasActualBindingSource.EndEdit();
             this.EmpresasActualTableAdapter.Update(Promowork_dataDataSet.EmpresasActual);
+
+            configuracionUsuario.responderASeleccionado = idUsuario;
+            configuracionEmpresa.asuntoSinAlbaran = asuntoSinAlbaranTextEdit.Text;
+            configuracionEmpresa.cuerpoMensajeSinAlbaran = cuerpoMensajeSinAlbaranTextEdit.Text;
+
+            repoUsuario.GuardarConfiguracionUsuario(configuracionUsuario);
+            repoEmpresa.GuardarConfiguracionEmpresa(configuracionEmpresa);
         }
 
         private void gridView1_ShowingEditor(object sender, CancelEventArgs e)
@@ -231,6 +224,18 @@ namespace Promowork.Formularios.Reportes.Parametros
         {
             
             this.reportViewer1.RefreshReport();
+        }
+
+        private void cbTrabajadores_EditValueChanged(object sender, EventArgs e)
+        {
+            if (cbTrabajadores.ItemIndex != -1)
+            {
+                idUsuario = (int)cbTrabajadores.EditValue;
+            }
+            else
+            {
+                idUsuario = null;
+            }
         }
 
      

@@ -144,9 +144,6 @@
   <metadata name="empresasBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>194, 17</value>
   </metadata>
-  <metadata name="Promowork_dataDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>726, 17</value>
-  </metadata>
   <metadata name="FacturasDetImpBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>912, 17</value>
   </metadata>
@@ -155,9 +152,6 @@
   </metadata>
   <metadata name="vComprasDirectasBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>778, 56</value>
-  </metadata>
-  <metadata name="DatosPresupuestos.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>622, 56</value>
   </metadata>
   <metadata name="DatosPresupuestos.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>622, 56</value>

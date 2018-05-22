@@ -90,7 +90,7 @@
       <HintPath>..\Referencias\AxInterop.AcroPDFLib.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.CodeParser.v12.1, Version=12.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Data.v12.1, Version=12.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v12.1, Version=12.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Office.v12.1.Core, Version=12.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.PivotGrid.v12.1.Core, Version=12.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v12.1.Core, Version=12.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -111,6 +111,7 @@
     <Reference Include="DevExpress.XtraReports.v12.1, Version=12.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraReports.v12.1.Extensions, Version=12.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraRichEdit.v12.1, Version=12.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraRichEdit.v12.1.Extensions, Version=12.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraScheduler.v12.1, Version=12.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraScheduler.v12.1.Core, Version=12.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraScheduler.v12.1.Extensions, Version=12.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -352,6 +353,12 @@
     </Compile>
     <Compile Include="Formularios\Definiciones\GruposProveedores.Designer.cs">
       <DependentUpon>GruposProveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Reportes\Viewer\rptFacturasClientesAddEmail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Reportes\Viewer\rptFacturasClientesAddEmail.Designer.cs">
+      <DependentUpon>rptFacturasClientesAddEmail.cs</DependentUpon>
     </Compile>
     <Compile Include="LoadImage.cs" />
     <Compile Include="Formularios\Operaciones\ConsumosCombustibleVehiculos.cs">
@@ -983,6 +990,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Definiciones\Anticipos.resx">
       <DependentUpon>Anticipos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\rptFacturasClientesAddEmail.resx">
+      <DependentUpon>rptFacturasClientesAddEmail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\AnticiposTrabajadores.rdlc" />
     <EmbeddedResource Include="Formularios\Operaciones\AnticiposTrabajadores.resx">

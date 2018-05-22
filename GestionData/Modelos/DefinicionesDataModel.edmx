@@ -4,10 +4,11 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Promowork_dataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="Promowork_dataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="Promowork_dataModelStoreContainer">
           <EntitySet Name="Clientes" EntityType="Promowork_dataModel.Store.Clientes" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Proveedores" EntityType="Promowork_dataModel.Store.Proveedores" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Trabajadores" EntityType="Promowork_dataModel.Store.Trabajadores" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
         <EntityType Name="Clientes">
           <Key>
@@ -26,7 +27,7 @@
           <Property Name="TelCliente" Type="varchar" MaxLength="50" />
           <Property Name="FaxCliente" Type="varchar" MaxLength="50" />
           <Property Name="CelCliente" Type="varchar" MaxLength="50" />
-          <Property Name="EmailCliente" Type="varchar" MaxLength="50" />
+          <Property Name="EmailCliente" Type="varchar" MaxLength="500" />
           <Property Name="WebCliente" Type="varchar" MaxLength="50" />
           <Property Name="NomContacto" Type="varchar" MaxLength="50" />
           <Property Name="TelContacto" Type="varchar" MaxLength="50" />
@@ -71,14 +72,53 @@
           <Property Name="Idgrupo" Type="int" />
           <Property Name="EsGestor" Type="bit" />
         </EntityType>
-      </Schema>
-    </edmx:StorageModels>
+        <EntityType Name="Trabajadores">
+          <Key>
+            <PropertyRef Name="IdTrabajador" />
+          </Key>
+          <Property Name="IdTrabajador" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="DNITrabajador" Type="varchar" MaxLength="20" />
+          <Property Name="NumTrabajador" Type="int" Nullable="false" />
+          <Property Name="NomTrabajador" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="ApeTrabajador" Type="varchar" MaxLength="30" />
+          <Property Name="DirTrabajador" Type="varchar" MaxLength="100" />
+          <Property Name="IdPoblacion" Type="int" />
+          <Property Name="TelTrabajador" Type="varchar" MaxLength="20" />
+          <Property Name="CelTrabajador" Type="varchar" MaxLength="20" />
+          <Property Name="ExtTrabajador" Type="varchar" MaxLength="20" />
+          <Property Name="EmailTrabajador" Type="varchar" MaxLength="50" />
+          <Property Name="IdCategoria" Type="int" Nullable="false" />
+          <Property Name="IdPuestoTrab" Type="int" />
+          <Property Name="NacTrabajador" Type="date" />
+          <Property Name="AltaTrabajador" Type="date" />
+          <Property Name="BajaTrabajador" Type="date" />
+          <Property Name="IdContrato" Type="int" />
+          <Property Name="NumSSTrabajado" Type="varchar" MaxLength="20" />
+          <Property Name="IdEstCivil" Type="int" />
+          <Property Name="HipTrabajador" Type="bit" />
+          <Property Name="IdNacion" Type="int" />
+          <Property Name="IdCuenta" Type="int" />
+          <Property Name="CopDNITrabajador" Type="text" />
+          <Property Name="CopDNITrabajador1" Type="text" />
+          <Property Name="FotoTrabajador" Type="text" />
+          <Property Name="CVTRabajador" Type="text" />
+          <Property Name="ObsTrabajador" Type="varchar" MaxLength="255" />
+          <Property Name="SalMes" Type="bit" />
+          <Property Name="ExtraSoloFinSemana" Type="bit" />
+          <Property Name="SinHorasExtras" Type="bit" />
+          <Property Name="ActivoTrabajador" Type="bit" />
+          <Property Name="Externo" Type="bit" />
+          <Property Name="Clave" Type="varchar" MaxLength="15" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Promowork_dataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="DefinicionesDataModel" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Clientes" EntityType="Promowork_dataModel.Clientes" />
           <EntitySet Name="Proveedores" EntityType="Promowork_dataModel.Proveedores" />
+          <EntitySet Name="Trabajadores" EntityType="Promowork_dataModel.Trabajadores" />
         </EntityContainer>
         <EntityType Name="Clientes">
           <Key>
@@ -141,6 +181,45 @@
           <Property Name="IdTipoProveedor" Type="Int32" />
           <Property Name="Idgrupo" Type="Int32" />
           <Property Name="EsGestor" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Trabajadores">
+          <Key>
+            <PropertyRef Name="IdTrabajador" />
+          </Key>
+          <Property Type="Int32" Name="IdTrabajador" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="String" Name="DNITrabajador" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="NumTrabajador" Nullable="false" />
+          <Property Type="String" Name="NomTrabajador" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ApeTrabajador" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DirTrabajador" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdPoblacion" />
+          <Property Type="String" Name="TelTrabajador" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CelTrabajador" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ExtTrabajador" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EmailTrabajador" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdCategoria" Nullable="false" />
+          <Property Type="Int32" Name="IdPuestoTrab" />
+          <Property Type="DateTime" Name="NacTrabajador" />
+          <Property Type="DateTime" Name="AltaTrabajador" />
+          <Property Type="DateTime" Name="BajaTrabajador" />
+          <Property Type="Int32" Name="IdContrato" />
+          <Property Type="String" Name="NumSSTrabajado" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdEstCivil" />
+          <Property Type="Boolean" Name="HipTrabajador" />
+          <Property Type="Int32" Name="IdNacion" />
+          <Property Type="Int32" Name="IdCuenta" />
+          <Property Type="String" Name="CopDNITrabajador" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CopDNITrabajador1" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FotoTrabajador" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CVTRabajador" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ObsTrabajador" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="SalMes" />
+          <Property Type="Boolean" Name="ExtraSoloFinSemana" />
+          <Property Type="Boolean" Name="SinHorasExtras" />
+          <Property Type="Boolean" Name="ActivoTrabajador" />
+          <Property Type="Boolean" Name="Externo" />
+          <Property Type="String" Name="Clave" MaxLength="15" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -212,6 +291,46 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Trabajadores">
+            <EntityTypeMapping TypeName="Promowork_dataModel.Trabajadores">
+              <MappingFragment StoreEntitySet="Trabajadores">
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="Externo" ColumnName="Externo" />
+                <ScalarProperty Name="ActivoTrabajador" ColumnName="ActivoTrabajador" />
+                <ScalarProperty Name="SinHorasExtras" ColumnName="SinHorasExtras" />
+                <ScalarProperty Name="ExtraSoloFinSemana" ColumnName="ExtraSoloFinSemana" />
+                <ScalarProperty Name="SalMes" ColumnName="SalMes" />
+                <ScalarProperty Name="ObsTrabajador" ColumnName="ObsTrabajador" />
+                <ScalarProperty Name="CVTRabajador" ColumnName="CVTRabajador" />
+                <ScalarProperty Name="FotoTrabajador" ColumnName="FotoTrabajador" />
+                <ScalarProperty Name="CopDNITrabajador1" ColumnName="CopDNITrabajador1" />
+                <ScalarProperty Name="CopDNITrabajador" ColumnName="CopDNITrabajador" />
+                <ScalarProperty Name="IdCuenta" ColumnName="IdCuenta" />
+                <ScalarProperty Name="IdNacion" ColumnName="IdNacion" />
+                <ScalarProperty Name="HipTrabajador" ColumnName="HipTrabajador" />
+                <ScalarProperty Name="IdEstCivil" ColumnName="IdEstCivil" />
+                <ScalarProperty Name="NumSSTrabajado" ColumnName="NumSSTrabajado" />
+                <ScalarProperty Name="IdContrato" ColumnName="IdContrato" />
+                <ScalarProperty Name="BajaTrabajador" ColumnName="BajaTrabajador" />
+                <ScalarProperty Name="AltaTrabajador" ColumnName="AltaTrabajador" />
+                <ScalarProperty Name="NacTrabajador" ColumnName="NacTrabajador" />
+                <ScalarProperty Name="IdPuestoTrab" ColumnName="IdPuestoTrab" />
+                <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+                <ScalarProperty Name="EmailTrabajador" ColumnName="EmailTrabajador" />
+                <ScalarProperty Name="ExtTrabajador" ColumnName="ExtTrabajador" />
+                <ScalarProperty Name="CelTrabajador" ColumnName="CelTrabajador" />
+                <ScalarProperty Name="TelTrabajador" ColumnName="TelTrabajador" />
+                <ScalarProperty Name="IdPoblacion" ColumnName="IdPoblacion" />
+                <ScalarProperty Name="DirTrabajador" ColumnName="DirTrabajador" />
+                <ScalarProperty Name="ApeTrabajador" ColumnName="ApeTrabajador" />
+                <ScalarProperty Name="NomTrabajador" ColumnName="NomTrabajador" />
+                <ScalarProperty Name="NumTrabajador" ColumnName="NumTrabajador" />
+                <ScalarProperty Name="DNITrabajador" ColumnName="DNITrabajador" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdTrabajador" ColumnName="IdTrabajador" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -235,6 +354,7 @@
       <Diagram Name="DefinicionesDataModel" ZoomLevel="66">
         <EntityTypeShape EntityType="Promowork_dataModel.Clientes" Width="1.5" PointX="0.75" PointY="0.75" Height="5.634013671875" IsExpanded="true" />
         <EntityTypeShape EntityType="Promowork_dataModel.Proveedores" Width="1.5" PointX="2.75" PointY="0.75" Height="6.4032194010416656" IsExpanded="true" />
+        <EntityTypeShape EntityType="Promowork_dataModel.Trabajadores" Width="1.5" PointX="5.375" PointY="0.75" Height="7.5570279947916656" />
       </Diagram>
     </Diagrams>
   </Designer>

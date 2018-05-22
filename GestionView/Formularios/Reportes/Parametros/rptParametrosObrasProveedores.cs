@@ -12,6 +12,8 @@ using Microsoft.Reporting.WinForms;
 using GestionServices.Generales;
 using GestionData.Entities;
 using GestionServices.Definiciones;
+using GestionData.Helpers;
+using GestionData.Repositorios;
 
 namespace Promowork.Formularios.Reportes.Parametros
 {
@@ -29,6 +31,7 @@ namespace Promowork.Formularios.Reportes.Parametros
         DateTime FechaFin;
         IEnumerable<ResumenEnvioCorreos> proveedores;
         IEnumerable<ObrasEnviar> obras;
+        RepositorioTrabajador repoTrabajador = new RepositorioTrabajador();
 
         private void rptParametrosSinAlbaran_Load(object sender, EventArgs e)
         {
@@ -46,7 +49,7 @@ namespace Promowork.Formularios.Reportes.Parametros
             
             this.EmpresasActualTableAdapter.FillByEmpresa(this.Promowork_dataDataSet.EmpresasActual, VariablesGlobales.nIdEmpresaActual);
 
-            var trabajadores = TrabajadoresService.ObtenerTrabajadoresConEmail(VariablesGlobales.nIdEmpresaActual);
+            var trabajadores = repoTrabajador.GetTrabajadoresConEmail(VariablesGlobales.nIdEmpresaActual);
             cbTrabajadores.Properties.DataSource = trabajadores;
             
         }
@@ -108,10 +111,10 @@ namespace Promowork.Formularios.Reportes.Parametros
                     .Select(p => new ResumenEnvioCorreos
                     {
                         IdProveedor = p.IdProveedor,
-                        Marca = Utilidades.ValidarEmail(p.EmailProveedor),
+                        Marca = GeneralHelper.ValidarEmail(p.EmailProveedor),
                         Proveedor = p.DesProveedor,
                         Email = p.EmailProveedor,
-                        Valido = Utilidades.ValidarEmail(p.EmailProveedor),
+                        Valido = GeneralHelper.ValidarEmail(p.EmailProveedor),
                         Enviado = false
                     }).ToList();
                 gridControl1.DataSource = proveedores;

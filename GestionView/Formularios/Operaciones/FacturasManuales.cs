@@ -30,6 +30,7 @@ namespace Promowork.Formularios.Operaciones
 
         Boolean esFactura = true;
         RepositorioFacturasCab repoFacturasCab = new RepositorioFacturasCab();
+        int anoFacturas = VariablesGlobales.nAnoActual;
 
         private void facturasCabBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
@@ -92,11 +93,11 @@ namespace Promowork.Formularios.Operaciones
                     MessageBox.Show("No se Pudo Salvar la Información. El Registro fue modificado por otro Usuario.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     if (cbxfacturas.Text == "Facturas")
                     {
-                        this.facturasCabTableAdapter.FillByFactHorasFacturas(this.promowork_dataDataSet.FacturasCab, VariablesGlobales.nIdEmpresaActual, (int)cbxanos.SelectedValue);
+                        this.facturasCabTableAdapter.FillByFactHorasFacturas(this.promowork_dataDataSet.FacturasCab, VariablesGlobales.nIdEmpresaActual, anoFacturas);
                     }
                     else
                     {
-                        this.facturasCabTableAdapter.FillByFactHorasParte(this.promowork_dataDataSet.FacturasCab, VariablesGlobales.nIdEmpresaActual, (int)cbxanos.SelectedValue);
+                        this.facturasCabTableAdapter.FillByFactHorasParte(this.promowork_dataDataSet.FacturasCab, VariablesGlobales.nIdEmpresaActual, anoFacturas);
                     }
                     facturasCabBindingSource.Filter = "FacturaPresup=0";
 
@@ -107,11 +108,11 @@ namespace Promowork.Formularios.Operaciones
                     {
                         if (cbxfacturas.Text == "Facturas")
                         {
-                            this.facturasCabTableAdapter.FillByFactHorasFacturas(this.promowork_dataDataSet.FacturasCab, VariablesGlobales.nIdEmpresaActual, (int)cbxanos.SelectedValue);
+                            this.facturasCabTableAdapter.FillByFactHorasFacturas(this.promowork_dataDataSet.FacturasCab, VariablesGlobales.nIdEmpresaActual, anoFacturas);
                         }
                         else
                         {
-                            this.facturasCabTableAdapter.FillByFactHorasParte(this.promowork_dataDataSet.FacturasCab, VariablesGlobales.nIdEmpresaActual, (int)cbxanos.SelectedValue);
+                            this.facturasCabTableAdapter.FillByFactHorasParte(this.promowork_dataDataSet.FacturasCab, VariablesGlobales.nIdEmpresaActual, anoFacturas);
                         }
                         facturasCabBindingSource.Filter = "FacturaPresup=0";
                     }
@@ -141,11 +142,11 @@ namespace Promowork.Formularios.Operaciones
             // TODO: This line of code loads data into the 'promowork_dataDataSet.FacturasCab' table. You can move, or remove it, as needed.
             if (cbxfacturas.Text == "Facturas")
             {
-                this.facturasCabTableAdapter.FillByFactHorasFacturas(this.promowork_dataDataSet.FacturasCab, VariablesGlobales.nIdEmpresaActual, (int)cbxanos.SelectedValue);
+                this.facturasCabTableAdapter.FillByFactHorasFacturas(this.promowork_dataDataSet.FacturasCab, VariablesGlobales.nIdEmpresaActual, anoFacturas);
             }
             else
             {
-                this.facturasCabTableAdapter.FillByFactHorasParte(this.promowork_dataDataSet.FacturasCab, VariablesGlobales.nIdEmpresaActual, (int)cbxanos.SelectedValue);
+                this.facturasCabTableAdapter.FillByFactHorasParte(this.promowork_dataDataSet.FacturasCab, VariablesGlobales.nIdEmpresaActual, anoFacturas);
             }
             facturasCabBindingSource.Filter = "FacturaPresup=0";
             
@@ -157,7 +158,7 @@ namespace Promowork.Formularios.Operaciones
 
         private void ActuallizaUltimoNumeroFactura()
         {
-            tbUltimaFactura.Text = repoFacturasCab.GetUltimaFactura(VariablesGlobales.nIdEmpresaActual, (int)cbxanos.SelectedValue, esFactura);
+            tbUltimaFactura.Text = repoFacturasCab.GetUltimaFactura(VariablesGlobales.nIdEmpresaActual, anoFacturas, esFactura);
         }
 
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
@@ -364,11 +365,11 @@ namespace Promowork.Formularios.Operaciones
                      MessageBox.Show("No se Pudo Salvar la Información. El Registro fue modificado por otro Usuario.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Stop);
                      if (cbxfacturas.Text == "Facturas")
                      {
-                         this.facturasCabTableAdapter.FillByFactHorasFacturas(this.promowork_dataDataSet.FacturasCab, VariablesGlobales.nIdEmpresaActual, (int)cbxanos.SelectedValue);
+                         this.facturasCabTableAdapter.FillByFactHorasFacturas(this.promowork_dataDataSet.FacturasCab, VariablesGlobales.nIdEmpresaActual, anoFacturas);
                      }
                      else
                      {
-                         this.facturasCabTableAdapter.FillByFactHorasParte(this.promowork_dataDataSet.FacturasCab, VariablesGlobales.nIdEmpresaActual, (int)cbxanos.SelectedValue);
+                         this.facturasCabTableAdapter.FillByFactHorasParte(this.promowork_dataDataSet.FacturasCab, VariablesGlobales.nIdEmpresaActual, anoFacturas);
                      }
                      facturasCabBindingSource.Filter = "FacturaPresup=0";
 
@@ -379,11 +380,11 @@ namespace Promowork.Formularios.Operaciones
                      {
                          if (cbxfacturas.Text == "Facturas")
                          {
-                             this.facturasCabTableAdapter.FillByFactHorasFacturas(this.promowork_dataDataSet.FacturasCab, VariablesGlobales.nIdEmpresaActual, (int)cbxanos.SelectedValue);
+                             this.facturasCabTableAdapter.FillByFactHorasFacturas(this.promowork_dataDataSet.FacturasCab, VariablesGlobales.nIdEmpresaActual, anoFacturas);
                          }
                          else
                          {
-                             this.facturasCabTableAdapter.FillByFactHorasParte(this.promowork_dataDataSet.FacturasCab, VariablesGlobales.nIdEmpresaActual, (int)cbxanos.SelectedValue);
+                             this.facturasCabTableAdapter.FillByFactHorasParte(this.promowork_dataDataSet.FacturasCab, VariablesGlobales.nIdEmpresaActual, anoFacturas);
                          }
                          facturasCabBindingSource.Filter = "FacturaPresup=0";
                      }
@@ -483,11 +484,11 @@ namespace Promowork.Formularios.Operaciones
 
                if (cbxfacturas.Text == "Facturas")
                {
-                   this.facturasCabTableAdapter.FillByFactHorasFacturas(this.promowork_dataDataSet.FacturasCab, VariablesGlobales.nIdEmpresaActual, (int)cbxanos.SelectedValue);
+                   this.facturasCabTableAdapter.FillByFactHorasFacturas(this.promowork_dataDataSet.FacturasCab, VariablesGlobales.nIdEmpresaActual, anoFacturas);
                }
                else
                {
-                   this.facturasCabTableAdapter.FillByFactHorasParte(this.promowork_dataDataSet.FacturasCab, VariablesGlobales.nIdEmpresaActual, (int)cbxanos.SelectedValue);
+                   this.facturasCabTableAdapter.FillByFactHorasParte(this.promowork_dataDataSet.FacturasCab, VariablesGlobales.nIdEmpresaActual, anoFacturas);
                }
 
                facturasCabBindingSource.Filter = "FacturaPresup=0";
@@ -589,13 +590,14 @@ namespace Promowork.Formularios.Operaciones
        {
            if (cbxanos.SelectedIndex != -1)
            {
+               anoFacturas = (int)cbxanos.SelectedValue;
                if (cbxfacturas.Text == "Facturas")
                {
-                   this.facturasCabTableAdapter.FillByFactHorasFacturas(this.promowork_dataDataSet.FacturasCab, VariablesGlobales.nIdEmpresaActual, (int)cbxanos.SelectedValue);
+                   this.facturasCabTableAdapter.FillByFactHorasFacturas(this.promowork_dataDataSet.FacturasCab, VariablesGlobales.nIdEmpresaActual, anoFacturas);
                }
                else
                {
-                   this.facturasCabTableAdapter.FillByFactHorasParte(this.promowork_dataDataSet.FacturasCab, VariablesGlobales.nIdEmpresaActual, (int)cbxanos.SelectedValue);
+                   this.facturasCabTableAdapter.FillByFactHorasParte(this.promowork_dataDataSet.FacturasCab, VariablesGlobales.nIdEmpresaActual, anoFacturas);
                }
                facturasCabBindingSource.Filter = "FacturaPresup=0";
 
@@ -610,12 +612,12 @@ namespace Promowork.Formularios.Operaciones
                if (cbxfacturas.Text == "Facturas")
                {
                    esFactura = true;
-                   this.facturasCabTableAdapter.FillByFactHorasFacturas(this.promowork_dataDataSet.FacturasCab, VariablesGlobales.nIdEmpresaActual, (int)cbxanos.SelectedValue);
+                   this.facturasCabTableAdapter.FillByFactHorasFacturas(this.promowork_dataDataSet.FacturasCab, VariablesGlobales.nIdEmpresaActual, anoFacturas);
                }
                else
                {
                    esFactura = false;
-                   this.facturasCabTableAdapter.FillByFactHorasParte(this.promowork_dataDataSet.FacturasCab, VariablesGlobales.nIdEmpresaActual, (int)cbxanos.SelectedValue);
+                   this.facturasCabTableAdapter.FillByFactHorasParte(this.promowork_dataDataSet.FacturasCab, VariablesGlobales.nIdEmpresaActual, anoFacturas);
                }
                facturasCabBindingSource.Filter = "FacturaPresup=0";
                ActuallizaUltimoNumeroFactura();

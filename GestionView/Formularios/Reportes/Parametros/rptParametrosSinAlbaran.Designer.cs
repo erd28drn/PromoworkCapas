@@ -425,6 +425,7 @@
             this.cbTrabajadores.Properties.ValueMember = "IdTrabajador";
             this.cbTrabajadores.Size = new System.Drawing.Size(399, 20);
             this.cbTrabajadores.TabIndex = 2;
+            this.cbTrabajadores.EditValueChanged += new System.EventHandler(this.cbTrabajadores_EditValueChanged);
             // 
             // cuerpoMensajeSinAlbaranTextEdit
             // 
