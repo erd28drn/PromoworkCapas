@@ -3292,7 +3292,7 @@ namespace GestionData {
                 this.columnCodUmedida.AllowDBNull = false;
                 this.columnCodUmedida.MaxLength = 3;
                 this.columnDesUmedida.MaxLength = 30;
-                this.columnEmailProveedor.MaxLength = 50;
+                this.columnEmailProveedor.MaxLength = 500;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5245,7 +5245,7 @@ namespace GestionData {
                 this.columnDesProveedor.AllowDBNull = false;
                 this.columnDesProveedor.MaxLength = 100;
                 this.columnEmailProveedor.ReadOnly = true;
-                this.columnEmailProveedor.MaxLength = 50;
+                this.columnEmailProveedor.MaxLength = 500;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5529,7 +5529,7 @@ namespace GestionData {
                 this.columnDesProveedor.AllowDBNull = false;
                 this.columnDesProveedor.MaxLength = 100;
                 this.columnEmailProveedor.ReadOnly = true;
-                this.columnEmailProveedor.MaxLength = 50;
+                this.columnEmailProveedor.MaxLength = 500;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

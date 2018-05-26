@@ -31,13 +31,19 @@ namespace Promowork.Formularios.Reportes.Parametros
         DateTime FechaFin;
         IEnumerable<ResumenEnvioCorreos> proveedores;
         IEnumerable<ObrasEnviar> obras;
+
+        RepositorioUsuario repoUsuario = new RepositorioUsuario();
+        RepositorioEmpresa repoEmpresa = new RepositorioEmpresa();
         RepositorioTrabajador repoTrabajador = new RepositorioTrabajador();
+        ConfiguracionUsuario configuracionUsuario;
+        ConfiguracionEmpresa configuracionEmpresa;
+        int? idTrabajador = null;
 
         private void rptParametrosSinAlbaran_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'Promowork_dataDataSet.Obras' Puede moverla o quitarla según sea necesario.
             this.ObrasTableAdapter.Fill(this.Promowork_dataDataSet.Obras);
-             nMes = VariablesGlobales.nMesActual;
+            nMes = VariablesGlobales.nMesActual;
             nAno = VariablesGlobales.nAnoActual;
             nDiasFin = DateTime.DaysInMonth(nAno, nMes);
             FechaIni = new DateTime(nAno, nMes, 1);
@@ -46,12 +52,20 @@ namespace Promowork.Formularios.Reportes.Parametros
             dateTimePicker1.Value = FechaIni;
             dateTimePicker2.Value = FechaFin;
             dateTimePicker2.MinDate = FechaIni;
-            
+
+            configuracionUsuario = repoUsuario.GetConfiguracionUsuario(VariablesGlobales.nIdUsuarioActual) ?? new ConfiguracionUsuario();
+            configuracionEmpresa = repoEmpresa.GetConfiguracionEmpresa(VariablesGlobales.nIdEmpresaActual) ?? new ConfiguracionEmpresa();
+
             this.EmpresasActualTableAdapter.FillByEmpresa(this.Promowork_dataDataSet.EmpresasActual, VariablesGlobales.nIdEmpresaActual);
 
             var trabajadores = repoTrabajador.GetTrabajadoresConEmail(VariablesGlobales.nIdEmpresaActual);
             cbTrabajadores.Properties.DataSource = trabajadores;
-            
+
+            cbTrabajadores.EditValue = configuracionUsuario.responderASeleccionado;
+
+            tbAsuntoObrasProveedores.Text = configuracionEmpresa.asuntoObrasProveedores;
+            tbCuerpoCorreo.Text = configuracionEmpresa.cuerpoMensajeObrasProveedores;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -129,26 +143,7 @@ namespace Promowork.Formularios.Reportes.Parametros
             }
         }
 
-        private void fillbySinAlbaranToolStripButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void fillbySinAlbaranToolStripButton_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void fillbySinAlbaranToolStripButton_Click_2(object sender, EventArgs e)
-        {
-
-        }
-
-        private void fillbySinAlbaranToolStripButton_Click_3(object sender, EventArgs e)
-        {
-
-        }
-
+     
         private void button3_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = tabControl1.TabPages[2];
@@ -213,9 +208,16 @@ namespace Promowork.Formularios.Reportes.Parametros
 
         private void GuardarAsuntoCuerpoMensaje()
         {
-            this.Validate();
-            this.EmpresasActualBindingSource.EndEdit();
-            this.EmpresasActualTableAdapter.Update(Promowork_dataDataSet.EmpresasActual);
+            //this.Validate();
+            //this.EmpresasActualBindingSource.EndEdit();
+            //this.EmpresasActualTableAdapter.Update(Promowork_dataDataSet.EmpresasActual);
+
+            configuracionUsuario.responderASeleccionado = idTrabajador;
+            configuracionEmpresa.asuntoObrasProveedores = tbAsuntoObrasProveedores.Text;
+            configuracionEmpresa.cuerpoMensajeObrasProveedores = tbCuerpoCorreo.Text;
+
+            repoUsuario.GuardarConfiguracionUsuario(configuracionUsuario);
+            repoEmpresa.GuardarConfiguracionEmpresa(configuracionEmpresa);
         }
 
         private void EnviarResumenCorreosEnviados(List<string> responderA, string nombreRemitente)
@@ -239,15 +241,6 @@ namespace Promowork.Formularios.Reportes.Parametros
                 Utilidades.EnviaCorreo(VariablesGlobales.nIdEmpresaActual, responderA, "Resumen Obras Enviadas a Proveedores", adjuntos, cuerpoMensaje, responderA, null, nombreRemitente);
             }
 
-        }
-
-        private void gridView1_ShowingEditor(object sender, CancelEventArgs e)
-        {
-            var valido = (bool)gridView1.GetFocusedRowCellValue(colValido);
-            if (!valido)
-            {
-                e.Cancel = true;
-            }
         }
 
         private void GenerarReporteProveedor(int idProvedor)
@@ -317,6 +310,28 @@ namespace Promowork.Formularios.Reportes.Parametros
         {
             tabControl1.SelectedTab = tabControl1.TabPages[0];
             CargarObras();
+        }
+
+        private void cbTrabajadores_EditValueChanged(object sender, EventArgs e)
+        {
+            if (cbTrabajadores.ItemIndex != -1)
+            {
+                idTrabajador = (int)cbTrabajadores.EditValue;
+            }
+            else
+            {
+                idTrabajador = null;
+            }
+        }
+
+
+        private void gridView1_ShowingEditor_1(object sender, CancelEventArgs e)
+        {
+            var valido = (bool)gridView1.GetFocusedRowCellValue(colValido);
+            if (!valido)
+            {
+                e.Cancel = true;
+            }
         }
 
        

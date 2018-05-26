@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label idParticipanteLabel;
             System.Windows.Forms.Label desProveedorLabel;
             System.Windows.Forms.Label dNINIFProveedorLabel;
@@ -58,12 +59,12 @@
             System.Windows.Forms.Label idgrupoLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Proveedores));
             this.promowork_dataDataSet = new GestionData.Promowork_dataDataSet();
-            this.proveedoresBindingSource = new System.Windows.Forms.BindingSource();
+            this.proveedoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.proveedoresTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.ProveedoresTableAdapter();
             this.tableAdapterManager = new GestionData.Promowork_dataDataSetTableAdapters.TableAdapterManager();
             this.formasPagoTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.FormasPagoTableAdapter();
             this.participantesTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.ParticipantesTableAdapter();
-            this.proveedoresBindingNavigator = new System.Windows.Forms.BindingNavigator();
+            this.proveedoresBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -80,7 +81,7 @@
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.idParticipanteComboBox = new System.Windows.Forms.ComboBox();
-            this.participantesBindingSource = new System.Windows.Forms.BindingSource();
+            this.participantesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.desProveedorTextBox = new System.Windows.Forms.TextBox();
             this.dNINIFProveedorTextBox = new System.Windows.Forms.TextBox();
             this.dirProveedorTextBox = new System.Windows.Forms.TextBox();
@@ -93,7 +94,7 @@
             this.emailContactoTextBox = new System.Windows.Forms.TextBox();
             this.credProveedorTextBox = new System.Windows.Forms.TextBox();
             this.idFormaPagoComboBox = new System.Windows.Forms.ComboBox();
-            this.formasPagoBindingSource = new System.Windows.Forms.BindingSource();
+            this.formasPagoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.activoProveedorCheckBox = new System.Windows.Forms.CheckBox();
             this.webProveedorTextBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -101,31 +102,31 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.poblacionesProvincias1BindingSource = new System.Windows.Forms.BindingSource();
+            this.poblacionesProvincias1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.provincias1BindingSource = new System.Windows.Forms.BindingSource();
+            this.provincias1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.poblacionesProvinciasBindingSource = new System.Windows.Forms.BindingSource();
+            this.poblacionesProvinciasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.provinciasBindingSource = new System.Windows.Forms.BindingSource();
+            this.provinciasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dirFiscalClienteTextBox = new System.Windows.Forms.TextBox();
             this.provinciasTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.ProvinciasTableAdapter();
-            this.poblacionesBindingSource = new System.Windows.Forms.BindingSource();
+            this.poblacionesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.poblacionesTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.PoblacionesTableAdapter();
             this.poblacionesProvinciasTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.PoblacionesProvinciasTableAdapter();
-            this.poblaciones1BindingSource = new System.Windows.Forms.BindingSource();
+            this.poblaciones1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.poblaciones1TableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.Poblaciones1TableAdapter();
             this.poblacionesProvincias1TableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.PoblacionesProvincias1TableAdapter();
             this.provincias1TableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.Provincias1TableAdapter();
             this.button5 = new System.Windows.Forms.Button();
             this.idCuentaComboBox = new System.Windows.Forms.ComboBox();
-            this.cuentasBancosBindingSource = new System.Windows.Forms.BindingSource();
+            this.cuentasBancosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cuentasBancosTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.CuentasBancosTableAdapter();
             this.obsProveedorTextBox1 = new System.Windows.Forms.TextBox();
             this.numProveedorTextBox = new System.Windows.Forms.TextBox();
-            this.empresasActualBindingSource = new System.Windows.Forms.BindingSource();
+            this.empresasActualBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.empresasActualTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.EmpresasActualTableAdapter();
             this.proveedorCombustibleCheckBox = new System.Windows.Forms.CheckBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -158,10 +159,10 @@
             this.colCredProveedor = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIdTipoProveedor = new DevExpress.XtraGrid.Columns.GridColumn();
             this.GruposProveedores = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.tiposProveedoresBindingSource = new System.Windows.Forms.BindingSource();
+            this.tiposProveedoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.colIdgrupo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.GruposProductos = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.gruposProductosBindingSource = new System.Windows.Forms.BindingSource();
+            this.gruposProductosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.cbxGrupoProducto = new DevExpress.XtraEditors.LookUpEdit();
@@ -620,8 +621,8 @@
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
+            this.bindingNavigatorCountItem.Text = "de {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
             // bindingNavigatorMoveFirstItem
@@ -802,6 +803,7 @@
             // 
             this.emailProveedorTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.proveedoresBindingSource, "EmailProveedor", true));
             this.emailProveedorTextBox.Location = new System.Drawing.Point(126, 201);
+            this.emailProveedorTextBox.MaxLength = 500;
             this.emailProveedorTextBox.Name = "emailProveedorTextBox";
             this.emailProveedorTextBox.Size = new System.Drawing.Size(424, 20);
             this.emailProveedorTextBox.TabIndex = 15;
@@ -871,6 +873,7 @@
             // 
             this.webProveedorTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.proveedoresBindingSource, "WebProveedor", true));
             this.webProveedorTextBox.Location = new System.Drawing.Point(126, 227);
+            this.webProveedorTextBox.MaxLength = 50;
             this.webProveedorTextBox.Name = "webProveedorTextBox";
             this.webProveedorTextBox.Size = new System.Drawing.Size(424, 20);
             this.webProveedorTextBox.TabIndex = 16;

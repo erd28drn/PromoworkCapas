@@ -180,10 +180,11 @@
             this.rdgFacturado.Properties.Appearance.BackColor = System.Drawing.SystemColors.Control;
             this.rdgFacturado.Properties.Appearance.Options.UseBackColor = true;
             this.rdgFacturado.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Mostrar Solo Pendiente de Facturar"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Mostrar Solo Facturado"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Mostrar Todo")});
-            this.rdgFacturado.Size = new System.Drawing.Size(616, 24);
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(0, "Mostrar Pendiente"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(1, "Mostrar Facturado"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(2, "Motrar Finalizado"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(3, "Mostrar Todo")});
+            this.rdgFacturado.Size = new System.Drawing.Size(591, 24);
             this.rdgFacturado.TabIndex = 16;
             // 
             // marcaObrasTableAdapter
@@ -295,7 +296,7 @@
             this.marcaObrasGridControl.Location = new System.Drawing.Point(0, 0);
             this.marcaObrasGridControl.MainView = this.gridView1;
             this.marcaObrasGridControl.Name = "marcaObrasGridControl";
-            this.marcaObrasGridControl.Size = new System.Drawing.Size(769, 429);
+            this.marcaObrasGridControl.Size = new System.Drawing.Size(670, 429);
             this.marcaObrasGridControl.TabIndex = 0;
             this.marcaObrasGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -406,7 +407,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1571, 48);
+            this.panel1.Size = new System.Drawing.Size(1370, 48);
             this.panel1.TabIndex = 1;
             // 
             // chkAgruparDescripcion
@@ -442,8 +443,8 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.checkBox2);
             this.splitContainer1.Panel2.Controls.Add(this.marcaTrabajadoresGridControl);
-            this.splitContainer1.Size = new System.Drawing.Size(1571, 429);
-            this.splitContainer1.SplitterDistance = 769;
+            this.splitContainer1.Size = new System.Drawing.Size(1370, 429);
+            this.splitContainer1.SplitterDistance = 670;
             this.splitContainer1.TabIndex = 18;
             // 
             // marcaTrabajadoresGridControl
@@ -453,7 +454,7 @@
             this.marcaTrabajadoresGridControl.Location = new System.Drawing.Point(0, 0);
             this.marcaTrabajadoresGridControl.MainView = this.gridView2;
             this.marcaTrabajadoresGridControl.Name = "marcaTrabajadoresGridControl";
-            this.marcaTrabajadoresGridControl.Size = new System.Drawing.Size(798, 429);
+            this.marcaTrabajadoresGridControl.Size = new System.Drawing.Size(696, 429);
             this.marcaTrabajadoresGridControl.TabIndex = 0;
             this.marcaTrabajadoresGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -548,7 +549,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1571, 477);
+            this.ClientSize = new System.Drawing.Size(1370, 477);
             this.Controls.Add(this.chkResumen);
             this.Controls.Add(this.rdgFacturado);
             this.Controls.Add(this.button1);

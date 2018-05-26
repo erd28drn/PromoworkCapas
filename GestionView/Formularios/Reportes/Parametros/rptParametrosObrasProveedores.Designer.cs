@@ -38,11 +38,11 @@
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.colValido = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colEnviado = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ObrasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Promowork_dataDataSet = new GestionData.Promowork_dataDataSet();
+            this.EmpresasActualBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ListadoObrasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DatosReportesNuevos = new GestionData.DatosReportesNuevos();
-            this.EmpresasActualBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.Promowork_dataDataSet = new GestionData.Promowork_dataDataSet();
-            this.ObrasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -86,11 +86,11 @@
             label1 = new System.Windows.Forms.Label();
             cuerpoMensajeSinAlbaranLabel = new System.Windows.Forms.Label();
             asuntoSinAlbaranLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.ObrasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Promowork_dataDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EmpresasActualBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ListadoObrasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DatosReportesNuevos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EmpresasActualBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Promowork_dataDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ObrasBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
             this.tabResumenEnvioCorreo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
@@ -165,6 +165,21 @@
             this.colEnviado.VisibleIndex = 4;
             this.colEnviado.Width = 112;
             // 
+            // ObrasBindingSource
+            // 
+            this.ObrasBindingSource.DataMember = "Obras";
+            this.ObrasBindingSource.DataSource = this.Promowork_dataDataSet;
+            // 
+            // Promowork_dataDataSet
+            // 
+            this.Promowork_dataDataSet.DataSetName = "Promowork_dataDataSet";
+            this.Promowork_dataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // EmpresasActualBindingSource
+            // 
+            this.EmpresasActualBindingSource.DataMember = "EmpresasActual";
+            this.EmpresasActualBindingSource.DataSource = this.Promowork_dataDataSet;
+            // 
             // ListadoObrasBindingSource
             // 
             this.ListadoObrasBindingSource.DataMember = "ListadoObras";
@@ -174,21 +189,6 @@
             // 
             this.DatosReportesNuevos.DataSetName = "DatosReportesNuevos";
             this.DatosReportesNuevos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // EmpresasActualBindingSource
-            // 
-            this.EmpresasActualBindingSource.DataMember = "EmpresasActual";
-            this.EmpresasActualBindingSource.DataSource = this.Promowork_dataDataSet;
-            // 
-            // Promowork_dataDataSet
-            // 
-            this.Promowork_dataDataSet.DataSetName = "Promowork_dataDataSet";
-            this.Promowork_dataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // ObrasBindingSource
-            // 
-            this.ObrasBindingSource.DataMember = "Obras";
-            this.ObrasBindingSource.DataSource = this.Promowork_dataDataSet;
             // 
             // button1
             // 
@@ -259,7 +259,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1419, 44);
+            this.panel1.Size = new System.Drawing.Size(1370, 44);
             this.panel1.TabIndex = 18;
             // 
             // btObras
@@ -297,7 +297,7 @@
             this.tabResumenEnvioCorreo.Location = new System.Drawing.Point(4, 22);
             this.tabResumenEnvioCorreo.Name = "tabResumenEnvioCorreo";
             this.tabResumenEnvioCorreo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabResumenEnvioCorreo.Size = new System.Drawing.Size(1411, 581);
+            this.tabResumenEnvioCorreo.Size = new System.Drawing.Size(1362, 581);
             this.tabResumenEnvioCorreo.TabIndex = 1;
             this.tabResumenEnvioCorreo.Text = "Resumen Envio Correos";
             this.tabResumenEnvioCorreo.UseVisualStyleBackColor = true;
@@ -317,14 +317,13 @@
             this.splitContainerControl2.Panel1.Text = "Panel1";
             this.splitContainerControl2.Panel2.Controls.Add(this.gridControl1);
             this.splitContainerControl2.Panel2.Text = "Panel2";
-            this.splitContainerControl2.Size = new System.Drawing.Size(1405, 575);
+            this.splitContainerControl2.Size = new System.Drawing.Size(1356, 575);
             this.splitContainerControl2.SplitterPosition = 167;
             this.splitContainerControl2.TabIndex = 3;
             this.splitContainerControl2.Text = "splitContainerControl2";
             // 
             // tbAsuntoObrasProveedores
             // 
-            this.tbAsuntoObrasProveedores.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.EmpresasActualBindingSource, "AsuntoObrasProveedores", true));
             this.tbAsuntoObrasProveedores.Location = new System.Drawing.Point(99, 10);
             this.tbAsuntoObrasProveedores.Name = "tbAsuntoObrasProveedores";
             this.tbAsuntoObrasProveedores.Size = new System.Drawing.Size(515, 20);
@@ -343,10 +342,10 @@
             this.cbTrabajadores.Properties.ValueMember = "IdTrabajador";
             this.cbTrabajadores.Size = new System.Drawing.Size(399, 20);
             this.cbTrabajadores.TabIndex = 6;
+            this.cbTrabajadores.EditValueChanged += new System.EventHandler(this.cbTrabajadores_EditValueChanged);
             // 
             // tbCuerpoCorreo
             // 
-            this.tbCuerpoCorreo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.EmpresasActualBindingSource, "CuerpoMensajeObrasProveedores", true));
             this.tbCuerpoCorreo.Location = new System.Drawing.Point(99, 40);
             this.tbCuerpoCorreo.Name = "tbCuerpoCorreo";
             this.tbCuerpoCorreo.Size = new System.Drawing.Size(1028, 113);
@@ -358,7 +357,7 @@
             this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1405, 403);
+            this.gridControl1.Size = new System.Drawing.Size(1356, 403);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -393,6 +392,7 @@
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.ShowingEditor += new System.ComponentModel.CancelEventHandler(this.gridView1_ShowingEditor_1);
             // 
             // colIdProveedor
             // 
@@ -449,7 +449,7 @@
             this.tabReporte.Location = new System.Drawing.Point(4, 22);
             this.tabReporte.Name = "tabReporte";
             this.tabReporte.Padding = new System.Windows.Forms.Padding(3);
-            this.tabReporte.Size = new System.Drawing.Size(1411, 581);
+            this.tabReporte.Size = new System.Drawing.Size(1362, 581);
             this.tabReporte.TabIndex = 0;
             this.tabReporte.Text = "Reporte";
             this.tabReporte.UseVisualStyleBackColor = true;
@@ -466,7 +466,7 @@
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "Promowork.Reportes.ListadoObras.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(3, 3);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(1405, 575);
+            this.reportViewer1.Size = new System.Drawing.Size(1356, 575);
             this.reportViewer1.TabIndex = 17;
             // 
             // tabControl1
@@ -478,7 +478,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 44);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1419, 607);
+            this.tabControl1.Size = new System.Drawing.Size(1370, 607);
             this.tabControl1.TabIndex = 19;
             // 
             // tabObras
@@ -486,7 +486,7 @@
             this.tabObras.Controls.Add(this.obrasGridControl);
             this.tabObras.Location = new System.Drawing.Point(4, 22);
             this.tabObras.Name = "tabObras";
-            this.tabObras.Size = new System.Drawing.Size(1411, 581);
+            this.tabObras.Size = new System.Drawing.Size(1362, 581);
             this.tabObras.TabIndex = 2;
             this.tabObras.Text = "Obras para Enviar";
             this.tabObras.UseVisualStyleBackColor = true;
@@ -497,7 +497,7 @@
             this.obrasGridControl.Location = new System.Drawing.Point(0, 0);
             this.obrasGridControl.MainView = this.gridView2;
             this.obrasGridControl.Name = "obrasGridControl";
-            this.obrasGridControl.Size = new System.Drawing.Size(1411, 581);
+            this.obrasGridControl.Size = new System.Drawing.Size(1362, 581);
             this.obrasGridControl.TabIndex = 2;
             this.obrasGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -606,7 +606,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1419, 651);
+            this.ClientSize = new System.Drawing.Size(1370, 651);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label4);
@@ -619,11 +619,11 @@
             this.Text = "Enviar Obras a Provedores";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.rptParametrosSinAlbaran_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.ObrasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Promowork_dataDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EmpresasActualBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ListadoObrasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DatosReportesNuevos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EmpresasActualBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Promowork_dataDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ObrasBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.tabResumenEnvioCorreo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).EndInit();

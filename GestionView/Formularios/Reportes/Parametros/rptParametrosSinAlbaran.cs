@@ -34,7 +34,7 @@ namespace Promowork.Formularios.Reportes.Parametros
         RepositorioTrabajador repoTrabajador = new RepositorioTrabajador();
         ConfiguracionUsuario configuracionUsuario;
         ConfiguracionEmpresa configuracionEmpresa;
-        int? idUsuario = null;
+        int? idTrabajador = null;
 
         private void rptParametrosSinAlbaran_Load(object sender, EventArgs e)
         {
@@ -48,13 +48,17 @@ namespace Promowork.Formularios.Reportes.Parametros
             dateTimePicker2.Value = FechaFin;
             dateTimePicker2.MinDate = FechaIni;
 
-            configuracionUsuario = repoUsuario.GetConfiguracionUsuario(VariablesGlobales.nIdUsuarioActual);
-            configuracionEmpresa = repoEmpresa.GetConfiguracionEmpresa(VariablesGlobales.nIdEmpresaActual);
+            configuracionUsuario = repoUsuario.GetConfiguracionUsuario(VariablesGlobales.nIdUsuarioActual)??new ConfiguracionUsuario();
+            configuracionEmpresa = repoEmpresa.GetConfiguracionEmpresa(VariablesGlobales.nIdEmpresaActual)??new ConfiguracionEmpresa();
             
             this.EmpresasActualTableAdapter.FillByEmpresa(this.Promowork_dataDataSet.EmpresasActual, VariablesGlobales.nIdEmpresaActual);
 
             var trabajadores = repoTrabajador.GetTrabajadoresConEmail(VariablesGlobales.nIdEmpresaActual);
             cbTrabajadores.Properties.DataSource = trabajadores;
+            cbTrabajadores.EditValue = configuracionUsuario.responderASeleccionado;
+
+            asuntoSinAlbaranTextEdit.Text = configuracionEmpresa.asuntoSinAlbaran;
+            cuerpoMensajeSinAlbaranTextEdit.Text = configuracionEmpresa.cuerpoMensajeSinAlbaran;
             
         }
 
@@ -98,8 +102,9 @@ namespace Promowork.Formularios.Reportes.Parametros
                         Valido = GeneralHelper.ValidarEmail(p.EmailProveedor),
                         Enviado = false
                     }).ToList();
+                 
                 gridControl1.DataSource = proveedores;
-                button3.Enabled = true;
+                button3.Enabled = proveedores.Where(p=> p.Valido).Any();
                 Cursor.Current = Cursors.Default;
             }
             catch (Exception ex)
@@ -199,11 +204,11 @@ namespace Promowork.Formularios.Reportes.Parametros
         private void GuardarAsuntoCuerpoMensaje()
         {
 
-            this.Validate();
-            this.EmpresasActualBindingSource.EndEdit();
-            this.EmpresasActualTableAdapter.Update(Promowork_dataDataSet.EmpresasActual);
+            //this.Validate();
+            //this.EmpresasActualBindingSource.EndEdit();
+            //this.EmpresasActualTableAdapter.Update(Promowork_dataDataSet.EmpresasActual);
 
-            configuracionUsuario.responderASeleccionado = idUsuario;
+            configuracionUsuario.responderASeleccionado = idTrabajador;
             configuracionEmpresa.asuntoSinAlbaran = asuntoSinAlbaranTextEdit.Text;
             configuracionEmpresa.cuerpoMensajeSinAlbaran = cuerpoMensajeSinAlbaranTextEdit.Text;
 
@@ -230,11 +235,11 @@ namespace Promowork.Formularios.Reportes.Parametros
         {
             if (cbTrabajadores.ItemIndex != -1)
             {
-                idUsuario = (int)cbTrabajadores.EditValue;
+                idTrabajador = (int)cbTrabajadores.EditValue;
             }
             else
             {
-                idUsuario = null;
+                idTrabajador = null;
             }
         }
 

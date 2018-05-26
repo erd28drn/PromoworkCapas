@@ -2415,7 +2415,7 @@ namespace GestionData {
                 this.columnTelProveedor.MaxLength = 30;
                 this.columnFaxProveedor.MaxLength = 20;
                 this.columnCelProveedor.MaxLength = 20;
-                this.columnEmailProveedor.MaxLength = 50;
+                this.columnEmailProveedor.MaxLength = 500;
                 this.columnWebProveedor.MaxLength = 50;
                 this.columnNomContacto.MaxLength = 50;
                 this.columnTelContacto.MaxLength = 20;

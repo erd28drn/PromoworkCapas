@@ -38,10 +38,9 @@
             DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
             this.vAlbaranesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DatosReportesNuevos = new GestionData.DatosReportesNuevos();
-            this.EmpresasActualBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.Promowork_dataDataSet = new GestionData.Promowork_dataDataSet();
             this.colValido = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colEnviado = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Promowork_dataDataSet = new GestionData.Promowork_dataDataSet();
             this.button1 = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -49,7 +48,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.EmpresasActualTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.EmpresasActualTableAdapter();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -70,12 +68,13 @@
             this.proveedoresSinAlbaranBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.proveedoresSinAlbaranTableAdapter = new GestionData.DatosReportesNuevosTableAdapters.ProveedoresSinAlbaranTableAdapter();
             this.tableAdapterManager = new GestionData.DatosReportesNuevosTableAdapters.TableAdapterManager();
+            this.EmpresasActualBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.EmpresasActualTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.EmpresasActualTableAdapter();
             asuntoSinAlbaranLabel = new System.Windows.Forms.Label();
             cuerpoMensajeSinAlbaranLabel = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.vAlbaranesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DatosReportesNuevos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EmpresasActualBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Promowork_dataDataSet)).BeginInit();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -89,6 +88,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbTrabajadores.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cuerpoMensajeSinAlbaranTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proveedoresSinAlbaranBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EmpresasActualBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // asuntoSinAlbaranLabel
@@ -128,16 +128,6 @@
             this.DatosReportesNuevos.DataSetName = "DatosReportesNuevos";
             this.DatosReportesNuevos.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // EmpresasActualBindingSource
-            // 
-            this.EmpresasActualBindingSource.DataMember = "EmpresasActual";
-            this.EmpresasActualBindingSource.DataSource = this.Promowork_dataDataSet;
-            // 
-            // Promowork_dataDataSet
-            // 
-            this.Promowork_dataDataSet.DataSetName = "Promowork_dataDataSet";
-            this.Promowork_dataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // colValido
             // 
             this.colValido.AppearanceCell.Options.UseTextOptions = true;
@@ -168,6 +158,11 @@
             this.colEnviado.Visible = true;
             this.colEnviado.VisibleIndex = 4;
             this.colEnviado.Width = 112;
+            // 
+            // Promowork_dataDataSet
+            // 
+            this.Promowork_dataDataSet.DataSetName = "Promowork_dataDataSet";
+            this.Promowork_dataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // button1
             // 
@@ -239,10 +234,6 @@
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size(1316, 642);
             this.reportViewer1.TabIndex = 17;
-            // 
-            // EmpresasActualTableAdapter
-            // 
-            this.EmpresasActualTableAdapter.ClearBeforeFill = true;
             // 
             // panel1
             // 
@@ -406,7 +397,6 @@
             // 
             // asuntoSinAlbaranTextEdit
             // 
-            this.asuntoSinAlbaranTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.EmpresasActualBindingSource, "AsuntoSinAlbaran", true));
             this.asuntoSinAlbaranTextEdit.Location = new System.Drawing.Point(110, 6);
             this.asuntoSinAlbaranTextEdit.Name = "asuntoSinAlbaranTextEdit";
             this.asuntoSinAlbaranTextEdit.Size = new System.Drawing.Size(515, 20);
@@ -429,7 +419,6 @@
             // 
             // cuerpoMensajeSinAlbaranTextEdit
             // 
-            this.cuerpoMensajeSinAlbaranTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.EmpresasActualBindingSource, "CuerpoMensajeSinAlbaran", true));
             this.cuerpoMensajeSinAlbaranTextEdit.Location = new System.Drawing.Point(110, 36);
             this.cuerpoMensajeSinAlbaranTextEdit.Name = "cuerpoMensajeSinAlbaranTextEdit";
             this.cuerpoMensajeSinAlbaranTextEdit.Size = new System.Drawing.Size(1028, 113);
@@ -456,6 +445,15 @@
             this.tableAdapterManager.ServidorSMTPTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = GestionData.DatosReportesNuevosTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // EmpresasActualBindingSource
+            // 
+            this.EmpresasActualBindingSource.DataMember = "EmpresasActual";
+            this.EmpresasActualBindingSource.DataSource = this.Promowork_dataDataSet;
+            // 
+            // EmpresasActualTableAdapter
+            // 
+            this.EmpresasActualTableAdapter.ClearBeforeFill = true;
+            // 
             // rptParametrosSinAlbaran
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -479,7 +477,6 @@
             this.Load += new System.EventHandler(this.rptParametrosSinAlbaran_Load);
             ((System.ComponentModel.ISupportInitialize)(this.vAlbaranesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DatosReportesNuevos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.EmpresasActualBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Promowork_dataDataSet)).EndInit();
             this.panel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
@@ -494,6 +491,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbTrabajadores.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cuerpoMensajeSinAlbaranTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proveedoresSinAlbaranBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EmpresasActualBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -510,10 +508,8 @@
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.BindingSource vAlbaranesBindingSource;
         private GestionData.DatosReportesNuevos DatosReportesNuevos;
-        private System.Windows.Forms.BindingSource EmpresasActualBindingSource;
         private GestionData.Promowork_dataDataSet Promowork_dataDataSet;
         private GestionData.DatosReportesNuevosTableAdapters.vAlbaranesTableAdapter vAlbaranesTableAdapter;
-        private GestionData.Promowork_dataDataSetTableAdapters.EmpresasActualTableAdapter EmpresasActualTableAdapter;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabReporte;
@@ -535,5 +531,7 @@
         private DevExpress.XtraEditors.LookUpEdit cbTrabajadores;
         private DevExpress.XtraEditors.TextEdit asuntoSinAlbaranTextEdit;
         private DevExpress.XtraEditors.MemoEdit cuerpoMensajeSinAlbaranTextEdit;
+        private System.Windows.Forms.BindingSource EmpresasActualBindingSource;
+        private GestionData.Promowork_dataDataSetTableAdapters.EmpresasActualTableAdapter EmpresasActualTableAdapter;
     }
 }
