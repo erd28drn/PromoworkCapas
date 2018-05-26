@@ -88,6 +88,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Entities\ConfiguracionEmpresa.cs" />
+    <Compile Include="Entities\ObrasFacturar.cs" />
     <Compile Include="Entities\RespuestasServicios.cs" />
     <Compile Include="Entities\TotalesCompra.cs" />
     <Compile Include="Entities\TrabajadorConEmail.cs" />

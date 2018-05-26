@@ -7,8 +7,17 @@
     <Schema Namespace="Promowork_dataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="Promowork_dataModelStoreContainer">
           <EntitySet Name="Clientes" EntityType="Promowork_dataModel.Store.Clientes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Obras" EntityType="Promowork_dataModel.Store.Obras" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Proveedores" EntityType="Promowork_dataModel.Store.Proveedores" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Trabajadores" EntityType="Promowork_dataModel.Store.Trabajadores" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Obras_Clientes" Association="Promowork_dataModel.Store.FK_Obras_Clientes">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Obras" EntitySet="Obras" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Obras_Clientes1" Association="Promowork_dataModel.Store.FK_Obras_Clientes1">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Obras" EntitySet="Obras" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Clientes">
           <Key>
@@ -39,6 +48,36 @@
           <Property Name="ObsCliente" Type="varchar" MaxLength="1000" />
           <Property Name="ActivoCliente" Type="bit" />
         </EntityType>
+        <EntityType Name="Obras">
+          <Key>
+            <PropertyRef Name="IdObra" />
+          </Key>
+          <Property Name="IdObra" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdEmpresa" Type="int" />
+          <Property Name="IdCliente" Type="int" />
+          <Property Name="IdUsuario" Type="int" />
+          <Property Name="NumMatriz" Type="int" />
+          <Property Name="NumObra" Type="int" Nullable="false" />
+          <Property Name="SerieObra" Type="varchar" MaxLength="1" />
+          <Property Name="DesObra" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="DirObra" Type="varchar" MaxLength="100" />
+          <Property Name="IdPoblacion" Type="int" />
+          <Property Name="FechaIniObra" Type="date" Nullable="false" />
+          <Property Name="FechaFinObra" Type="date" Nullable="false" />
+          <Property Name="LicObra" Type="varchar" MaxLength="30" />
+          <Property Name="OtrLicObra" Type="varchar" MaxLength="30" />
+          <Property Name="PromObra" Type="int" />
+          <Property Name="ConstObra" Type="int" />
+          <Property Name="IdTipo" Type="int" Nullable="false" />
+          <Property Name="PorcientoCompra" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="ActivaObra" Type="bit" />
+          <Property Name="GastosGenerales" Type="bit" />
+          <Property Name="NoAgenda" Type="bit" />
+          <Property Name="EnviarProveedores" Type="bit" />
+          <Property Name="TotalPresupuesto" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="TotalExtras" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="PendienteCobro" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
         <EntityType Name="Proveedores">
           <Key>
             <PropertyRef Name="IdProveedor" />
@@ -57,7 +96,7 @@
           <Property Name="TelProveedor" Type="nvarchar" MaxLength="30" />
           <Property Name="FaxProveedor" Type="nvarchar" MaxLength="20" />
           <Property Name="CelProveedor" Type="nvarchar" MaxLength="20" />
-          <Property Name="EmailProveedor" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmailProveedor" Type="nvarchar" MaxLength="500" />
           <Property Name="WebProveedor" Type="varchar" MaxLength="50" />
           <Property Name="NomContacto" Type="nvarchar" MaxLength="50" />
           <Property Name="TelContacto" Type="nvarchar" MaxLength="20" />
@@ -111,6 +150,30 @@
           <Property Name="Externo" Type="bit" />
           <Property Name="Clave" Type="varchar" MaxLength="15" />
         </EntityType>
+        <Association Name="FK_Obras_Clientes">
+          <End Role="Clientes" Type="Promowork_dataModel.Store.Clientes" Multiplicity="0..1" />
+          <End Role="Obras" Type="Promowork_dataModel.Store.Obras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="Obras">
+              <PropertyRef Name="IdCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Obras_Clientes1">
+          <End Role="Clientes" Type="Promowork_dataModel.Store.Clientes" Multiplicity="0..1" />
+          <End Role="Obras" Type="Promowork_dataModel.Store.Obras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="Obras">
+              <PropertyRef Name="PromObra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -119,6 +182,15 @@
           <EntitySet Name="Clientes" EntityType="Promowork_dataModel.Clientes" />
           <EntitySet Name="Proveedores" EntityType="Promowork_dataModel.Proveedores" />
           <EntitySet Name="Trabajadores" EntityType="Promowork_dataModel.Trabajadores" />
+          <EntitySet Name="Obras" EntityType="Promowork_dataModel.Obras" />
+          <AssociationSet Name="FK_Obras_Clientes" Association="Promowork_dataModel.FK_Obras_Clientes">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Obras" EntitySet="Obras" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Obras_Clientes1" Association="Promowork_dataModel.FK_Obras_Clientes1">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Obras" EntitySet="Obras" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Clientes">
           <Key>
@@ -148,6 +220,8 @@
           <Property Name="AdjCliente" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
           <Property Name="ObsCliente" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
           <Property Name="ActivoCliente" Type="Boolean" />
+          <NavigationProperty Name="Obras" Relationship="Promowork_dataModel.FK_Obras_Clientes" FromRole="Clientes" ToRole="Obras" />
+          <NavigationProperty Name="Obras1" Relationship="Promowork_dataModel.FK_Obras_Clientes1" FromRole="Clientes" ToRole="Obras" />
         </EntityType>
         <EntityType Name="Proveedores">
           <Key>
@@ -221,6 +295,62 @@
           <Property Type="Boolean" Name="Externo" />
           <Property Type="String" Name="Clave" MaxLength="15" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="Obras">
+          <Key>
+            <PropertyRef Name="IdObra" />
+          </Key>
+          <Property Type="Int32" Name="IdObra" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="IdEmpresa" />
+          <Property Type="Int32" Name="IdCliente" />
+          <Property Type="Int32" Name="IdUsuario" />
+          <Property Type="Int32" Name="NumMatriz" />
+          <Property Type="Int32" Name="NumObra" Nullable="false" />
+          <Property Type="String" Name="SerieObra" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DesObra" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DirObra" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdPoblacion" />
+          <Property Type="DateTime" Name="FechaIniObra" Nullable="false" />
+          <Property Type="DateTime" Name="FechaFinObra" Nullable="false" />
+          <Property Type="String" Name="LicObra" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="OtrLicObra" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="PromObra" />
+          <Property Type="Int32" Name="ConstObra" />
+          <Property Type="Int32" Name="IdTipo" Nullable="false" />
+          <Property Type="Decimal" Name="PorcientoCompra" Precision="5" Scale="2" />
+          <Property Type="Boolean" Name="ActivaObra" />
+          <Property Type="Boolean" Name="GastosGenerales" />
+          <Property Type="Boolean" Name="NoAgenda" />
+          <Property Type="Boolean" Name="EnviarProveedores" />
+          <Property Type="Decimal" Name="TotalPresupuesto" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="TotalExtras" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="PendienteCobro" Precision="10" Scale="2" />
+          <NavigationProperty Name="Clientes" Relationship="Promowork_dataModel.FK_Obras_Clientes" FromRole="Obras" ToRole="Clientes" />
+          <NavigationProperty Name="Clientes1" Relationship="Promowork_dataModel.FK_Obras_Clientes1" FromRole="Obras" ToRole="Clientes" />
+        </EntityType>
+        <Association Name="FK_Obras_Clientes">
+          <End Type="Promowork_dataModel.Clientes" Role="Clientes" Multiplicity="0..1" />
+          <End Type="Promowork_dataModel.Obras" Role="Obras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="Obras">
+              <PropertyRef Name="IdCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Obras_Clientes1">
+          <End Type="Promowork_dataModel.Clientes" Role="Clientes" Multiplicity="0..1" />
+          <End Type="Promowork_dataModel.Obras" Role="Obras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="Obras">
+              <PropertyRef Name="PromObra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -331,6 +461,37 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Obras">
+            <EntityTypeMapping TypeName="Promowork_dataModel.Obras">
+              <MappingFragment StoreEntitySet="Obras">
+                <ScalarProperty Name="PendienteCobro" ColumnName="PendienteCobro" />
+                <ScalarProperty Name="TotalExtras" ColumnName="TotalExtras" />
+                <ScalarProperty Name="TotalPresupuesto" ColumnName="TotalPresupuesto" />
+                <ScalarProperty Name="EnviarProveedores" ColumnName="EnviarProveedores" />
+                <ScalarProperty Name="NoAgenda" ColumnName="NoAgenda" />
+                <ScalarProperty Name="GastosGenerales" ColumnName="GastosGenerales" />
+                <ScalarProperty Name="ActivaObra" ColumnName="ActivaObra" />
+                <ScalarProperty Name="PorcientoCompra" ColumnName="PorcientoCompra" />
+                <ScalarProperty Name="IdTipo" ColumnName="IdTipo" />
+                <ScalarProperty Name="ConstObra" ColumnName="ConstObra" />
+                <ScalarProperty Name="PromObra" ColumnName="PromObra" />
+                <ScalarProperty Name="OtrLicObra" ColumnName="OtrLicObra" />
+                <ScalarProperty Name="LicObra" ColumnName="LicObra" />
+                <ScalarProperty Name="FechaFinObra" ColumnName="FechaFinObra" />
+                <ScalarProperty Name="FechaIniObra" ColumnName="FechaIniObra" />
+                <ScalarProperty Name="IdPoblacion" ColumnName="IdPoblacion" />
+                <ScalarProperty Name="DirObra" ColumnName="DirObra" />
+                <ScalarProperty Name="DesObra" ColumnName="DesObra" />
+                <ScalarProperty Name="SerieObra" ColumnName="SerieObra" />
+                <ScalarProperty Name="NumObra" ColumnName="NumObra" />
+                <ScalarProperty Name="NumMatriz" ColumnName="NumMatriz" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdObra" ColumnName="IdObra" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -355,6 +516,17 @@
         <EntityTypeShape EntityType="Promowork_dataModel.Clientes" Width="1.5" PointX="0.75" PointY="0.75" Height="5.634013671875" IsExpanded="true" />
         <EntityTypeShape EntityType="Promowork_dataModel.Proveedores" Width="1.5" PointX="2.75" PointY="0.75" Height="6.4032194010416656" IsExpanded="true" />
         <EntityTypeShape EntityType="Promowork_dataModel.Trabajadores" Width="1.5" PointX="5.375" PointY="0.75" Height="7.5570279947916656" />
+        <EntityTypeShape EntityType="Promowork_dataModel.Obras" Width="1.5" PointX="3" PointY="10.75" Height="6.210917968749996" />
+        <AssociationConnector Association="Promowork_dataModel.FK_Obras_Clientes" >
+          <ConnectorPoint PointX="1.5" PointY="6.7686165364583326" />
+          <ConnectorPoint PointX="1.5" PointY="13.855458984374998" />
+          <ConnectorPoint PointX="3" PointY="13.855458984374998" />
+        </AssociationConnector>
+        <AssociationConnector Association="Promowork_dataModel.FK_Obras_Clientes1" >
+          <ConnectorPoint PointX="1.9062525" PointY="6.7686165364583326" />
+          <ConnectorPoint PointX="1.9062525" PointY="12.271476992187498" />
+          <ConnectorPoint PointX="3" PointY="12.271476992187498" />
+        </AssociationConnector>
       </Diagram>
     </Diagrams>
   </Designer>

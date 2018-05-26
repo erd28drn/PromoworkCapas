@@ -111,20 +111,20 @@ namespace Promowork.Formularios.Reportes.Parametros
 
 
 
-                    if (chkResumen.CheckState == CheckState.Checked)
-                    {
+                    //if (chkResumen.CheckState == CheckState.Checked)
+                    //{
                         RptPendienteFacturarConResumen frm = new RptPendienteFacturarConResumen();
-                        frm.LoadParametros(dateTimePicker1.Value, dateTimePicker2.Value, tmpObras, tmpTrabajadores, rdgFacturado.SelectedIndex, chkAgruparDescripcion.Checked);
+                        frm.LoadParametros(dateTimePicker1.Value, dateTimePicker2.Value, tmpObras, tmpTrabajadores, rdgFacturado.SelectedIndex, chkResumen.Checked, chkAgruparDescripcion.Checked);
                         frm.MdiParent = this.MdiParent;
                         frm.Show();
-                    }
-                    else
-                    {
-                        RptPendienteFacturar frm = new RptPendienteFacturar();
-                        frm.LoadParametros(dateTimePicker1.Value, dateTimePicker2.Value, tmpObras, tmpTrabajadores, rdgFacturado.SelectedIndex);
-                        frm.MdiParent = this.MdiParent;
-                        frm.Show();
-                    }
+                    //}
+                    //else
+                    //{
+                    //    RptPendienteFacturar frm = new RptPendienteFacturar();
+                    //    frm.LoadParametros(dateTimePicker1.Value, dateTimePicker2.Value, tmpObras, tmpTrabajadores, rdgFacturado.SelectedIndex);
+                    //    frm.MdiParent = this.MdiParent;
+                    //    frm.Show();
+                    //}
 
 
                // resumenObrasTableAdapter.Fill(promowork_dataDataSet.ResumenObras, VariablesGlobales.nIdEmpresaActual, dateTimePicker1.Value, dateTimePicker2.Value, tmpObras, tmpTRabajadores);
