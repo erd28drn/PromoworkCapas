@@ -8,6 +8,7 @@ namespace GestionData.Entities
     public class RespuestasServicios
     {
         public bool ResultadoOk { get; set; }
+        public int idRespuesta { get; set; }
         public string Mensaje { get; set; }
     }
 }

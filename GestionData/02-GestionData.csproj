@@ -149,6 +149,8 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Repositorios\RepositorioHorasTrabajadas.cs" />
+    <Compile Include="Repositorios\RepositorioFacturasDetHoras.cs" />
     <Compile Include="Repositorios\RepositorioTrabajador.cs" />
     <Compile Include="Repositorios\RepositorioCliente.cs" />
     <Compile Include="Repositorios\RepositorioEmpresa.cs" />

@@ -58,9 +58,9 @@
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "Promowork.Reportes.PendienteFacturarConResumen.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(0, 56);
+            this.reportViewer1.Location = new System.Drawing.Point(0, 50);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(1220, 546);
+            this.reportViewer1.Size = new System.Drawing.Size(1220, 552);
             this.reportViewer1.TabIndex = 0;
             // 
             // btGenerarFacturas
@@ -71,7 +71,7 @@
             this.btGenerarFacturas.Dock = System.Windows.Forms.DockStyle.Top;
             this.btGenerarFacturas.Location = new System.Drawing.Point(0, 0);
             this.btGenerarFacturas.Name = "btGenerarFacturas";
-            this.btGenerarFacturas.Size = new System.Drawing.Size(1220, 56);
+            this.btGenerarFacturas.Size = new System.Drawing.Size(1220, 50);
             this.btGenerarFacturas.TabIndex = 1;
             // 
             // labelControl1
@@ -84,7 +84,7 @@
             // 
             // btFacturar
             // 
-            this.btFacturar.Location = new System.Drawing.Point(1075, 12);
+            this.btFacturar.Location = new System.Drawing.Point(1075, 10);
             this.btFacturar.Name = "btFacturar";
             this.btFacturar.Size = new System.Drawing.Size(122, 23);
             this.btFacturar.TabIndex = 1;
@@ -95,7 +95,7 @@
             // cbObras
             // 
             this.cbObras.EditValue = "";
-            this.cbObras.Location = new System.Drawing.Point(77, 12);
+            this.cbObras.Location = new System.Drawing.Point(77, 11);
             this.cbObras.Name = "cbObras";
             this.cbObras.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});

@@ -175,6 +175,7 @@
             // rdgFacturado
             // 
             this.rdgFacturado.AutoSizeInLayoutControl = true;
+            this.rdgFacturado.EditValue = 0;
             this.rdgFacturado.Location = new System.Drawing.Point(776, 12);
             this.rdgFacturado.Name = "rdgFacturado";
             this.rdgFacturado.Properties.Appearance.BackColor = System.Drawing.SystemColors.Control;

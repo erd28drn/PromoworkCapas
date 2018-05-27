@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Promowork_dataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="Promowork_dataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="Promowork_dataModelStoreContainer">
           <EntitySet Name="AlbaranesCab" EntityType="Promowork_dataModel.Store.AlbaranesCab" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="AlbaranesDet" EntityType="Promowork_dataModel.Store.AlbaranesDet" store:Type="Tables" Schema="dbo" />
@@ -17,6 +17,7 @@
           <EntitySet Name="FacturasDet" EntityType="Promowork_dataModel.Store.FacturasDet" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="FacturasDetDirecta" EntityType="Promowork_dataModel.Store.FacturasDetDirecta" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="FacturasDetHoras" EntityType="Promowork_dataModel.Store.FacturasDetHoras" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="HorasTrabajadas" EntityType="Promowork_dataModel.Store.HorasTrabajadas" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="OperacionesBanco" EntityType="Promowork_dataModel.Store.OperacionesBanco" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PresupCab" EntityType="Promowork_dataModel.Store.PresupCab" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PresupCap" EntityType="Promowork_dataModel.Store.PresupCap" store:Type="Tables" Schema="dbo" />
@@ -72,6 +73,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_FacturasDetHoras_FacturasCab" Association="Promowork_dataModel.Store.FK_FacturasDetHoras_FacturasCab">
             <End Role="FacturasCab" EntitySet="FacturasCab" />
+            <End Role="FacturasDetHoras" EntitySet="FacturasDetHoras" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FacturasDetHoras_HorasTrabajadas" Association="Promowork_dataModel.Store.FK_FacturasDetHoras_HorasTrabajadas">
+            <End Role="HorasTrabajadas" EntitySet="HorasTrabajadas" />
             <End Role="FacturasDetHoras" EntitySet="FacturasDetHoras" />
           </AssociationSet>
           <AssociationSet Name="FK_OperacionesBanco_Cobros" Association="Promowork_dataModel.Store.FK_OperacionesBanco_Cobros">
@@ -304,6 +309,43 @@
           <Property Name="IdFactDetHoras" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="IdFactCab" Type="int" Nullable="false" />
           <Property Name="IdHoras" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HorasTrabajadas">
+          <Key>
+            <PropertyRef Name="IdHoras" />
+          </Key>
+          <Property Name="IdHoras" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdEmpresa" Type="int" />
+          <Property Name="IdObra" Type="int" />
+          <Property Name="IdTrabajador" Type="int" />
+          <Property Name="IdCategoria" Type="int" />
+          <Property Name="IdUsuario" Type="int" />
+          <Property Name="DiaTrab" Type="tinyint" />
+          <Property Name="MesTrab" Type="tinyint" />
+          <Property Name="AnoTrab" Type="int" />
+          <Property Name="IdTipo" Type="int" />
+          <Property Name="Festivo" Type="bit" />
+          <Property Name="Cantidad" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="CantAdmin" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="CantExtra" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="Salario" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="SalarioVenta" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="SalarioExtra" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="Color" Type="int" />
+          <Property Name="HorasAdmin" Type="bit" />
+          <Property Name="DesTrabajo" Type="varchar" MaxLength="1000" />
+          <Property Name="DirTrabajo" Type="varchar" MaxLength="100" />
+          <Property Name="IdPresupCab" Type="int" />
+          <Property Name="CopiaParte" Type="varchar" MaxLength="1000" />
+          <Property Name="Facturado" Type="bit" />
+          <Property Name="ObsHoras" Type="varchar" MaxLength="1000" />
+          <Property Name="Albaran" Type="varchar" MaxLength="10" />
+          <Property Name="Confirmado" Type="bit" />
+          <Property Name="TelefonoCliente" Type="varchar" MaxLength="30" />
+          <Property Name="TrabajoFinalizado" Type="bit" />
+          <Property Name="ConsecutivoParte" Type="int" />
+          <Property Name="DescuentoHoras" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="NoActualizaPrecio" Type="bit" />
         </EntityType>
         <EntityType Name="OperacionesBanco">
           <Key>
@@ -566,6 +608,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_FacturasDetHoras_HorasTrabajadas">
+          <End Role="HorasTrabajadas" Type="Promowork_dataModel.Store.HorasTrabajadas" Multiplicity="1" />
+          <End Role="FacturasDetHoras" Type="Promowork_dataModel.Store.FacturasDetHoras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HorasTrabajadas">
+              <PropertyRef Name="IdHoras" />
+            </Principal>
+            <Dependent Role="FacturasDetHoras">
+              <PropertyRef Name="IdHoras" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_OperacionesBanco_Cobros">
           <End Role="Cobros" Type="Promowork_dataModel.Store.Cobros" Multiplicity="0..1" />
           <End Role="OperacionesBanco" Type="Promowork_dataModel.Store.OperacionesBanco" Multiplicity="*" />
@@ -646,8 +700,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Promowork_dataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -743,6 +796,11 @@
           <AssociationSet Name="FK_PresupSub_PresupDet" Association="Promowork_dataModel.FK_PresupSub_PresupDet">
             <End Role="PresupDet" EntitySet="PresupDet" />
             <End Role="PresupSub" EntitySet="PresupSub" />
+          </AssociationSet>
+          <EntitySet Name="HorasTrabajadas" EntityType="Promowork_dataModel.HorasTrabajadas" />
+          <AssociationSet Name="FK_FacturasDetHoras_HorasTrabajadas" Association="Promowork_dataModel.FK_FacturasDetHoras_HorasTrabajadas">
+            <End Role="HorasTrabajadas" EntitySet="HorasTrabajadas" />
+            <End Role="FacturasDetHoras" EntitySet="FacturasDetHoras" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="AlbaranesCab">
@@ -976,6 +1034,7 @@
           <Property Name="IdFactCab" Type="Int32" Nullable="false" />
           <Property Name="IdHoras" Type="Int32" Nullable="false" />
           <NavigationProperty Name="FacturasCab" Relationship="Promowork_dataModel.FK_FacturasDetHoras_FacturasCab" FromRole="FacturasDetHoras" ToRole="FacturasCab" />
+          <NavigationProperty Name="HorasTrabajadas" Relationship="Promowork_dataModel.FK_FacturasDetHoras_HorasTrabajadas" FromRole="FacturasDetHoras" ToRole="HorasTrabajadas" />
         </EntityType>
         <EntityType Name="OperacionesBanco">
           <Key>
@@ -1330,6 +1389,56 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="HorasTrabajadas">
+          <Key>
+            <PropertyRef Name="IdHoras" />
+          </Key>
+          <Property Type="Int32" Name="IdHoras" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="IdEmpresa" />
+          <Property Type="Int32" Name="IdObra" />
+          <Property Type="Int32" Name="IdTrabajador" />
+          <Property Type="Int32" Name="IdCategoria" />
+          <Property Type="Int32" Name="IdUsuario" />
+          <Property Type="Byte" Name="DiaTrab" />
+          <Property Type="Byte" Name="MesTrab" />
+          <Property Type="Int32" Name="AnoTrab" />
+          <Property Type="Int32" Name="IdTipo" />
+          <Property Type="Boolean" Name="Festivo" />
+          <Property Type="Decimal" Name="Cantidad" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="CantAdmin" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="CantExtra" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="Salario" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="SalarioVenta" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="SalarioExtra" Precision="10" Scale="2" />
+          <Property Type="Int32" Name="Color" />
+          <Property Type="Boolean" Name="HorasAdmin" />
+          <Property Type="String" Name="DesTrabajo" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DirTrabajo" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdPresupCab" />
+          <Property Type="String" Name="CopiaParte" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="Facturado" />
+          <Property Type="String" Name="ObsHoras" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Albaran" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="Confirmado" />
+          <Property Type="String" Name="TelefonoCliente" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="TrabajoFinalizado" />
+          <Property Type="Int32" Name="ConsecutivoParte" />
+          <Property Type="Decimal" Name="DescuentoHoras" Precision="5" Scale="2" />
+          <Property Type="Boolean" Name="NoActualizaPrecio" />
+          <NavigationProperty Name="FacturasDetHoras" Relationship="Promowork_dataModel.FK_FacturasDetHoras_HorasTrabajadas" FromRole="HorasTrabajadas" ToRole="FacturasDetHoras" />
+        </EntityType>
+        <Association Name="FK_FacturasDetHoras_HorasTrabajadas">
+          <End Type="Promowork_dataModel.HorasTrabajadas" Role="HorasTrabajadas" Multiplicity="1" />
+          <End Type="Promowork_dataModel.FacturasDetHoras" Role="FacturasDetHoras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HorasTrabajadas">
+              <PropertyRef Name="IdHoras" />
+            </Principal>
+            <Dependent Role="FacturasDetHoras">
+              <PropertyRef Name="IdHoras" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1655,6 +1764,44 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="HorasTrabajadas">
+            <EntityTypeMapping TypeName="Promowork_dataModel.HorasTrabajadas">
+              <MappingFragment StoreEntitySet="HorasTrabajadas">
+                <ScalarProperty Name="NoActualizaPrecio" ColumnName="NoActualizaPrecio" />
+                <ScalarProperty Name="DescuentoHoras" ColumnName="DescuentoHoras" />
+                <ScalarProperty Name="ConsecutivoParte" ColumnName="ConsecutivoParte" />
+                <ScalarProperty Name="TrabajoFinalizado" ColumnName="TrabajoFinalizado" />
+                <ScalarProperty Name="TelefonoCliente" ColumnName="TelefonoCliente" />
+                <ScalarProperty Name="Confirmado" ColumnName="Confirmado" />
+                <ScalarProperty Name="Albaran" ColumnName="Albaran" />
+                <ScalarProperty Name="ObsHoras" ColumnName="ObsHoras" />
+                <ScalarProperty Name="Facturado" ColumnName="Facturado" />
+                <ScalarProperty Name="CopiaParte" ColumnName="CopiaParte" />
+                <ScalarProperty Name="IdPresupCab" ColumnName="IdPresupCab" />
+                <ScalarProperty Name="DirTrabajo" ColumnName="DirTrabajo" />
+                <ScalarProperty Name="DesTrabajo" ColumnName="DesTrabajo" />
+                <ScalarProperty Name="HorasAdmin" ColumnName="HorasAdmin" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="SalarioExtra" ColumnName="SalarioExtra" />
+                <ScalarProperty Name="SalarioVenta" ColumnName="SalarioVenta" />
+                <ScalarProperty Name="Salario" ColumnName="Salario" />
+                <ScalarProperty Name="CantExtra" ColumnName="CantExtra" />
+                <ScalarProperty Name="CantAdmin" ColumnName="CantAdmin" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Festivo" ColumnName="Festivo" />
+                <ScalarProperty Name="IdTipo" ColumnName="IdTipo" />
+                <ScalarProperty Name="AnoTrab" ColumnName="AnoTrab" />
+                <ScalarProperty Name="MesTrab" ColumnName="MesTrab" />
+                <ScalarProperty Name="DiaTrab" ColumnName="DiaTrab" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+                <ScalarProperty Name="IdTrabajador" ColumnName="IdTrabajador" />
+                <ScalarProperty Name="IdObra" ColumnName="IdObra" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdHoras" ColumnName="IdHoras" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1760,11 +1907,11 @@
           <ConnectorPoint PointX="5.25" PointY="16.042918294270834" />
         </AssociationConnector>
         <AssociationConnector Association="Promowork_dataModel.FK_FacturasDetHoras_FacturasCab" ManuallyRouted="false">
-          <ConnectorPoint PointX="3.75" PointY="16.710836588541667" />
-          <ConnectorPoint PointX="3.75" PointY="23.018992513020834" />
-          <ConnectorPoint PointX="4.041666666666667" PointY="23.018992513020834" />
-          <ConnectorPoint PointX="4.208333333333333" PointY="23.018992513020834" />
-          <ConnectorPoint PointX="5.25" PointY="23.018992513020834" />
+          <ConnectorPoint PointX="3.5625" PointY="16.710836588541667" />
+          <ConnectorPoint PointX="3.5625" PointY="23.115143229166669" />
+          <ConnectorPoint PointX="4.041666666666667" PointY="23.115143229166669" />
+          <ConnectorPoint PointX="4.208333333333333" PointY="23.115143229166669" />
+          <ConnectorPoint PointX="5.25" PointY="23.115143229166669" />
         </AssociationConnector>
         <AssociationConnector Association="Promowork_dataModel.FK_FacturasDet_PresupCap" ManuallyRouted="false">
           <ConnectorPoint PointX="4.125" PointY="26.125" />
@@ -1776,15 +1923,13 @@
         <AssociationConnector Association="Promowork_dataModel.FK_FacturasDet_PresupDet" ManuallyRouted="false">
           <ConnectorPoint PointX="6.75" PointY="25.501152846153843" />
           <ConnectorPoint PointX="7.1261528461538433" PointY="25.125" />
-          <ConnectorPoint PointX="10.010414166666665" PointY="25.125" />
-          <ConnectorPoint PointX="10.177080833333333" PointY="25.125" />
           <ConnectorPoint PointX="10.5" PointY="25.125" />
           <ConnectorPoint PointX="10.5" PointY="20.835999348958332" />
         </AssociationConnector>
         <AssociationConnector Association="Promowork_dataModel.FK_FacturasDet_PresupSub" ManuallyRouted="false">
           <ConnectorPoint PointX="9" PointY="27.740102539062498" />
-          <ConnectorPoint PointX="10.0937475" PointY="27.740102539062498" />
-          <ConnectorPoint PointX="10.0937475" PointY="20.835999348958332" />
+          <ConnectorPoint PointX="10.5" PointY="27.740102539062498" />
+          <ConnectorPoint PointX="10.5" PointY="20.835999348958332" />
         </AssociationConnector>
         <AssociationConnector Association="Promowork_dataModel.FK_PresupCap_PresupCab" ManuallyRouted="false">
           <ConnectorPoint PointX="1.5" PointY="17.230205078125003" />
@@ -1798,6 +1943,14 @@
         <AssociationConnector Association="Promowork_dataModel.FK_PresupSub_PresupDet" ManuallyRouted="false">
           <ConnectorPoint PointX="6.75" PointY="27.771931462139413" />
           <ConnectorPoint PointX="7.5" PointY="27.771931462139413" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Promowork_dataModel.HorasTrabajadas" Width="1.5" PointX="12.375" PointY="1.25" Height="7.3647265625000022" />
+        <AssociationConnector Association="Promowork_dataModel.FK_FacturasDetHoras_HorasTrabajadas" >
+          <ConnectorPoint PointX="13.125" PointY="8.6147265625000031" />
+          <ConnectorPoint PointX="13.125" PointY="23.115143229166669" />
+          <ConnectorPoint PointX="10.583333333333334" PointY="23.115143229166669" />
+          <ConnectorPoint PointX="10.416666666666666" PointY="23.115143229166669" />
+          <ConnectorPoint PointX="6.75" PointY="23.115143229166669" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

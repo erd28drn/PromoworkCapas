@@ -7,15 +7,16 @@ using GestionData.Entities;
 
 namespace GestionData.Repositorios
 {
-    public class RepositorioFacturasDetHoras
+    public class RepositorioHorasTrabajadas
     {
         OperacionesDataModel contextoOperaciones = new OperacionesDataModel();
 
-        public int InsertFacturaDetHoras(FacturasDetHoras facturasDetHoras)
+        public bool SetFacturada(int idHora, bool valor)
         {
-            contextoOperaciones.FacturasDetHoras.AddObject(facturasDetHoras);
+            var hora = contextoOperaciones.HorasTrabajadas.FirstOrDefault(h => h.IdHoras == idHora);
+            hora.Facturado = valor;
             contextoOperaciones.SaveChanges();
-            return facturasDetHoras.IdFactDetHoras;
+            return true;
         }
     }
 }

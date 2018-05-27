@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using GestionData.Modelos;
 using GestionData.Repositorios;
 using GestionData.Entities;
+using GestionServices.Operaciones;
 
 
 namespace Promowork.Formularios.Reportes.Viewer
@@ -20,6 +21,8 @@ namespace Promowork.Formularios.Reportes.Viewer
         {
             InitializeComponent();
         }
+
+        GestionData.Promowork_dataDataSet.HorasPendientesFacturarDataTable horasPendientes;
 
         internal void LoadParametros(DateTime fechaini, DateTime fechafin, DataTable  tmpObras, DataTable tmpTRabajadores, int Facturado, bool resumen,  bool agruparDescripcion )
         {
@@ -57,7 +60,9 @@ namespace Promowork.Formularios.Reportes.Viewer
 
 
 
-            var obras = ((GestionData.Promowork_dataDataSet)HorasPendientesFacturarBindingSource.DataSource).HorasPendientesFacturar.GroupBy(o => o.IdObra).Select(o=>o.First())
+            horasPendientes = ((GestionData.Promowork_dataDataSet)HorasPendientesFacturarBindingSource.DataSource).HorasPendientesFacturar;
+
+            var obras = horasPendientes.GroupBy(o => o.IdObra).Select(o => o.First())
                 .Select(o => new ObrasFacturar { IdObra = o.IdObra, NumObra = o.NumObra, DesObra = o.DesObra }).OrderBy(o => o.NumObra).ToList();
 
             foreach (var obra in obras)
@@ -72,7 +77,41 @@ namespace Promowork.Formularios.Reportes.Viewer
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show("Se crearan las facturas de las obras seleccionadas. ¿Desea Continuar?", "Creación de facturas", MessageBoxButtons.YesNo, MessageBoxIcon.Question)==DialogResult.Yes)
+            {
+                List<RespuestasServicios> respuestas = new List<RespuestasServicios>();
+                foreach (DevExpress.XtraEditors.Controls.CheckedListBoxItem item in cbObras.Properties.GetItems())
+                {
+                    if (item.CheckState == CheckState.Checked)
+                    {
+                        List<GestionData.Promowork_dataDataSet.HorasPendientesFacturarRow> horasFactura = horasPendientes.Where(h => h.IdObra == (int)item.Value && h.Facturado == false).GroupBy(h => h.IdHoras).Select(h => h.First()).ToList();
 
+                        if (horasFactura.Any())
+                        {
+                            FacturasClientesService facturasServices = new FacturasClientesService();
+                            var resultado = facturasServices.CrearFacturaPartes(VariablesGlobales.nIdUsuarioActual, horasFactura);
+                            respuestas.Add(resultado);
+                        }
+
+
+                    }
+                }
+                var errores = respuestas.Where(r => r.ResultadoOk != true);
+                if (errores.Any())
+                {
+                    var mensaje = "";
+                    foreach (var error in errores)
+                    {
+                        mensaje += error.Mensaje;
+                    }
+                    MessageBox.Show(mensaje, "Creación de Facturas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Facturas Creadas Correctamente.", "Creación de Facturas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                this.Close();
+            }
         }
 
       
