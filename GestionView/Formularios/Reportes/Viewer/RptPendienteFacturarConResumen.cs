@@ -114,6 +114,22 @@ namespace Promowork.Formularios.Reportes.Viewer
             }
         }
 
+        private void btMarcarFinalizados_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Se marcaran como finalizados los partes correspondientes a las obras seleccionadas. ¿Desea Continuar?", "Marcar finalizados", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                List<int> obras = cbObras.Properties.Items.GetCheckedValues().Select(i => (int)i).ToList();
+                List<int> horasFinalizar = horasPendientes.Where(h => obras.Contains(h.IdObra)).GroupBy(h => h.IdHoras).Select(h => h.First()).Select(h => h.IdHoras).ToList();
+
+                if (horasFinalizar.Any())
+                {
+                    RepositorioHorasTrabajadas repoHoras = new RepositorioHorasTrabajadas();
+                    var resultado = repoHoras.SetPartesFinalizados(horasFinalizar, true);
+                }
+            }
+        }
+       
+
       
        
     }

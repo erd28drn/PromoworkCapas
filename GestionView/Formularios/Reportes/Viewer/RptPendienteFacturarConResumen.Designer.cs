@@ -41,6 +41,7 @@
             this.EmpresasActualBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.EmpresasActualTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.EmpresasActualTableAdapter();
             this.HorasPendientesFacturarTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.HorasPendientesFacturarTableAdapter();
+            this.btMarcarFinalizados = new DevExpress.XtraEditors.SimpleButton();
             this.btGenerarFacturas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbObras.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HorasPendientesFacturarBindingSource)).BeginInit();
@@ -60,18 +61,19 @@
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "Promowork.Reportes.PendienteFacturarConResumen.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 50);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(1220, 552);
+            this.reportViewer1.Size = new System.Drawing.Size(1261, 552);
             this.reportViewer1.TabIndex = 0;
             // 
             // btGenerarFacturas
             // 
+            this.btGenerarFacturas.Controls.Add(this.btMarcarFinalizados);
             this.btGenerarFacturas.Controls.Add(this.labelControl1);
             this.btGenerarFacturas.Controls.Add(this.btFacturar);
             this.btGenerarFacturas.Controls.Add(this.cbObras);
             this.btGenerarFacturas.Dock = System.Windows.Forms.DockStyle.Top;
             this.btGenerarFacturas.Location = new System.Drawing.Point(0, 0);
             this.btGenerarFacturas.Name = "btGenerarFacturas";
-            this.btGenerarFacturas.Size = new System.Drawing.Size(1220, 50);
+            this.btGenerarFacturas.Size = new System.Drawing.Size(1261, 50);
             this.btGenerarFacturas.TabIndex = 1;
             // 
             // labelControl1
@@ -84,7 +86,7 @@
             // 
             // btFacturar
             // 
-            this.btFacturar.Location = new System.Drawing.Point(1075, 10);
+            this.btFacturar.Location = new System.Drawing.Point(979, 8);
             this.btFacturar.Name = "btFacturar";
             this.btFacturar.Size = new System.Drawing.Size(122, 23);
             this.btFacturar.TabIndex = 1;
@@ -99,7 +101,7 @@
             this.cbObras.Name = "cbObras";
             this.cbObras.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbObras.Size = new System.Drawing.Size(992, 20);
+            this.cbObras.Size = new System.Drawing.Size(896, 20);
             this.cbObras.TabIndex = 0;
             // 
             // HorasPendientesFacturarBindingSource
@@ -125,11 +127,21 @@
             // 
             this.HorasPendientesFacturarTableAdapter.ClearBeforeFill = true;
             // 
+            // btMarcarFinalizados
+            // 
+            this.btMarcarFinalizados.Location = new System.Drawing.Point(1127, 8);
+            this.btMarcarFinalizados.Name = "btMarcarFinalizados";
+            this.btMarcarFinalizados.Size = new System.Drawing.Size(122, 23);
+            this.btMarcarFinalizados.TabIndex = 3;
+            this.btMarcarFinalizados.Text = "Marcar Finalizados";
+            this.btMarcarFinalizados.ToolTip = "Generara facturas de las obras selecionadas";
+            this.btMarcarFinalizados.Click += new System.EventHandler(this.btMarcarFinalizados_Click);
+            // 
             // RptPendienteFacturarConResumen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1220, 602);
+            this.ClientSize = new System.Drawing.Size(1261, 602);
             this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.btGenerarFacturas);
             this.Name = "RptPendienteFacturarConResumen";
@@ -159,6 +171,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.SimpleButton btFacturar;
         private DevExpress.XtraEditors.CheckedComboBoxEdit cbObras;
+        private DevExpress.XtraEditors.SimpleButton btMarcarFinalizados;
 
     }
 }

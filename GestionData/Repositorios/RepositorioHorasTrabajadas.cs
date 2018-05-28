@@ -18,5 +18,19 @@ namespace GestionData.Repositorios
             contextoOperaciones.SaveChanges();
             return true;
         }
+
+        public bool SetPartesFinalizados(List<int> idsPartes, bool valor=true)
+        {
+            var partesAFinalizar = contextoOperaciones.HorasTrabajadas.Where(h => idsPartes.Contains(h.IdHoras));
+            if (partesAFinalizar.Any())
+            {
+                foreach (var parte in partesAFinalizar)
+                {
+                    parte.TrabajoFinalizado = valor;
+                }
+                contextoOperaciones.SaveChanges();
+            }
+            return true;
+        }
     }
 }
