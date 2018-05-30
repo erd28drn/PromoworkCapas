@@ -1449,6 +1449,15 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
+    <None Include="Properties\DataSources\GestionData.Entities.ConfiguracionEmpresa.datasource" />
+    <None Include="Properties\DataSources\GestionData.Entities.ConfiguracionUsuario.datasource" />
+    <None Include="Properties\DataSources\GestionData.Entities.GestorConEmail.datasource" />
+    <None Include="Properties\DataSources\GestionData.Entities.ObrasEnviar.datasource" />
+    <None Include="Properties\DataSources\GestionData.Entities.ObrasFacturar.datasource" />
+    <None Include="Properties\DataSources\GestionData.Entities.RespuestasServicios.datasource" />
+    <None Include="Properties\DataSources\GestionData.Entities.ResumenEnvioCorreos.datasource" />
+    <None Include="Properties\DataSources\GestionData.Entities.TotalesCompra.datasource" />
+    <None Include="Properties\DataSources\GestionData.Entities.TrabajadorConEmail.datasource" />
     <None Include="Properties\DataSources\GestionData.Modelos.AccesosEmpresas.datasource" />
     <None Include="Properties\DataSources\GestionData.Modelos.AccesosOpciones.datasource" />
     <None Include="Properties\DataSources\GestionData.Modelos.AlbaranesCab.datasource" />

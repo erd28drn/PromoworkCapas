@@ -15,8 +15,9 @@ using Promowork.Formularios.Reportes.Parametros;
 using Promowork.Formularios.Reportes.Viewer;
 using Promowork.Formularios.Operaciones;
 using GestionData;
-using GestionData.Enumeradores;
 using GestionServices.Generales;
+using GestionData.Repositorios;
+using GestionData.Entities;
 
 namespace Promowork.Formularios.Operaciones
 {
@@ -32,7 +33,9 @@ namespace Promowork.Formularios.Operaciones
         string AparienciaGridEncabezado="";
         string AparienciaGridDetalles = "";
         Dictionary<int, string> cbitem = new Dictionary<int, string>();
-        
+
+        RepositorioEmpresa repoEmpresa = new RepositorioEmpresa();
+        ConfiguracionEmpresa configuracionEmpresa = new ConfiguracionEmpresa();
 
         private void albaranesCabBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
@@ -80,6 +83,20 @@ namespace Promowork.Formularios.Operaciones
 
                 this.observacionesProveedoresBindingSource.EndEdit();
                 this.observacionesProveedoresTableAdapter.Update(datosAlbaranes.ObservacionesProveedores);
+
+                List<string> observaciones = new List<string>();
+
+                foreach (DataGridViewRow row in gvObservacionesAlbaranes.Rows)
+                {
+                    var obs = row.Cells[0].Value;
+                    if (obs!=null)
+                    {
+                        observaciones.Add(obs.ToString());
+                    }
+                }
+
+                configuracionEmpresa.ObservacionesAlbaranes = observaciones;
+                repoEmpresa.GuardarConfiguracionEmpresa(configuracionEmpresa);
 
             }
 
@@ -138,6 +155,13 @@ namespace Promowork.Formularios.Operaciones
             gvcbxUtilizadoEn.DisplayMember = "Value";
             gvcbxUtilizadoEn.ValueMember = "Key";
 
+            configuracionEmpresa = repoEmpresa.GetConfiguracionEmpresa(VariablesGlobales.nIdEmpresaActual);
+            var observacionesAlbaranes = configuracionEmpresa.ObservacionesAlbaranes ?? new List<string>();
+
+            foreach (string obs in observacionesAlbaranes)
+            {
+                gvObservacionesAlbaranes.Rows.Add(obs);
+            }
 
             Cursor.Current = Cursors.Default;
         }
@@ -484,6 +508,15 @@ namespace Promowork.Formularios.Operaciones
             frm.MdiParent = this.MdiParent;
             frm.WindowState = FormWindowState.Maximized;
             frm.Show();
+        }
+
+        private void gvObservacionesAlbaranes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //if (gvObservacionesAlbaranes.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            //{
+                observacionesTextEdit.EditValue = gvObservacionesAlbaranes.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+            //}
+
         }
 
       

@@ -106,6 +106,8 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.gvObservacionesAlbaranes = new System.Windows.Forms.DataGridView();
+            this.tbObservaciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tbPromedioSeleccion = new DevExpress.XtraEditors.TextEdit();
             this.tbSumaSeleccion = new DevExpress.XtraEditors.TextEdit();
@@ -219,6 +221,7 @@
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gvObservacionesAlbaranes)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbPromedioSeleccion.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbSumaSeleccion.Properties)).BeginInit();
@@ -262,7 +265,7 @@
             // numAlbaranLabel
             // 
             numAlbaranLabel.AutoSize = true;
-            numAlbaranLabel.Location = new System.Drawing.Point(30, 27);
+            numAlbaranLabel.Location = new System.Drawing.Point(30, 15);
             numAlbaranLabel.Name = "numAlbaranLabel";
             numAlbaranLabel.Size = new System.Drawing.Size(86, 13);
             numAlbaranLabel.TabIndex = 0;
@@ -271,7 +274,7 @@
             // fechaAlbaranLabel
             // 
             fechaAlbaranLabel.AutoSize = true;
-            fechaAlbaranLabel.Location = new System.Drawing.Point(37, 81);
+            fechaAlbaranLabel.Location = new System.Drawing.Point(294, 39);
             fechaAlbaranLabel.Name = "fechaAlbaranLabel";
             fechaAlbaranLabel.Size = new System.Drawing.Size(79, 13);
             fechaAlbaranLabel.TabIndex = 2;
@@ -280,7 +283,7 @@
             // observacionesLabel
             // 
             observacionesLabel.AutoSize = true;
-            observacionesLabel.Location = new System.Drawing.Point(35, 185);
+            observacionesLabel.Location = new System.Drawing.Point(35, 137);
             observacionesLabel.Name = "observacionesLabel";
             observacionesLabel.Size = new System.Drawing.Size(81, 13);
             observacionesLabel.TabIndex = 6;
@@ -289,7 +292,7 @@
             // copiaAlbaranLabel
             // 
             copiaAlbaranLabel.AutoSize = true;
-            copiaAlbaranLabel.Location = new System.Drawing.Point(40, 159);
+            copiaAlbaranLabel.Location = new System.Drawing.Point(40, 113);
             copiaAlbaranLabel.Name = "copiaAlbaranLabel";
             copiaAlbaranLabel.Size = new System.Drawing.Size(76, 13);
             copiaAlbaranLabel.TabIndex = 8;
@@ -298,7 +301,7 @@
             // idProveedorLabel
             // 
             idProveedorLabel.AutoSize = true;
-            idProveedorLabel.Location = new System.Drawing.Point(57, 107);
+            idProveedorLabel.Location = new System.Drawing.Point(57, 64);
             idProveedorLabel.Name = "idProveedorLabel";
             idProveedorLabel.Size = new System.Drawing.Size(59, 13);
             idProveedorLabel.TabIndex = 9;
@@ -307,7 +310,7 @@
             // consecutivoAlbaranLabel
             // 
             consecutivoAlbaranLabel.AutoSize = true;
-            consecutivoAlbaranLabel.Location = new System.Drawing.Point(8, 53);
+            consecutivoAlbaranLabel.Location = new System.Drawing.Point(8, 39);
             consecutivoAlbaranLabel.Name = "consecutivoAlbaranLabel";
             consecutivoAlbaranLabel.Size = new System.Drawing.Size(108, 13);
             consecutivoAlbaranLabel.TabIndex = 11;
@@ -316,7 +319,7 @@
             // idObraLabel
             // 
             idObraLabel.AutoSize = true;
-            idObraLabel.Location = new System.Drawing.Point(83, 132);
+            idObraLabel.Location = new System.Drawing.Point(83, 88);
             idObraLabel.Name = "idObraLabel";
             idObraLabel.Size = new System.Drawing.Size(33, 13);
             idObraLabel.TabIndex = 13;
@@ -325,7 +328,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(18, 288);
+            label1.Location = new System.Drawing.Point(18, 321);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(98, 13);
             label1.TabIndex = 22;
@@ -334,7 +337,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(50, 262);
+            label2.Location = new System.Drawing.Point(50, 295);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(66, 13);
             label2.TabIndex = 23;
@@ -638,7 +641,7 @@
             this.Proveedores,
             this.Obra,
             this.gvcbxUtilizadoEn});
-            this.albaranesCabGridControl.Size = new System.Drawing.Size(871, 437);
+            this.albaranesCabGridControl.Size = new System.Drawing.Size(871, 466);
             this.albaranesCabGridControl.TabIndex = 1;
             this.albaranesCabGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -908,7 +911,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.albaranesDetGridControl);
             this.splitContainer1.Panel2.Controls.Add(this.bindingNavigator1);
             this.splitContainer1.Size = new System.Drawing.Size(1370, 733);
-            this.splitContainer1.SplitterDistance = 462;
+            this.splitContainer1.SplitterDistance = 491;
             this.splitContainer1.TabIndex = 2;
             // 
             // splitContainer2
@@ -927,7 +930,7 @@
             // 
             this.splitContainer2.Panel2.AutoScroll = true;
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
-            this.splitContainer2.Size = new System.Drawing.Size(1370, 462);
+            this.splitContainer2.Size = new System.Drawing.Size(1370, 491);
             this.splitContainer2.SplitterDistance = 871;
             this.splitContainer2.TabIndex = 2;
             // 
@@ -942,6 +945,7 @@
             // splitContainer3.Panel1
             // 
             this.splitContainer3.Panel1.AutoScroll = true;
+            this.splitContainer3.Panel1.Controls.Add(this.gvObservacionesAlbaranes);
             this.splitContainer3.Panel1.Controls.Add(this.groupBox3);
             this.splitContainer3.Panel1.Controls.Add(label2);
             this.splitContainer3.Panel1.Controls.Add(label1);
@@ -970,9 +974,33 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.observacionesProveedoresGridControl);
-            this.splitContainer3.Size = new System.Drawing.Size(495, 462);
-            this.splitContainer3.SplitterDistance = 373;
+            this.splitContainer3.Size = new System.Drawing.Size(495, 491);
+            this.splitContainer3.SplitterDistance = 393;
             this.splitContainer3.TabIndex = 19;
+            // 
+            // gvObservacionesAlbaranes
+            // 
+            this.gvObservacionesAlbaranes.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.gvObservacionesAlbaranes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.gvObservacionesAlbaranes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
+            this.gvObservacionesAlbaranes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvObservacionesAlbaranes.ColumnHeadersVisible = false;
+            this.gvObservacionesAlbaranes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tbObservaciones});
+            this.gvObservacionesAlbaranes.Location = new System.Drawing.Point(122, 188);
+            this.gvObservacionesAlbaranes.Name = "gvObservacionesAlbaranes";
+            this.gvObservacionesAlbaranes.RowHeadersVisible = false;
+            this.gvObservacionesAlbaranes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gvObservacionesAlbaranes.Size = new System.Drawing.Size(357, 97);
+            this.gvObservacionesAlbaranes.TabIndex = 72;
+            this.gvObservacionesAlbaranes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvObservacionesAlbaranes_CellDoubleClick);
+            // 
+            // tbObservaciones
+            // 
+            this.tbObservaciones.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tbObservaciones.DataPropertyName = "ObservacionesAlbaranes";
+            this.tbObservaciones.HeaderText = "Observaciones";
+            this.tbObservaciones.Name = "tbObservaciones";
             // 
             // groupBox3
             // 
@@ -982,9 +1010,9 @@
             this.groupBox3.Controls.Add(this.tbSumaSeleccion);
             this.groupBox3.Controls.Add(label5);
             this.groupBox3.Controls.Add(this.tbRecuentoSeleccion);
-            this.groupBox3.Location = new System.Drawing.Point(11, 314);
+            this.groupBox3.Location = new System.Drawing.Point(11, 342);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(476, 50);
+            this.groupBox3.Size = new System.Drawing.Size(476, 46);
             this.groupBox3.TabIndex = 71;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Selección";
@@ -1019,7 +1047,7 @@
             // tbFacturaCompra
             // 
             this.tbFacturaCompra.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.albaranesCabBindingSource, "FacturaCompra", true));
-            this.tbFacturaCompra.Location = new System.Drawing.Point(122, 284);
+            this.tbFacturaCompra.Location = new System.Drawing.Point(122, 317);
             this.tbFacturaCompra.Name = "tbFacturaCompra";
             this.tbFacturaCompra.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.tbFacturaCompra.Properties.Appearance.Options.UseFont = true;
@@ -1030,7 +1058,7 @@
             // chkSinAlbaran
             // 
             this.chkSinAlbaran.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.albaranesCabBindingSource, "SinAlbaran", true));
-            this.chkSinAlbaran.Location = new System.Drawing.Point(316, 25);
+            this.chkSinAlbaran.Location = new System.Drawing.Point(316, 13);
             this.chkSinAlbaran.Name = "chkSinAlbaran";
             this.chkSinAlbaran.Properties.Caption = "\"X\" Reclamar Albaran";
             this.chkSinAlbaran.Size = new System.Drawing.Size(163, 19);
@@ -1039,7 +1067,7 @@
             // chkFacturaRecibida
             // 
             this.chkFacturaRecibida.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.albaranesCabBindingSource, "FacturaRecibida", true));
-            this.chkFacturaRecibida.Location = new System.Drawing.Point(371, 259);
+            this.chkFacturaRecibida.Location = new System.Drawing.Point(371, 292);
             this.chkFacturaRecibida.Name = "chkFacturaRecibida";
             this.chkFacturaRecibida.Properties.Caption = "Factura Recibida";
             this.chkFacturaRecibida.Size = new System.Drawing.Size(111, 19);
@@ -1048,15 +1076,15 @@
             // observacionesTextEdit
             // 
             this.observacionesTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.albaranesCabBindingSource, "Observaciones", true));
-            this.observacionesTextEdit.Location = new System.Drawing.Point(122, 182);
+            this.observacionesTextEdit.Location = new System.Drawing.Point(122, 134);
             this.observacionesTextEdit.Name = "observacionesTextEdit";
-            this.observacionesTextEdit.Size = new System.Drawing.Size(360, 70);
+            this.observacionesTextEdit.Size = new System.Drawing.Size(357, 47);
             this.observacionesTextEdit.TabIndex = 5;
             // 
             // chkUtilizado
             // 
             this.chkUtilizado.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.albaranesCabBindingSource, "Utilizado", true));
-            this.chkUtilizado.Location = new System.Drawing.Point(31, 233);
+            this.chkUtilizado.Location = new System.Drawing.Point(31, 162);
             this.chkUtilizado.Name = "chkUtilizado";
             this.chkUtilizado.Properties.Caption = "Utilizado";
             this.chkUtilizado.Size = new System.Drawing.Size(75, 19);
@@ -1066,18 +1094,18 @@
             // copiaAlbaranTextEdit
             // 
             this.copiaAlbaranTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.albaranesCabBindingSource, "CopiaAlbaran", true));
-            this.copiaAlbaranTextEdit.Location = new System.Drawing.Point(122, 156);
+            this.copiaAlbaranTextEdit.Location = new System.Drawing.Point(122, 110);
             this.copiaAlbaranTextEdit.Name = "copiaAlbaranTextEdit";
             this.copiaAlbaranTextEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.copiaAlbaranTextEdit.Size = new System.Drawing.Size(360, 20);
+            this.copiaAlbaranTextEdit.Size = new System.Drawing.Size(357, 20);
             this.copiaAlbaranTextEdit.TabIndex = 4;
             this.copiaAlbaranTextEdit.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.copiaAlbaranTextEdit_ButtonPressed);
             // 
             // cbxProveedores
             // 
             this.cbxProveedores.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.albaranesCabBindingSource, "IdProveedor", true));
-            this.cbxProveedores.Location = new System.Drawing.Point(122, 104);
+            this.cbxProveedores.Location = new System.Drawing.Point(122, 61);
             this.cbxProveedores.Name = "cbxProveedores";
             this.cbxProveedores.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1099,7 +1127,7 @@
             0,
             0,
             0});
-            this.txtConsecutivo.Location = new System.Drawing.Point(122, 50);
+            this.txtConsecutivo.Location = new System.Drawing.Point(122, 37);
             this.txtConsecutivo.Name = "txtConsecutivo";
             this.txtConsecutivo.Properties.DisplayFormat.FormatString = "N0";
             this.txtConsecutivo.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
@@ -1112,7 +1140,7 @@
             // cbxObra
             // 
             this.cbxObra.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.albaranesCabBindingSource, "IdObra", true));
-            this.cbxObra.Location = new System.Drawing.Point(122, 130);
+            this.cbxObra.Location = new System.Drawing.Point(122, 86);
             this.cbxObra.Name = "cbxObra";
             this.cbxObra.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1129,7 +1157,7 @@
             // txtNumeroAlbaran
             // 
             this.txtNumeroAlbaran.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.albaranesCabBindingSource, "NumAlbaran", true));
-            this.txtNumeroAlbaran.Location = new System.Drawing.Point(122, 24);
+            this.txtNumeroAlbaran.Location = new System.Drawing.Point(122, 12);
             this.txtNumeroAlbaran.Name = "txtNumeroAlbaran";
             this.txtNumeroAlbaran.Size = new System.Drawing.Size(179, 20);
             this.txtNumeroAlbaran.TabIndex = 0;
@@ -1138,7 +1166,7 @@
             // 
             this.deFechaAlbaran.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.albaranesCabBindingSource, "FechaAlbaran", true));
             this.deFechaAlbaran.EditValue = null;
-            this.deFechaAlbaran.Location = new System.Drawing.Point(122, 78);
+            this.deFechaAlbaran.Location = new System.Drawing.Point(379, 36);
             this.deFechaAlbaran.Name = "deFechaAlbaran";
             this.deFechaAlbaran.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1150,7 +1178,7 @@
             // chkValorado
             // 
             this.chkValorado.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.albaranesCabBindingSource, "Valorado", true));
-            this.chkValorado.Location = new System.Drawing.Point(371, 285);
+            this.chkValorado.Location = new System.Drawing.Point(371, 318);
             this.chkValorado.Name = "chkValorado";
             this.chkValorado.Properties.Caption = "Valorado";
             this.chkValorado.Size = new System.Drawing.Size(75, 19);
@@ -1165,7 +1193,7 @@
             0,
             0,
             0});
-            this.spnIdAlbaran.Location = new System.Drawing.Point(122, 50);
+            this.spnIdAlbaran.Location = new System.Drawing.Point(122, 37);
             this.spnIdAlbaran.Name = "spnIdAlbaran";
             this.spnIdAlbaran.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
@@ -1177,7 +1205,7 @@
             // cbxUtilizadoEn
             // 
             this.cbxUtilizadoEn.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.albaranesCabBindingSource, "UtilizadoEn", true));
-            this.cbxUtilizadoEn.Location = new System.Drawing.Point(122, 258);
+            this.cbxUtilizadoEn.Location = new System.Drawing.Point(122, 291);
             this.cbxUtilizadoEn.Name = "cbxUtilizadoEn";
             this.cbxUtilizadoEn.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.cbxUtilizadoEn.Properties.Appearance.Options.UseFont = true;
@@ -1202,7 +1230,7 @@
             this.observacionesProveedoresGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.Observaciones,
             this.btnEliminar});
-            this.observacionesProveedoresGridControl.Size = new System.Drawing.Size(495, 85);
+            this.observacionesProveedoresGridControl.Size = new System.Drawing.Size(495, 94);
             this.observacionesProveedoresGridControl.TabIndex = 18;
             this.observacionesProveedoresGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -1298,7 +1326,7 @@
             this.Lugares,
             this.Trabajadores,
             this.UMProductos});
-            this.albaranesDetGridControl.Size = new System.Drawing.Size(1370, 242);
+            this.albaranesDetGridControl.Size = new System.Drawing.Size(1370, 213);
             this.albaranesDetGridControl.TabIndex = 0;
             this.albaranesDetGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -1788,6 +1816,7 @@
             this.splitContainer3.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gvObservacionesAlbaranes)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbPromedioSeleccion.Properties)).EndInit();
@@ -1968,6 +1997,8 @@
         private DevExpress.XtraEditors.TextEdit tbSumaSeleccion;
         private DevExpress.XtraEditors.TextEdit tbRecuentoSeleccion;
         private System.Windows.Forms.ToolStripButton btObrasProveedores;
+        private System.Windows.Forms.DataGridView gvObservacionesAlbaranes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tbObservaciones;
 
     }
 }
