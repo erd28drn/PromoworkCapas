@@ -36,10 +36,10 @@
             System.Windows.Forms.Label licObraPresupLabel;
             System.Windows.Forms.Label idClienteLabel1;
             System.Windows.Forms.Label idObraLabel1;
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode3 = new DevExpress.XtraGrid.GridLevelNode();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode4 = new DevExpress.XtraGrid.GridLevelNode();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             System.Windows.Forms.Label certificacionAFacturarLabel;
             System.Windows.Forms.Label label1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPresupuestoTabla));
@@ -188,7 +188,9 @@
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.btAFacturar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
+            this.btListadoPresupuestos = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
             this.anosPresupuestosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.anosPresupuestosTableAdapter = new GestionData.DatosPresupuestosTableAdapters.AnosPresupuestosTableAdapter();
@@ -633,7 +635,7 @@
             // 
             this.aFacturarDet.AutoHeight = false;
             this.aFacturarDet.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.OK, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "Partida terminada", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.OK, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "Partida terminada", null, null, true)});
             this.aFacturarDet.DisplayFormat.FormatString = "N3";
             this.aFacturarDet.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.aFacturarDet.EditFormat.FormatString = "N3";
@@ -773,14 +775,14 @@
             // 
             this.presupCapGridControl.DataSource = this.presupCapBindingSource;
             this.presupCapGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode3.LevelTemplate = this.gridView3;
-            gridLevelNode4.LevelTemplate = this.gridView4;
-            gridLevelNode4.RelationName = "FK_PresupSub_PresupDet";
-            gridLevelNode3.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode4});
-            gridLevelNode3.RelationName = "FK_PresupDet_PresupCap";
+            gridLevelNode1.LevelTemplate = this.gridView3;
+            gridLevelNode2.LevelTemplate = this.gridView4;
+            gridLevelNode2.RelationName = "FK_PresupSub_PresupDet";
+            gridLevelNode1.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
+            gridLevelNode2});
+            gridLevelNode1.RelationName = "FK_PresupDet_PresupCap";
             this.presupCapGridControl.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode3});
+            gridLevelNode1});
             this.presupCapGridControl.Location = new System.Drawing.Point(0, 26);
             this.presupCapGridControl.MainView = this.gridView2;
             this.presupCapGridControl.Name = "presupCapGridControl";
@@ -1125,7 +1127,7 @@
             // 
             this.aFacturarSub.AutoHeight = false;
             this.aFacturarSub.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.OK, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "Partida terminada", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.OK, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "Partida terminada", null, null, true)});
             this.aFacturarSub.DisplayFormat.FormatString = "N3";
             this.aFacturarSub.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.aFacturarSub.EditFormat.FormatString = "N3";
@@ -2089,7 +2091,9 @@
             this.toolStripSeparator11,
             this.toolStripButton4,
             this.toolStripSeparator12,
-            this.toolStripButton5,
+            this.btAFacturar,
+            this.toolStripSeparator15,
+            this.btListadoPresupuestos,
             this.toolStripSeparator13});
             this.presupCabBindingNavigator.Location = new System.Drawing.Point(0, 0);
             this.presupCabBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
@@ -2263,15 +2267,30 @@
             this.toolStripSeparator12.Name = "toolStripSeparator12";
             this.toolStripSeparator12.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStripButton5
+            // btAFacturar
             // 
-            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(81, 22);
-            this.toolStripButton5.Text = "A Facturar";
-            this.toolStripButton5.ToolTipText = "Imprimir Facturado y Pendiente";
-            this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
+            this.btAFacturar.Image = ((System.Drawing.Image)(resources.GetObject("btAFacturar.Image")));
+            this.btAFacturar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btAFacturar.Name = "btAFacturar";
+            this.btAFacturar.Size = new System.Drawing.Size(81, 22);
+            this.btAFacturar.Text = "A Facturar";
+            this.btAFacturar.ToolTipText = "Imprimir A Facturar";
+            this.btAFacturar.Click += new System.EventHandler(this.toolStripButton5_Click);
+            // 
+            // toolStripSeparator15
+            // 
+            this.toolStripSeparator15.Name = "toolStripSeparator15";
+            this.toolStripSeparator15.Size = new System.Drawing.Size(6, 25);
+            // 
+            // btListadoPresupuestos
+            // 
+            this.btListadoPresupuestos.Image = ((System.Drawing.Image)(resources.GetObject("btListadoPresupuestos.Image")));
+            this.btListadoPresupuestos.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btListadoPresupuestos.Name = "btListadoPresupuestos";
+            this.btListadoPresupuestos.Size = new System.Drawing.Size(97, 22);
+            this.btListadoPresupuestos.Text = "Presupuestos";
+            this.btListadoPresupuestos.ToolTipText = "Imprimir Listado de Presupuestos";
+            this.btListadoPresupuestos.Click += new System.EventHandler(this.btListadoPresupuestos_Click);
             // 
             // toolStripSeparator13
             // 
@@ -2297,7 +2316,7 @@
             // 
             // lookUpEdit1
             // 
-            this.lookUpEdit1.Location = new System.Drawing.Point(997, 2);
+            this.lookUpEdit1.Location = new System.Drawing.Point(1020, 2);
             this.lookUpEdit1.Name = "lookUpEdit1";
             this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -2313,7 +2332,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(842, 5);
+            this.labelControl1.Location = new System.Drawing.Point(873, 5);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(148, 13);
             this.labelControl1.TabIndex = 3;
@@ -2561,7 +2580,7 @@
         private GestionData.DatosPresupuestosTableAdapters.QueriesPresupuestos queriesPresupuestos1;
         private DevExpress.XtraGrid.Columns.GridColumn colDescPrecio;
         private DevExpress.XtraGrid.Columns.GridColumn colDescPrecio1;
-        private System.Windows.Forms.ToolStripButton toolStripButton5;
+        private System.Windows.Forms.ToolStripButton btAFacturar;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
@@ -2575,5 +2594,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colCantInf;
         private System.Windows.Forms.BindingSource presupSubCantidadBindingSource;
         private GestionData.DatosPresupuestosTableAdapters.PresupSubCantidadTableAdapter presupSubCantidadTableAdapter;
+        private System.Windows.Forms.ToolStripButton btListadoPresupuestos;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator15;
     }
 }

@@ -360,6 +360,12 @@
     <Compile Include="Formularios\Reportes\Viewer\rptFacturasClientesAddEmail.Designer.cs">
       <DependentUpon>rptFacturasClientesAddEmail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Reportes\Viewer\RptListadoPresupuestos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Reportes\Viewer\RptListadoPresupuestos.Designer.cs">
+      <DependentUpon>RptListadoPresupuestos.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoadImage.cs" />
     <Compile Include="Formularios\Operaciones\ConsumosCombustibleVehiculos.cs">
       <SubType>Form</SubType>
@@ -994,6 +1000,9 @@
     <EmbeddedResource Include="Formularios\Reportes\Viewer\rptFacturasClientesAddEmail.resx">
       <DependentUpon>rptFacturasClientesAddEmail.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reportes\Viewer\RptListadoPresupuestos.resx">
+      <DependentUpon>RptListadoPresupuestos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\AnticiposTrabajadores.rdlc" />
     <EmbeddedResource Include="Formularios\Operaciones\AnticiposTrabajadores.resx">
       <DependentUpon>AnticiposTrabajadores.cs</DependentUpon>
@@ -1393,6 +1402,7 @@
     <EmbeddedResource Include="Formularios\Reportes\Viewer\RptSeguridadSocial.resx">
       <DependentUpon>RptSeguridadSocial.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptListadoPresupuestos.rdlc" />
     <EmbeddedResource Include="Reportes\rptSinAlbaran.rdlc" />
     <EmbeddedResource Include="Reportes\SalarioExtraTrabajadores.rdlc" />
     <EmbeddedResource Include="Reportes\SalarioObras.rdlc" />
@@ -1452,6 +1462,7 @@
     <None Include="Properties\DataSources\GestionData.Entities.ConfiguracionEmpresa.datasource" />
     <None Include="Properties\DataSources\GestionData.Entities.ConfiguracionUsuario.datasource" />
     <None Include="Properties\DataSources\GestionData.Entities.GestorConEmail.datasource" />
+    <None Include="Properties\DataSources\GestionData.Entities.ListadoPresupuestos.datasource" />
     <None Include="Properties\DataSources\GestionData.Entities.ObrasEnviar.datasource" />
     <None Include="Properties\DataSources\GestionData.Entities.ObrasFacturar.datasource" />
     <None Include="Properties\DataSources\GestionData.Entities.RespuestasServicios.datasource" />

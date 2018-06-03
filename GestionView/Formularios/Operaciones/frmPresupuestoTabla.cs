@@ -14,6 +14,7 @@ using Promowork.Formularios.Reportes.Viewer;
 using Promowork.Formularios.Operaciones;
 using GestionData;
 using GestionData.Enumeradores;
+using GestionData.Entities;
 
 namespace Promowork.Formularios.Operaciones
 {
@@ -684,7 +685,6 @@ namespace Promowork.Formularios.Operaciones
 
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
-
             int Presupuesto = (int)gridView1.GetFocusedRowCellValue("IdPresupCab");
 
             RptPresupuestoaFacturar frm = new RptPresupuestoaFacturar();
@@ -755,6 +755,34 @@ namespace Promowork.Formularios.Operaciones
             frmAgregarPartidasPresupuesto frm = new frmAgregarPartidasPresupuesto(presupCab);
             frm.ShowDialog();
             CargarPresupuesto();
+        }
+
+        private void btListadoPresupuestos_Click(object sender, EventArgs e)
+        {
+            List<ListadoPresupuestos> listaPresupuestos = new List<ListadoPresupuestos>();
+
+            for (int i=0; i<gridView1.RowCount; i++)
+            {
+                var presupuesto = new ListadoPresupuestos
+                {
+                    IdEmpresa= VariablesGlobales.nIdEmpresaActual,
+                    IdPresupCab= (int)gridView1.GetRowCellValue(i, colIdPresupCab),
+                    NumPresup= (int)gridView1.GetRowCellValue(i, colNumPresup),
+                    NomPresup= gridView1.GetRowCellDisplayText(i, colNomPresup),
+                    DesPresup = gridView1.GetRowCellDisplayText(i, colDesPresup),
+                    //IdCliente=(int)gridView1.GetRowCellValue(i, colIdCliente)??0,
+                    DesCliente= gridView1.GetRowCellDisplayText(i, colIdCliente),
+                    //IdObra= (int)gridView1.GetRowCellValue(i, colIdObra),
+                    DesObra= gridView1.GetRowCellDisplayText(i, colIdObra)
+                };
+                listaPresupuestos.Add(presupuesto);
+            }
+
+            RptListadoPresupuestos frm = new RptListadoPresupuestos();
+            frm.LoadFiltro(listaPresupuestos);
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
+
         }
 
     }

@@ -50,6 +50,7 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.colUtilizadoEn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gvcbxUtilizadoEn = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.datosAlbaranes = new GestionData.DatosAlbaranes();
@@ -107,7 +108,6 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.gvObservacionesAlbaranes = new System.Windows.Forms.DataGridView();
-            this.tbObservaciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tbPromedioSeleccion = new DevExpress.XtraEditors.TextEdit();
             this.tbSumaSeleccion = new DevExpress.XtraEditors.TextEdit();
@@ -186,6 +186,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.trabajadoresTableAdapter = new GestionData.DatosAlbaranesTableAdapters.TrabajadoresTableAdapter();
             this.observacionesProveedoresTableAdapter = new GestionData.DatosAlbaranesTableAdapters.ObservacionesProveedoresTableAdapter();
+            this.tbObservaciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
             numAlbaranLabel = new System.Windows.Forms.Label();
             fechaAlbaranLabel = new System.Windows.Forms.Label();
             observacionesLabel = new System.Windows.Forms.Label();
@@ -980,7 +981,7 @@
             // 
             // gvObservacionesAlbaranes
             // 
-            this.gvObservacionesAlbaranes.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.gvObservacionesAlbaranes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.gvObservacionesAlbaranes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.gvObservacionesAlbaranes.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
             this.gvObservacionesAlbaranes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -994,13 +995,6 @@
             this.gvObservacionesAlbaranes.Size = new System.Drawing.Size(357, 97);
             this.gvObservacionesAlbaranes.TabIndex = 72;
             this.gvObservacionesAlbaranes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvObservacionesAlbaranes_CellDoubleClick);
-            // 
-            // tbObservaciones
-            // 
-            this.tbObservaciones.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tbObservaciones.DataPropertyName = "ObservacionesAlbaranes";
-            this.tbObservaciones.HeaderText = "Observaciones";
-            this.tbObservaciones.Name = "tbObservaciones";
             // 
             // groupBox3
             // 
@@ -1778,6 +1772,15 @@
             // observacionesProveedoresTableAdapter
             // 
             this.observacionesProveedoresTableAdapter.ClearBeforeFill = true;
+            // 
+            // tbObservaciones
+            // 
+            this.tbObservaciones.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tbObservaciones.DataPropertyName = "ObservacionesAlbaranes";
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
+            this.tbObservaciones.DefaultCellStyle = dataGridViewCellStyle1;
+            this.tbObservaciones.HeaderText = "Observaciones";
+            this.tbObservaciones.Name = "tbObservaciones";
             // 
             // frmAlbaranes
             // 

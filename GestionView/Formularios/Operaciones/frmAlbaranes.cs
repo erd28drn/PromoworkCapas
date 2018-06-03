@@ -89,7 +89,7 @@ namespace Promowork.Formularios.Operaciones
                 foreach (DataGridViewRow row in gvObservacionesAlbaranes.Rows)
                 {
                     var obs = row.Cells[0].Value;
-                    if (obs!=null)
+                    if (obs!=null && !string.IsNullOrWhiteSpace(obs.ToString()))
                     {
                         observaciones.Add(obs.ToString());
                     }
