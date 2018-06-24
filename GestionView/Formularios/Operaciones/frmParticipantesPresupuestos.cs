@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using GestionData.Repositorios;
+using GestionData.Modelos;
 using DevExpress.XtraGrid.Columns;
 
 namespace Promowork.Formularios.Operaciones
@@ -19,6 +20,7 @@ namespace Promowork.Formularios.Operaciones
         private int? IdPresupSub;
 
         RepositorioPresupuesto repoPresupuestos = new RepositorioPresupuesto();
+        RepositorioProveedor repoProveedor = new RepositorioProveedor();
 
         public frmParticipantesPresupuestos()//int idPresupCab, int idPresupCap, int idPresupDet, int idPresupSub
         {
@@ -32,13 +34,15 @@ namespace Promowork.Formularios.Operaciones
 
         private void frmParticipantesPresupuestos_Load(object sender, EventArgs e)
         {
-            var participantes = repoPresupuestos.GetParticipantes(VariablesGlobales.nIdEmpresaActual);
+            var participantes = repoProveedor.GetParticipantes(VariablesGlobales.nIdEmpresaActual);
+            var proveedores = repoProveedor.GetProveedores(VariablesGlobales.nIdEmpresaActual);
             var participantePresupuesto = repoPresupuestos.GetOrCreateParticipantePartidaPresupuesto(VariablesGlobales.nIdEmpresaActual,
                 VariablesGlobales.nIdUsuarioActual, IdPresupCab, IdPresupCap, IdPresupDet, IdPresupSub);
 
            // var proveedores = repoPresupuestos.GetOrCreateProveedoresParticipantes(participantePresupuesto.IdParticipantePresupuesto, 3);
 
             participantesBindingSource.DataSource = participantes;
+            proveedoresBindingSource.DataSource = proveedores;
             participantesPresupuestosBindingSource.DataSource = participantePresupuesto;
            // proveedoresParticipantesBindingSource.DataSource = proveedores;
 
@@ -72,6 +76,16 @@ namespace Promowork.Formularios.Operaciones
             //    proveedorIndex += proveedorIndex;
             //}
 
+        }
+
+        private void participantesPresupuestosBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            participantesPresupuestosBindingSource.EndEdit();
+            var participantePresupuesto = (ParticipantesPresupuestos)participantesPresupuestosBindingSource.DataSource;
+            participantePresupuesto = repoPresupuestos.UpdateParticipantePartidaPresupuesto(participantePresupuesto);
+
+            participantesPresupuestosBindingSource.DataSource = participantePresupuesto;
         }
     }
 }

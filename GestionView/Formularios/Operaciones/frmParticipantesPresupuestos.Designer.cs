@@ -48,13 +48,6 @@
             this.proveedoresParticipantesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.participantesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nomPresupTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colIdProveedorParticipante = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colIdParticipantePresupuesto1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colIdProveedor = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPrecio = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSeleccionado = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridControl2 = new DevExpress.XtraGrid.GridControl();
             this.cbParticipante = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colIdParticipantePresupuesto = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -69,8 +62,9 @@
             this.colEsServicio = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFechaCrea = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFechaModifica = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.colIdProveedor1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cbProveedores = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.proveedoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.colIdProveedor2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIdProveedor3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPrecio1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -79,6 +73,7 @@
             this.colSeleccionado1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSeleccionado2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSeleccionado3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             nomPresupLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.participantesPresupuestosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.participantesPresupuestosBindingNavigator)).BeginInit();
@@ -86,10 +81,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.proveedoresParticipantesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.participantesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nomPresupTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbParticipante)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbProveedores)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proveedoresBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -224,11 +219,11 @@
             // participantesPresupuestosBindingNavigatorSaveItem
             // 
             this.participantesPresupuestosBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.participantesPresupuestosBindingNavigatorSaveItem.Enabled = false;
             this.participantesPresupuestosBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("participantesPresupuestosBindingNavigatorSaveItem.Image")));
             this.participantesPresupuestosBindingNavigatorSaveItem.Name = "participantesPresupuestosBindingNavigatorSaveItem";
             this.participantesPresupuestosBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.participantesPresupuestosBindingNavigatorSaveItem.Text = "Guardar datos";
+            this.participantesPresupuestosBindingNavigatorSaveItem.Click += new System.EventHandler(this.participantesPresupuestosBindingNavigatorSaveItem_Click);
             // 
             // proveedoresParticipantesBindingSource
             // 
@@ -245,59 +240,6 @@
             this.nomPresupTextEdit.Name = "nomPresupTextEdit";
             this.nomPresupTextEdit.Size = new System.Drawing.Size(378, 20);
             this.nomPresupTextEdit.TabIndex = 4;
-            // 
-            // gridView2
-            // 
-            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colIdProveedorParticipante,
-            this.colIdParticipantePresupuesto1,
-            this.colIdProveedor,
-            this.colPrecio,
-            this.colSeleccionado});
-            this.gridView2.GridControl = this.gridControl2;
-            this.gridView2.Name = "gridView2";
-            // 
-            // colIdProveedorParticipante
-            // 
-            this.colIdProveedorParticipante.FieldName = "IdProveedorParticipante";
-            this.colIdProveedorParticipante.Name = "colIdProveedorParticipante";
-            // 
-            // colIdParticipantePresupuesto1
-            // 
-            this.colIdParticipantePresupuesto1.FieldName = "IdParticipantePresupuesto";
-            this.colIdParticipantePresupuesto1.Name = "colIdParticipantePresupuesto1";
-            // 
-            // colIdProveedor
-            // 
-            this.colIdProveedor.FieldName = "IdProveedor";
-            this.colIdProveedor.Name = "colIdProveedor";
-            this.colIdProveedor.Visible = true;
-            this.colIdProveedor.VisibleIndex = 0;
-            // 
-            // colPrecio
-            // 
-            this.colPrecio.FieldName = "Precio";
-            this.colPrecio.Name = "colPrecio";
-            this.colPrecio.Visible = true;
-            this.colPrecio.VisibleIndex = 1;
-            // 
-            // colSeleccionado
-            // 
-            this.colSeleccionado.FieldName = "Seleccionado";
-            this.colSeleccionado.Name = "colSeleccionado";
-            this.colSeleccionado.Visible = true;
-            this.colSeleccionado.VisibleIndex = 2;
-            // 
-            // gridControl2
-            // 
-            this.gridControl2.DataSource = this.proveedoresParticipantesBindingSource;
-            this.gridControl2.Location = new System.Drawing.Point(12, 247);
-            this.gridControl2.MainView = this.gridView2;
-            this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(329, 152);
-            this.gridControl2.TabIndex = 2;
-            this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView2});
             // 
             // cbParticipante
             // 
@@ -367,7 +309,7 @@
             this.colIdPresupCap.Name = "colIdPresupCap";
             this.colIdPresupCap.Visible = true;
             this.colIdPresupCap.VisibleIndex = 0;
-            this.colIdPresupCap.Width = 128;
+            this.colIdPresupCap.Width = 106;
             // 
             // colIdPresupDet
             // 
@@ -376,7 +318,7 @@
             this.colIdPresupDet.Name = "colIdPresupDet";
             this.colIdPresupDet.Visible = true;
             this.colIdPresupDet.VisibleIndex = 1;
-            this.colIdPresupDet.Width = 125;
+            this.colIdPresupDet.Width = 104;
             // 
             // colIdPresupSub
             // 
@@ -385,7 +327,7 @@
             this.colIdPresupSub.Name = "colIdPresupSub";
             this.colIdPresupSub.Visible = true;
             this.colIdPresupSub.VisibleIndex = 2;
-            this.colIdPresupSub.Width = 158;
+            this.colIdPresupSub.Width = 132;
             // 
             // colNombrePartida
             // 
@@ -401,7 +343,7 @@
             this.colIdParticipante.Name = "colIdParticipante";
             this.colIdParticipante.Visible = true;
             this.colIdParticipante.VisibleIndex = 3;
-            this.colIdParticipante.Width = 209;
+            this.colIdParticipante.Width = 149;
             // 
             // colEsServicio
             // 
@@ -409,7 +351,7 @@
             this.colEsServicio.Name = "colEsServicio";
             this.colEsServicio.Visible = true;
             this.colEsServicio.VisibleIndex = 4;
-            this.colEsServicio.Width = 56;
+            this.colEsServicio.Width = 47;
             // 
             // colFechaCrea
             // 
@@ -421,6 +363,109 @@
             this.colFechaModifica.FieldName = "FechaModifica";
             this.colFechaModifica.Name = "colFechaModifica";
             // 
+            // colIdProveedor1
+            // 
+            this.colIdProveedor1.Caption = "Proveedor1";
+            this.colIdProveedor1.ColumnEdit = this.cbProveedores;
+            this.colIdProveedor1.FieldName = "IdProveedor1";
+            this.colIdProveedor1.Name = "colIdProveedor1";
+            this.colIdProveedor1.Visible = true;
+            this.colIdProveedor1.VisibleIndex = 5;
+            this.colIdProveedor1.Width = 103;
+            // 
+            // cbProveedores
+            // 
+            this.cbProveedores.AutoHeight = false;
+            this.cbProveedores.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbProveedores.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DesProveedor", "Proveedor", 81, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
+            this.cbProveedores.DataSource = this.proveedoresBindingSource;
+            this.cbProveedores.DisplayMember = "DesProveedor";
+            this.cbProveedores.Name = "cbProveedores";
+            this.cbProveedores.ValueMember = "IdProveedor";
+            // 
+            // proveedoresBindingSource
+            // 
+            this.proveedoresBindingSource.DataSource = typeof(GestionData.Modelos.Proveedores);
+            // 
+            // colIdProveedor2
+            // 
+            this.colIdProveedor2.Caption = "Proveedor2";
+            this.colIdProveedor2.ColumnEdit = this.cbProveedores;
+            this.colIdProveedor2.FieldName = "IdProveedor2";
+            this.colIdProveedor2.Name = "colIdProveedor2";
+            this.colIdProveedor2.Visible = true;
+            this.colIdProveedor2.VisibleIndex = 8;
+            this.colIdProveedor2.Width = 90;
+            // 
+            // colIdProveedor3
+            // 
+            this.colIdProveedor3.Caption = "Proveedor3";
+            this.colIdProveedor3.ColumnEdit = this.cbProveedores;
+            this.colIdProveedor3.FieldName = "IdProveedor3";
+            this.colIdProveedor3.Name = "colIdProveedor3";
+            this.colIdProveedor3.Visible = true;
+            this.colIdProveedor3.VisibleIndex = 11;
+            this.colIdProveedor3.Width = 84;
+            // 
+            // colPrecio1
+            // 
+            this.colPrecio1.DisplayFormat.FormatString = "C2";
+            this.colPrecio1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colPrecio1.FieldName = "Precio1";
+            this.colPrecio1.Name = "colPrecio1";
+            this.colPrecio1.Visible = true;
+            this.colPrecio1.VisibleIndex = 6;
+            this.colPrecio1.Width = 52;
+            // 
+            // colPrecio2
+            // 
+            this.colPrecio2.DisplayFormat.FormatString = "C2";
+            this.colPrecio2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colPrecio2.FieldName = "Precio2";
+            this.colPrecio2.Name = "colPrecio2";
+            this.colPrecio2.Visible = true;
+            this.colPrecio2.VisibleIndex = 9;
+            this.colPrecio2.Width = 53;
+            // 
+            // colPrecio3
+            // 
+            this.colPrecio3.DisplayFormat.FormatString = "C2";
+            this.colPrecio3.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colPrecio3.FieldName = "Precio3";
+            this.colPrecio3.Name = "colPrecio3";
+            this.colPrecio3.Visible = true;
+            this.colPrecio3.VisibleIndex = 12;
+            this.colPrecio3.Width = 68;
+            // 
+            // colSeleccionado1
+            // 
+            this.colSeleccionado1.Caption = " ";
+            this.colSeleccionado1.FieldName = "Seleccionado1";
+            this.colSeleccionado1.Name = "colSeleccionado1";
+            this.colSeleccionado1.Visible = true;
+            this.colSeleccionado1.VisibleIndex = 7;
+            this.colSeleccionado1.Width = 46;
+            // 
+            // colSeleccionado2
+            // 
+            this.colSeleccionado2.Caption = " ";
+            this.colSeleccionado2.FieldName = "Seleccionado2";
+            this.colSeleccionado2.Name = "colSeleccionado2";
+            this.colSeleccionado2.Visible = true;
+            this.colSeleccionado2.VisibleIndex = 10;
+            this.colSeleccionado2.Width = 44;
+            // 
+            // colSeleccionado3
+            // 
+            this.colSeleccionado3.Caption = " ";
+            this.colSeleccionado3.FieldName = "Seleccionado3";
+            this.colSeleccionado3.Name = "colSeleccionado3";
+            this.colSeleccionado3.Visible = true;
+            this.colSeleccionado3.VisibleIndex = 13;
+            this.colSeleccionado3.Width = 51;
+            // 
             // gridControl1
             // 
             this.gridControl1.DataSource = this.participantesPresupuestosBindingSource;
@@ -428,74 +473,12 @@
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.cbParticipante});
-            this.gridControl1.Size = new System.Drawing.Size(1147, 142);
+            this.cbParticipante,
+            this.cbProveedores});
+            this.gridControl1.Size = new System.Drawing.Size(1147, 294);
             this.gridControl1.TabIndex = 1;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-            // 
-            // colIdProveedor1
-            // 
-            this.colIdProveedor1.FieldName = "IdProveedor1";
-            this.colIdProveedor1.Name = "colIdProveedor1";
-            this.colIdProveedor1.Visible = true;
-            this.colIdProveedor1.VisibleIndex = 5;
-            // 
-            // colIdProveedor2
-            // 
-            this.colIdProveedor2.FieldName = "IdProveedor2";
-            this.colIdProveedor2.Name = "colIdProveedor2";
-            this.colIdProveedor2.Visible = true;
-            this.colIdProveedor2.VisibleIndex = 6;
-            // 
-            // colIdProveedor3
-            // 
-            this.colIdProveedor3.FieldName = "IdProveedor3";
-            this.colIdProveedor3.Name = "colIdProveedor3";
-            this.colIdProveedor3.Visible = true;
-            this.colIdProveedor3.VisibleIndex = 7;
-            // 
-            // colPrecio1
-            // 
-            this.colPrecio1.FieldName = "Precio1";
-            this.colPrecio1.Name = "colPrecio1";
-            this.colPrecio1.Visible = true;
-            this.colPrecio1.VisibleIndex = 8;
-            // 
-            // colPrecio2
-            // 
-            this.colPrecio2.FieldName = "Precio2";
-            this.colPrecio2.Name = "colPrecio2";
-            this.colPrecio2.Visible = true;
-            this.colPrecio2.VisibleIndex = 9;
-            // 
-            // colPrecio3
-            // 
-            this.colPrecio3.FieldName = "Precio3";
-            this.colPrecio3.Name = "colPrecio3";
-            this.colPrecio3.Visible = true;
-            this.colPrecio3.VisibleIndex = 10;
-            // 
-            // colSeleccionado1
-            // 
-            this.colSeleccionado1.FieldName = "Seleccionado1";
-            this.colSeleccionado1.Name = "colSeleccionado1";
-            this.colSeleccionado1.Visible = true;
-            this.colSeleccionado1.VisibleIndex = 11;
-            // 
-            // colSeleccionado2
-            // 
-            this.colSeleccionado2.FieldName = "Seleccionado2";
-            this.colSeleccionado2.Name = "colSeleccionado2";
-            this.colSeleccionado2.Visible = true;
-            this.colSeleccionado2.VisibleIndex = 12;
-            // 
-            // colSeleccionado3
-            // 
-            this.colSeleccionado3.FieldName = "Seleccionado3";
-            this.colSeleccionado3.Name = "colSeleccionado3";
-            this.colSeleccionado3.Visible = true;
-            this.colSeleccionado3.VisibleIndex = 13;
             // 
             // frmParticipantesPresupuestos
             // 
@@ -504,7 +487,6 @@
             this.ClientSize = new System.Drawing.Size(1194, 469);
             this.Controls.Add(nomPresupLabel);
             this.Controls.Add(this.nomPresupTextEdit);
-            this.Controls.Add(this.gridControl2);
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.participantesPresupuestosBindingNavigator);
             this.Name = "frmParticipantesPresupuestos";
@@ -517,10 +499,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.proveedoresParticipantesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.participantesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nomPresupTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbParticipante)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbProveedores)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proveedoresBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -546,13 +528,6 @@
         private System.Windows.Forms.BindingSource proveedoresParticipantesBindingSource;
         private System.Windows.Forms.BindingSource participantesBindingSource;
         private DevExpress.XtraEditors.TextEdit nomPresupTextEdit;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private DevExpress.XtraGrid.Columns.GridColumn colIdProveedorParticipante;
-        private DevExpress.XtraGrid.Columns.GridColumn colIdParticipantePresupuesto1;
-        private DevExpress.XtraGrid.Columns.GridColumn colIdProveedor;
-        private DevExpress.XtraGrid.Columns.GridColumn colPrecio;
-        private DevExpress.XtraGrid.Columns.GridColumn colSeleccionado;
-        private DevExpress.XtraGrid.GridControl gridControl2;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit cbParticipante;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colIdParticipantePresupuesto;
@@ -577,5 +552,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colSeleccionado1;
         private DevExpress.XtraGrid.Columns.GridColumn colSeleccionado2;
         private DevExpress.XtraGrid.Columns.GridColumn colSeleccionado3;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit cbProveedores;
+        private System.Windows.Forms.BindingSource proveedoresBindingSource;
     }
 }

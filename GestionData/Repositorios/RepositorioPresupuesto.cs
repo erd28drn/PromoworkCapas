@@ -10,12 +10,6 @@ namespace GestionData.Repositorios
     public class RepositorioPresupuesto
     {
         OperacionesDataModel contextoOperaciones = new OperacionesDataModel();
-        DefinicionesDataModel contextoDefiniciones = new DefinicionesDataModel();
-
-        public List<Participantes> GetParticipantes(int idEmpresa)
-        {
-           return contextoDefiniciones.Participantes.Where(p => p.IdEmpresa == idEmpresa).ToList();
-        }
 
         public string GetNombrePartidaPresupuesto(int idPresupDet, int? idPresupSub)
         {
@@ -66,6 +60,9 @@ namespace GestionData.Repositorios
                     IdPresupSub = idPresupSub,
                     NombrePartida = GetNombrePartidaPresupuesto(idPresupDet, idPresupSub),
                     EsServicio = false,
+                    Seleccionado1 = false,
+                    Seleccionado2 = false,
+                    Seleccionado3 = false,
                     FechaCrea = DateTime.Now,
                     FechaModifica = DateTime.Now
                 };
@@ -98,6 +95,17 @@ namespace GestionData.Repositorios
             }
 
             return proveedores;
+        }
+
+        public ParticipantesPresupuestos UpdateParticipantePartidaPresupuesto(ParticipantesPresupuestos participantePresupuesto)
+        {
+            participantePresupuesto.FechaModifica = DateTime.Now;
+            var participantePresupuestoUpdated = contextoOperaciones.ParticipantesPresupuestos.ApplyCurrentValues(participantePresupuesto);
+            //var participantePresupuestoToUpdate = contextoOperaciones.ParticipantesPresupuestos.FirstOrDefault(p=> p.IdParticipantePresupuesto==participantePresupuesto.IdParticipantePresupuesto);
+            //participantePresupuestoToUpdate = participantePresupuesto;
+            //participantePresupuestoToUpdate.FechaModifica = DateTime.Now;
+            contextoOperaciones.SaveChanges();
+            return participantePresupuestoUpdated;
         }
     }
 }
