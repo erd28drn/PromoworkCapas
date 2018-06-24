@@ -154,6 +154,22 @@ namespace GestionData.Modelos
             }
         }
         private ObjectSet<ServidorSMTP> _ServidorSMTP;
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        public ObjectSet<Notas> Notas
+        {
+            get
+            {
+                if ((_Notas == null))
+                {
+                    _Notas = base.CreateObjectSet<Notas>("Notas");
+                }
+                return _Notas;
+            }
+        }
+        private ObjectSet<Notas> _Notas;
 
         #endregion
 
@@ -197,6 +213,14 @@ namespace GestionData.Modelos
         public void AddToServidorSMTP(ServidorSMTP servidorSMTP)
         {
             base.AddObject("ServidorSMTP", servidorSMTP);
+        }
+    
+        /// <summary>
+        /// Método desusado para agregar un nuevo objeto al EntitySet Notas. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
+        /// </summary>
+        public void AddToNotas(Notas notas)
+        {
+            base.AddObject("Notas", notas);
         }
 
         #endregion
@@ -1560,6 +1584,111 @@ namespace GestionData.Modelos
 
         #endregion
 
+    }
+    
+    /// <summary>
+    /// No hay documentación de metadatos disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Promowork_dataModel", Name="Notas")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Notas : EntityObject
+    {
+        #region Método de generador
+    
+        /// <summary>
+        /// Crear un nuevo objeto Notas.
+        /// </summary>
+        /// <param name="idNota">Valor inicial de la propiedad IdNota.</param>
+        public static Notas CreateNotas(global::System.Int32 idNota)
+        {
+            Notas notas = new Notas();
+            notas.IdNota = idNota;
+            return notas;
+        }
+
+        #endregion
+
+        #region Propiedades primitivas
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 IdNota
+        {
+            get
+            {
+                return _IdNota;
+            }
+            set
+            {
+                if (_IdNota != value)
+                {
+                    OnIdNotaChanging(value);
+                    ReportPropertyChanging("IdNota");
+                    _IdNota = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("IdNota");
+                    OnIdNotaChanged();
+                }
+            }
+        }
+        private global::System.Int32 _IdNota;
+        partial void OnIdNotaChanging(global::System.Int32 value);
+        partial void OnIdNotaChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String NombreNota
+        {
+            get
+            {
+                return _NombreNota;
+            }
+            set
+            {
+                OnNombreNotaChanging(value);
+                ReportPropertyChanging("NombreNota");
+                _NombreNota = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("NombreNota");
+                OnNombreNotaChanged();
+            }
+        }
+        private global::System.String _NombreNota;
+        partial void OnNombreNotaChanging(global::System.String value);
+        partial void OnNombreNotaChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String DescripcionNota
+        {
+            get
+            {
+                return _DescripcionNota;
+            }
+            set
+            {
+                OnDescripcionNotaChanging(value);
+                ReportPropertyChanging("DescripcionNota");
+                _DescripcionNota = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("DescripcionNota");
+                OnDescripcionNotaChanged();
+            }
+        }
+        private global::System.String _DescripcionNota;
+        partial void OnDescripcionNotaChanging(global::System.String value);
+        partial void OnDescripcionNotaChanged();
+
+        #endregion
+
+    
     }
     
     /// <summary>

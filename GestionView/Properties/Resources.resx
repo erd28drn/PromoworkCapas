@@ -121,59 +121,62 @@
   <data name="company" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\company.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="AgergaSubcapitulo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AgergaSubcapitulo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="combustiblesTiposBindingNavigatorSaveItem.Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\combustiblesTiposBindingNavigatorSaveItem.Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="AgergaSubcapitulo16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AgergaSubcapitulo16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="clientes32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\clientes32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="FlechaAbajo16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FlechaAbajo16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="exit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\exit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Duplicar-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Duplicar-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Padlock User Control" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Padlock User Control.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Factura" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Factura.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="backup" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\backup.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="construction_worker_37654" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\construction_worker_37654.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bindingNavigatorAddNewItem.Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bindingNavigatorAddNewItem.Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="print1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\print1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="combustiblesTiposBindingNavigatorSaveItem.Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\combustiblesTiposBindingNavigatorSaveItem.Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cruz-roja" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cruz-roja.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="exit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AgergaSubcapitulo16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AgergaSubcapitulo16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="refresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\refresh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Factura" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Factura.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AgergaSubcapitulo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AgergaSubcapitulo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bindingNavigatorAddNewItem.Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bindingNavigatorAddNewItem.Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="logo_seguridad_social" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo_seguridad_social.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icono_Curso-Construccion-Tabiques2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icono_Curso-Construccion-Tabiques2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icono_Curso-Construccion-Tabiques1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icono_Curso-Construccion-Tabiques1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="construction_worker" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\construction_worker.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Padlock User Control" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Padlock User Control.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Anticipos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Anticipos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="cruz-roja32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cruz-roja32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="bindingNavigatorDeleteItem.Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bindingNavigatorDeleteItem.Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="print1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\print1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="report_img" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\report_img.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Anticipos1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Anticipos1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logo promowork" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo promowork.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -187,20 +190,23 @@
   <data name="login" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\login.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Presupuesto32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Presupuesto32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="FlechaAbajo16Roja" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FlechaAbajo16Roja.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="reloj" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\reloj.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="construction_worker" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\construction_worker.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Accesos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Accesos.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="AgergaSubcapitulo16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AgergaSubcapitulo16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="reloj1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\reloj.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="reloj" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\reloj.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="View-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\View-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Duplicar-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Duplicar-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="sc_removefilter" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sc_removefilter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -208,20 +214,23 @@
   <data name="icono_Curso-Construccion-Tabiques" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icono_Curso-Construccion-Tabiques.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="FlechaArriba16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FlechaArriba16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="print11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\print11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="money2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\money2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="AgergaSubcapitulo16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AgergaSubcapitulo16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cruz-roja" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cruz-roja.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="FlechaAbajo16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FlechaAbajo16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="exit16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\exit16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="clientes32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\clientes32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="user-account" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\user-account.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icono_Curso-Construccion-Tabiques2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icono_Curso-Construccion-Tabiques2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FlechaAbajo16Roja" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FlechaAbajo16Roja.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Partes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Partes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -229,31 +238,28 @@
   <data name="relojadmin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\relojadmin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="money2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\money2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Suppiers" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Suppiers.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icono_Curso-Construccion-Tabiques1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icono_Curso-Construccion-Tabiques1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="print11" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\print11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="backup" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\backup.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cruz-roja32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cruz-roja32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="reloj1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\reloj.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Accesos1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Accesos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Anticipos1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Anticipos1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Presupuesto32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Presupuesto32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="View-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\View-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="exit16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exit16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FlechaArriba16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FlechaArriba16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="user-account" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user-account.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="checked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\checked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -76,8 +76,8 @@ namespace Promowork.Formularios.Operaciones
 
             // TODO: This line of code loads data into the 'promowork_dataDataSet.PresupSub' table. You can move, or remove it, as needed.
             this.presupSubTableAdapter.Fill(this.promowork_dataDataSet.PresupSub);
-          
-            this.participantesTableAdapter.Fill(this.promowork_dataDataSet.Participantes);
+
+            this.participantesTableAdapter.FillByEmpresa(this.promowork_dataDataSet.Participantes, VariablesGlobales.nIdEmpresaActual);
             // TODO: This line of code loads data into the 'promowork_dataDataSet.Obras' table. You can move, or remove it, as needed.
             this.obrasTableAdapter.FillByEmpresa(this.promowork_dataDataSet.Obras,VariablesGlobales.nIdEmpresaActual);
             // TODO: This line of code loads data into the 'promowork_dataDataSet.UMedidas' table. You can move, or remove it, as needed.

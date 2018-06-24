@@ -19,10 +19,12 @@
           <EntitySet Name="FacturasDetHoras" EntityType="Promowork_dataModel.Store.FacturasDetHoras" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="HorasTrabajadas" EntityType="Promowork_dataModel.Store.HorasTrabajadas" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="OperacionesBanco" EntityType="Promowork_dataModel.Store.OperacionesBanco" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ParticipantesPresupuestos" EntityType="Promowork_dataModel.Store.ParticipantesPresupuestos" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PresupCab" EntityType="Promowork_dataModel.Store.PresupCab" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PresupCap" EntityType="Promowork_dataModel.Store.PresupCap" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PresupDet" EntityType="Promowork_dataModel.Store.PresupDet" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PresupSub" EntityType="Promowork_dataModel.Store.PresupSub" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProveedoresParticipantes" EntityType="Promowork_dataModel.Store.ProveedoresParticipantes" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK_AlbaranesCab_ComprasCab" Association="Promowork_dataModel.Store.FK_AlbaranesCab_ComprasCab">
             <End Role="ComprasCab" EntitySet="ComprasCab" />
             <End Role="AlbaranesCab" EntitySet="AlbaranesCab" />
@@ -91,6 +93,22 @@
             <End Role="FacturasCab" EntitySet="FacturasCab" />
             <End Role="Cobros" EntitySet="Cobros" />
           </AssociationSet>
+          <AssociationSet Name="FK_ParticipantesPresupuestos_PresupCab" Association="Promowork_dataModel.Store.FK_ParticipantesPresupuestos_PresupCab">
+            <End Role="PresupCab" EntitySet="PresupCab" />
+            <End Role="ParticipantesPresupuestos" EntitySet="ParticipantesPresupuestos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ParticipantesPresupuestos_PresupCap" Association="Promowork_dataModel.Store.FK_ParticipantesPresupuestos_PresupCap">
+            <End Role="PresupCap" EntitySet="PresupCap" />
+            <End Role="ParticipantesPresupuestos" EntitySet="ParticipantesPresupuestos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ParticipantesPresupuestos_PresupDet" Association="Promowork_dataModel.Store.FK_ParticipantesPresupuestos_PresupDet">
+            <End Role="PresupDet" EntitySet="PresupDet" />
+            <End Role="ParticipantesPresupuestos" EntitySet="ParticipantesPresupuestos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ParticipantesPresupuestos_PresupSub" Association="Promowork_dataModel.Store.FK_ParticipantesPresupuestos_PresupSub">
+            <End Role="PresupSub" EntitySet="PresupSub" />
+            <End Role="ParticipantesPresupuestos" EntitySet="ParticipantesPresupuestos" />
+          </AssociationSet>
           <AssociationSet Name="FK_PresupCap_PresupCab" Association="Promowork_dataModel.Store.FK_PresupCap_PresupCab">
             <End Role="PresupCab" EntitySet="PresupCab" />
             <End Role="PresupCap" EntitySet="PresupCap" />
@@ -102,6 +120,10 @@
           <AssociationSet Name="FK_PresupSub_PresupDet" Association="Promowork_dataModel.Store.FK_PresupSub_PresupDet">
             <End Role="PresupDet" EntitySet="PresupDet" />
             <End Role="PresupSub" EntitySet="PresupSub" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProveedoresParticipantes_ParticipantesPresupuestos" Association="Promowork_dataModel.Store.FK_ProveedoresParticipantes_ParticipantesPresupuestos">
+            <End Role="ParticipantesPresupuestos" EntitySet="ParticipantesPresupuestos" />
+            <End Role="ProveedoresParticipantes" EntitySet="ProveedoresParticipantes" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="AlbaranesCab">
@@ -368,6 +390,32 @@
           <Property Name="FechaOpe" Type="datetime" />
           <Property Name="ObsBanco" Type="varchar" MaxLength="4000" />
         </EntityType>
+        <EntityType Name="ParticipantesPresupuestos">
+          <Key>
+            <PropertyRef Name="IdParticipantePresupuesto" />
+          </Key>
+          <Property Name="IdParticipantePresupuesto" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdEmpresa" Type="int" />
+          <Property Name="IdUsuario" Type="int" />
+          <Property Name="IdPresupCab" Type="int" />
+          <Property Name="IdPresupCap" Type="int" />
+          <Property Name="IdPresupDet" Type="int" />
+          <Property Name="IdPresupSub" Type="int" />
+          <Property Name="NombrePartida" Type="varchar" MaxLength="1000" />
+          <Property Name="IdParticipante" Type="int" />
+          <Property Name="EsServicio" Type="bit" />
+          <Property Name="FechaCrea" Type="datetime" />
+          <Property Name="FechaModifica" Type="datetime" />
+          <Property Name="IdProveedor1" Type="int" />
+          <Property Name="Precio1" Type="numeric" Precision="16" Scale="6" />
+          <Property Name="Seleccionado1" Type="bit" />
+          <Property Name="IdProveedor2" Type="int" />
+          <Property Name="Precio2" Type="numeric" Precision="16" Scale="6" />
+          <Property Name="Seleccionado2" Type="bit" />
+          <Property Name="IdProveedor3" Type="int" />
+          <Property Name="Precio3" Type="numeric" Precision="16" Scale="6" />
+          <Property Name="Seleccionado3" Type="bit" />
+        </EntityType>
         <EntityType Name="PresupCab">
           <Key>
             <PropertyRef Name="IdPresupCab" />
@@ -443,6 +491,16 @@
           <Property Name="aFacturar" Type="numeric" Precision="16" Scale="6" />
           <Property Name="DescPrecio" Type="numeric" Precision="5" Scale="2" />
           <Property Name="Color" Type="int" />
+        </EntityType>
+        <EntityType Name="ProveedoresParticipantes">
+          <Key>
+            <PropertyRef Name="IdProveedorParticipante" />
+          </Key>
+          <Property Name="IdProveedorParticipante" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdParticipantePresupuesto" Type="int" />
+          <Property Name="IdProveedor" Type="int" />
+          <Property Name="Precio" Type="numeric" Precision="16" Scale="6" />
+          <Property Name="Seleccionado" Type="bit" />
         </EntityType>
         <Association Name="FK_AlbaranesCab_ComprasCab">
           <End Role="ComprasCab" Type="Promowork_dataModel.Store.ComprasCab" Multiplicity="0..1" />
@@ -658,6 +716,54 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ParticipantesPresupuestos_PresupCab">
+          <End Role="PresupCab" Type="Promowork_dataModel.Store.PresupCab" Multiplicity="0..1" />
+          <End Role="ParticipantesPresupuestos" Type="Promowork_dataModel.Store.ParticipantesPresupuestos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PresupCab">
+              <PropertyRef Name="IdPresupCab" />
+            </Principal>
+            <Dependent Role="ParticipantesPresupuestos">
+              <PropertyRef Name="IdPresupCab" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ParticipantesPresupuestos_PresupCap">
+          <End Role="PresupCap" Type="Promowork_dataModel.Store.PresupCap" Multiplicity="0..1" />
+          <End Role="ParticipantesPresupuestos" Type="Promowork_dataModel.Store.ParticipantesPresupuestos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PresupCap">
+              <PropertyRef Name="IdPresupCap" />
+            </Principal>
+            <Dependent Role="ParticipantesPresupuestos">
+              <PropertyRef Name="IdPresupCap" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ParticipantesPresupuestos_PresupDet">
+          <End Role="PresupDet" Type="Promowork_dataModel.Store.PresupDet" Multiplicity="0..1" />
+          <End Role="ParticipantesPresupuestos" Type="Promowork_dataModel.Store.ParticipantesPresupuestos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PresupDet">
+              <PropertyRef Name="IdPresupDet" />
+            </Principal>
+            <Dependent Role="ParticipantesPresupuestos">
+              <PropertyRef Name="IdPresupDet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ParticipantesPresupuestos_PresupSub">
+          <End Role="PresupSub" Type="Promowork_dataModel.Store.PresupSub" Multiplicity="0..1" />
+          <End Role="ParticipantesPresupuestos" Type="Promowork_dataModel.Store.ParticipantesPresupuestos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PresupSub">
+              <PropertyRef Name="IdPresupSub" />
+            </Principal>
+            <Dependent Role="ParticipantesPresupuestos">
+              <PropertyRef Name="IdPresupSub" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_PresupCap_PresupCab">
           <End Role="PresupCab" Type="Promowork_dataModel.Store.PresupCab" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -697,6 +803,20 @@
             </Principal>
             <Dependent Role="PresupSub">
               <PropertyRef Name="IdPresupDet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProveedoresParticipantes_ParticipantesPresupuestos">
+          <End Role="ParticipantesPresupuestos" Type="Promowork_dataModel.Store.ParticipantesPresupuestos" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProveedoresParticipantes" Type="Promowork_dataModel.Store.ProveedoresParticipantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ParticipantesPresupuestos">
+              <PropertyRef Name="IdParticipantePresupuesto" />
+            </Principal>
+            <Dependent Role="ProveedoresParticipantes">
+              <PropertyRef Name="IdParticipantePresupuesto" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -801,6 +921,28 @@
           <AssociationSet Name="FK_FacturasDetHoras_HorasTrabajadas" Association="Promowork_dataModel.FK_FacturasDetHoras_HorasTrabajadas">
             <End Role="HorasTrabajadas" EntitySet="HorasTrabajadas" />
             <End Role="FacturasDetHoras" EntitySet="FacturasDetHoras" />
+          </AssociationSet>
+          <EntitySet Name="ParticipantesPresupuestos" EntityType="Promowork_dataModel.ParticipantesPresupuestos" />
+          <EntitySet Name="ProveedoresParticipantes" EntityType="Promowork_dataModel.ProveedoresParticipantes" />
+          <AssociationSet Name="FK_ProveedoresParticipantes_ParticipantesPresupuestos" Association="Promowork_dataModel.FK_ProveedoresParticipantes_ParticipantesPresupuestos">
+            <End Role="ParticipantesPresupuestos" EntitySet="ParticipantesPresupuestos" />
+            <End Role="ProveedoresParticipantes" EntitySet="ProveedoresParticipantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ParticipantesPresupuestos_PresupCab" Association="Promowork_dataModel.FK_ParticipantesPresupuestos_PresupCab">
+            <End Role="PresupCab" EntitySet="PresupCab" />
+            <End Role="ParticipantesPresupuestos" EntitySet="ParticipantesPresupuestos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ParticipantesPresupuestos_PresupCap" Association="Promowork_dataModel.FK_ParticipantesPresupuestos_PresupCap">
+            <End Role="PresupCap" EntitySet="PresupCap" />
+            <End Role="ParticipantesPresupuestos" EntitySet="ParticipantesPresupuestos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ParticipantesPresupuestos_PresupDet" Association="Promowork_dataModel.FK_ParticipantesPresupuestos_PresupDet">
+            <End Role="PresupDet" EntitySet="PresupDet" />
+            <End Role="ParticipantesPresupuestos" EntitySet="ParticipantesPresupuestos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ParticipantesPresupuestos_PresupSub" Association="Promowork_dataModel.FK_ParticipantesPresupuestos_PresupSub">
+            <End Role="PresupSub" EntitySet="PresupSub" />
+            <End Role="ParticipantesPresupuestos" EntitySet="ParticipantesPresupuestos" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="AlbaranesCab">
@@ -1081,6 +1223,7 @@
           <Property Name="CertificacionAFacturar" Type="Int32" />
           <NavigationProperty Name="FacturasCab" Relationship="Promowork_dataModel.FK_FacturasCab_PresupCab" FromRole="PresupCab" ToRole="FacturasCab" />
           <NavigationProperty Name="PresupCap" Relationship="Promowork_dataModel.FK_PresupCap_PresupCab" FromRole="PresupCab" ToRole="PresupCap" />
+          <NavigationProperty Name="ParticipantesPresupuestos" Relationship="Promowork_dataModel.FK_ParticipantesPresupuestos_PresupCab" FromRole="PresupCab" ToRole="ParticipantesPresupuestos" />
         </EntityType>
         <EntityType Name="PresupCap">
           <Key>
@@ -1098,6 +1241,7 @@
           <NavigationProperty Name="FacturasDet" Relationship="Promowork_dataModel.FK_FacturasDet_PresupCap" FromRole="PresupCap" ToRole="FacturasDet" />
           <NavigationProperty Name="PresupCab" Relationship="Promowork_dataModel.FK_PresupCap_PresupCab" FromRole="PresupCap" ToRole="PresupCab" />
           <NavigationProperty Name="PresupDet" Relationship="Promowork_dataModel.FK_PresupDet_PresupCap" FromRole="PresupCap" ToRole="PresupDet" />
+          <NavigationProperty Name="ParticipantesPresupuestos" Relationship="Promowork_dataModel.FK_ParticipantesPresupuestos_PresupCap" FromRole="PresupCap" ToRole="ParticipantesPresupuestos" />
         </EntityType>
         <EntityType Name="PresupDet">
           <Key>
@@ -1121,6 +1265,7 @@
           <NavigationProperty Name="FacturasDet" Relationship="Promowork_dataModel.FK_FacturasDet_PresupDet" FromRole="PresupDet" ToRole="FacturasDet" />
           <NavigationProperty Name="PresupCap" Relationship="Promowork_dataModel.FK_PresupDet_PresupCap" FromRole="PresupDet" ToRole="PresupCap" />
           <NavigationProperty Name="PresupSub" Relationship="Promowork_dataModel.FK_PresupSub_PresupDet" FromRole="PresupDet" ToRole="PresupSub" />
+          <NavigationProperty Name="ParticipantesPresupuestos" Relationship="Promowork_dataModel.FK_ParticipantesPresupuestos_PresupDet" FromRole="PresupDet" ToRole="ParticipantesPresupuestos" />
         </EntityType>
         <EntityType Name="PresupSub">
           <Key>
@@ -1144,6 +1289,7 @@
           <Property Name="Color" Type="Int32" />
           <NavigationProperty Name="FacturasDet" Relationship="Promowork_dataModel.FK_FacturasDet_PresupSub" FromRole="PresupSub" ToRole="FacturasDet" />
           <NavigationProperty Name="PresupDet" Relationship="Promowork_dataModel.FK_PresupSub_PresupDet" FromRole="PresupSub" ToRole="PresupDet" />
+          <NavigationProperty Name="ParticipantesPresupuestos" Relationship="Promowork_dataModel.FK_ParticipantesPresupuestos_PresupSub" FromRole="PresupSub" ToRole="ParticipantesPresupuestos" />
         </EntityType>
         <Association Name="FK_AlbaranesCab_ComprasCab">
           <End Role="ComprasCab" Type="Promowork_dataModel.ComprasCab" Multiplicity="0..1" />
@@ -1436,6 +1582,108 @@
             </Principal>
             <Dependent Role="FacturasDetHoras">
               <PropertyRef Name="IdHoras" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ParticipantesPresupuestos">
+          <Key>
+            <PropertyRef Name="IdParticipantePresupuesto" />
+          </Key>
+          <Property Type="Int32" Name="IdParticipantePresupuesto" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="IdEmpresa" />
+          <Property Type="Int32" Name="IdUsuario" />
+          <Property Type="Int32" Name="IdPresupCab" />
+          <Property Type="Int32" Name="IdPresupCap" />
+          <Property Type="Int32" Name="IdPresupDet" />
+          <Property Type="Int32" Name="IdPresupSub" />
+          <Property Type="String" Name="NombrePartida" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdParticipante" />
+          <Property Type="Boolean" Name="EsServicio" />
+          <Property Type="DateTime" Name="FechaCrea" />
+          <Property Type="DateTime" Name="FechaModifica" />
+          <NavigationProperty Name="ProveedoresParticipantes" Relationship="Promowork_dataModel.FK_ProveedoresParticipantes_ParticipantesPresupuestos" FromRole="ParticipantesPresupuestos" ToRole="ProveedoresParticipantes" />
+          <NavigationProperty Name="PresupCab" Relationship="Promowork_dataModel.FK_ParticipantesPresupuestos_PresupCab" FromRole="ParticipantesPresupuestos" ToRole="PresupCab" />
+          <NavigationProperty Name="PresupCap" Relationship="Promowork_dataModel.FK_ParticipantesPresupuestos_PresupCap" FromRole="ParticipantesPresupuestos" ToRole="PresupCap" />
+          <NavigationProperty Name="PresupDet" Relationship="Promowork_dataModel.FK_ParticipantesPresupuestos_PresupDet" FromRole="ParticipantesPresupuestos" ToRole="PresupDet" />
+          <NavigationProperty Name="PresupSub" Relationship="Promowork_dataModel.FK_ParticipantesPresupuestos_PresupSub" FromRole="ParticipantesPresupuestos" ToRole="PresupSub" />
+          <Property Type="Int32" Name="IdProveedor1" />
+          <Property Type="Decimal" Name="Precio1" Precision="16" Scale="6" />
+          <Property Type="Boolean" Name="Seleccionado1" />
+          <Property Type="Int32" Name="IdProveedor2" />
+          <Property Type="Decimal" Name="Precio2" Precision="16" Scale="6" />
+          <Property Type="Boolean" Name="Seleccionado2" />
+          <Property Type="Int32" Name="IdProveedor3" />
+          <Property Type="Decimal" Name="Precio3" Precision="16" Scale="6" />
+          <Property Type="Boolean" Name="Seleccionado3" />
+        </EntityType>
+        <EntityType Name="ProveedoresParticipantes">
+          <Key>
+            <PropertyRef Name="IdProveedorParticipante" />
+          </Key>
+          <Property Type="Int32" Name="IdProveedorParticipante" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="IdParticipantePresupuesto" />
+          <Property Type="Int32" Name="IdProveedor" />
+          <Property Type="Decimal" Name="Precio" Precision="16" Scale="6" />
+          <Property Type="Boolean" Name="Seleccionado" />
+          <NavigationProperty Name="ParticipantesPresupuestos" Relationship="Promowork_dataModel.FK_ProveedoresParticipantes_ParticipantesPresupuestos" FromRole="ProveedoresParticipantes" ToRole="ParticipantesPresupuestos" />
+        </EntityType>
+        <Association Name="FK_ProveedoresParticipantes_ParticipantesPresupuestos">
+          <End Type="Promowork_dataModel.ParticipantesPresupuestos" Role="ParticipantesPresupuestos" Multiplicity="0..1" />
+          <End Type="Promowork_dataModel.ProveedoresParticipantes" Role="ProveedoresParticipantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ParticipantesPresupuestos">
+              <PropertyRef Name="IdParticipantePresupuesto" />
+            </Principal>
+            <Dependent Role="ProveedoresParticipantes">
+              <PropertyRef Name="IdParticipantePresupuesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ParticipantesPresupuestos_PresupCab">
+          <End Type="Promowork_dataModel.PresupCab" Role="PresupCab" Multiplicity="0..1" />
+          <End Type="Promowork_dataModel.ParticipantesPresupuestos" Role="ParticipantesPresupuestos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PresupCab">
+              <PropertyRef Name="IdPresupCab" />
+            </Principal>
+            <Dependent Role="ParticipantesPresupuestos">
+              <PropertyRef Name="IdPresupCab" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ParticipantesPresupuestos_PresupCap">
+          <End Type="Promowork_dataModel.PresupCap" Role="PresupCap" Multiplicity="0..1" />
+          <End Type="Promowork_dataModel.ParticipantesPresupuestos" Role="ParticipantesPresupuestos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PresupCap">
+              <PropertyRef Name="IdPresupCap" />
+            </Principal>
+            <Dependent Role="ParticipantesPresupuestos">
+              <PropertyRef Name="IdPresupCap" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ParticipantesPresupuestos_PresupDet">
+          <End Type="Promowork_dataModel.PresupDet" Role="PresupDet" Multiplicity="0..1" />
+          <End Type="Promowork_dataModel.ParticipantesPresupuestos" Role="ParticipantesPresupuestos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PresupDet">
+              <PropertyRef Name="IdPresupDet" />
+            </Principal>
+            <Dependent Role="ParticipantesPresupuestos">
+              <PropertyRef Name="IdPresupDet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ParticipantesPresupuestos_PresupSub">
+          <End Type="Promowork_dataModel.PresupSub" Role="PresupSub" Multiplicity="0..1" />
+          <End Type="Promowork_dataModel.ParticipantesPresupuestos" Role="ParticipantesPresupuestos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PresupSub">
+              <PropertyRef Name="IdPresupSub" />
+            </Principal>
+            <Dependent Role="ParticipantesPresupuestos">
+              <PropertyRef Name="IdPresupSub" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1802,6 +2050,44 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="ParticipantesPresupuestos">
+            <EntityTypeMapping TypeName="Promowork_dataModel.ParticipantesPresupuestos">
+              <MappingFragment StoreEntitySet="ParticipantesPresupuestos">
+                <ScalarProperty Name="Seleccionado3" ColumnName="Seleccionado3" />
+                <ScalarProperty Name="Precio3" ColumnName="Precio3" />
+                <ScalarProperty Name="IdProveedor3" ColumnName="IdProveedor3" />
+                <ScalarProperty Name="Seleccionado2" ColumnName="Seleccionado2" />
+                <ScalarProperty Name="Precio2" ColumnName="Precio2" />
+                <ScalarProperty Name="IdProveedor2" ColumnName="IdProveedor2" />
+                <ScalarProperty Name="Seleccionado1" ColumnName="Seleccionado1" />
+                <ScalarProperty Name="Precio1" ColumnName="Precio1" />
+                <ScalarProperty Name="IdProveedor1" ColumnName="IdProveedor1" />
+                <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+                <ScalarProperty Name="FechaCrea" ColumnName="FechaCrea" />
+                <ScalarProperty Name="EsServicio" ColumnName="EsServicio" />
+                <ScalarProperty Name="IdParticipante" ColumnName="IdParticipante" />
+                <ScalarProperty Name="NombrePartida" ColumnName="NombrePartida" />
+                <ScalarProperty Name="IdPresupSub" ColumnName="IdPresupSub" />
+                <ScalarProperty Name="IdPresupDet" ColumnName="IdPresupDet" />
+                <ScalarProperty Name="IdPresupCap" ColumnName="IdPresupCap" />
+                <ScalarProperty Name="IdPresupCab" ColumnName="IdPresupCab" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdParticipantePresupuesto" ColumnName="IdParticipantePresupuesto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProveedoresParticipantes">
+            <EntityTypeMapping TypeName="Promowork_dataModel.ProveedoresParticipantes">
+              <MappingFragment StoreEntitySet="ProveedoresParticipantes">
+                <ScalarProperty Name="Seleccionado" ColumnName="Seleccionado" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="IdParticipantePresupuesto" ColumnName="IdParticipantePresupuesto" />
+                <ScalarProperty Name="IdProveedorParticipante" ColumnName="IdProveedorParticipante" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1909,48 +2195,112 @@
         <AssociationConnector Association="Promowork_dataModel.FK_FacturasDetHoras_FacturasCab" ManuallyRouted="false">
           <ConnectorPoint PointX="3.5625" PointY="16.710836588541667" />
           <ConnectorPoint PointX="3.5625" PointY="23.115143229166669" />
-          <ConnectorPoint PointX="4.041666666666667" PointY="23.115143229166669" />
-          <ConnectorPoint PointX="4.208333333333333" PointY="23.115143229166669" />
+          <ConnectorPoint PointX="3.9479166666666665" PointY="23.115143229166669" />
+          <ConnectorPoint PointX="4.114583333333333" PointY="23.115143229166669" />
           <ConnectorPoint PointX="5.25" PointY="23.115143229166669" />
         </AssociationConnector>
         <AssociationConnector Association="Promowork_dataModel.FK_FacturasDet_PresupCap" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.125" PointY="26.125" />
-          <ConnectorPoint PointX="4.125" PointY="17.836293945312498" />
+          <ConnectorPoint PointX="4.03125" PointY="26.125" />
+          <ConnectorPoint PointX="4.03125" PointY="17.836293945312498" />
           <ConnectorPoint PointX="7.041666666666667" PointY="17.836293945312498" />
-          <ConnectorPoint PointX="7.208333333333333" PointY="17.836293945312498" />
+          <ConnectorPoint PointX="7.270833333333333" PointY="17.836293945312498" />
           <ConnectorPoint PointX="9.75" PointY="17.836293945312498" />
         </AssociationConnector>
         <AssociationConnector Association="Promowork_dataModel.FK_FacturasDet_PresupDet" ManuallyRouted="false">
           <ConnectorPoint PointX="6.75" PointY="25.501152846153843" />
           <ConnectorPoint PointX="7.1261528461538433" PointY="25.125" />
-          <ConnectorPoint PointX="10.5" PointY="25.125" />
-          <ConnectorPoint PointX="10.5" PointY="20.835999348958332" />
+          <ConnectorPoint PointX="10.111977041666666" PointY="25.125" />
+          <ConnectorPoint PointX="10.278643708333334" PointY="25.125" />
+          <ConnectorPoint PointX="10.70312575" PointY="25.125" />
+          <ConnectorPoint PointX="10.70312575" PointY="20.835999348958332" />
         </AssociationConnector>
         <AssociationConnector Association="Promowork_dataModel.FK_FacturasDet_PresupSub" ManuallyRouted="false">
-          <ConnectorPoint PointX="9" PointY="27.740102539062498" />
-          <ConnectorPoint PointX="10.5" PointY="27.740102539062498" />
-          <ConnectorPoint PointX="10.5" PointY="20.835999348958332" />
+          <ConnectorPoint PointX="9" PointY="27.836253255208334" />
+          <ConnectorPoint PointX="10.195310375" PointY="27.836253255208334" />
+          <ConnectorPoint PointX="10.195310375" PointY="20.835999348958332" />
         </AssociationConnector>
         <AssociationConnector Association="Promowork_dataModel.FK_PresupCap_PresupCab" ManuallyRouted="false">
-          <ConnectorPoint PointX="1.5" PointY="17.230205078125003" />
-          <ConnectorPoint PointX="1.5" PointY="27.7881982421875" />
-          <ConnectorPoint PointX="3" PointY="27.7881982421875" />
+          <ConnectorPoint PointX="1.5" PointY="17.422506510416667" />
+          <ConnectorPoint PointX="1.5" PointY="27.884348958333334" />
+          <ConnectorPoint PointX="3" PointY="27.884348958333334" />
         </AssociationConnector>
         <AssociationConnector Association="Promowork_dataModel.FK_PresupDet_PresupCap" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="27.7881982421875" />
-          <ConnectorPoint PointX="5.25" PointY="27.7881982421875" />
+          <ConnectorPoint PointX="4.5" PointY="27.884348958333334" />
+          <ConnectorPoint PointX="5.25" PointY="27.884348958333334" />
         </AssociationConnector>
         <AssociationConnector Association="Promowork_dataModel.FK_PresupSub_PresupDet" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.75" PointY="27.771931462139413" />
-          <ConnectorPoint PointX="7.5" PointY="27.771931462139413" />
+          <ConnectorPoint PointX="6.75" PointY="27.868082178285249" />
+          <ConnectorPoint PointX="7.5" PointY="27.868082178285249" />
         </AssociationConnector>
         <EntityTypeShape EntityType="Promowork_dataModel.HorasTrabajadas" Width="1.5" PointX="12.375" PointY="1.25" Height="7.3647265625000022" />
         <AssociationConnector Association="Promowork_dataModel.FK_FacturasDetHoras_HorasTrabajadas" >
-          <ConnectorPoint PointX="13.125" PointY="8.6147265625000031" />
-          <ConnectorPoint PointX="13.125" PointY="23.115143229166669" />
-          <ConnectorPoint PointX="10.583333333333334" PointY="23.115143229166669" />
-          <ConnectorPoint PointX="10.416666666666666" PointY="23.115143229166669" />
+          <ConnectorPoint PointX="12.46875" PointY="8.6147265625000031" />
+          <ConnectorPoint PointX="12.46875" PointY="23.115143229166669" />
+          <ConnectorPoint PointX="11.770833333333334" PointY="23.115143229166669" />
+          <ConnectorPoint PointX="11.604166666666666" PointY="23.115143229166669" />
+          <ConnectorPoint PointX="11.583333333333334" PointY="23.115143229166669" />
+          <ConnectorPoint PointX="11.416666666666666" PointY="23.115143229166669" />
+          <ConnectorPoint PointX="10.786459083333334" PointY="23.115143229166669" />
+          <ConnectorPoint PointX="10.619792416666666" PointY="23.115143229166669" />
+          <ConnectorPoint PointX="10.278643708333334" PointY="23.115143229166669" />
+          <ConnectorPoint PointX="10.111977041666666" PointY="23.115143229166669" />
+          <ConnectorPoint PointX="7.270833333333333" PointY="23.115143229166669" />
+          <ConnectorPoint PointX="7.104166666666667" PointY="23.115143229166669" />
           <ConnectorPoint PointX="6.75" PointY="23.115143229166669" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Promowork_dataModel.ParticipantesPresupuestos" Width="1.5" PointX="10.375" PointY="10" Height="3.5186979166666674" />
+        <EntityTypeShape EntityType="Promowork_dataModel.ProveedoresParticipantes" Width="1.5" PointX="12.625" PointY="10.625" Height="2.1725878906250031" />
+        <AssociationConnector Association="Promowork_dataModel.FK_ProveedoresParticipantes_ParticipantesPresupuestos" >
+          <ConnectorPoint PointX="11.875" PointY="11.711293945312502" />
+          <ConnectorPoint PointX="12.385416666666666" PointY="11.711293945312502" />
+          <ConnectorPoint PointX="12.552083333333334" PointY="11.711293945312502" />
+          <ConnectorPoint PointX="12.625" PointY="11.711293945312502" />
+        </AssociationConnector>
+        <AssociationConnector Association="Promowork_dataModel.FK_ParticipantesPresupuestos_PresupCab" >
+          <ConnectorPoint PointX="1.5" PointY="12.75" />
+          <ConnectorPoint PointX="1.5" PointY="7.7878222656249978" />
+          <ConnectorPoint PointX="4.916666666666667" PointY="7.7878222656249969" />
+          <ConnectorPoint PointX="5.083333333333333" PointY="7.7878222656249978" />
+          <ConnectorPoint PointX="6.87974358974359" PointY="7.7878222656249969" />
+          <ConnectorPoint PointX="7.1514112564102561" PointY="7.7878222656249978" />
+          <ConnectorPoint PointX="7.375" PointY="7.7878222656249978" />
+          <ConnectorPoint PointX="7.375" PointY="8.105205078125" />
+          <ConnectorPoint PointX="10" PointY="8.105205078125" />
+          <ConnectorPoint PointX="10" PointY="12.143951822916666" />
+          <ConnectorPoint PointX="10.375" PointY="12.143951822916666" />
+        </AssociationConnector>
+        <AssociationConnector Association="Promowork_dataModel.FK_ParticipantesPresupuestos_PresupCap" >
+          <ConnectorPoint PointX="4.5" PointY="26.973422479166672" />
+          <ConnectorPoint PointX="5" PointY="26.973422479166672" />
+          <ConnectorPoint PointX="5" PointY="25.25" />
+          <ConnectorPoint PointX="5.916666666666667" PointY="25.25" />
+          <ConnectorPoint PointX="6.083333333333333" PointY="25.25" />
+          <ConnectorPoint PointX="6.91781951282051" PointY="25.25" />
+          <ConnectorPoint PointX="7.0844861794871763" PointY="25.25" />
+          <ConnectorPoint PointX="10.111977041666666" PointY="25.25" />
+          <ConnectorPoint PointX="10.278643708333334" PointY="25.25" />
+          <ConnectorPoint PointX="11.5" PointY="25.25" />
+          <ConnectorPoint PointX="11.5" PointY="14.662903645833332" />
+          <ConnectorPoint PointX="11.187499500000001" PointY="14.662903645833332" />
+          <ConnectorPoint PointX="11.187499500000001" PointY="14.287903645833334" />
+        </AssociationConnector>
+        <AssociationConnector Association="Promowork_dataModel.FK_ParticipantesPresupuestos_PresupDet" >
+          <ConnectorPoint PointX="6" PointY="25.5" />
+          <ConnectorPoint PointX="6" PointY="24.355286458333339" />
+          <ConnectorPoint PointX="7.1875" PointY="24.355286458333339" />
+          <ConnectorPoint PointX="7.1875" PointY="13.605205078125003" />
+          <ConnectorPoint PointX="7.197916666666667" PointY="13.605205078125003" />
+          <ConnectorPoint PointX="7.364583333333333" PointY="13.605205078125003" />
+          <ConnectorPoint PointX="10" PointY="13.605205078125003" />
+          <ConnectorPoint PointX="10" PointY="13.247179734374999" />
+          <ConnectorPoint PointX="10.375" PointY="13.247179734374999" />
+        </AssociationConnector>
+        <AssociationConnector Association="Promowork_dataModel.FK_ParticipantesPresupuestos_PresupSub" >
+          <ConnectorPoint PointX="9" PointY="26.636874127604173" />
+          <ConnectorPoint PointX="10.111977041666666" PointY="26.636874127604173" />
+          <ConnectorPoint PointX="10.278643708333334" PointY="26.636874127604173" />
+          <ConnectorPoint PointX="11.6875" PointY="26.636874127604173" />
+          <ConnectorPoint PointX="11.6875" PointY="14.287903645833334" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

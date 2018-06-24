@@ -72,7 +72,7 @@ namespace Promowork.Formularios.Definiciones
             // TODO: This line of code loads data into the 'promowork_dataDataSet.FormasPago' table. You can move, or remove it, as needed.
             this.formasPagoTableAdapter.Fill(this.promowork_dataDataSet.FormasPago);
             // TODO: This line of code loads data into the 'promowork_dataDataSet.Participantes' table. You can move, or remove it, as needed.
-            this.participantesTableAdapter.Fill(this.promowork_dataDataSet.Participantes);
+            this.participantesTableAdapter.FillByEmpresa(this.promowork_dataDataSet.Participantes, VariablesGlobales.nIdEmpresaActual);
             // TODO: This line of code loads data into the 'promowork_dataDataSet.ComprasCab' table. You can move, or remove it, as needed.
             this.empresasActualTableAdapter.FillByEmpresa(promowork_dataDataSet.EmpresasActual, VariablesGlobales.nIdEmpresaActual);
             this.tiposProveedoresTableAdapter.FillByEmpresa(promowork_dataDataSet.TiposProveedores, VariablesGlobales.nIdEmpresaActual);
@@ -120,7 +120,7 @@ namespace Promowork.Formularios.Definiciones
         {
             TiposProveedores frm = new TiposProveedores();
             frm.ShowDialog();
-            this.participantesTableAdapter.Fill(this.promowork_dataDataSet.Participantes);
+            this.participantesTableAdapter.FillByEmpresa(this.promowork_dataDataSet.Participantes, VariablesGlobales.nIdEmpresaActual);
         }
 
         private void button2_Click(object sender, EventArgs e)

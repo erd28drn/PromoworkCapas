@@ -9,6 +9,7 @@
           <EntitySet Name="AccesosEmpresas" EntityType="Promowork_dataModel.Store.AccesosEmpresas" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="AccesosOpciones" EntityType="Promowork_dataModel.Store.AccesosOpciones" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Empresas" EntityType="Promowork_dataModel.Store.Empresas" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Notas" EntityType="Promowork_dataModel.Store.Notas" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ServidorSMTP" EntityType="Promowork_dataModel.Store.ServidorSMTP" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Usuarios" EntityType="Promowork_dataModel.Store.Usuarios" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK_AccesosEmpresas_Empresas" Association="Promowork_dataModel.Store.FK_AccesosEmpresas_Empresas">
@@ -90,6 +91,14 @@
           <Property Name="AsuntoEnvioFacturas" Type="varchar" MaxLength="100" />
           <Property Name="CuerpoEnvioFacturas" Type="varchar" MaxLength="4000" />
           <Property Name="ConfiguracionEmpresa" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Notas">
+          <Key>
+            <PropertyRef Name="IdNota" />
+          </Key>
+          <Property Name="IdNota" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NombreNota" Type="varchar" MaxLength="50" />
+          <Property Name="DescripcionNota" Type="varchar" MaxLength="4000" />
         </EntityType>
         <EntityType Name="ServidorSMTP">
           <Key>
@@ -220,6 +229,7 @@
             <End Role="Empresas" EntitySet="Empresas" />
             <End Role="ServidorSMTP" EntitySet="ServidorSMTP" />
           </AssociationSet>
+          <EntitySet Name="Notas" EntityType="Promowork_dataModel.Notas" />
         </EntityContainer>
         <EntityType Name="AccesosEmpresas">
           <Key>
@@ -389,6 +399,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Notas">
+          <Key>
+            <PropertyRef Name="IdNota" />
+          </Key>
+          <Property Type="Int32" Name="IdNota" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="NombreNota" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DescripcionNota" MaxLength="4000" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -492,6 +510,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Notas">
+            <EntityTypeMapping TypeName="Promowork_dataModel.Notas">
+              <MappingFragment StoreEntitySet="Notas">
+                <ScalarProperty Name="DescripcionNota" ColumnName="DescripcionNota" />
+                <ScalarProperty Name="NombreNota" ColumnName="NombreNota" />
+                <ScalarProperty Name="IdNota" ColumnName="IdNota" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -512,7 +539,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="GeneralesDataModel" ZoomLevel="77">
+      <Diagram Name="GeneralesDataModel" ZoomLevel="69">
         <EntityTypeShape EntityType="Promowork_dataModel.AccesosEmpresas" Width="1.5" PointX="5.25" PointY="3.75" Height="2.1725878906249996" IsExpanded="true" />
         <EntityTypeShape EntityType="Promowork_dataModel.AccesosOpciones" Width="1.5" PointX="5.25" PointY="7" Height="2.1725878906249996" IsExpanded="true" />
         <EntityTypeShape EntityType="Promowork_dataModel.Empresas" Width="1.5" PointX="0.75" PointY="1.25" Height="7.9416308593749978" IsExpanded="true" />
@@ -540,6 +567,7 @@
           <ConnectorPoint PointX="2.25" PointY="3.37474609375" />
           <ConnectorPoint PointX="3" PointY="3.37474609375" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="Promowork_dataModel.Notas" Width="1.5" PointX="5.375" PointY="0.75" Height="1.5956835937499996" />
       </Diagram>
     </Diagrams>
   </Designer>

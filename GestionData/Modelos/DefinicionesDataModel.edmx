@@ -8,6 +8,7 @@
         <EntityContainer Name="Promowork_dataModelStoreContainer">
           <EntitySet Name="Clientes" EntityType="Promowork_dataModel.Store.Clientes" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Obras" EntityType="Promowork_dataModel.Store.Obras" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Participantes" EntityType="Promowork_dataModel.Store.Participantes" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Proveedores" EntityType="Promowork_dataModel.Store.Proveedores" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Trabajadores" EntityType="Promowork_dataModel.Store.Trabajadores" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK_Obras_Clientes" Association="Promowork_dataModel.Store.FK_Obras_Clientes">
@@ -17,6 +18,10 @@
           <AssociationSet Name="FK_Obras_Clientes1" Association="Promowork_dataModel.Store.FK_Obras_Clientes1">
             <End Role="Clientes" EntitySet="Clientes" />
             <End Role="Obras" EntitySet="Obras" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proveedores_Participantes" Association="Promowork_dataModel.Store.FK_Proveedores_Participantes">
+            <End Role="Participantes" EntitySet="Participantes" />
+            <End Role="Proveedores" EntitySet="Proveedores" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Clientes">
@@ -77,6 +82,15 @@
           <Property Name="TotalPresupuesto" Type="decimal" Precision="10" Scale="2" />
           <Property Name="TotalExtras" Type="decimal" Precision="10" Scale="2" />
           <Property Name="PendienteCobro" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="Participantes">
+          <Key>
+            <PropertyRef Name="IdParticipante" />
+          </Key>
+          <Property Name="IdParticipante" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdEmpresa" Type="int" />
+          <Property Name="DesParticipante" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ActivoParticipante" Type="bit" />
         </EntityType>
         <EntityType Name="Proveedores">
           <Key>
@@ -174,6 +188,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Proveedores_Participantes">
+          <End Role="Participantes" Type="Promowork_dataModel.Store.Participantes" Multiplicity="0..1" />
+          <End Role="Proveedores" Type="Promowork_dataModel.Store.Proveedores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participantes">
+              <PropertyRef Name="IdParticipante" />
+            </Principal>
+            <Dependent Role="Proveedores">
+              <PropertyRef Name="IdParticipante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -190,6 +216,11 @@
           <AssociationSet Name="FK_Obras_Clientes1" Association="Promowork_dataModel.FK_Obras_Clientes1">
             <End Role="Clientes" EntitySet="Clientes" />
             <End Role="Obras" EntitySet="Obras" />
+          </AssociationSet>
+          <EntitySet Name="Participantes" EntityType="Promowork_dataModel.Participantes" />
+          <AssociationSet Name="FK_Proveedores_Participantes" Association="Promowork_dataModel.FK_Proveedores_Participantes">
+            <End Role="Participantes" EntitySet="Participantes" />
+            <End Role="Proveedores" EntitySet="Proveedores" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Clientes">
@@ -255,6 +286,7 @@
           <Property Name="IdTipoProveedor" Type="Int32" />
           <Property Name="Idgrupo" Type="Int32" />
           <Property Name="EsGestor" Type="Boolean" />
+          <NavigationProperty Name="Participantes" Relationship="Promowork_dataModel.FK_Proveedores_Participantes" FromRole="Proveedores" ToRole="Participantes" />
         </EntityType>
         <EntityType Name="Trabajadores">
           <Key>
@@ -348,6 +380,28 @@
             </Principal>
             <Dependent Role="Obras">
               <PropertyRef Name="PromObra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Participantes">
+          <Key>
+            <PropertyRef Name="IdParticipante" />
+          </Key>
+          <Property Type="Int32" Name="IdParticipante" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="DesParticipante" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="ActivoParticipante" />
+          <NavigationProperty Name="Proveedores" Relationship="Promowork_dataModel.FK_Proveedores_Participantes" FromRole="Participantes" ToRole="Proveedores" />
+          <Property Type="Int32" Name="IdEmpresa" />
+        </EntityType>
+        <Association Name="FK_Proveedores_Participantes">
+          <End Type="Promowork_dataModel.Participantes" Role="Participantes" Multiplicity="0..1" />
+          <End Type="Promowork_dataModel.Proveedores" Role="Proveedores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participantes">
+              <PropertyRef Name="IdParticipante" />
+            </Principal>
+            <Dependent Role="Proveedores">
+              <PropertyRef Name="IdParticipante" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -492,6 +546,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Participantes">
+            <EntityTypeMapping TypeName="Promowork_dataModel.Participantes">
+              <MappingFragment StoreEntitySet="Participantes">
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="ActivoParticipante" ColumnName="ActivoParticipante" />
+                <ScalarProperty Name="DesParticipante" ColumnName="DesParticipante" />
+                <ScalarProperty Name="IdParticipante" ColumnName="IdParticipante" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -518,14 +582,32 @@
         <EntityTypeShape EntityType="Promowork_dataModel.Trabajadores" Width="1.5" PointX="5.375" PointY="0.75" Height="7.5570279947916656" />
         <EntityTypeShape EntityType="Promowork_dataModel.Obras" Width="1.5" PointX="3" PointY="10.75" Height="6.210917968749996" />
         <AssociationConnector Association="Promowork_dataModel.FK_Obras_Clientes" >
-          <ConnectorPoint PointX="1.5" PointY="6.7686165364583326" />
-          <ConnectorPoint PointX="1.5" PointY="13.855458984374998" />
-          <ConnectorPoint PointX="3" PointY="13.855458984374998" />
+          <ConnectorPoint PointX="2.25" PointY="3.7593082682291659" />
+          <ConnectorPoint PointX="2.5" PointY="3.7593082682291659" />
+          <ConnectorPoint PointX="2.5" PointY="7.5955208333333326" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="7.5955208333333317" />
+          <ConnectorPoint PointX="2.7083333333333335" PointY="7.5955208333333326" />
+          <ConnectorPoint PointX="2.7604166666666665" PointY="7.5955208333333317" />
+          <ConnectorPoint PointX="2.9270833333333335" PointY="7.5955208333333326" />
+          <ConnectorPoint PointX="3.75" PointY="7.5955208333333326" />
+          <ConnectorPoint PointX="3.75" PointY="10.75" />
         </AssociationConnector>
         <AssociationConnector Association="Promowork_dataModel.FK_Obras_Clientes1" >
-          <ConnectorPoint PointX="1.9062525" PointY="6.7686165364583326" />
-          <ConnectorPoint PointX="1.9062525" PointY="12.271476992187498" />
-          <ConnectorPoint PointX="3" PointY="12.271476992187498" />
+          <ConnectorPoint PointX="2.25" PointY="5.2952144023437491" />
+          <ConnectorPoint PointX="2.4166666666666665" PointY="5.2952144023437482" />
+          <ConnectorPoint PointX="2.5833333333333335" PointY="5.2952144023437491" />
+          <ConnectorPoint PointX="2.625" PointY="5.2952144023437491" />
+          <ConnectorPoint PointX="2.625" PointY="7.8455208333333326" />
+          <ConnectorPoint PointX="2.7604166666666665" PointY="7.8455208333333317" />
+          <ConnectorPoint PointX="2.9270833333333335" PointY="7.8455208333333326" />
+          <ConnectorPoint PointX="3.343748" PointY="7.8455208333333326" />
+          <ConnectorPoint PointX="3.343748" PointY="10.75" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Promowork_dataModel.Participantes" Width="1.5" PointX="0.75" PointY="9.125" Height="1.7879850260416674" />
+        <AssociationConnector Association="Promowork_dataModel.FK_Proveedores_Participantes" >
+          <ConnectorPoint PointX="2.25" PointY="9.90625" />
+          <ConnectorPoint PointX="2.84375" PointY="9.90625" />
+          <ConnectorPoint PointX="2.84375" PointY="7.3455208333333326" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

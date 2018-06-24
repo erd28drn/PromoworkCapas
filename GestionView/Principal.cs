@@ -699,14 +699,15 @@ namespace Promowork
 
         private void toolStripMenuItem8_Click_1(object sender, EventArgs e)
         {
-            if (Application.OpenForms["SalvaRestaura"] != null)
+            if (Application.OpenForms["frmNotas"] != null)
             {
-                Application.OpenForms["SalvaRestaura"].Activate();
+                Application.OpenForms["frmNotas"].Activate();
             }
             else
             {
-                SalvaRestaura frm = new SalvaRestaura();
+                frmNotas frm = new frmNotas();
                 frm.MdiParent = this;
+                frm.WindowState = FormWindowState.Maximized;
                 frm.Show();
             }
         }
@@ -1237,6 +1238,7 @@ namespace Promowork
             {
                 AccesosOpcionesMenu frm = new AccesosOpcionesMenu();
                 frm.MdiParent = this;
+                frm.WindowState = FormWindowState.Maximized;
                 frm.Show();
             }
         }

@@ -62,6 +62,16 @@ namespace GestionData.Repositorios
             contextoGenerales.SaveChanges();
             return true;
         }
+
+        public bool GuardarAnoMesEmpresa(int idEmpresa, int ano, byte mes)
+        {
+            var empresaActual = contextoGenerales.Empresas.FirstOrDefault(e => e.IdEmpresa == idEmpresa);
+            empresaActual.AnoEmpresa = ano;
+            empresaActual.MesEmpresa = mes;
+            contextoGenerales.SaveChanges();
+            return true;
+
+        }
         
 
     }

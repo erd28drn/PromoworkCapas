@@ -26,7 +26,6 @@ namespace Promowork.Formularios.General
             InitializeComponent();
         }
 
-        bool ok = false;
         RepositorioUsuario repoUsuario = new RepositorioUsuario();
         RepositorioEmpresa repoEmpresa = new RepositorioEmpresa();
         UsuariosService usuariosService = new UsuariosService();
@@ -73,8 +72,9 @@ namespace Promowork.Formularios.General
                     //VariablesGlobales.ConfiguracionUsuario = configuracionUsuario;
 
                     usuariosService.EstablecerUltimoUsuario(usuarioSeleccionado.IdUsuario);
+                    repoEmpresa.GuardarAnoMesEmpresa(VariablesGlobales.nIdEmpresaActual, (int)tbAno.Value, (byte)tbMes.Value);//ES NECESARIO PORQUE LA CREACION DE FECTIVOS USA ESTOS CAMPOS DE LA TABLA EMPRESAS.
                     repoUsuario.GuardarConfiguracionUsuario(configuracionUsuario);
-
+                    
                     //var configuracionEmpresaJson= empresasUsuario.FirstOrDefault(emp=> emp.IdEmpresa== (int)cbEmpresa.SelectedValue).ConfiguracionEmpresa;
                     //if (!string.IsNullOrWhiteSpace(configuracionEmpresaJson))
                     //{

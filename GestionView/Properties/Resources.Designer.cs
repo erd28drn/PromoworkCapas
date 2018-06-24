@@ -63,6 +63,16 @@ namespace Promowork.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _checked {
+            get {
+                object obj = ResourceManager.GetObject("checked", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Accesos {
             get {
                 object obj = ResourceManager.GetObject("Accesos", resourceCulture);
@@ -476,6 +486,16 @@ namespace Promowork.Properties {
         internal static System.Drawing.Bitmap relojadmin {
             get {
                 object obj = ResourceManager.GetObject("relojadmin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap report_img {
+            get {
+                object obj = ResourceManager.GetObject("report_img", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

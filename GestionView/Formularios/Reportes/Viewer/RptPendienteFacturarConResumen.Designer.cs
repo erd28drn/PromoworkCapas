@@ -33,6 +33,7 @@
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.btGenerarFacturas = new System.Windows.Forms.Panel();
+            this.btMarcarFinalizados = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.btFacturar = new DevExpress.XtraEditors.SimpleButton();
             this.cbObras = new DevExpress.XtraEditors.CheckedComboBoxEdit();
@@ -41,7 +42,6 @@
             this.EmpresasActualBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.EmpresasActualTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.EmpresasActualTableAdapter();
             this.HorasPendientesFacturarTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.HorasPendientesFacturarTableAdapter();
-            this.btMarcarFinalizados = new DevExpress.XtraEditors.SimpleButton();
             this.btGenerarFacturas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbObras.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HorasPendientesFacturarBindingSource)).BeginInit();
@@ -75,6 +75,16 @@
             this.btGenerarFacturas.Name = "btGenerarFacturas";
             this.btGenerarFacturas.Size = new System.Drawing.Size(1261, 50);
             this.btGenerarFacturas.TabIndex = 1;
+            // 
+            // btMarcarFinalizados
+            // 
+            this.btMarcarFinalizados.Location = new System.Drawing.Point(1127, 8);
+            this.btMarcarFinalizados.Name = "btMarcarFinalizados";
+            this.btMarcarFinalizados.Size = new System.Drawing.Size(122, 23);
+            this.btMarcarFinalizados.TabIndex = 3;
+            this.btMarcarFinalizados.Text = "Marcar Finalizados";
+            this.btMarcarFinalizados.ToolTip = "Generara facturas de las obras selecionadas";
+            this.btMarcarFinalizados.Click += new System.EventHandler(this.btMarcarFinalizados_Click);
             // 
             // labelControl1
             // 
@@ -126,16 +136,6 @@
             // HorasPendientesFacturarTableAdapter
             // 
             this.HorasPendientesFacturarTableAdapter.ClearBeforeFill = true;
-            // 
-            // btMarcarFinalizados
-            // 
-            this.btMarcarFinalizados.Location = new System.Drawing.Point(1127, 8);
-            this.btMarcarFinalizados.Name = "btMarcarFinalizados";
-            this.btMarcarFinalizados.Size = new System.Drawing.Size(122, 23);
-            this.btMarcarFinalizados.TabIndex = 3;
-            this.btMarcarFinalizados.Text = "Marcar Finalizados";
-            this.btMarcarFinalizados.ToolTip = "Generara facturas de las obras selecionadas";
-            this.btMarcarFinalizados.Click += new System.EventHandler(this.btMarcarFinalizados_Click);
             // 
             // RptPendienteFacturarConResumen
             // 

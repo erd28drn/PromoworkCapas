@@ -30,13 +30,13 @@ namespace Promowork.Formularios.Definiciones
                 {
 
                     MessageBox.Show("No se Pudo Salvar la Información. El Registro fue modificado por otro Usuario.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                    this.participantesTableAdapter.Fill(this.promowork_dataDataSet.Participantes);
+                    this.participantesTableAdapter.FillByEmpresa(this.promowork_dataDataSet.Participantes, VariablesGlobales.nIdEmpresaActual);
                 }
                 catch (SqlException ex)
                 {
                     if (ErroresSQLServer.ManipulaErrorSQL(ex, this.Text))
                     {
-                    this.participantesTableAdapter.Fill(this.promowork_dataDataSet.Participantes);
+                        this.participantesTableAdapter.FillByEmpresa(this.promowork_dataDataSet.Participantes, VariablesGlobales.nIdEmpresaActual);
 
                     }
 
@@ -46,7 +46,7 @@ namespace Promowork.Formularios.Definiciones
         private void TiposProveedores_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'promowork_dataDataSet.Participantes' table. You can move, or remove it, as needed.
-            this.participantesTableAdapter.Fill(this.promowork_dataDataSet.Participantes);
+            this.participantesTableAdapter.FillByEmpresa(this.promowork_dataDataSet.Participantes, VariablesGlobales.nIdEmpresaActual);
 
         }
 
@@ -56,6 +56,12 @@ namespace Promowork.Formularios.Definiciones
             {
                 this.participantesBindingSource.RemoveCurrent();
             }
+        }
+
+       private void participantesBindingSource_AddingNew(object sender, AddingNewEventArgs e)
+        {
+            DataRowView participante = (DataRowView)e.NewObject;
+            participante["IdEmpresa"] = VariablesGlobales.nIdEmpresaActual;
         }
     }
 }

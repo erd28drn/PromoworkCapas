@@ -30,14 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TiposProveedores));
-            this.promowork_dataDataSet = new GestionData.Promowork_dataDataSet();
-            this.participantesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.participantesTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.ParticipantesTableAdapter();
-            this.tableAdapterManager = new GestionData.Promowork_dataDataSetTableAdapters.TableAdapterManager();
             this.participantesBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -46,95 +41,22 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.participantesBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.participantesDataGridView = new System.Windows.Forms.DataGridView();
+            this.participantesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.promowork_dataDataSet = new GestionData.Promowork_dataDataSet();
+            this.participantesTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.ParticipantesTableAdapter();
+            this.tableAdapterManager = new GestionData.Promowork_dataDataSetTableAdapters.TableAdapterManager();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.promowork_dataDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.participantesBindingSource)).BeginInit();
+            this.Empresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.participantesBindingNavigator)).BeginInit();
             this.participantesBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.participantesDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.participantesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.promowork_dataDataSet)).BeginInit();
             this.SuspendLayout();
-            // 
-            // promowork_dataDataSet
-            // 
-            this.promowork_dataDataSet.DataSetName = "Promowork_dataDataSet";
-            this.promowork_dataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // participantesBindingSource
-            // 
-            this.participantesBindingSource.DataMember = "Participantes";
-            this.participantesBindingSource.DataSource = this.promowork_dataDataSet;
-            // 
-            // participantesTableAdapter
-            // 
-            this.participantesTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.AccesosEmpresasTableAdapter = null;
-            this.tableAdapterManager.AdjuntosObrasTableAdapter = null;
-            this.tableAdapterManager.AnticiposTableAdapter = null;
-            this.tableAdapterManager.AnticiposTrabajadoresTableAdapter = null;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.BajasMedicaTableAdapter = null;
-            this.tableAdapterManager.BancosTableAdapter = null;
-            this.tableAdapterManager.CategoriasTableAdapter = null;
-            this.tableAdapterManager.ClientesTableAdapter = null;
-            this.tableAdapterManager.CobrosTableAdapter = null;
-            this.tableAdapterManager.ComprasCabTableAdapter = null;
-            this.tableAdapterManager.ComprasDetTableAdapter = null;
-            this.tableAdapterManager.ConceptosBancosTableAdapter = null;
-            this.tableAdapterManager.ContratosTrabajadoresTableAdapter = null;
-            this.tableAdapterManager.CopiasHorasTableAdapter = null;
-            this.tableAdapterManager.CrucesTrabajadoresTableAdapter = null;
-            this.tableAdapterManager.CuentasTableAdapter = null;
-            this.tableAdapterManager.CursosTableAdapter = null;
-            this.tableAdapterManager.CursosTrabajadoresTableAdapter = null;
-            this.tableAdapterManager.EmpresasActualTableAdapter = null;
-            this.tableAdapterManager.EmpresasTableAdapter = null;
-            this.tableAdapterManager.EstadoCivilTableAdapter = null;
-            this.tableAdapterManager.FacturasCabTableAdapter = null;
-            this.tableAdapterManager.FacturasDetHorasTableAdapter = null;
-            this.tableAdapterManager.FacturasDetTableAdapter = null;
-            this.tableAdapterManager.FestivosEmpresasTableAdapter = null;
-            this.tableAdapterManager.FestivosObrasTableAdapter = null;
-            this.tableAdapterManager.FormasPagoTableAdapter = null;
-            this.tableAdapterManager.HijosTrabajadoresTableAdapter = null;
-            this.tableAdapterManager.HorasAdminTableAdapter = null;
-            this.tableAdapterManager.HorasTrabajadasTableAdapter = null;
-            this.tableAdapterManager.NacionesTableAdapter = null;
-            this.tableAdapterManager.ObrasTableAdapter = null;
-            this.tableAdapterManager.OperacionesBancoTableAdapter = null;
-            this.tableAdapterManager.PagosTableAdapter = null;
-            this.tableAdapterManager.ParticipantesTableAdapter = this.participantesTableAdapter;
-            this.tableAdapterManager.PartObrasTableAdapter = null;
-            this.tableAdapterManager.PartPresupTableAdapter = null;
-            this.tableAdapterManager.Poblaciones1TableAdapter = null;
-            this.tableAdapterManager.PoblacionesProvincias1TableAdapter = null;
-            this.tableAdapterManager.PoblacionesProvinciasTableAdapter = null;
-            this.tableAdapterManager.PoblacionesTableAdapter = null;
-            this.tableAdapterManager.PresupCabTableAdapter = null;
-            this.tableAdapterManager.PresupCapTableAdapter = null;
-            this.tableAdapterManager.PresupDetTableAdapter = null;
-            this.tableAdapterManager.PresupSubTableAdapter = null;
-            this.tableAdapterManager.ProductosTableAdapter = null;
-            this.tableAdapterManager.ProductosUtilizadosTableAdapter = null;
-            this.tableAdapterManager.ProveedoresTableAdapter = null;
-            this.tableAdapterManager.Provincias1TableAdapter = null;
-            this.tableAdapterManager.ProvinciasTableAdapter = null;
-            this.tableAdapterManager.PuestosTrabajoTableAdapter = null;
-            this.tableAdapterManager.SalariosTiposTableAdapter = null;
-            this.tableAdapterManager.SalariosVentaAdminTableAdapter = null;
-            this.tableAdapterManager.SalariosVentaTableAdapter = null;
-            this.tableAdapterManager.SeguridadSocialTableAdapter = null;
-            this.tableAdapterManager.TiposTableAdapter = null;
-            this.tableAdapterManager.TrabajadoresListaTableAdapter = null;
-            this.tableAdapterManager.TrabajadoresTableAdapter = null;
-            this.tableAdapterManager.UMedidasTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = GestionData.Promowork_dataDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.UsuariosTableAdapter = null;
             // 
             // participantesBindingNavigator
             // 
@@ -178,19 +100,9 @@
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
+            this.bindingNavigatorCountItem.Text = "de {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
-            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -252,6 +164,16 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "Delete";
+            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
+            // 
             // participantesBindingNavigatorSaveItem
             // 
             this.participantesBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -267,12 +189,102 @@
             this.participantesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.participantesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn2,
-            this.dataGridViewCheckBoxColumn1});
+            this.dataGridViewCheckBoxColumn1,
+            this.Empresa});
             this.participantesDataGridView.DataSource = this.participantesBindingSource;
             this.participantesDataGridView.Location = new System.Drawing.Point(12, 28);
             this.participantesDataGridView.Name = "participantesDataGridView";
             this.participantesDataGridView.Size = new System.Drawing.Size(293, 220);
             this.participantesDataGridView.TabIndex = 1;
+            // 
+            // participantesBindingSource
+            // 
+            this.participantesBindingSource.DataMember = "Participantes";
+            this.participantesBindingSource.DataSource = this.promowork_dataDataSet;
+            this.participantesBindingSource.AddingNew += new System.ComponentModel.AddingNewEventHandler(this.participantesBindingSource_AddingNew);
+            // 
+            // promowork_dataDataSet
+            // 
+            this.promowork_dataDataSet.DataSetName = "Promowork_dataDataSet";
+            this.promowork_dataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // participantesTableAdapter
+            // 
+            this.participantesTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.AccesosEmpresasTableAdapter = null;
+            this.tableAdapterManager.AdjuntosObrasTableAdapter = null;
+            this.tableAdapterManager.AnticiposTableAdapter = null;
+            this.tableAdapterManager.AnticiposTrabajadoresTableAdapter = null;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BajasMedicaTableAdapter = null;
+            this.tableAdapterManager.BancosTableAdapter = null;
+            this.tableAdapterManager.CategoriasTableAdapter = null;
+            this.tableAdapterManager.ClientesTableAdapter = null;
+            this.tableAdapterManager.CobrosTableAdapter = null;
+            this.tableAdapterManager.ComprasCabTableAdapter = null;
+            this.tableAdapterManager.ComprasDetTableAdapter = null;
+            this.tableAdapterManager.ConceptosBancosTableAdapter = null;
+            this.tableAdapterManager.ContratosTrabajadoresTableAdapter = null;
+            this.tableAdapterManager.CopiasHorasTableAdapter = null;
+            this.tableAdapterManager.CrucesTrabajadoresTableAdapter = null;
+            this.tableAdapterManager.CuentasTableAdapter = null;
+            this.tableAdapterManager.CursosTableAdapter = null;
+            this.tableAdapterManager.CursosTrabajadoresTableAdapter = null;
+            this.tableAdapterManager.DescuentosFacturasTableAdapter = null;
+            this.tableAdapterManager.EmpresasActualTableAdapter = null;
+            this.tableAdapterManager.EmpresasTableAdapter = null;
+            this.tableAdapterManager.EstadoCivilTableAdapter = null;
+            this.tableAdapterManager.FabricantesTableAdapter = null;
+            this.tableAdapterManager.FacturasCabListaTableAdapter = null;
+            this.tableAdapterManager.FacturasCabTableAdapter = null;
+            this.tableAdapterManager.FacturasDetHorasTableAdapter = null;
+            this.tableAdapterManager.FacturasDetTableAdapter = null;
+            this.tableAdapterManager.FestivosEmpresasTableAdapter = null;
+            this.tableAdapterManager.FestivosObrasDiaTableAdapter = null;
+            this.tableAdapterManager.FestivosObrasTableAdapter = null;
+            this.tableAdapterManager.FormasPagoTableAdapter = null;
+            this.tableAdapterManager.GruposProductosTableAdapter = null;
+            this.tableAdapterManager.HijosTrabajadoresTableAdapter = null;
+            this.tableAdapterManager.HorasAdminTableAdapter = null;
+            this.tableAdapterManager.HorasTrabajadasTableAdapter = null;
+            this.tableAdapterManager.HorasTrabajadoresTableAdapter = null;
+            this.tableAdapterManager.NacionesTableAdapter = null;
+            this.tableAdapterManager.ObrasTableAdapter = null;
+            this.tableAdapterManager.OperacionesBancoTableAdapter = null;
+            this.tableAdapterManager.PagosTableAdapter = null;
+            this.tableAdapterManager.ParticipantesTableAdapter = this.participantesTableAdapter;
+            this.tableAdapterManager.PartObrasTableAdapter = null;
+            this.tableAdapterManager.PartPresupTableAdapter = null;
+            this.tableAdapterManager.Poblaciones1TableAdapter = null;
+            this.tableAdapterManager.PoblacionesProvincias1TableAdapter = null;
+            this.tableAdapterManager.PoblacionesProvinciasTableAdapter = null;
+            this.tableAdapterManager.PoblacionesTableAdapter = null;
+            this.tableAdapterManager.PresupCabTableAdapter = null;
+            this.tableAdapterManager.PresupCapTableAdapter = null;
+            this.tableAdapterManager.PresupDetTableAdapter = null;
+            this.tableAdapterManager.PresupSubTableAdapter = null;
+            this.tableAdapterManager.ProductosTableAdapter = null;
+            this.tableAdapterManager.ProductosUtilizadosTableAdapter = null;
+            this.tableAdapterManager.ProductosUtTrabajadoresTableAdapter = null;
+            this.tableAdapterManager.ProveedoresTableAdapter = null;
+            this.tableAdapterManager.Provincias1TableAdapter = null;
+            this.tableAdapterManager.ProvinciasTableAdapter = null;
+            this.tableAdapterManager.PuestosTrabajoTableAdapter = null;
+            this.tableAdapterManager.SalariosTiposTableAdapter = null;
+            this.tableAdapterManager.SalariosVentaAdminTableAdapter = null;
+            this.tableAdapterManager.SalariosVentaTableAdapter = null;
+            this.tableAdapterManager.SeguridadSocialTableAdapter = null;
+            this.tableAdapterManager.TiposProductosTableAdapter = null;
+            this.tableAdapterManager.TiposProveedoresTableAdapter = null;
+            this.tableAdapterManager.TiposTableAdapter = null;
+            this.tableAdapterManager.TrabajadoresListaTableAdapter = null;
+            this.tableAdapterManager.TrabajadoresTableAdapter = null;
+            this.tableAdapterManager.UMedidasTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = GestionData.Promowork_dataDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UsuariosTableAdapter = null;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -288,6 +300,13 @@
             this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
             this.dataGridViewCheckBoxColumn1.Width = 50;
             // 
+            // Empresa
+            // 
+            this.Empresa.DataPropertyName = "IdEmpresa";
+            this.Empresa.HeaderText = "IdEmpresa";
+            this.Empresa.Name = "Empresa";
+            this.Empresa.Visible = false;
+            // 
             // TiposProveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -302,12 +321,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tipos Proveedores";
             this.Load += new System.EventHandler(this.TiposProveedores_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.promowork_dataDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.participantesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.participantesBindingNavigator)).EndInit();
             this.participantesBindingNavigator.ResumeLayout(false);
             this.participantesBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.participantesDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.participantesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.promowork_dataDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -335,5 +354,6 @@
         private System.Windows.Forms.DataGridView participantesDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Empresa;
     }
 }

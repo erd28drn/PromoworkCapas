@@ -21,6 +21,7 @@ using System.Xml.Serialization;
 
 [assembly: EdmRelationshipAttribute("Promowork_dataModel", "FK_Obras_Clientes", "Clientes", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(GestionData.Modelos.Clientes), "Obras", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GestionData.Modelos.Obras), true)]
 [assembly: EdmRelationshipAttribute("Promowork_dataModel", "FK_Obras_Clientes1", "Clientes", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(GestionData.Modelos.Clientes), "Obras", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GestionData.Modelos.Obras), true)]
+[assembly: EdmRelationshipAttribute("Promowork_dataModel", "FK_Proveedores_Participantes", "Participantes", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(GestionData.Modelos.Participantes), "Proveedores", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GestionData.Modelos.Proveedores), true)]
 
 #endregion
 
@@ -135,6 +136,22 @@ namespace GestionData.Modelos
             }
         }
         private ObjectSet<Obras> _Obras;
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        public ObjectSet<Participantes> Participantes
+        {
+            get
+            {
+                if ((_Participantes == null))
+                {
+                    _Participantes = base.CreateObjectSet<Participantes>("Participantes");
+                }
+                return _Participantes;
+            }
+        }
+        private ObjectSet<Participantes> _Participantes;
 
         #endregion
 
@@ -170,6 +187,14 @@ namespace GestionData.Modelos
         public void AddToObras(Obras obras)
         {
             base.AddObject("Obras", obras);
+        }
+    
+        /// <summary>
+        /// Método desusado para agregar un nuevo objeto al EntitySet Participantes. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
+        /// </summary>
+        public void AddToParticipantes(Participantes participantes)
+        {
+            base.AddObject("Participantes", participantes);
         }
 
         #endregion
@@ -1565,6 +1590,163 @@ namespace GestionData.Modelos
     /// <summary>
     /// No hay documentación de metadatos disponible.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Promowork_dataModel", Name="Participantes")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Participantes : EntityObject
+    {
+        #region Método de generador
+    
+        /// <summary>
+        /// Crear un nuevo objeto Participantes.
+        /// </summary>
+        /// <param name="idParticipante">Valor inicial de la propiedad IdParticipante.</param>
+        /// <param name="desParticipante">Valor inicial de la propiedad DesParticipante.</param>
+        public static Participantes CreateParticipantes(global::System.Int32 idParticipante, global::System.String desParticipante)
+        {
+            Participantes participantes = new Participantes();
+            participantes.IdParticipante = idParticipante;
+            participantes.DesParticipante = desParticipante;
+            return participantes;
+        }
+
+        #endregion
+
+        #region Propiedades primitivas
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 IdParticipante
+        {
+            get
+            {
+                return _IdParticipante;
+            }
+            set
+            {
+                if (_IdParticipante != value)
+                {
+                    OnIdParticipanteChanging(value);
+                    ReportPropertyChanging("IdParticipante");
+                    _IdParticipante = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("IdParticipante");
+                    OnIdParticipanteChanged();
+                }
+            }
+        }
+        private global::System.Int32 _IdParticipante;
+        partial void OnIdParticipanteChanging(global::System.Int32 value);
+        partial void OnIdParticipanteChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String DesParticipante
+        {
+            get
+            {
+                return _DesParticipante;
+            }
+            set
+            {
+                OnDesParticipanteChanging(value);
+                ReportPropertyChanging("DesParticipante");
+                _DesParticipante = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("DesParticipante");
+                OnDesParticipanteChanged();
+            }
+        }
+        private global::System.String _DesParticipante;
+        partial void OnDesParticipanteChanging(global::System.String value);
+        partial void OnDesParticipanteChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> ActivoParticipante
+        {
+            get
+            {
+                return _ActivoParticipante;
+            }
+            set
+            {
+                OnActivoParticipanteChanging(value);
+                ReportPropertyChanging("ActivoParticipante");
+                _ActivoParticipante = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ActivoParticipante");
+                OnActivoParticipanteChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _ActivoParticipante;
+        partial void OnActivoParticipanteChanging(Nullable<global::System.Boolean> value);
+        partial void OnActivoParticipanteChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdEmpresa
+        {
+            get
+            {
+                return _IdEmpresa;
+            }
+            set
+            {
+                OnIdEmpresaChanging(value);
+                ReportPropertyChanging("IdEmpresa");
+                _IdEmpresa = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdEmpresa");
+                OnIdEmpresaChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdEmpresa;
+        partial void OnIdEmpresaChanging(Nullable<global::System.Int32> value);
+        partial void OnIdEmpresaChanged();
+
+        #endregion
+
+    
+        #region Propiedades de navegación
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Promowork_dataModel", "FK_Proveedores_Participantes", "Proveedores")]
+        public EntityCollection<Proveedores> Proveedores
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Proveedores>("Promowork_dataModel.FK_Proveedores_Participantes", "Proveedores");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Proveedores>("Promowork_dataModel.FK_Proveedores_Participantes", "Proveedores", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No hay documentación de metadatos disponible.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="Promowork_dataModel", Name="Proveedores")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -2273,6 +2455,48 @@ namespace GestionData.Modelos
         #endregion
 
     
+        #region Propiedades de navegación
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Promowork_dataModel", "FK_Proveedores_Participantes", "Participantes")]
+        public Participantes Participantes
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Participantes>("Promowork_dataModel.FK_Proveedores_Participantes", "Participantes").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Participantes>("Promowork_dataModel.FK_Proveedores_Participantes", "Participantes").Value = value;
+            }
+        }
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Participantes> ParticipantesReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Participantes>("Promowork_dataModel.FK_Proveedores_Participantes", "Participantes");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Participantes>("Promowork_dataModel.FK_Proveedores_Participantes", "Participantes", value);
+                }
+            }
+        }
+
+        #endregion
+
     }
     
     /// <summary>

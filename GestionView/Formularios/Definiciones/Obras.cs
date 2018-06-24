@@ -129,7 +129,7 @@ namespace Promowork.Formularios.Definiciones
             // TODO: This line of code loads data into the 'promowork_dataDataSet.Poblaciones' table. You can move, or remove it, as needed.
             this.poblacionesTableAdapter.Fill(this.promowork_dataDataSet.Poblaciones);
             // TODO: This line of code loads data into the 'promowork_dataDataSet.PartObras' table. You can move, or remove it, as needed.
-            this.participantesTableAdapter.Fill(this.promowork_dataDataSet.Participantes);
+            this.participantesTableAdapter.FillByEmpresa(this.promowork_dataDataSet.Participantes, VariablesGlobales.nIdEmpresaActual);
             // TODO: This line of code loads data into the 'promowork_dataDataSet.Tipos' table. You can move, or remove it, as needed.
             this.tiposTableAdapter.Fill(this.promowork_dataDataSet.Tipos);
             // TODO: This line of code loads data into the 'promowork_dataDataSet.Empresas' table. You can move, or remove it, as needed.

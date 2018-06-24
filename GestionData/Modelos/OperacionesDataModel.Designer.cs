@@ -39,6 +39,11 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("Promowork_dataModel", "FK_PresupDet_PresupCap", "PresupCap", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(GestionData.Modelos.PresupCap), "PresupDet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GestionData.Modelos.PresupDet), true)]
 [assembly: EdmRelationshipAttribute("Promowork_dataModel", "FK_PresupSub_PresupDet", "PresupDet", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(GestionData.Modelos.PresupDet), "PresupSub", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GestionData.Modelos.PresupSub), true)]
 [assembly: EdmRelationshipAttribute("Promowork_dataModel", "FK_FacturasDetHoras_HorasTrabajadas", "HorasTrabajadas", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(GestionData.Modelos.HorasTrabajadas), "FacturasDetHoras", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GestionData.Modelos.FacturasDetHoras), true)]
+[assembly: EdmRelationshipAttribute("Promowork_dataModel", "FK_ProveedoresParticipantes_ParticipantesPresupuestos", "ParticipantesPresupuestos", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(GestionData.Modelos.ParticipantesPresupuestos), "ProveedoresParticipantes", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GestionData.Modelos.ProveedoresParticipantes), true)]
+[assembly: EdmRelationshipAttribute("Promowork_dataModel", "FK_ParticipantesPresupuestos_PresupCab", "PresupCab", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(GestionData.Modelos.PresupCab), "ParticipantesPresupuestos", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GestionData.Modelos.ParticipantesPresupuestos), true)]
+[assembly: EdmRelationshipAttribute("Promowork_dataModel", "FK_ParticipantesPresupuestos_PresupCap", "PresupCap", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(GestionData.Modelos.PresupCap), "ParticipantesPresupuestos", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GestionData.Modelos.ParticipantesPresupuestos), true)]
+[assembly: EdmRelationshipAttribute("Promowork_dataModel", "FK_ParticipantesPresupuestos_PresupDet", "PresupDet", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(GestionData.Modelos.PresupDet), "ParticipantesPresupuestos", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GestionData.Modelos.ParticipantesPresupuestos), true)]
+[assembly: EdmRelationshipAttribute("Promowork_dataModel", "FK_ParticipantesPresupuestos_PresupSub", "PresupSub", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(GestionData.Modelos.PresupSub), "ParticipantesPresupuestos", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GestionData.Modelos.ParticipantesPresupuestos), true)]
 
 #endregion
 
@@ -361,6 +366,38 @@ namespace GestionData.Modelos
             }
         }
         private ObjectSet<HorasTrabajadas> _HorasTrabajadas;
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        public ObjectSet<ParticipantesPresupuestos> ParticipantesPresupuestos
+        {
+            get
+            {
+                if ((_ParticipantesPresupuestos == null))
+                {
+                    _ParticipantesPresupuestos = base.CreateObjectSet<ParticipantesPresupuestos>("ParticipantesPresupuestos");
+                }
+                return _ParticipantesPresupuestos;
+            }
+        }
+        private ObjectSet<ParticipantesPresupuestos> _ParticipantesPresupuestos;
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        public ObjectSet<ProveedoresParticipantes> ProveedoresParticipantes
+        {
+            get
+            {
+                if ((_ProveedoresParticipantes == null))
+                {
+                    _ProveedoresParticipantes = base.CreateObjectSet<ProveedoresParticipantes>("ProveedoresParticipantes");
+                }
+                return _ProveedoresParticipantes;
+            }
+        }
+        private ObjectSet<ProveedoresParticipantes> _ProveedoresParticipantes;
 
         #endregion
 
@@ -500,6 +537,22 @@ namespace GestionData.Modelos
         public void AddToHorasTrabajadas(HorasTrabajadas horasTrabajadas)
         {
             base.AddObject("HorasTrabajadas", horasTrabajadas);
+        }
+    
+        /// <summary>
+        /// Método desusado para agregar un nuevo objeto al EntitySet ParticipantesPresupuestos. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
+        /// </summary>
+        public void AddToParticipantesPresupuestos(ParticipantesPresupuestos participantesPresupuestos)
+        {
+            base.AddObject("ParticipantesPresupuestos", participantesPresupuestos);
+        }
+    
+        /// <summary>
+        /// Método desusado para agregar un nuevo objeto al EntitySet ProveedoresParticipantes. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
+        /// </summary>
+        public void AddToProveedoresParticipantes(ProveedoresParticipantes proveedoresParticipantes)
+        {
+            base.AddObject("ProveedoresParticipantes", proveedoresParticipantes);
         }
 
         #endregion
@@ -6770,6 +6823,721 @@ namespace GestionData.Modelos
     /// <summary>
     /// No hay documentación de metadatos disponible.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Promowork_dataModel", Name="ParticipantesPresupuestos")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class ParticipantesPresupuestos : EntityObject
+    {
+        #region Método de generador
+    
+        /// <summary>
+        /// Crear un nuevo objeto ParticipantesPresupuestos.
+        /// </summary>
+        /// <param name="idParticipantePresupuesto">Valor inicial de la propiedad IdParticipantePresupuesto.</param>
+        public static ParticipantesPresupuestos CreateParticipantesPresupuestos(global::System.Int32 idParticipantePresupuesto)
+        {
+            ParticipantesPresupuestos participantesPresupuestos = new ParticipantesPresupuestos();
+            participantesPresupuestos.IdParticipantePresupuesto = idParticipantePresupuesto;
+            return participantesPresupuestos;
+        }
+
+        #endregion
+
+        #region Propiedades primitivas
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 IdParticipantePresupuesto
+        {
+            get
+            {
+                return _IdParticipantePresupuesto;
+            }
+            set
+            {
+                if (_IdParticipantePresupuesto != value)
+                {
+                    OnIdParticipantePresupuestoChanging(value);
+                    ReportPropertyChanging("IdParticipantePresupuesto");
+                    _IdParticipantePresupuesto = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("IdParticipantePresupuesto");
+                    OnIdParticipantePresupuestoChanged();
+                }
+            }
+        }
+        private global::System.Int32 _IdParticipantePresupuesto;
+        partial void OnIdParticipantePresupuestoChanging(global::System.Int32 value);
+        partial void OnIdParticipantePresupuestoChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdEmpresa
+        {
+            get
+            {
+                return _IdEmpresa;
+            }
+            set
+            {
+                OnIdEmpresaChanging(value);
+                ReportPropertyChanging("IdEmpresa");
+                _IdEmpresa = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdEmpresa");
+                OnIdEmpresaChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdEmpresa;
+        partial void OnIdEmpresaChanging(Nullable<global::System.Int32> value);
+        partial void OnIdEmpresaChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdUsuario
+        {
+            get
+            {
+                return _IdUsuario;
+            }
+            set
+            {
+                OnIdUsuarioChanging(value);
+                ReportPropertyChanging("IdUsuario");
+                _IdUsuario = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdUsuario");
+                OnIdUsuarioChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdUsuario;
+        partial void OnIdUsuarioChanging(Nullable<global::System.Int32> value);
+        partial void OnIdUsuarioChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdPresupCab
+        {
+            get
+            {
+                return _IdPresupCab;
+            }
+            set
+            {
+                OnIdPresupCabChanging(value);
+                ReportPropertyChanging("IdPresupCab");
+                _IdPresupCab = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdPresupCab");
+                OnIdPresupCabChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdPresupCab;
+        partial void OnIdPresupCabChanging(Nullable<global::System.Int32> value);
+        partial void OnIdPresupCabChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdPresupCap
+        {
+            get
+            {
+                return _IdPresupCap;
+            }
+            set
+            {
+                OnIdPresupCapChanging(value);
+                ReportPropertyChanging("IdPresupCap");
+                _IdPresupCap = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdPresupCap");
+                OnIdPresupCapChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdPresupCap;
+        partial void OnIdPresupCapChanging(Nullable<global::System.Int32> value);
+        partial void OnIdPresupCapChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdPresupDet
+        {
+            get
+            {
+                return _IdPresupDet;
+            }
+            set
+            {
+                OnIdPresupDetChanging(value);
+                ReportPropertyChanging("IdPresupDet");
+                _IdPresupDet = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdPresupDet");
+                OnIdPresupDetChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdPresupDet;
+        partial void OnIdPresupDetChanging(Nullable<global::System.Int32> value);
+        partial void OnIdPresupDetChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdPresupSub
+        {
+            get
+            {
+                return _IdPresupSub;
+            }
+            set
+            {
+                OnIdPresupSubChanging(value);
+                ReportPropertyChanging("IdPresupSub");
+                _IdPresupSub = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdPresupSub");
+                OnIdPresupSubChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdPresupSub;
+        partial void OnIdPresupSubChanging(Nullable<global::System.Int32> value);
+        partial void OnIdPresupSubChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String NombrePartida
+        {
+            get
+            {
+                return _NombrePartida;
+            }
+            set
+            {
+                OnNombrePartidaChanging(value);
+                ReportPropertyChanging("NombrePartida");
+                _NombrePartida = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("NombrePartida");
+                OnNombrePartidaChanged();
+            }
+        }
+        private global::System.String _NombrePartida;
+        partial void OnNombrePartidaChanging(global::System.String value);
+        partial void OnNombrePartidaChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdParticipante
+        {
+            get
+            {
+                return _IdParticipante;
+            }
+            set
+            {
+                OnIdParticipanteChanging(value);
+                ReportPropertyChanging("IdParticipante");
+                _IdParticipante = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdParticipante");
+                OnIdParticipanteChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdParticipante;
+        partial void OnIdParticipanteChanging(Nullable<global::System.Int32> value);
+        partial void OnIdParticipanteChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> EsServicio
+        {
+            get
+            {
+                return _EsServicio;
+            }
+            set
+            {
+                OnEsServicioChanging(value);
+                ReportPropertyChanging("EsServicio");
+                _EsServicio = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EsServicio");
+                OnEsServicioChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _EsServicio;
+        partial void OnEsServicioChanging(Nullable<global::System.Boolean> value);
+        partial void OnEsServicioChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> FechaCrea
+        {
+            get
+            {
+                return _FechaCrea;
+            }
+            set
+            {
+                OnFechaCreaChanging(value);
+                ReportPropertyChanging("FechaCrea");
+                _FechaCrea = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FechaCrea");
+                OnFechaCreaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _FechaCrea;
+        partial void OnFechaCreaChanging(Nullable<global::System.DateTime> value);
+        partial void OnFechaCreaChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> FechaModifica
+        {
+            get
+            {
+                return _FechaModifica;
+            }
+            set
+            {
+                OnFechaModificaChanging(value);
+                ReportPropertyChanging("FechaModifica");
+                _FechaModifica = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FechaModifica");
+                OnFechaModificaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _FechaModifica;
+        partial void OnFechaModificaChanging(Nullable<global::System.DateTime> value);
+        partial void OnFechaModificaChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdProveedor1
+        {
+            get
+            {
+                return _IdProveedor1;
+            }
+            set
+            {
+                OnIdProveedor1Changing(value);
+                ReportPropertyChanging("IdProveedor1");
+                _IdProveedor1 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdProveedor1");
+                OnIdProveedor1Changed();
+            }
+        }
+        private Nullable<global::System.Int32> _IdProveedor1;
+        partial void OnIdProveedor1Changing(Nullable<global::System.Int32> value);
+        partial void OnIdProveedor1Changed();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Precio1
+        {
+            get
+            {
+                return _Precio1;
+            }
+            set
+            {
+                OnPrecio1Changing(value);
+                ReportPropertyChanging("Precio1");
+                _Precio1 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Precio1");
+                OnPrecio1Changed();
+            }
+        }
+        private Nullable<global::System.Decimal> _Precio1;
+        partial void OnPrecio1Changing(Nullable<global::System.Decimal> value);
+        partial void OnPrecio1Changed();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> Seleccionado1
+        {
+            get
+            {
+                return _Seleccionado1;
+            }
+            set
+            {
+                OnSeleccionado1Changing(value);
+                ReportPropertyChanging("Seleccionado1");
+                _Seleccionado1 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Seleccionado1");
+                OnSeleccionado1Changed();
+            }
+        }
+        private Nullable<global::System.Boolean> _Seleccionado1;
+        partial void OnSeleccionado1Changing(Nullable<global::System.Boolean> value);
+        partial void OnSeleccionado1Changed();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdProveedor2
+        {
+            get
+            {
+                return _IdProveedor2;
+            }
+            set
+            {
+                OnIdProveedor2Changing(value);
+                ReportPropertyChanging("IdProveedor2");
+                _IdProveedor2 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdProveedor2");
+                OnIdProveedor2Changed();
+            }
+        }
+        private Nullable<global::System.Int32> _IdProveedor2;
+        partial void OnIdProveedor2Changing(Nullable<global::System.Int32> value);
+        partial void OnIdProveedor2Changed();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Precio2
+        {
+            get
+            {
+                return _Precio2;
+            }
+            set
+            {
+                OnPrecio2Changing(value);
+                ReportPropertyChanging("Precio2");
+                _Precio2 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Precio2");
+                OnPrecio2Changed();
+            }
+        }
+        private Nullable<global::System.Decimal> _Precio2;
+        partial void OnPrecio2Changing(Nullable<global::System.Decimal> value);
+        partial void OnPrecio2Changed();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> Seleccionado2
+        {
+            get
+            {
+                return _Seleccionado2;
+            }
+            set
+            {
+                OnSeleccionado2Changing(value);
+                ReportPropertyChanging("Seleccionado2");
+                _Seleccionado2 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Seleccionado2");
+                OnSeleccionado2Changed();
+            }
+        }
+        private Nullable<global::System.Boolean> _Seleccionado2;
+        partial void OnSeleccionado2Changing(Nullable<global::System.Boolean> value);
+        partial void OnSeleccionado2Changed();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdProveedor3
+        {
+            get
+            {
+                return _IdProveedor3;
+            }
+            set
+            {
+                OnIdProveedor3Changing(value);
+                ReportPropertyChanging("IdProveedor3");
+                _IdProveedor3 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdProveedor3");
+                OnIdProveedor3Changed();
+            }
+        }
+        private Nullable<global::System.Int32> _IdProveedor3;
+        partial void OnIdProveedor3Changing(Nullable<global::System.Int32> value);
+        partial void OnIdProveedor3Changed();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Precio3
+        {
+            get
+            {
+                return _Precio3;
+            }
+            set
+            {
+                OnPrecio3Changing(value);
+                ReportPropertyChanging("Precio3");
+                _Precio3 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Precio3");
+                OnPrecio3Changed();
+            }
+        }
+        private Nullable<global::System.Decimal> _Precio3;
+        partial void OnPrecio3Changing(Nullable<global::System.Decimal> value);
+        partial void OnPrecio3Changed();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> Seleccionado3
+        {
+            get
+            {
+                return _Seleccionado3;
+            }
+            set
+            {
+                OnSeleccionado3Changing(value);
+                ReportPropertyChanging("Seleccionado3");
+                _Seleccionado3 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Seleccionado3");
+                OnSeleccionado3Changed();
+            }
+        }
+        private Nullable<global::System.Boolean> _Seleccionado3;
+        partial void OnSeleccionado3Changing(Nullable<global::System.Boolean> value);
+        partial void OnSeleccionado3Changed();
+
+        #endregion
+
+    
+        #region Propiedades de navegación
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Promowork_dataModel", "FK_ProveedoresParticipantes_ParticipantesPresupuestos", "ProveedoresParticipantes")]
+        public EntityCollection<ProveedoresParticipantes> ProveedoresParticipantes
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ProveedoresParticipantes>("Promowork_dataModel.FK_ProveedoresParticipantes_ParticipantesPresupuestos", "ProveedoresParticipantes");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ProveedoresParticipantes>("Promowork_dataModel.FK_ProveedoresParticipantes_ParticipantesPresupuestos", "ProveedoresParticipantes", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Promowork_dataModel", "FK_ParticipantesPresupuestos_PresupCab", "PresupCab")]
+        public PresupCab PresupCab
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PresupCab>("Promowork_dataModel.FK_ParticipantesPresupuestos_PresupCab", "PresupCab").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PresupCab>("Promowork_dataModel.FK_ParticipantesPresupuestos_PresupCab", "PresupCab").Value = value;
+            }
+        }
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<PresupCab> PresupCabReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PresupCab>("Promowork_dataModel.FK_ParticipantesPresupuestos_PresupCab", "PresupCab");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PresupCab>("Promowork_dataModel.FK_ParticipantesPresupuestos_PresupCab", "PresupCab", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Promowork_dataModel", "FK_ParticipantesPresupuestos_PresupCap", "PresupCap")]
+        public PresupCap PresupCap
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PresupCap>("Promowork_dataModel.FK_ParticipantesPresupuestos_PresupCap", "PresupCap").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PresupCap>("Promowork_dataModel.FK_ParticipantesPresupuestos_PresupCap", "PresupCap").Value = value;
+            }
+        }
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<PresupCap> PresupCapReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PresupCap>("Promowork_dataModel.FK_ParticipantesPresupuestos_PresupCap", "PresupCap");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PresupCap>("Promowork_dataModel.FK_ParticipantesPresupuestos_PresupCap", "PresupCap", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Promowork_dataModel", "FK_ParticipantesPresupuestos_PresupDet", "PresupDet")]
+        public PresupDet PresupDet
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PresupDet>("Promowork_dataModel.FK_ParticipantesPresupuestos_PresupDet", "PresupDet").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PresupDet>("Promowork_dataModel.FK_ParticipantesPresupuestos_PresupDet", "PresupDet").Value = value;
+            }
+        }
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<PresupDet> PresupDetReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PresupDet>("Promowork_dataModel.FK_ParticipantesPresupuestos_PresupDet", "PresupDet");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PresupDet>("Promowork_dataModel.FK_ParticipantesPresupuestos_PresupDet", "PresupDet", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Promowork_dataModel", "FK_ParticipantesPresupuestos_PresupSub", "PresupSub")]
+        public PresupSub PresupSub
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PresupSub>("Promowork_dataModel.FK_ParticipantesPresupuestos_PresupSub", "PresupSub").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PresupSub>("Promowork_dataModel.FK_ParticipantesPresupuestos_PresupSub", "PresupSub").Value = value;
+            }
+        }
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<PresupSub> PresupSubReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PresupSub>("Promowork_dataModel.FK_ParticipantesPresupuestos_PresupSub", "PresupSub");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PresupSub>("Promowork_dataModel.FK_ParticipantesPresupuestos_PresupSub", "PresupSub", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No hay documentación de metadatos disponible.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="Promowork_dataModel", Name="PresupCab")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -7233,6 +8001,28 @@ namespace GestionData.Modelos
                 }
             }
         }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Promowork_dataModel", "FK_ParticipantesPresupuestos_PresupCab", "ParticipantesPresupuestos")]
+        public EntityCollection<ParticipantesPresupuestos> ParticipantesPresupuestos
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ParticipantesPresupuestos>("Promowork_dataModel.FK_ParticipantesPresupuestos_PresupCab", "ParticipantesPresupuestos");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ParticipantesPresupuestos>("Promowork_dataModel.FK_ParticipantesPresupuestos_PresupCab", "ParticipantesPresupuestos", value);
+                }
+            }
+        }
 
         #endregion
 
@@ -7571,6 +8361,28 @@ namespace GestionData.Modelos
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<PresupDet>("Promowork_dataModel.FK_PresupDet_PresupCap", "PresupDet", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Promowork_dataModel", "FK_ParticipantesPresupuestos_PresupCap", "ParticipantesPresupuestos")]
+        public EntityCollection<ParticipantesPresupuestos> ParticipantesPresupuestos
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ParticipantesPresupuestos>("Promowork_dataModel.FK_ParticipantesPresupuestos_PresupCap", "ParticipantesPresupuestos");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ParticipantesPresupuestos>("Promowork_dataModel.FK_ParticipantesPresupuestos_PresupCap", "ParticipantesPresupuestos", value);
                 }
             }
         }
@@ -8059,6 +8871,28 @@ namespace GestionData.Modelos
                 }
             }
         }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Promowork_dataModel", "FK_ParticipantesPresupuestos_PresupDet", "ParticipantesPresupuestos")]
+        public EntityCollection<ParticipantesPresupuestos> ParticipantesPresupuestos
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ParticipantesPresupuestos>("Promowork_dataModel.FK_ParticipantesPresupuestos_PresupDet", "ParticipantesPresupuestos");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ParticipantesPresupuestos>("Promowork_dataModel.FK_ParticipantesPresupuestos_PresupDet", "ParticipantesPresupuestos", value);
+                }
+            }
+        }
 
         #endregion
 
@@ -8543,6 +9377,223 @@ namespace GestionData.Modelos
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PresupDet>("Promowork_dataModel.FK_PresupSub_PresupDet", "PresupDet", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Promowork_dataModel", "FK_ParticipantesPresupuestos_PresupSub", "ParticipantesPresupuestos")]
+        public EntityCollection<ParticipantesPresupuestos> ParticipantesPresupuestos
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ParticipantesPresupuestos>("Promowork_dataModel.FK_ParticipantesPresupuestos_PresupSub", "ParticipantesPresupuestos");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ParticipantesPresupuestos>("Promowork_dataModel.FK_ParticipantesPresupuestos_PresupSub", "ParticipantesPresupuestos", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No hay documentación de metadatos disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Promowork_dataModel", Name="ProveedoresParticipantes")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class ProveedoresParticipantes : EntityObject
+    {
+        #region Método de generador
+    
+        /// <summary>
+        /// Crear un nuevo objeto ProveedoresParticipantes.
+        /// </summary>
+        /// <param name="idProveedorParticipante">Valor inicial de la propiedad IdProveedorParticipante.</param>
+        public static ProveedoresParticipantes CreateProveedoresParticipantes(global::System.Int32 idProveedorParticipante)
+        {
+            ProveedoresParticipantes proveedoresParticipantes = new ProveedoresParticipantes();
+            proveedoresParticipantes.IdProveedorParticipante = idProveedorParticipante;
+            return proveedoresParticipantes;
+        }
+
+        #endregion
+
+        #region Propiedades primitivas
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 IdProveedorParticipante
+        {
+            get
+            {
+                return _IdProveedorParticipante;
+            }
+            set
+            {
+                if (_IdProveedorParticipante != value)
+                {
+                    OnIdProveedorParticipanteChanging(value);
+                    ReportPropertyChanging("IdProveedorParticipante");
+                    _IdProveedorParticipante = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("IdProveedorParticipante");
+                    OnIdProveedorParticipanteChanged();
+                }
+            }
+        }
+        private global::System.Int32 _IdProveedorParticipante;
+        partial void OnIdProveedorParticipanteChanging(global::System.Int32 value);
+        partial void OnIdProveedorParticipanteChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdParticipantePresupuesto
+        {
+            get
+            {
+                return _IdParticipantePresupuesto;
+            }
+            set
+            {
+                OnIdParticipantePresupuestoChanging(value);
+                ReportPropertyChanging("IdParticipantePresupuesto");
+                _IdParticipantePresupuesto = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdParticipantePresupuesto");
+                OnIdParticipantePresupuestoChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdParticipantePresupuesto;
+        partial void OnIdParticipantePresupuestoChanging(Nullable<global::System.Int32> value);
+        partial void OnIdParticipantePresupuestoChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdProveedor
+        {
+            get
+            {
+                return _IdProveedor;
+            }
+            set
+            {
+                OnIdProveedorChanging(value);
+                ReportPropertyChanging("IdProveedor");
+                _IdProveedor = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdProveedor");
+                OnIdProveedorChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdProveedor;
+        partial void OnIdProveedorChanging(Nullable<global::System.Int32> value);
+        partial void OnIdProveedorChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Precio
+        {
+            get
+            {
+                return _Precio;
+            }
+            set
+            {
+                OnPrecioChanging(value);
+                ReportPropertyChanging("Precio");
+                _Precio = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Precio");
+                OnPrecioChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _Precio;
+        partial void OnPrecioChanging(Nullable<global::System.Decimal> value);
+        partial void OnPrecioChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> Seleccionado
+        {
+            get
+            {
+                return _Seleccionado;
+            }
+            set
+            {
+                OnSeleccionadoChanging(value);
+                ReportPropertyChanging("Seleccionado");
+                _Seleccionado = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Seleccionado");
+                OnSeleccionadoChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _Seleccionado;
+        partial void OnSeleccionadoChanging(Nullable<global::System.Boolean> value);
+        partial void OnSeleccionadoChanged();
+
+        #endregion
+
+    
+        #region Propiedades de navegación
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Promowork_dataModel", "FK_ProveedoresParticipantes_ParticipantesPresupuestos", "ParticipantesPresupuestos")]
+        public ParticipantesPresupuestos ParticipantesPresupuestos
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ParticipantesPresupuestos>("Promowork_dataModel.FK_ProveedoresParticipantes_ParticipantesPresupuestos", "ParticipantesPresupuestos").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ParticipantesPresupuestos>("Promowork_dataModel.FK_ProveedoresParticipantes_ParticipantesPresupuestos", "ParticipantesPresupuestos").Value = value;
+            }
+        }
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<ParticipantesPresupuestos> ParticipantesPresupuestosReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ParticipantesPresupuestos>("Promowork_dataModel.FK_ProveedoresParticipantes_ParticipantesPresupuestos", "ParticipantesPresupuestos");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ParticipantesPresupuestos>("Promowork_dataModel.FK_ProveedoresParticipantes_ParticipantesPresupuestos", "ParticipantesPresupuestos", value);
                 }
             }
         }

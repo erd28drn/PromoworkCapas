@@ -63,6 +63,12 @@ namespace GestionData.Repositorios
             string configuracionUsuarioJson = JsonConvert.SerializeObject(configuracionUsuario);
 
             usuarioActual.ConfiguracionUsuario = configuracionUsuarioJson;
+            //ES NECESARIO ACTUALIZAR ESTOS CAMPOS DE LA TABLA USUSARIO, 
+            //PORQUE EL TRIGGER QUE CREA LOS FESTIVOS DE LA EMPRESA Y LAS OBRAS LO HACE A PARTIR DE ESTOS CAMPOS.
+            //HABRIA QUE CREAR UN METODO PARA CREAR LOS FESTIVOS Y DESACTIVAR EL TRIGGER.
+            usuarioActual.AnoUsuario = configuracionUsuario.anoSeleccionado;
+            usuarioActual.MesUsuario = configuracionUsuario.mesSeleccionado;
+            //////////////
             contextoGenerales.SaveChanges();
             return true;
         }
