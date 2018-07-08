@@ -24,6 +24,9 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("Promowork_dataModel", "FK_AccesosOpciones_Usuarios", "Usuarios", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(GestionData.Modelos.Usuarios), "AccesosOpciones", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GestionData.Modelos.AccesosOpciones), true)]
 [assembly: EdmRelationshipAttribute("Promowork_dataModel", "FK_Usuarios_Empresas", "Empresas", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(GestionData.Modelos.Empresas), "Usuarios", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GestionData.Modelos.Usuarios), true)]
 [assembly: EdmRelationshipAttribute("Promowork_dataModel", "FK_ServidorSMTP_Empresas", "Empresas", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(GestionData.Modelos.Empresas), "ServidorSMTP", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GestionData.Modelos.ServidorSMTP), true)]
+[assembly: EdmRelationshipAttribute("Promowork_dataModel", "FK_Tareas_Empresas", "Empresas", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(GestionData.Modelos.Empresas), "Tareas", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GestionData.Modelos.Tareas), true)]
+[assembly: EdmRelationshipAttribute("Promowork_dataModel", "FK_Tareas_Usuarios1", "Usuarios", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(GestionData.Modelos.Usuarios), "Tareas", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GestionData.Modelos.Tareas), true)]
+[assembly: EdmRelationshipAttribute("Promowork_dataModel", "FK_Tareas_Usuarios2", "Usuarios", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(GestionData.Modelos.Usuarios), "Tareas", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GestionData.Modelos.Tareas), true)]
 
 #endregion
 
@@ -170,6 +173,22 @@ namespace GestionData.Modelos
             }
         }
         private ObjectSet<Notas> _Notas;
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        public ObjectSet<Tareas> Tareas
+        {
+            get
+            {
+                if ((_Tareas == null))
+                {
+                    _Tareas = base.CreateObjectSet<Tareas>("Tareas");
+                }
+                return _Tareas;
+            }
+        }
+        private ObjectSet<Tareas> _Tareas;
 
         #endregion
 
@@ -221,6 +240,14 @@ namespace GestionData.Modelos
         public void AddToNotas(Notas notas)
         {
             base.AddObject("Notas", notas);
+        }
+    
+        /// <summary>
+        /// Método desusado para agregar un nuevo objeto al EntitySet Tareas. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
+        /// </summary>
+        public void AddToTareas(Tareas tareas)
+        {
+            base.AddObject("Tareas", tareas);
         }
 
         #endregion
@@ -1581,6 +1608,28 @@ namespace GestionData.Modelos
                 }
             }
         }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Promowork_dataModel", "FK_Tareas_Empresas", "Tareas")]
+        public EntityCollection<Tareas> Tareas
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Tareas>("Promowork_dataModel.FK_Tareas_Empresas", "Tareas");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Tareas>("Promowork_dataModel.FK_Tareas_Empresas", "Tareas", value);
+                }
+            }
+        }
 
         #endregion
 
@@ -1950,6 +1999,469 @@ namespace GestionData.Modelos
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Empresas>("Promowork_dataModel.FK_ServidorSMTP_Empresas", "Empresas", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No hay documentación de metadatos disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Promowork_dataModel", Name="Tareas")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Tareas : EntityObject
+    {
+        #region Método de generador
+    
+        /// <summary>
+        /// Crear un nuevo objeto Tareas.
+        /// </summary>
+        /// <param name="idTarea">Valor inicial de la propiedad IdTarea.</param>
+        public static Tareas CreateTareas(global::System.Int32 idTarea)
+        {
+            Tareas tareas = new Tareas();
+            tareas.IdTarea = idTarea;
+            return tareas;
+        }
+
+        #endregion
+
+        #region Propiedades primitivas
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 IdTarea
+        {
+            get
+            {
+                return _IdTarea;
+            }
+            set
+            {
+                if (_IdTarea != value)
+                {
+                    OnIdTareaChanging(value);
+                    ReportPropertyChanging("IdTarea");
+                    _IdTarea = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("IdTarea");
+                    OnIdTareaChanged();
+                }
+            }
+        }
+        private global::System.Int32 _IdTarea;
+        partial void OnIdTareaChanging(global::System.Int32 value);
+        partial void OnIdTareaChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String IdEventoExterno
+        {
+            get
+            {
+                return _IdEventoExterno;
+            }
+            set
+            {
+                OnIdEventoExternoChanging(value);
+                ReportPropertyChanging("IdEventoExterno");
+                _IdEventoExterno = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("IdEventoExterno");
+                OnIdEventoExternoChanged();
+            }
+        }
+        private global::System.String _IdEventoExterno;
+        partial void OnIdEventoExternoChanging(global::System.String value);
+        partial void OnIdEventoExternoChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdEmpresa
+        {
+            get
+            {
+                return _IdEmpresa;
+            }
+            set
+            {
+                OnIdEmpresaChanging(value);
+                ReportPropertyChanging("IdEmpresa");
+                _IdEmpresa = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdEmpresa");
+                OnIdEmpresaChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdEmpresa;
+        partial void OnIdEmpresaChanging(Nullable<global::System.Int32> value);
+        partial void OnIdEmpresaChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String NombreTarea
+        {
+            get
+            {
+                return _NombreTarea;
+            }
+            set
+            {
+                OnNombreTareaChanging(value);
+                ReportPropertyChanging("NombreTarea");
+                _NombreTarea = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("NombreTarea");
+                OnNombreTareaChanged();
+            }
+        }
+        private global::System.String _NombreTarea;
+        partial void OnNombreTareaChanging(global::System.String value);
+        partial void OnNombreTareaChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ObsercacionesTarea
+        {
+            get
+            {
+                return _ObsercacionesTarea;
+            }
+            set
+            {
+                OnObsercacionesTareaChanging(value);
+                ReportPropertyChanging("ObsercacionesTarea");
+                _ObsercacionesTarea = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ObsercacionesTarea");
+                OnObsercacionesTareaChanged();
+            }
+        }
+        private global::System.String _ObsercacionesTarea;
+        partial void OnObsercacionesTareaChanging(global::System.String value);
+        partial void OnObsercacionesTareaChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdUsuarioCreacion
+        {
+            get
+            {
+                return _IdUsuarioCreacion;
+            }
+            set
+            {
+                OnIdUsuarioCreacionChanging(value);
+                ReportPropertyChanging("IdUsuarioCreacion");
+                _IdUsuarioCreacion = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdUsuarioCreacion");
+                OnIdUsuarioCreacionChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdUsuarioCreacion;
+        partial void OnIdUsuarioCreacionChanging(Nullable<global::System.Int32> value);
+        partial void OnIdUsuarioCreacionChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdUsuarioModificacion
+        {
+            get
+            {
+                return _IdUsuarioModificacion;
+            }
+            set
+            {
+                OnIdUsuarioModificacionChanging(value);
+                ReportPropertyChanging("IdUsuarioModificacion");
+                _IdUsuarioModificacion = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdUsuarioModificacion");
+                OnIdUsuarioModificacionChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdUsuarioModificacion;
+        partial void OnIdUsuarioModificacionChanging(Nullable<global::System.Int32> value);
+        partial void OnIdUsuarioModificacionChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdTrabajador
+        {
+            get
+            {
+                return _IdTrabajador;
+            }
+            set
+            {
+                OnIdTrabajadorChanging(value);
+                ReportPropertyChanging("IdTrabajador");
+                _IdTrabajador = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdTrabajador");
+                OnIdTrabajadorChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdTrabajador;
+        partial void OnIdTrabajadorChanging(Nullable<global::System.Int32> value);
+        partial void OnIdTrabajadorChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> FechaCreacion
+        {
+            get
+            {
+                return _FechaCreacion;
+            }
+            set
+            {
+                OnFechaCreacionChanging(value);
+                ReportPropertyChanging("FechaCreacion");
+                _FechaCreacion = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FechaCreacion");
+                OnFechaCreacionChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _FechaCreacion;
+        partial void OnFechaCreacionChanging(Nullable<global::System.DateTime> value);
+        partial void OnFechaCreacionChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> FechaModificacion
+        {
+            get
+            {
+                return _FechaModificacion;
+            }
+            set
+            {
+                OnFechaModificacionChanging(value);
+                ReportPropertyChanging("FechaModificacion");
+                _FechaModificacion = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FechaModificacion");
+                OnFechaModificacionChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _FechaModificacion;
+        partial void OnFechaModificacionChanging(Nullable<global::System.DateTime> value);
+        partial void OnFechaModificacionChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> FechaVencimiento
+        {
+            get
+            {
+                return _FechaVencimiento;
+            }
+            set
+            {
+                OnFechaVencimientoChanging(value);
+                ReportPropertyChanging("FechaVencimiento");
+                _FechaVencimiento = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FechaVencimiento");
+                OnFechaVencimientoChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _FechaVencimiento;
+        partial void OnFechaVencimientoChanging(Nullable<global::System.DateTime> value);
+        partial void OnFechaVencimientoChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Orden
+        {
+            get
+            {
+                return _Orden;
+            }
+            set
+            {
+                OnOrdenChanging(value);
+                ReportPropertyChanging("Orden");
+                _Orden = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Orden");
+                OnOrdenChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Orden;
+        partial void OnOrdenChanging(Nullable<global::System.Int32> value);
+        partial void OnOrdenChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> Finalizada
+        {
+            get
+            {
+                return _Finalizada;
+            }
+            set
+            {
+                OnFinalizadaChanging(value);
+                ReportPropertyChanging("Finalizada");
+                _Finalizada = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Finalizada");
+                OnFinalizadaChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _Finalizada;
+        partial void OnFinalizadaChanging(Nullable<global::System.Boolean> value);
+        partial void OnFinalizadaChanged();
+
+        #endregion
+
+    
+        #region Propiedades de navegación
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Promowork_dataModel", "FK_Tareas_Empresas", "Empresas")]
+        public Empresas Empresas
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Empresas>("Promowork_dataModel.FK_Tareas_Empresas", "Empresas").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Empresas>("Promowork_dataModel.FK_Tareas_Empresas", "Empresas").Value = value;
+            }
+        }
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Empresas> EmpresasReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Empresas>("Promowork_dataModel.FK_Tareas_Empresas", "Empresas");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Empresas>("Promowork_dataModel.FK_Tareas_Empresas", "Empresas", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Promowork_dataModel", "FK_Tareas_Usuarios1", "Usuarios")]
+        public Usuarios Usuarios
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Usuarios>("Promowork_dataModel.FK_Tareas_Usuarios1", "Usuarios").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Usuarios>("Promowork_dataModel.FK_Tareas_Usuarios1", "Usuarios").Value = value;
+            }
+        }
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Usuarios> UsuariosReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Usuarios>("Promowork_dataModel.FK_Tareas_Usuarios1", "Usuarios");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Usuarios>("Promowork_dataModel.FK_Tareas_Usuarios1", "Usuarios", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Promowork_dataModel", "FK_Tareas_Usuarios2", "Usuarios")]
+        public Usuarios Usuarios1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Usuarios>("Promowork_dataModel.FK_Tareas_Usuarios2", "Usuarios").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Usuarios>("Promowork_dataModel.FK_Tareas_Usuarios2", "Usuarios").Value = value;
+            }
+        }
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Usuarios> Usuarios1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Usuarios>("Promowork_dataModel.FK_Tareas_Usuarios2", "Usuarios");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Usuarios>("Promowork_dataModel.FK_Tareas_Usuarios2", "Usuarios", value);
                 }
             }
         }
@@ -2431,6 +2943,50 @@ namespace GestionData.Modelos
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Empresas>("Promowork_dataModel.FK_Usuarios_Empresas", "Empresas", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Promowork_dataModel", "FK_Tareas_Usuarios1", "Tareas")]
+        public EntityCollection<Tareas> Tareas
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Tareas>("Promowork_dataModel.FK_Tareas_Usuarios1", "Tareas");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Tareas>("Promowork_dataModel.FK_Tareas_Usuarios1", "Tareas", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Promowork_dataModel", "FK_Tareas_Usuarios2", "Tareas")]
+        public EntityCollection<Tareas> Tareas1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Tareas>("Promowork_dataModel.FK_Tareas_Usuarios2", "Tareas");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Tareas>("Promowork_dataModel.FK_Tareas_Usuarios2", "Tareas", value);
                 }
             }
         }

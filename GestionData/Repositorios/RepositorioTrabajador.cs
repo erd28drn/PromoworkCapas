@@ -12,6 +12,28 @@ namespace GestionData.Repositorios
     {
         DefinicionesDataModel contextoDefiniciones = new DefinicionesDataModel();
 
+        public List<Trabajadores> GetAll()
+        {
+            List<Trabajadores> trabajadores = contextoDefiniciones.Trabajadores.ToList();
+            
+            return trabajadores;
+        }
+        
+        public List<Trabajadores> GetTrabajadoresActivos(int? idEmpresa)
+        {
+            List<Trabajadores> trabajadores;
+            if (idEmpresa == null)
+            {
+                trabajadores = contextoDefiniciones.Trabajadores.Where(t => t.ActivoTrabajador == true).ToList();
+            }
+            else
+            {
+                trabajadores = contextoDefiniciones.Trabajadores.Where(t => t.ActivoTrabajador == true && t.IdEmpresa == idEmpresa)
+                    .ToList();
+            }
+            return trabajadores;
+        }
+
         #region TRABAJADORES CON EMAIL
         public List<TrabajadorConEmail> GetTrabajadoresConEmail(int idEmpresa)
         {

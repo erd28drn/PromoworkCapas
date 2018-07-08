@@ -27,6 +27,11 @@ namespace GestionData.Repositorios
             return contextoGenerales.Usuarios.Where(u => u.ActivoUsuario.Value == true).OrderByDescending(u => u.UltimoUsuario.Value).ToList();
         }
 
+        public List<Usuarios> GetUsuariosActivosAdmin()
+        {
+            return contextoGenerales.Usuarios.Where(u => u.AdminUsuario == true).ToList();
+        }
+
         public void SetAllUltimoUsuarioFalse()
         {
             foreach (var usuario in contextoGenerales.Usuarios)

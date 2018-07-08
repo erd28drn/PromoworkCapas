@@ -128,6 +128,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>OperacionesDataModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Modelos\VistasGeneralesDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VistasGeneralesDataModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Promowork_dataDataSet.cs">
       <DependentUpon>Promowork_dataDataSet.xsd</DependentUpon>
     </Compile>
@@ -155,6 +160,7 @@
     <Compile Include="Repositorios\RepositorioNota.cs" />
     <Compile Include="Repositorios\RepositorioHorasTrabajadas.cs" />
     <Compile Include="Repositorios\RepositorioFacturasDetHoras.cs" />
+    <Compile Include="Repositorios\RepositorioTareas.cs" />
     <Compile Include="Repositorios\RepositorioTrabajador.cs" />
     <Compile Include="Repositorios\RepositorioCliente.cs" />
     <Compile Include="Repositorios\RepositorioEmpresa.cs" />
@@ -232,6 +238,10 @@
     <EntityDeploy Include="Modelos\GeneralesDataModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>GeneralesDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Modelos\VistasGeneralesDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>VistasGeneralesDataModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="packages.config" />
     <None Include="Promowork_dataDataSet.xsc">

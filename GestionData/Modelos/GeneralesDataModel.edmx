@@ -11,6 +11,7 @@
           <EntitySet Name="Empresas" EntityType="Promowork_dataModel.Store.Empresas" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Notas" EntityType="Promowork_dataModel.Store.Notas" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ServidorSMTP" EntityType="Promowork_dataModel.Store.ServidorSMTP" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Tareas" EntityType="Promowork_dataModel.Store.Tareas" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Usuarios" EntityType="Promowork_dataModel.Store.Usuarios" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK_AccesosEmpresas_Empresas" Association="Promowork_dataModel.Store.FK_AccesosEmpresas_Empresas">
             <End Role="Empresas" EntitySet="Empresas" />
@@ -27,6 +28,18 @@
           <AssociationSet Name="FK_ServidorSMTP_Empresas" Association="Promowork_dataModel.Store.FK_ServidorSMTP_Empresas">
             <End Role="Empresas" EntitySet="Empresas" />
             <End Role="ServidorSMTP" EntitySet="ServidorSMTP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tareas_Empresas" Association="Promowork_dataModel.Store.FK_Tareas_Empresas">
+            <End Role="Empresas" EntitySet="Empresas" />
+            <End Role="Tareas" EntitySet="Tareas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tareas_Usuarios1" Association="Promowork_dataModel.Store.FK_Tareas_Usuarios1">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Tareas" EntitySet="Tareas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tareas_Usuarios2" Association="Promowork_dataModel.Store.FK_Tareas_Usuarios2">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Tareas" EntitySet="Tareas" />
           </AssociationSet>
           <AssociationSet Name="FK_Usuarios_Empresas" Association="Promowork_dataModel.Store.FK_Usuarios_Empresas">
             <End Role="Empresas" EntitySet="Empresas" />
@@ -113,6 +126,24 @@
           <Property Name="Usuario" Type="varchar" MaxLength="50" />
           <Property Name="Clave" Type="varchar" MaxLength="30" />
         </EntityType>
+        <EntityType Name="Tareas">
+          <Key>
+            <PropertyRef Name="IdTarea" />
+          </Key>
+          <Property Name="IdTarea" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdEventoExterno" Type="varchar" MaxLength="50" />
+          <Property Name="IdEmpresa" Type="int" />
+          <Property Name="NombreTarea" Type="varchar" MaxLength="1000" />
+          <Property Name="ObsercacionesTarea" Type="varchar(max)" />
+          <Property Name="IdUsuarioCreacion" Type="int" />
+          <Property Name="IdUsuarioModificacion" Type="int" />
+          <Property Name="IdTrabajador" Type="int" />
+          <Property Name="FechaCreacion" Type="datetime" />
+          <Property Name="FechaModificacion" Type="datetime" />
+          <Property Name="FechaVencimiento" Type="datetime" />
+          <Property Name="Orden" Type="int" />
+          <Property Name="Finalizada" Type="bit" />
+        </EntityType>
         <EntityType Name="Usuarios">
           <Key>
             <PropertyRef Name="IdUsuario" />
@@ -133,6 +164,9 @@
           <Property Name="Scanner" Type="varchar" MaxLength="200" />
           <Property Name="ConfiguracionUsuario" Type="varchar(max)" />
         </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'Promowork_data.dbo.vTareas' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
         <Association Name="FK_AccesosEmpresas_Empresas">
           <End Role="Empresas" Type="Promowork_dataModel.Store.Empresas" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
@@ -187,6 +221,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Tareas_Empresas">
+          <End Role="Empresas" Type="Promowork_dataModel.Store.Empresas" Multiplicity="0..1" />
+          <End Role="Tareas" Type="Promowork_dataModel.Store.Tareas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresas">
+              <PropertyRef Name="IdEmpresa" />
+            </Principal>
+            <Dependent Role="Tareas">
+              <PropertyRef Name="IdEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tareas_Usuarios1">
+          <End Role="Usuarios" Type="Promowork_dataModel.Store.Usuarios" Multiplicity="0..1" />
+          <End Role="Tareas" Type="Promowork_dataModel.Store.Tareas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="Tareas">
+              <PropertyRef Name="IdUsuarioCreacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tareas_Usuarios2">
+          <End Role="Usuarios" Type="Promowork_dataModel.Store.Usuarios" Multiplicity="0..1" />
+          <End Role="Tareas" Type="Promowork_dataModel.Store.Tareas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="Tareas">
+              <PropertyRef Name="IdUsuarioModificacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Usuarios_Empresas">
           <End Role="Empresas" Type="Promowork_dataModel.Store.Empresas" Multiplicity="0..1" />
           <End Role="Usuarios" Type="Promowork_dataModel.Store.Usuarios" Multiplicity="*" />
@@ -230,6 +300,19 @@
             <End Role="ServidorSMTP" EntitySet="ServidorSMTP" />
           </AssociationSet>
           <EntitySet Name="Notas" EntityType="Promowork_dataModel.Notas" />
+          <EntitySet Name="Tareas" EntityType="Promowork_dataModel.Tareas" />
+          <AssociationSet Name="FK_Tareas_Empresas" Association="Promowork_dataModel.FK_Tareas_Empresas">
+            <End Role="Empresas" EntitySet="Empresas" />
+            <End Role="Tareas" EntitySet="Tareas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tareas_Usuarios1" Association="Promowork_dataModel.FK_Tareas_Usuarios1">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Tareas" EntitySet="Tareas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tareas_Usuarios2" Association="Promowork_dataModel.FK_Tareas_Usuarios2">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Tareas" EntitySet="Tareas" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="AccesosEmpresas">
           <Key>
@@ -295,6 +378,7 @@
           <NavigationProperty Name="Usuarios" Relationship="Promowork_dataModel.FK_Usuarios_Empresas" FromRole="Empresas" ToRole="Usuarios" />
           <Property Type="String" Name="ConfiguracionEmpresa" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="ServidorSMTP" Relationship="Promowork_dataModel.FK_ServidorSMTP_Empresas" FromRole="Empresas" ToRole="ServidorSMTP" />
+          <NavigationProperty Name="Tareas" Relationship="Promowork_dataModel.FK_Tareas_Empresas" FromRole="Empresas" ToRole="Tareas" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
@@ -318,6 +402,8 @@
           <NavigationProperty Name="AccesosEmpresas" Relationship="Promowork_dataModel.FK_AccesosEmpresas_Usuarios" FromRole="Usuarios" ToRole="AccesosEmpresas" />
           <NavigationProperty Name="AccesosOpciones" Relationship="Promowork_dataModel.FK_AccesosOpciones_Usuarios" FromRole="Usuarios" ToRole="AccesosOpciones" />
           <NavigationProperty Name="Empresas" Relationship="Promowork_dataModel.FK_Usuarios_Empresas" FromRole="Usuarios" ToRole="Empresas" />
+          <NavigationProperty Name="Tareas" Relationship="Promowork_dataModel.FK_Tareas_Usuarios1" FromRole="Usuarios" ToRole="Tareas" />
+          <NavigationProperty Name="Tareas1" Relationship="Promowork_dataModel.FK_Tareas_Usuarios2" FromRole="Usuarios" ToRole="Tareas" />
         </EntityType>
         <Association Name="FK_AccesosEmpresas_Empresas">
           <End Role="Empresas" Type="Promowork_dataModel.Empresas" Multiplicity="0..1">
@@ -407,6 +493,63 @@
           <Property Type="String" Name="NombreNota" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="DescripcionNota" MaxLength="4000" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="Tareas">
+          <Key>
+            <PropertyRef Name="IdTarea" />
+          </Key>
+          <Property Type="Int32" Name="IdTarea" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="IdEventoExterno" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdEmpresa" />
+          <Property Type="String" Name="NombreTarea" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ObsercacionesTarea" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdUsuarioCreacion" />
+          <Property Type="Int32" Name="IdUsuarioModificacion" />
+          <Property Type="Int32" Name="IdTrabajador" />
+          <Property Type="DateTime" Name="FechaCreacion" />
+          <Property Type="DateTime" Name="FechaModificacion" />
+          <Property Type="DateTime" Name="FechaVencimiento" />
+          <Property Type="Int32" Name="Orden" />
+          <Property Type="Boolean" Name="Finalizada" />
+          <NavigationProperty Name="Empresas" Relationship="Promowork_dataModel.FK_Tareas_Empresas" FromRole="Tareas" ToRole="Empresas" />
+          <NavigationProperty Name="Usuarios" Relationship="Promowork_dataModel.FK_Tareas_Usuarios1" FromRole="Tareas" ToRole="Usuarios" />
+          <NavigationProperty Name="Usuarios1" Relationship="Promowork_dataModel.FK_Tareas_Usuarios2" FromRole="Tareas" ToRole="Usuarios" />
+        </EntityType>
+        <Association Name="FK_Tareas_Empresas">
+          <End Type="Promowork_dataModel.Empresas" Role="Empresas" Multiplicity="0..1" />
+          <End Type="Promowork_dataModel.Tareas" Role="Tareas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresas">
+              <PropertyRef Name="IdEmpresa" />
+            </Principal>
+            <Dependent Role="Tareas">
+              <PropertyRef Name="IdEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tareas_Usuarios1">
+          <End Type="Promowork_dataModel.Usuarios" Role="Usuarios" Multiplicity="0..1" />
+          <End Type="Promowork_dataModel.Tareas" Role="Tareas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="Tareas">
+              <PropertyRef Name="IdUsuarioCreacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tareas_Usuarios2">
+          <End Type="Promowork_dataModel.Usuarios" Role="Usuarios" Multiplicity="0..1" />
+          <End Type="Promowork_dataModel.Tareas" Role="Tareas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="Tareas">
+              <PropertyRef Name="IdUsuarioModificacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -519,6 +662,25 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Tareas">
+            <EntityTypeMapping TypeName="Promowork_dataModel.Tareas">
+              <MappingFragment StoreEntitySet="Tareas">
+                <ScalarProperty Name="Finalizada" ColumnName="Finalizada" />
+                <ScalarProperty Name="Orden" ColumnName="Orden" />
+                <ScalarProperty Name="FechaVencimiento" ColumnName="FechaVencimiento" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="IdTrabajador" ColumnName="IdTrabajador" />
+                <ScalarProperty Name="IdUsuarioModificacion" ColumnName="IdUsuarioModificacion" />
+                <ScalarProperty Name="IdUsuarioCreacion" ColumnName="IdUsuarioCreacion" />
+                <ScalarProperty Name="ObsercacionesTarea" ColumnName="ObsercacionesTarea" />
+                <ScalarProperty Name="NombreTarea" ColumnName="NombreTarea" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdEventoExterno" ColumnName="IdEventoExterno" />
+                <ScalarProperty Name="IdTarea" ColumnName="IdTarea" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -539,18 +701,18 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="GeneralesDataModel" ZoomLevel="69">
+      <Diagram Name="GeneralesDataModel" ZoomLevel="97">
         <EntityTypeShape EntityType="Promowork_dataModel.AccesosEmpresas" Width="1.5" PointX="5.25" PointY="3.75" Height="2.1725878906249996" IsExpanded="true" />
         <EntityTypeShape EntityType="Promowork_dataModel.AccesosOpciones" Width="1.5" PointX="5.25" PointY="7" Height="2.1725878906249996" IsExpanded="true" />
         <EntityTypeShape EntityType="Promowork_dataModel.Empresas" Width="1.5" PointX="0.75" PointY="1.25" Height="7.9416308593749978" IsExpanded="true" />
         <EntityTypeShape EntityType="Promowork_dataModel.Usuarios" Width="1.5" PointX="3" PointY="5.875" Height="4.480205078125" IsExpanded="true" />
         <AssociationConnector Association="Promowork_dataModel.FK_AccesosEmpresas_Empresas" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="5.31224609375" />
-          <ConnectorPoint PointX="5.25" PointY="5.31224609375" />
+          <ConnectorPoint PointX="2.25" PointY="5.2160928776041651" />
+          <ConnectorPoint PointX="5.25" PointY="5.2160928776041651" />
         </AssociationConnector>
         <AssociationConnector Association="Promowork_dataModel.FK_AccesosEmpresas_Usuarios" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="5.875" />
-          <ConnectorPoint PointX="4.875" PointY="5.5" />
+          <ConnectorPoint PointX="4.4999999999999982" PointY="5.875" />
+          <ConnectorPoint PointX="4.875" PointY="5.4999999999999982" />
           <ConnectorPoint PointX="4.875" PointY="6.297587890625" />
           <ConnectorPoint PointX="5.25" PointY="5.922587890625" />
         </AssociationConnector>
@@ -559,8 +721,8 @@
           <ConnectorPoint PointX="5.25" PointY="8.0862939453125" />
         </AssociationConnector>
         <AssociationConnector Association="Promowork_dataModel.FK_Usuarios_Empresas" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="7.7256168619791667" />
-          <ConnectorPoint PointX="3" PointY="7.7256168619791667" />
+          <ConnectorPoint PointX="2.25" PointY="7.821767578125" />
+          <ConnectorPoint PointX="3" PointY="7.821767578125" />
         </AssociationConnector>
         <EntityTypeShape EntityType="Promowork_dataModel.ServidorSMTP" Width="1.5" PointX="3" PointY="2" Height="2.7494921874999996" />
         <AssociationConnector Association="Promowork_dataModel.FK_ServidorSMTP_Empresas" >
@@ -568,6 +730,22 @@
           <ConnectorPoint PointX="3" PointY="3.37474609375" />
         </AssociationConnector>
         <EntityTypeShape EntityType="Promowork_dataModel.Notas" Width="1.5" PointX="5.375" PointY="0.75" Height="1.5956835937499996" />
+        <EntityTypeShape EntityType="Promowork_dataModel.Tareas" Width="1.5" PointX="8.25" PointY="4" Height="4.0956022135416665" />
+        <AssociationConnector Association="Promowork_dataModel.FK_Tareas_Empresas" >
+          <ConnectorPoint PointX="2.25" PointY="1.5937505" />
+          <ConnectorPoint PointX="5" PointY="1.5937505" />
+          <ConnectorPoint PointX="5" PointY="3.5" />
+          <ConnectorPoint PointX="9" PointY="3.5" />
+          <ConnectorPoint PointX="9" PointY="4" />
+        </AssociationConnector>
+        <AssociationConnector Association="Promowork_dataModel.FK_Tareas_Usuarios1" >
+          <ConnectorPoint PointX="4.5" PointY="6.4612939453125" />
+          <ConnectorPoint PointX="8.25" PointY="6.4612939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="Promowork_dataModel.FK_Tareas_Usuarios2" >
+          <ConnectorPoint PointX="4.5" PointY="6.76189697265625" />
+          <ConnectorPoint PointX="8.25" PointY="6.76189697265625" />
+        </AssociationConnector>
       </Diagram>
     </Diagrams>
   </Designer>

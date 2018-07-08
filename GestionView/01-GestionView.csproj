@@ -190,6 +190,12 @@
     <Compile Include="Formularios\General\frmNotas.Designer.cs">
       <DependentUpon>frmNotas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\General\frmTareas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\General\frmTareas.Designer.cs">
+      <DependentUpon>frmTareas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Operaciones\AnticiposTrabajadores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1012,6 +1018,9 @@
     <EmbeddedResource Include="Formularios\General\frmNotas.resx">
       <DependentUpon>frmNotas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\General\frmTareas.resx">
+      <DependentUpon>frmTareas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Operaciones\frmParticipantesPresupuestos.resx">
       <DependentUpon>frmParticipantesPresupuestos.cs</DependentUpon>
     </EmbeddedResource>
@@ -1504,7 +1513,9 @@
     <None Include="Properties\DataSources\GestionData.Modelos.FacturasDetDirecta.datasource" />
     <None Include="Properties\DataSources\GestionData.Modelos.FacturasDetHoras.datasource" />
     <None Include="Properties\DataSources\GestionData.Modelos.GeneralesDataModel.datasource" />
+    <None Include="Properties\DataSources\GestionData.Modelos.HorasTrabajadas.datasource" />
     <None Include="Properties\DataSources\GestionData.Modelos.Notas.datasource" />
+    <None Include="Properties\DataSources\GestionData.Modelos.Obras.datasource" />
     <None Include="Properties\DataSources\GestionData.Modelos.OperacionesBanco.datasource" />
     <None Include="Properties\DataSources\GestionData.Modelos.OperacionesDataModel.datasource" />
     <None Include="Properties\DataSources\GestionData.Modelos.Participantes.datasource" />
@@ -1515,7 +1526,11 @@
     <None Include="Properties\DataSources\GestionData.Modelos.PresupSub.datasource" />
     <None Include="Properties\DataSources\GestionData.Modelos.Proveedores.datasource" />
     <None Include="Properties\DataSources\GestionData.Modelos.ProveedoresParticipantes.datasource" />
+    <None Include="Properties\DataSources\GestionData.Modelos.ServidorSMTP.datasource" />
+    <None Include="Properties\DataSources\GestionData.Modelos.Tareas.datasource" />
+    <None Include="Properties\DataSources\GestionData.Modelos.Trabajadores.datasource" />
     <None Include="Properties\DataSources\GestionData.Modelos.Usuarios.datasource" />
+    <None Include="Properties\DataSources\GestionData.Modelos.vTareas.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

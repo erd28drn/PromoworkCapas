@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="VistasGenerales.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="VistasGeneralesStoreContainer">
+          <EntitySet Name="vTareas" EntityType="VistasGenerales.Store.vTareas" store:Type="Views" store:Schema="dbo" store:Name="vTareas">
+            <DefiningQuery>SELECT 
+      [vTareas].[IdTarea] AS [IdTarea], 
+      [vTareas].[IdEventoExterno] AS [IdEventoExterno], 
+      [vTareas].[IdEmpresa] AS [IdEmpresa], 
+      [vTareas].[NombreTarea] AS [NombreTarea], 
+      [vTareas].[ObsercacionesTarea] AS [ObsercacionesTarea], 
+      [vTareas].[IdUsuarioCreacion] AS [IdUsuarioCreacion], 
+      [vTareas].[IdUsuarioModificacion] AS [IdUsuarioModificacion], 
+      [vTareas].[IdTrabajador] AS [IdTrabajador], 
+      [vTareas].[FechaCreacion] AS [FechaCreacion], 
+      [vTareas].[FechaModificacion] AS [FechaModificacion], 
+      [vTareas].[FechaVencimiento] AS [FechaVencimiento], 
+      [vTareas].[Finalizada] AS [Finalizada], 
+      [vTareas].[UsuarioCreacion] AS [UsuarioCreacion], 
+      [vTareas].[UsuarioModificacion] AS [UsuarioModificacion], 
+      [vTareas].[DesEmpresa] AS [DesEmpresa], 
+      [vTareas].[NumTrabajador] AS [NumTrabajador], 
+      [vTareas].[NomTrabajador] AS [NomTrabajador], 
+      [vTareas].[ApeTrabajador] AS [ApeTrabajador], 
+      [vTareas].[Responsable] AS [Responsable]
+      FROM [dbo].[vTareas] AS [vTareas]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'Promowork_data.dbo.vTareas' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="vTareas">
+          <Key>
+            <PropertyRef Name="IdTarea" />
+            <PropertyRef Name="UsuarioCreacion" />
+            <PropertyRef Name="UsuarioModificacion" />
+            <PropertyRef Name="DesEmpresa" />
+            <PropertyRef Name="NumTrabajador" />
+            <PropertyRef Name="NomTrabajador" />
+          </Key>
+          <Property Name="IdTarea" Type="int" Nullable="false" />
+          <Property Name="IdEventoExterno" Type="varchar" MaxLength="50" />
+          <Property Name="IdEmpresa" Type="int" />
+          <Property Name="NombreTarea" Type="varchar" MaxLength="1000" />
+          <Property Name="ObsercacionesTarea" Type="varchar(max)" />
+          <Property Name="IdUsuarioCreacion" Type="int" />
+          <Property Name="IdUsuarioModificacion" Type="int" />
+          <Property Name="IdTrabajador" Type="int" />
+          <Property Name="FechaCreacion" Type="datetime" />
+          <Property Name="FechaModificacion" Type="datetime" />
+          <Property Name="FechaVencimiento" Type="datetime" />
+          <Property Name="Finalizada" Type="bit" />
+          <Property Name="UsuarioCreacion" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="UsuarioModificacion" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="DesEmpresa" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="NumTrabajador" Type="int" Nullable="false" />
+          <Property Name="NomTrabajador" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="ApeTrabajador" Type="varchar" MaxLength="30" />
+          <Property Name="Responsable" Type="varchar" MaxLength="94" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VistasGenerales" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="VistasGeneralesDataModel" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="vTareas" EntityType="VistasGenerales.vTareas" />
+        </EntityContainer>
+        <EntityType Name="vTareas">
+          <Key>
+            <PropertyRef Name="IdTarea" />
+            <PropertyRef Name="UsuarioCreacion" />
+            <PropertyRef Name="UsuarioModificacion" />
+            <PropertyRef Name="DesEmpresa" />
+            <PropertyRef Name="NumTrabajador" />
+            <PropertyRef Name="NomTrabajador" />
+          </Key>
+          <Property Name="IdTarea" Type="Int32" Nullable="false" />
+          <Property Name="IdEventoExterno" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="IdEmpresa" Type="Int32" />
+          <Property Name="NombreTarea" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <Property Name="ObsercacionesTarea" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="IdUsuarioCreacion" Type="Int32" />
+          <Property Name="IdUsuarioModificacion" Type="Int32" />
+          <Property Name="IdTrabajador" Type="Int32" />
+          <Property Name="FechaCreacion" Type="DateTime" />
+          <Property Name="FechaModificacion" Type="DateTime" />
+          <Property Name="FechaVencimiento" Type="DateTime" />
+          <Property Name="Finalizada" Type="Boolean" />
+          <Property Name="UsuarioCreacion" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="UsuarioModificacion" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="DesEmpresa" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="NumTrabajador" Type="Int32" Nullable="false" />
+          <Property Name="NomTrabajador" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="ApeTrabajador" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Responsable" Type="String" MaxLength="94" Unicode="false" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VistasGeneralesStoreContainer" CdmEntityContainer="VistasGeneralesDataModel">
+          <EntitySetMapping Name="vTareas">
+            <EntityTypeMapping TypeName="VistasGenerales.vTareas">
+              <MappingFragment StoreEntitySet="vTareas">
+                <ScalarProperty Name="IdTarea" ColumnName="IdTarea" />
+                <ScalarProperty Name="IdEventoExterno" ColumnName="IdEventoExterno" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="NombreTarea" ColumnName="NombreTarea" />
+                <ScalarProperty Name="ObsercacionesTarea" ColumnName="ObsercacionesTarea" />
+                <ScalarProperty Name="IdUsuarioCreacion" ColumnName="IdUsuarioCreacion" />
+                <ScalarProperty Name="IdUsuarioModificacion" ColumnName="IdUsuarioModificacion" />
+                <ScalarProperty Name="IdTrabajador" ColumnName="IdTrabajador" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="FechaVencimiento" ColumnName="FechaVencimiento" />
+                <ScalarProperty Name="Finalizada" ColumnName="Finalizada" />
+                <ScalarProperty Name="UsuarioCreacion" ColumnName="UsuarioCreacion" />
+                <ScalarProperty Name="UsuarioModificacion" ColumnName="UsuarioModificacion" />
+                <ScalarProperty Name="DesEmpresa" ColumnName="DesEmpresa" />
+                <ScalarProperty Name="NumTrabajador" ColumnName="NumTrabajador" />
+                <ScalarProperty Name="NomTrabajador" ColumnName="NomTrabajador" />
+                <ScalarProperty Name="ApeTrabajador" ColumnName="ApeTrabajador" />
+                <ScalarProperty Name="Responsable" ColumnName="Responsable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="VistasGeneralesDataModel" ZoomLevel="33">
+        <EntityTypeShape EntityType="VistasGenerales.vTareas" Width="1.5" PointX="0.75" PointY="0.75" Height="4.6725065104166656" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
