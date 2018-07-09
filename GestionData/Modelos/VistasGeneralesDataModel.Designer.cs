@@ -120,7 +120,8 @@ namespace GestionData.Modelos
         /// <param name="desEmpresa">Valor inicial de la propiedad DesEmpresa.</param>
         /// <param name="numTrabajador">Valor inicial de la propiedad NumTrabajador.</param>
         /// <param name="nomTrabajador">Valor inicial de la propiedad NomTrabajador.</param>
-        public static vTareas CreatevTareas(global::System.Int32 idTarea, global::System.String usuarioCreacion, global::System.String usuarioModificacion, global::System.String desEmpresa, global::System.Int32 numTrabajador, global::System.String nomTrabajador)
+        /// <param name="vencida">Valor inicial de la propiedad Vencida.</param>
+        public static vTareas CreatevTareas(global::System.Int32 idTarea, global::System.String usuarioCreacion, global::System.String usuarioModificacion, global::System.String desEmpresa, global::System.Int32 numTrabajador, global::System.String nomTrabajador, global::System.Int32 vencida)
         {
             vTareas vTareas = new vTareas();
             vTareas.IdTarea = idTarea;
@@ -129,6 +130,7 @@ namespace GestionData.Modelos
             vTareas.DesEmpresa = desEmpresa;
             vTareas.NumTrabajador = numTrabajador;
             vTareas.NomTrabajador = nomTrabajador;
+            vTareas.Vencida = vencida;
             return vTareas;
         }
 
@@ -609,6 +611,33 @@ namespace GestionData.Modelos
         private global::System.String _Responsable;
         partial void OnResponsableChanging(global::System.String value);
         partial void OnResponsableChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Vencida
+        {
+            get
+            {
+                return _Vencida;
+            }
+            set
+            {
+                if (_Vencida != value)
+                {
+                    OnVencidaChanging(value);
+                    ReportPropertyChanging("Vencida");
+                    _Vencida = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Vencida");
+                    OnVencidaChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Vencida;
+        partial void OnVencidaChanging(global::System.Int32 value);
+        partial void OnVencidaChanged();
 
         #endregion
 

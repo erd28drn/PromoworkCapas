@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="VistasGenerales.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="VistasGenerales.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="VistasGeneralesStoreContainer">
           <EntitySet Name="vTareas" EntityType="VistasGenerales.Store.vTareas" store:Type="Views" store:Schema="dbo" store:Name="vTareas">
             <DefiningQuery>SELECT 
@@ -26,7 +26,8 @@
       [vTareas].[NumTrabajador] AS [NumTrabajador], 
       [vTareas].[NomTrabajador] AS [NomTrabajador], 
       [vTareas].[ApeTrabajador] AS [ApeTrabajador], 
-      [vTareas].[Responsable] AS [Responsable]
+      [vTareas].[Responsable] AS [Responsable], 
+      [vTareas].[Vencida] AS [Vencida]
       FROM [dbo].[vTareas] AS [vTareas]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
@@ -41,6 +42,7 @@
             <PropertyRef Name="DesEmpresa" />
             <PropertyRef Name="NumTrabajador" />
             <PropertyRef Name="NomTrabajador" />
+            <PropertyRef Name="Vencida" />
           </Key>
           <Property Name="IdTarea" Type="int" Nullable="false" />
           <Property Name="IdEventoExterno" Type="varchar" MaxLength="50" />
@@ -60,10 +62,10 @@
           <Property Name="NumTrabajador" Type="int" Nullable="false" />
           <Property Name="NomTrabajador" Type="varchar" Nullable="false" MaxLength="30" />
           <Property Name="ApeTrabajador" Type="varchar" MaxLength="30" />
-          <Property Name="Responsable" Type="varchar" MaxLength="94" />
+          <Property Name="Responsable" Type="varchar" MaxLength="61" />
+          <Property Name="Vencida" Type="int" Nullable="false" />
         </EntityType>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="VistasGenerales" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -78,6 +80,7 @@
             <PropertyRef Name="DesEmpresa" />
             <PropertyRef Name="NumTrabajador" />
             <PropertyRef Name="NomTrabajador" />
+            <PropertyRef Name="Vencida" />
           </Key>
           <Property Name="IdTarea" Type="Int32" Nullable="false" />
           <Property Name="IdEventoExterno" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
@@ -98,6 +101,7 @@
           <Property Name="NomTrabajador" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
           <Property Name="ApeTrabajador" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
           <Property Name="Responsable" Type="String" MaxLength="94" Unicode="false" FixedLength="false" />
+          <Property Type="Int32" Name="Vencida" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -108,6 +112,7 @@
           <EntitySetMapping Name="vTareas">
             <EntityTypeMapping TypeName="VistasGenerales.vTareas">
               <MappingFragment StoreEntitySet="vTareas">
+                <ScalarProperty Name="Vencida" ColumnName="Vencida" />
                 <ScalarProperty Name="IdTarea" ColumnName="IdTarea" />
                 <ScalarProperty Name="IdEventoExterno" ColumnName="IdEventoExterno" />
                 <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
@@ -150,7 +155,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="VistasGeneralesDataModel" ZoomLevel="33">
+      <Diagram Name="VistasGeneralesDataModel" ZoomLevel="94">
         <EntityTypeShape EntityType="VistasGenerales.vTareas" Width="1.5" PointX="0.75" PointY="0.75" Height="4.6725065104166656" IsExpanded="true" />
       </Diagram>
     </Diagrams>

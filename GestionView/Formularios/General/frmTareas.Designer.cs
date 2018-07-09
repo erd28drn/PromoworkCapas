@@ -31,19 +31,30 @@
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
             DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
+            this.colVencida = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFinalizada = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFechaVencimiento = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btDelete = new System.Windows.Forms.Button();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.finalizadaCheckEdit = new DevExpress.XtraEditors.CheckEdit();
+            this.vTareasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.dtFechaVencimiento = new System.Windows.Forms.DateTimePicker();
-            this.btSaveTarea = new System.Windows.Forms.Button();
-            this.btAddTarea = new System.Windows.Forms.Button();
-            this.tbObservaciones = new System.Windows.Forms.TextBox();
-            this.tbNombreTarea = new System.Windows.Forms.TextBox();
-            this.cbTrabajador = new System.Windows.Forms.ComboBox();
-            this.trabajadoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cbEmpresa = new System.Windows.Forms.ComboBox();
             this.empresasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cbTrabajador = new System.Windows.Forms.ComboBox();
+            this.trabajadoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.tbNombreTarea = new System.Windows.Forms.TextBox();
+            this.tbObservaciones = new System.Windows.Forms.TextBox();
+            this.btDelete = new System.Windows.Forms.Button();
+            this.btSaveTarea = new System.Windows.Forms.Button();
+            this.btAddTarea = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btSincronizar = new System.Windows.Forms.Button();
             this.chkMostrarFinalizados = new System.Windows.Forms.CheckBox();
@@ -60,20 +71,37 @@
             this.colIdTrabajador = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFechaCreacion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFechaModificacion = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.vTareasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.colResponsable = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUsuarioCreacion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUsuarioModificacion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDesEmpresa = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trabajadoresBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.finalizadaCheckEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vTareasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.empresasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trabajadoresBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
+            this.splitContainer3.Panel1.SuspendLayout();
+            this.splitContainer3.Panel2.SuspendLayout();
+            this.splitContainer3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvTareas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Descripción)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vTareasBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // colVencida
+            // 
+            this.colVencida.FieldName = "Vencida";
+            this.colVencida.Name = "colVencida";
             // 
             // colFinalizada
             // 
@@ -101,23 +129,201 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btDelete);
-            this.panel1.Controls.Add(this.dtFechaVencimiento);
-            this.panel1.Controls.Add(this.btSaveTarea);
-            this.panel1.Controls.Add(this.btAddTarea);
-            this.panel1.Controls.Add(this.tbObservaciones);
-            this.panel1.Controls.Add(this.tbNombreTarea);
-            this.panel1.Controls.Add(this.cbTrabajador);
-            this.panel1.Controls.Add(this.cbEmpresa);
+            this.panel1.Controls.Add(this.splitContainer1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 457);
+            this.panel1.Location = new System.Drawing.Point(0, 597);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1155, 140);
+            this.panel1.Size = new System.Drawing.Size(1236, 111);
             this.panel1.TabIndex = 1;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.label4);
+            this.splitContainer1.Panel1.Controls.Add(this.label5);
+            this.splitContainer1.Panel1.Controls.Add(this.finalizadaCheckEdit);
+            this.splitContainer1.Panel1.Controls.Add(this.label3);
+            this.splitContainer1.Panel1.Controls.Add(this.label2);
+            this.splitContainer1.Panel1.Controls.Add(this.label1);
+            this.splitContainer1.Panel1.Controls.Add(this.dtFechaVencimiento);
+            this.splitContainer1.Panel1.Controls.Add(this.cbEmpresa);
+            this.splitContainer1.Panel1.Controls.Add(this.cbTrabajador);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
+            this.splitContainer1.Size = new System.Drawing.Size(1236, 111);
+            this.splitContainer1.SplitterDistance = 499;
+            this.splitContainer1.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(430, 41);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(66, 13);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Descripción:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(449, 13);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(47, 13);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Nombre:";
+            // 
+            // finalizadaCheckEdit
+            // 
+            this.finalizadaCheckEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vTareasBindingSource, "Finalizada", true));
+            this.finalizadaCheckEdit.Location = new System.Drawing.Point(315, 71);
+            this.finalizadaCheckEdit.Name = "finalizadaCheckEdit";
+            this.finalizadaCheckEdit.Properties.Caption = "Finalizada";
+            this.finalizadaCheckEdit.Size = new System.Drawing.Size(75, 19);
+            this.finalizadaCheckEdit.TabIndex = 10;
+            // 
+            // vTareasBindingSource
+            // 
+            this.vTareasBindingSource.DataSource = typeof(GestionData.Modelos.vTareas);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(18, 74);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Vencimiento:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(14, 41);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Responsable:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(35, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Empresa:";
+            // 
+            // dtFechaVencimiento
+            // 
+            this.dtFechaVencimiento.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.vTareasBindingSource, "FechaVencimiento", true));
+            this.dtFechaVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtFechaVencimiento.Location = new System.Drawing.Point(94, 70);
+            this.dtFechaVencimiento.Name = "dtFechaVencimiento";
+            this.dtFechaVencimiento.Size = new System.Drawing.Size(97, 20);
+            this.dtFechaVencimiento.TabIndex = 6;
+            // 
+            // cbEmpresa
+            // 
+            this.cbEmpresa.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.vTareasBindingSource, "IdEmpresa", true));
+            this.cbEmpresa.DataSource = this.empresasBindingSource;
+            this.cbEmpresa.DisplayMember = "DesEmpresa";
+            this.cbEmpresa.FormattingEnabled = true;
+            this.cbEmpresa.Location = new System.Drawing.Point(94, 9);
+            this.cbEmpresa.Name = "cbEmpresa";
+            this.cbEmpresa.Size = new System.Drawing.Size(296, 21);
+            this.cbEmpresa.TabIndex = 0;
+            this.cbEmpresa.ValueMember = "IdEmpresa";
+            this.cbEmpresa.SelectedValueChanged += new System.EventHandler(this.cbEmpresa_SelectedValueChanged);
+            // 
+            // empresasBindingSource
+            // 
+            this.empresasBindingSource.DataSource = typeof(GestionData.Modelos.Empresas);
+            // 
+            // cbTrabajador
+            // 
+            this.cbTrabajador.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.vTareasBindingSource, "IdTrabajador", true));
+            this.cbTrabajador.DataSource = this.trabajadoresBindingSource;
+            this.cbTrabajador.DisplayMember = "NomTrabajador";
+            this.cbTrabajador.FormattingEnabled = true;
+            this.cbTrabajador.Location = new System.Drawing.Point(94, 37);
+            this.cbTrabajador.Name = "cbTrabajador";
+            this.cbTrabajador.Size = new System.Drawing.Size(296, 21);
+            this.cbTrabajador.TabIndex = 1;
+            this.cbTrabajador.ValueMember = "IdTrabajador";
+            // 
+            // trabajadoresBindingSource
+            // 
+            this.trabajadoresBindingSource.DataSource = typeof(GestionData.Modelos.Trabajadores);
+            // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Name = "splitContainer2";
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.splitContainer3);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.btDelete);
+            this.splitContainer2.Panel2.Controls.Add(this.btSaveTarea);
+            this.splitContainer2.Panel2.Controls.Add(this.btAddTarea);
+            this.splitContainer2.Size = new System.Drawing.Size(733, 111);
+            this.splitContainer2.SplitterDistance = 629;
+            this.splitContainer2.TabIndex = 8;
+            // 
+            // splitContainer3
+            // 
+            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer3.Name = "splitContainer3";
+            this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer3.Panel1
+            // 
+            this.splitContainer3.Panel1.Controls.Add(this.tbNombreTarea);
+            // 
+            // splitContainer3.Panel2
+            // 
+            this.splitContainer3.Panel2.Controls.Add(this.tbObservaciones);
+            this.splitContainer3.Size = new System.Drawing.Size(629, 111);
+            this.splitContainer3.SplitterDistance = 31;
+            this.splitContainer3.TabIndex = 0;
+            // 
+            // tbNombreTarea
+            // 
+            this.tbNombreTarea.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vTareasBindingSource, "NombreTarea", true));
+            this.tbNombreTarea.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tbNombreTarea.Location = new System.Drawing.Point(0, 11);
+            this.tbNombreTarea.Name = "tbNombreTarea";
+            this.tbNombreTarea.Size = new System.Drawing.Size(629, 20);
+            this.tbNombreTarea.TabIndex = 2;
+            // 
+            // tbObservaciones
+            // 
+            this.tbObservaciones.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vTareasBindingSource, "ObsercacionesTarea", true));
+            this.tbObservaciones.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tbObservaciones.Location = new System.Drawing.Point(0, 0);
+            this.tbObservaciones.Multiline = true;
+            this.tbObservaciones.Name = "tbObservaciones";
+            this.tbObservaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbObservaciones.Size = new System.Drawing.Size(629, 68);
+            this.tbObservaciones.TabIndex = 3;
             // 
             // btDelete
             // 
-            this.btDelete.Location = new System.Drawing.Point(1031, 50);
+            this.btDelete.Location = new System.Drawing.Point(10, 44);
             this.btDelete.Name = "btDelete";
             this.btDelete.Size = new System.Drawing.Size(75, 23);
             this.btDelete.TabIndex = 7;
@@ -125,17 +331,9 @@
             this.btDelete.UseVisualStyleBackColor = true;
             this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
             // 
-            // dtFechaVencimiento
-            // 
-            this.dtFechaVencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtFechaVencimiento.Location = new System.Drawing.Point(552, 25);
-            this.dtFechaVencimiento.Name = "dtFechaVencimiento";
-            this.dtFechaVencimiento.Size = new System.Drawing.Size(97, 20);
-            this.dtFechaVencimiento.TabIndex = 6;
-            // 
             // btSaveTarea
             // 
-            this.btSaveTarea.Location = new System.Drawing.Point(1031, 82);
+            this.btSaveTarea.Location = new System.Drawing.Point(10, 76);
             this.btSaveTarea.Name = "btSaveTarea";
             this.btSaveTarea.Size = new System.Drawing.Size(75, 23);
             this.btSaveTarea.TabIndex = 5;
@@ -145,59 +343,13 @@
             // 
             // btAddTarea
             // 
-            this.btAddTarea.Location = new System.Drawing.Point(1031, 21);
+            this.btAddTarea.Location = new System.Drawing.Point(10, 15);
             this.btAddTarea.Name = "btAddTarea";
             this.btAddTarea.Size = new System.Drawing.Size(75, 23);
             this.btAddTarea.TabIndex = 4;
             this.btAddTarea.Text = "Agregar";
             this.btAddTarea.UseVisualStyleBackColor = true;
             this.btAddTarea.Click += new System.EventHandler(this.btAddTarea_Click);
-            // 
-            // tbObservaciones
-            // 
-            this.tbObservaciones.Location = new System.Drawing.Point(233, 52);
-            this.tbObservaciones.Multiline = true;
-            this.tbObservaciones.Name = "tbObservaciones";
-            this.tbObservaciones.Size = new System.Drawing.Size(260, 53);
-            this.tbObservaciones.TabIndex = 3;
-            // 
-            // tbNombreTarea
-            // 
-            this.tbNombreTarea.Location = new System.Drawing.Point(233, 25);
-            this.tbNombreTarea.Name = "tbNombreTarea";
-            this.tbNombreTarea.Size = new System.Drawing.Size(260, 20);
-            this.tbNombreTarea.TabIndex = 2;
-            // 
-            // cbTrabajador
-            // 
-            this.cbTrabajador.DataSource = this.trabajadoresBindingSource;
-            this.cbTrabajador.DisplayMember = "NomTrabajador";
-            this.cbTrabajador.FormattingEnabled = true;
-            this.cbTrabajador.Location = new System.Drawing.Point(794, 25);
-            this.cbTrabajador.Name = "cbTrabajador";
-            this.cbTrabajador.Size = new System.Drawing.Size(192, 21);
-            this.cbTrabajador.TabIndex = 1;
-            this.cbTrabajador.ValueMember = "IdTrabajador";
-            // 
-            // trabajadoresBindingSource
-            // 
-            this.trabajadoresBindingSource.DataSource = typeof(GestionData.Modelos.Trabajadores);
-            // 
-            // cbEmpresa
-            // 
-            this.cbEmpresa.DataSource = this.empresasBindingSource;
-            this.cbEmpresa.DisplayMember = "DesEmpresa";
-            this.cbEmpresa.FormattingEnabled = true;
-            this.cbEmpresa.Location = new System.Drawing.Point(26, 24);
-            this.cbEmpresa.Name = "cbEmpresa";
-            this.cbEmpresa.Size = new System.Drawing.Size(187, 21);
-            this.cbEmpresa.TabIndex = 0;
-            this.cbEmpresa.ValueMember = "IdEmpresa";
-            this.cbEmpresa.SelectedValueChanged += new System.EventHandler(this.cbEmpresa_SelectedValueChanged);
-            // 
-            // empresasBindingSource
-            // 
-            this.empresasBindingSource.DataSource = typeof(GestionData.Modelos.Empresas);
             // 
             // panel2
             // 
@@ -206,7 +358,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1155, 50);
+            this.panel2.Size = new System.Drawing.Size(1236, 44);
             this.panel2.TabIndex = 2;
             // 
             // btSincronizar
@@ -234,12 +386,12 @@
             // 
             this.gridControl1.DataSource = this.vTareasBindingSource;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 50);
+            this.gridControl1.Location = new System.Drawing.Point(0, 44);
             this.gridControl1.MainView = this.gvTareas;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.Descripción});
-            this.gridControl1.Size = new System.Drawing.Size(1155, 407);
+            this.gridControl1.Size = new System.Drawing.Size(1236, 553);
             this.gridControl1.TabIndex = 3;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvTareas});
@@ -264,26 +416,28 @@
             this.colResponsable,
             this.colUsuarioCreacion,
             this.colUsuarioModificacion,
-            this.colDesEmpresa});
-            styleFormatCondition1.Appearance.ForeColor = System.Drawing.Color.Blue;
+            this.colDesEmpresa,
+            this.colVencida});
+            styleFormatCondition1.Appearance.ForeColor = System.Drawing.Color.Red;
             styleFormatCondition1.Appearance.Options.HighPriority = true;
             styleFormatCondition1.Appearance.Options.UseForeColor = true;
             styleFormatCondition1.ApplyToRow = true;
-            styleFormatCondition1.Column = this.colFinalizada;
+            styleFormatCondition1.Column = this.colVencida;
             styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
             styleFormatCondition1.Value1 = true;
-            styleFormatCondition2.Appearance.ForeColor = System.Drawing.Color.Red;
+            styleFormatCondition2.Appearance.ForeColor = System.Drawing.Color.Blue;
             styleFormatCondition2.Appearance.Options.HighPriority = true;
             styleFormatCondition2.Appearance.Options.UseForeColor = true;
             styleFormatCondition2.ApplyToRow = true;
-            styleFormatCondition2.Column = this.colFechaVencimiento;
-            styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Less;
-            styleFormatCondition2.Expression = "LocalDateTimeNow()";
+            styleFormatCondition2.Column = this.colFinalizada;
+            styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition2.Value1 = true;
             this.gvTareas.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
             styleFormatCondition1,
             styleFormatCondition2});
             this.gvTareas.GridControl = this.gridControl1;
             this.gvTareas.Name = "gvTareas";
+            this.gvTareas.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.gvTareas.OptionsView.RowAutoHeight = true;
             this.gvTareas.OptionsView.ShowGroupPanel = false;
             this.gvTareas.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
@@ -380,10 +534,6 @@
             this.colFechaModificacion.VisibleIndex = 4;
             this.colFechaModificacion.Width = 83;
             // 
-            // vTareasBindingSource
-            // 
-            this.vTareasBindingSource.DataSource = typeof(GestionData.Modelos.vTareas);
-            // 
             // colResponsable
             // 
             this.colResponsable.Caption = "Responsable";
@@ -395,7 +545,7 @@
             // 
             // colUsuarioCreacion
             // 
-            this.colUsuarioCreacion.Caption = "Usuario Creación";
+            this.colUsuarioCreacion.Caption = "Creada por";
             this.colUsuarioCreacion.FieldName = "UsuarioCreacion";
             this.colUsuarioCreacion.Name = "colUsuarioCreacion";
             this.colUsuarioCreacion.Visible = true;
@@ -404,7 +554,7 @@
             // 
             // colUsuarioModificacion
             // 
-            this.colUsuarioModificacion.Caption = "Usuario Modificación";
+            this.colUsuarioModificacion.Caption = "Modificada por";
             this.colUsuarioModificacion.FieldName = "UsuarioModificacion";
             this.colUsuarioModificacion.Name = "colUsuarioModificacion";
             this.colUsuarioModificacion.Visible = true;
@@ -424,23 +574,38 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1155, 597);
+            this.ClientSize = new System.Drawing.Size(1236, 708);
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Name = "frmTareas";
-            this.Text = "Form1";
+            this.Text = "Tareas Pendientes";
             this.Load += new System.EventHandler(this.frmTareas_Load);
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trabajadoresBindingSource)).EndInit();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.finalizadaCheckEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vTareasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.empresasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trabajadoresBindingSource)).EndInit();
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
+            this.splitContainer3.Panel1.ResumeLayout(false);
+            this.splitContainer3.Panel1.PerformLayout();
+            this.splitContainer3.Panel2.ResumeLayout(false);
+            this.splitContainer3.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
+            this.splitContainer3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvTareas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Descripción)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vTareasBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -495,6 +660,16 @@
         private DevExpress.XtraGrid.Columns.GridColumn colUsuarioCreacion;
         private DevExpress.XtraGrid.Columns.GridColumn colUsuarioModificacion;
         private DevExpress.XtraGrid.Columns.GridColumn colDesEmpresa;
+        private DevExpress.XtraGrid.Columns.GridColumn colVencida;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.SplitContainer splitContainer3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private DevExpress.XtraEditors.CheckEdit finalizadaCheckEdit;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
 

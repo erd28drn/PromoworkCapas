@@ -26,9 +26,9 @@ namespace Promowork.Formularios.General
         private int? idEmpresa = null;
         private int idUsuario = VariablesGlobales.nIdUsuarioActual;
         private List<vTareas> tareas= new List<vTareas>();
-        private List<Tareas> tareasInsert= new List<Tareas>();
-        private List<Tareas> tareasUpdate= new List<Tareas>();
-        private List<Tareas> tareasDelete= new List<Tareas>();
+        private List<vTareas> tareasInsert= new List<vTareas>();
+        private List<vTareas> tareasUpdate= new List<vTareas>();
+        private List<vTareas> tareasDelete= new List<vTareas>();
 
         RepositorioEmpresa repoEmpresa = new RepositorioEmpresa();
         RepositorioUsuario repoUsuario = new RepositorioUsuario();
@@ -37,7 +37,7 @@ namespace Promowork.Formularios.General
         //Sincronizador sincronizador= new Sincronizador();
         private void frmTareas_Load(object sender, EventArgs e)
         {
-            var empresas = repoEmpresa.GetAll();
+            var empresas = repoEmpresa.GetAll().ToList();
             if (empresas.Any())
             {
                 empresasBindingSource.DataSource = empresas;
@@ -61,10 +61,10 @@ namespace Promowork.Formularios.General
         private void btAddTarea_Click(object sender, EventArgs e)
         {
             vTareasBindingSource.AddNew();
-            var vTareaNueva = (vTareas)vTareasBindingSource.Current;
-            var nuevaTarea = repoTareas.MapTarea(vTareaNueva);
-            nuevaTarea.IdUsuarioCreacion = idUsuario;
-            nuevaTarea.IdUsuarioModificacion = idUsuario;
+            var nuevaTarea = (vTareas)vTareasBindingSource.Current;
+            //var nuevaTarea = repoTareas.MapTarea(vTareaNueva);
+            //nuevaTarea.IdUsuarioCreacion = idUsuario;
+            //nuevaTarea.IdUsuarioModificacion = idUsuario;
             tareasInsert.Add(nuevaTarea);
             
         }
@@ -73,17 +73,20 @@ namespace Promowork.Formularios.General
         {
             foreach (var tarea in tareasInsert)
             {
-                repoTareas.InsertTarea(tarea);
+                tarea.IdUsuarioCreacion = idUsuario;
+                tarea.IdUsuarioModificacion = idUsuario;
+                repoTareas.InsertTarea(repoTareas.MapTarea(tarea));
             }
 
             foreach (var tarea in tareasUpdate)
             {
-                repoTareas.UpdateTarea(tarea);
+                tarea.IdUsuarioModificacion = idUsuario;
+                repoTareas.UpdateTarea(repoTareas.MapTarea(tarea));
             }
 
             foreach (var tarea in tareasDelete)
             {
-                repoTareas.DeleteTarea(tarea);
+                repoTareas.DeleteTarea(repoTareas.MapTarea(tarea));
             }
 
             tareasInsert.Clear();
@@ -112,8 +115,8 @@ namespace Promowork.Formularios.General
 
         private void btDelete_Click(object sender, EventArgs e)
         {
-            var vTareaEliminar = (vTareas)vTareasBindingSource.Current;
-            var tareaDelete = repoTareas.MapTarea(vTareaEliminar);
+            var tareaDelete = (vTareas)vTareasBindingSource.Current;
+            //var tareaDelete = repoTareas.MapTarea(vTareaEliminar);
 
             tareasDelete.Add(tareaDelete);
             vTareasBindingSource.RemoveCurrent();;
@@ -152,8 +155,8 @@ namespace Promowork.Formularios.General
         {
             if (e.RowHandle != -1)
             {
-                var vTareaModificada=(vTareas)vTareasBindingSource.Current;
-                var tareaUpdate = repoTareas.MapTarea(vTareaModificada);
+                var tareaUpdate = (vTareas)vTareasBindingSource.Current;
+                //var tareaUpdate = repoTareas.MapTarea(vTareaModificada);
 
                 var existeTarea = tareasUpdate.FirstOrDefault(t => t.IdTarea == tareaUpdate.IdTarea);
 
@@ -167,6 +170,11 @@ namespace Promowork.Formularios.General
                     tareasUpdate.Add(tareaUpdate);
                 }
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         //private void btSincronizar_Click(object sender, EventArgs e)
