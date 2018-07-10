@@ -607,14 +607,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox33">
+                    <Textbox Name="ImporteaFacturar10">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!Importe.Value)</Value>
+                              <Value>=Fields!ImporteCap.Value</Value>
                               <Style>
                                 <FontFamily>Franklin Gothic Medium Cond</FontFamily>
                                 <FontWeight>Bold</FontWeight>
@@ -629,11 +629,12 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox20</rd:DefaultName>
+                      <rd:DefaultName>ImporteaFacturar2</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
+                          <Width>2pt</Width>
                         </Border>
                         <BackgroundColor>PaleTurquoise</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -647,20 +648,21 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.23622in</Height>
+              <Height>0.25705in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox91">
+                    <Textbox Name="Textbox93">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!Importe.Value)</Value>
+                              <Value>=Fields!ImporteCab.Value</Value>
                               <Style>
                                 <FontFamily>Franklin Gothic Medium Cond</FontFamily>
+                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Format>#,0.00'€';(#,0.00'€');''</Format>
                                 <rd:FormatSymbolCulture>es-ES</rd:FormatSymbolCulture>
@@ -1046,8 +1048,7 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>7.20708cm</Top>
-        <Left>0cm</Left>
-        <Height>2.84124cm</Height>
+        <Height>2.89416cm</Height>
         <Width>17.82026cm</Width>
         <Style>
           <Border>
@@ -3270,8 +3271,6 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>0cm</Top>
-        <Left>0cm</Left>
         <Height>6.44124cm</Height>
         <Width>32.87443cm</Width>
         <ZIndex>1</ZIndex>
@@ -3407,7 +3406,6 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>10.70465cm</Top>
-        <Left>0cm</Left>
         <Height>2.52291cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>2</ZIndex>
@@ -3489,7 +3487,6 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>13.40396cm</Top>
-        <Left>0cm</Left>
         <Height>3.93654cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>3</ZIndex>
@@ -3572,7 +3569,6 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>17.5169cm</Top>
-        <Left>0cm</Left>
         <Height>2.47841cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>4</ZIndex>
@@ -3655,7 +3651,6 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>24.08753cm</Top>
-        <Left>0cm</Left>
         <Height>0.90841cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>5</ZIndex>
@@ -3762,7 +3757,6 @@ PEÓN: 21,00 €/ HORA</Value>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>20.1717cm</Top>
-        <Left>0cm</Left>
         <Height>3.73944cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>6</ZIndex>
@@ -3845,7 +3839,6 @@ PEÓN: 21,00 €/ HORA</Value>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>25.17232cm</Top>
-        <Left>0cm</Left>
         <Height>1.88737cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>7</ZIndex>
@@ -3928,7 +3921,6 @@ PEÓN: 21,00 €/ HORA</Value>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>27.23608cm</Top>
-        <Left>0cm</Left>
         <Height>0.88194cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>8</ZIndex>
@@ -4011,7 +4003,6 @@ PEÓN: 21,00 €/ HORA</Value>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>28.29441cm</Top>
-        <Left>0cm</Left>
         <Height>1.78979cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>9</ZIndex>
@@ -4094,7 +4085,6 @@ PEÓN: 21,00 €/ HORA</Value>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>37.34316cm</Top>
-        <Left>0cm</Left>
         <Height>2.94569cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>10</ZIndex>
@@ -4176,7 +4166,6 @@ PEÓN: 21,00 €/ HORA</Value>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>30.26058cm</Top>
-        <Left>0cm</Left>
         <Height>2.34625cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>11</ZIndex>
@@ -4258,7 +4247,6 @@ PEÓN: 21,00 €/ HORA</Value>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>32.78322cm</Top>
-        <Left>0cm</Left>
         <Height>4.38356cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>12</ZIndex>
@@ -4340,7 +4328,6 @@ PEÓN: 21,00 €/ HORA</Value>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>40.46525cm</Top>
-        <Left>0cm</Left>
         <Height>1.79476cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>13</ZIndex>
@@ -4422,7 +4409,6 @@ PEÓN: 21,00 €/ HORA</Value>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>44.84409cm</Top>
-        <Left>0cm</Left>
         <Height>1.46403cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>14</ZIndex>
@@ -4540,7 +4526,6 @@ PEÓN: 21,00 €/ HORA</Value>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>50.20191cm</Top>
-        <Left>0cm</Left>
         <Height>1.42436cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>15</ZIndex>
@@ -4622,7 +4607,6 @@ PEÓN: 21,00 €/ HORA</Value>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>42.43639cm</Top>
-        <Left>0cm</Left>
         <Height>2.23131cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>16</ZIndex>
@@ -4704,7 +4688,6 @@ PEÓN: 21,00 €/ HORA</Value>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>46.48451cm</Top>
-        <Left>0cm</Left>
         <Height>0.91694cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>17</ZIndex>
@@ -4822,7 +4805,6 @@ PEÓN: 21,00 €/ HORA</Value>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>47.57784cm</Top>
-        <Left>0cm</Left>
         <Height>1.5084cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>18</ZIndex>
@@ -4931,7 +4913,6 @@ PEÓN: 21,00 €/ HORA</Value>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>49.26264cm</Top>
-        <Left>0cm</Left>
         <Height>0.76289cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>19</ZIndex>
@@ -5218,7 +5199,6 @@ PEÓN: 21,00 €/ HORA</Value>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>51.80264cm</Top>
-        <Left>0cm</Left>
         <Height>12.28755cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>20</ZIndex>
@@ -5259,7 +5239,6 @@ PEÓN: 21,00 €/ HORA</Value>
         </Paragraphs>
         <rd:DefaultName>Textbox18</rd:DefaultName>
         <Top>64.26657cm</Top>
-        <Left>0cm</Left>
         <Height>1.49049cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>21</ZIndex>
@@ -5304,8 +5283,7 @@ PEÓN: 21,00 €/ HORA</Value>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox18</rd:DefaultName>
-        <Top>65.93345cm</Top>
-        <Left>0cm</Left>
+        <Top>65.93346cm</Top>
         <Height>2.41653cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>22</ZIndex>
@@ -5416,7 +5394,6 @@ PEÓN: 21,00 €/ HORA</Value>
         </Paragraphs>
         <rd:DefaultName>Textbox18</rd:DefaultName>
         <Top>68.52637cm</Top>
-        <Left>0cm</Left>
         <Height>4.60744cm</Height>
         <Width>17.82026cm</Width>
         <ZIndex>23</ZIndex>
@@ -5470,7 +5447,6 @@ PEÓN: 21,00 €/ HORA</Value>
           </Paragraphs>
           <rd:DefaultName>FechaPresup</rd:DefaultName>
           <Top>4.28792cm</Top>
-          <Left>0cm</Left>
           <Height>0.6cm</Height>
           <Width>17.82026cm</Width>
           <Style>
@@ -5509,7 +5485,6 @@ PEÓN: 21,00 €/ HORA</Value>
           </Paragraphs>
           <rd:DefaultName>LicObraPresup</rd:DefaultName>
           <Top>5.48792cm</Top>
-          <Left>0cm</Left>
           <Height>0.6cm</Height>
           <Width>17.82026cm</Width>
           <ZIndex>1</ZIndex>
@@ -5557,7 +5532,6 @@ PEÓN: 21,00 €/ HORA</Value>
           </Paragraphs>
           <rd:DefaultName>NumCliente</rd:DefaultName>
           <Top>4.88792cm</Top>
-          <Left>0cm</Left>
           <Height>0.6cm</Height>
           <Width>17.82026cm</Width>
           <ZIndex>2</ZIndex>
@@ -5735,7 +5709,6 @@ PEÓN: 21,00 €/ HORA</Value>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>DesEmpresa</rd:DefaultName>
-          <Left>0cm</Left>
           <Height>3.55563cm</Height>
           <Width>7.20638cm</Width>
           <ZIndex>3</ZIndex>
@@ -5769,7 +5742,6 @@ PEÓN: 21,00 €/ HORA</Value>
           </Paragraphs>
           <rd:DefaultName>NomPresup</rd:DefaultName>
           <Top>3.55563cm</Top>
-          <Left>0cm</Left>
           <Height>0.73229cm</Height>
           <Width>17.82026cm</Width>
           <ZIndex>4</ZIndex>
@@ -5897,7 +5869,6 @@ PEÓN: 21,00 €/ HORA</Value>
           </Paragraphs>
           <rd:DefaultName>Textbox123</rd:DefaultName>
           <Top>0.22929cm</Top>
-          <Left>0cm</Left>
           <Height>0.6cm</Height>
           <Width>7.20638cm</Width>
           <ZIndex>1</ZIndex>
