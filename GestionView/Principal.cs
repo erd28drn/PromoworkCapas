@@ -1415,6 +1415,21 @@ namespace Promowork
             return obraCompletaToolStripMenuItem.Enabled;
         }
 
+        private void mnTareasPendientes_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["frmTareas"] != null)
+            {
+                Application.OpenForms["frmTareas"].Activate();
+            }
+            else
+            {
+                frmTareas frm = new frmTareas();
+                frm.MdiParent = this;
+                frm.WindowState = FormWindowState.Maximized;
+                frm.Show();
+            }
+        }
+
        
        
     }

@@ -35,6 +35,8 @@ namespace Promowork.Formularios.General
         RepositorioTrabajador repoTrabajador = new RepositorioTrabajador();
         RepositorioTareas repoTareas = new RepositorioTareas();
         //Sincronizador sincronizador= new Sincronizador();
+        Form mdiParent = null;
+        string AparienciaGridTareas = "";
         private void frmTareas_Load(object sender, EventArgs e)
         {
             var empresas = repoEmpresa.GetAll().ToList();
@@ -55,13 +57,29 @@ namespace Promowork.Formularios.General
                 trabajadoresBindingSource.DataSource = trabajadores;
             }
 
+            AparienciaGridTareas = this.Name + gvTareas.Name + VariablesGlobales.nIdEmpresaActual.ToString() + VariablesGlobales.nIdUsuarioActual.ToString() + ".xml";
+
+            try
+            {
+                gvTareas.RestoreLayoutFromXml(AparienciaGridTareas);
+            }
+            catch { }
+
             CargarTareas();
+            chkRecargar.CheckState = CheckState.Unchecked;
         }
 
         private void btAddTarea_Click(object sender, EventArgs e)
         {
+            chkRecargar.CheckState = CheckState.Unchecked;
+            var tareaSeleccionada = (vTareas)vTareasBindingSource.Current;
             vTareasBindingSource.AddNew();
             var nuevaTarea = (vTareas)vTareasBindingSource.Current;
+            nuevaTarea.IdEmpresa = tareaSeleccionada.IdEmpresa;
+            nuevaTarea.IdTrabajador = tareaSeleccionada.IdTrabajador;
+            nuevaTarea.FechaVencimiento = tareaSeleccionada.FechaVencimiento;
+            nuevaTarea.Finalizada = false;
+
             //var nuevaTarea = repoTareas.MapTarea(vTareaNueva);
             //nuevaTarea.IdUsuarioCreacion = idUsuario;
             //nuevaTarea.IdUsuarioModificacion = idUsuario;
@@ -71,6 +89,10 @@ namespace Promowork.Formularios.General
 
         private void btSaveTarea_Click(object sender, EventArgs e)
         {
+            chkRecargar.CheckState = CheckState.Unchecked;
+
+            this.Validate();
+
             foreach (var tarea in tareasInsert)
             {
                 tarea.IdUsuarioCreacion = idUsuario;
@@ -93,10 +115,7 @@ namespace Promowork.Formularios.General
             tareasUpdate.Clear();
             tareasDelete.Clear();
 
-            //tareasBindingSource.DataSource = tareas;
-            gvTareas.RefreshData();
-            
-
+            CargarTareas();
         }
 
         private void cbEmpresa_SelectedValueChanged(object sender, EventArgs e)
@@ -115,11 +134,16 @@ namespace Promowork.Formularios.General
 
         private void btDelete_Click(object sender, EventArgs e)
         {
+            chkRecargar.CheckState = CheckState.Unchecked;
             var tareaDelete = (vTareas)vTareasBindingSource.Current;
             //var tareaDelete = repoTareas.MapTarea(vTareaEliminar);
 
             tareasDelete.Add(tareaDelete);
-            vTareasBindingSource.RemoveCurrent();;
+            vTareasBindingSource.RemoveCurrent();
+            if (vTareasBindingSource.Count == 0)
+            {
+                btDelete.Enabled = false;
+            }
         }
 
     
@@ -149,14 +173,17 @@ namespace Promowork.Formularios.General
                 btDelete.Enabled = true;
             }
             vTareasBindingSource.DataSource = tareas;
+            gvTareas.RefreshData();
         }
 
         private void gvTareas_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
             if (e.RowHandle != -1)
             {
+                chkRecargar.CheckState = CheckState.Unchecked;
                 var tareaUpdate = (vTareas)vTareasBindingSource.Current;
-                //var tareaUpdate = repoTareas.MapTarea(vTareaModificada);
+
+               //var tareaUpdate = repoTareas.MapTarea(vTareaModificada);
 
                 var existeTarea = tareasUpdate.FirstOrDefault(t => t.IdTarea == tareaUpdate.IdTarea);
 
@@ -172,9 +199,61 @@ namespace Promowork.Formularios.General
             }
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void tmTemporizador_Tick(object sender, EventArgs e)
         {
+            CargarTareas();
+        }
 
+        private void chkRecargar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkRecargar.CheckState == CheckState.Checked)
+            {
+                lbRecargar.Enabled = true;
+                lbSegundos.Enabled = true;
+                tmTemporizador.Enabled = true;
+                spTiempoRecargar.Enabled = true;
+                tmTemporizador.Interval = (int)spTiempoRecargar.Value * 1000;
+            }
+            else
+            {
+                lbRecargar.Enabled = false;
+                lbSegundos.Enabled = false;
+                tmTemporizador.Enabled = false;
+                spTiempoRecargar.Enabled = false;
+            }
+
+        }
+
+        private void spTiempoRecargar_EditValueChanged(object sender, EventArgs e)
+        {
+            tmTemporizador.Interval= (int)spTiempoRecargar.Value*1000;
+        }
+
+        private void chkOcultarPanelEdicion_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkOcultarPanelEdicion.CheckState == CheckState.Checked)
+            {
+                mdiParent = this.MdiParent;
+                pAgregarTareas.Visible = false;
+                this.Visible = false;
+                //this.Parent = null;
+                this.MdiParent = null;
+                //this.TopMost = true;
+                this.WindowState = FormWindowState.Maximized;
+                this.Show();
+            }
+            else
+            {
+                pAgregarTareas.Visible = true;
+                this.MdiParent = mdiParent;
+                this.Visible = false;
+                this.Show();
+            }
+        }
+
+        private void frmTareas_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            gvTareas.SaveLayoutToXml(AparienciaGridTareas);
         }
 
         //private void btSincronizar_Click(object sender, EventArgs e)

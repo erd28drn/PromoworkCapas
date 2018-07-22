@@ -1734,6 +1734,102 @@ namespace GestionData.Modelos
         private global::System.String _DescripcionNota;
         partial void OnDescripcionNotaChanging(global::System.String value);
         partial void OnDescripcionNotaChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdUsuarioCrea
+        {
+            get
+            {
+                return _IdUsuarioCrea;
+            }
+            set
+            {
+                OnIdUsuarioCreaChanging(value);
+                ReportPropertyChanging("IdUsuarioCrea");
+                _IdUsuarioCrea = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdUsuarioCrea");
+                OnIdUsuarioCreaChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdUsuarioCrea;
+        partial void OnIdUsuarioCreaChanging(Nullable<global::System.Int32> value);
+        partial void OnIdUsuarioCreaChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdUsuarioModifica
+        {
+            get
+            {
+                return _IdUsuarioModifica;
+            }
+            set
+            {
+                OnIdUsuarioModificaChanging(value);
+                ReportPropertyChanging("IdUsuarioModifica");
+                _IdUsuarioModifica = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdUsuarioModifica");
+                OnIdUsuarioModificaChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdUsuarioModifica;
+        partial void OnIdUsuarioModificaChanging(Nullable<global::System.Int32> value);
+        partial void OnIdUsuarioModificaChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> FechaCrea
+        {
+            get
+            {
+                return _FechaCrea;
+            }
+            set
+            {
+                OnFechaCreaChanging(value);
+                ReportPropertyChanging("FechaCrea");
+                _FechaCrea = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FechaCrea");
+                OnFechaCreaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _FechaCrea;
+        partial void OnFechaCreaChanging(Nullable<global::System.DateTime> value);
+        partial void OnFechaCreaChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> FechaModifica
+        {
+            get
+            {
+                return _FechaModifica;
+            }
+            set
+            {
+                OnFechaModificaChanging(value);
+                ReportPropertyChanging("FechaModifica");
+                _FechaModifica = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FechaModifica");
+                OnFechaModificaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _FechaModifica;
+        partial void OnFechaModificaChanging(Nullable<global::System.DateTime> value);
+        partial void OnFechaModificaChanged();
 
         #endregion
 

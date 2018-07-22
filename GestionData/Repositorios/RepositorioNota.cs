@@ -21,24 +21,31 @@ namespace GestionData.Repositorios
         /// </summary>
         /// <param name="notas"></param>
         /// <returns></returns>
-        public bool InsertUpdateDelete(List<Notas> notas)
+        public bool InsertUpdateDelete(List<Notas> notas, int idUsuario)
         {
             var notasInsert= notas.Where(n=> n.IdNota==0);
-            var notasUpdate= notas.Where(n=> n.IdNota>0);
-            var notasDelete = contextoGenerales.Notas.ToList().Except(notasUpdate.ToList());
+            var notasUpdate = notas.Where(n => n.EntityState == System.Data.EntityState.Modified);   //notas.Where(n=> n.IdNota>0);
+            var notasDelete = contextoGenerales.Notas.ToList().Except(notas.ToList());
 
             foreach (var nota in notasDelete)
             {
                 contextoGenerales.Notas.DeleteObject(nota);
             }
-            
+
             foreach (var nota in notasUpdate)
             {
                 var notaToUpdate = contextoGenerales.Notas.FirstOrDefault(c => c.IdNota == nota.IdNota);
+                nota.IdUsuarioModifica = idUsuario;
+                nota.FechaModifica = DateTime.Now;
                 notaToUpdate = nota;
             }
             foreach (var nota in notasInsert)
             {
+                nota.IdUsuarioCrea = idUsuario;
+                nota.IdUsuarioModifica = idUsuario;
+                nota.FechaCrea = DateTime.Now;
+                nota.FechaModifica = DateTime.Now;
+
                 contextoGenerales.Notas.AddObject(nota);
             }
             contextoGenerales.SaveChanges();

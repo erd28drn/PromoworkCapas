@@ -1486,6 +1486,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
+    <None Include="Properties\DataSources\GestionData.DatosAccesos.datasource" />
     <None Include="Properties\DataSources\GestionData.Entities.ConfiguracionEmpresa.datasource" />
     <None Include="Properties\DataSources\GestionData.Entities.ConfiguracionUsuario.datasource" />
     <None Include="Properties\DataSources\GestionData.Entities.GestorConEmail.datasource" />

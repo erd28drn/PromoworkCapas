@@ -34,6 +34,7 @@
             this.notasBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -42,7 +43,6 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.notasBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gvNotas = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -50,6 +50,10 @@
             this.colNombreNota = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDescripcionNota = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemMemoEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
+            this.colFechaCrea = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colFechaModifica = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colIdUsuarioCrea = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colIdUsuarioModifica = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.notasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.notasBindingNavigator)).BeginInit();
             this.notasBindingNavigator.SuspendLayout();
@@ -100,6 +104,7 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Agregar nuevo";
+            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
             // bindingNavigatorCountItem
             // 
@@ -107,6 +112,15 @@
             this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
             this.bindingNavigatorCountItem.Text = "de {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "Eliminar";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -168,15 +182,6 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Eliminar";
-            // 
             // notasBindingNavigatorSaveItem
             // 
             this.notasBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -205,7 +210,11 @@
             this.gvNotas.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colIdNota,
             this.colNombreNota,
-            this.colDescripcionNota});
+            this.colDescripcionNota,
+            this.colFechaCrea,
+            this.colFechaModifica,
+            this.colIdUsuarioCrea,
+            this.colIdUsuarioModifica});
             this.gvNotas.GridControl = this.gridControl1;
             this.gvNotas.Name = "gvNotas";
             this.gvNotas.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
@@ -252,6 +261,26 @@
             this.repositoryItemMemoEdit1.MaxLength = 4000;
             this.repositoryItemMemoEdit1.Name = "repositoryItemMemoEdit1";
             // 
+            // colFechaCrea
+            // 
+            this.colFechaCrea.FieldName = "FechaCrea";
+            this.colFechaCrea.Name = "colFechaCrea";
+            // 
+            // colFechaModifica
+            // 
+            this.colFechaModifica.FieldName = "FechaModifica";
+            this.colFechaModifica.Name = "colFechaModifica";
+            // 
+            // colIdUsuarioCrea
+            // 
+            this.colIdUsuarioCrea.FieldName = "IdUsuarioCrea";
+            this.colIdUsuarioCrea.Name = "colIdUsuarioCrea";
+            // 
+            // colIdUsuarioModifica
+            // 
+            this.colIdUsuarioModifica.FieldName = "IdUsuarioModifica";
+            this.colIdUsuarioModifica.Name = "colIdUsuarioModifica";
+            // 
             // frmNotas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -296,5 +325,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn colNombreNota;
         private DevExpress.XtraGrid.Columns.GridColumn colDescripcionNota;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit1;
+        private DevExpress.XtraGrid.Columns.GridColumn colFechaCrea;
+        private DevExpress.XtraGrid.Columns.GridColumn colFechaModifica;
+        private DevExpress.XtraGrid.Columns.GridColumn colIdUsuarioCrea;
+        private DevExpress.XtraGrid.Columns.GridColumn colIdUsuarioModifica;
     }
 }

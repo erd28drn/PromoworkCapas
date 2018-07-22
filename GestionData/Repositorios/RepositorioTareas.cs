@@ -16,13 +16,15 @@ namespace GestionData.Repositorios
 
         public List<vTareas> GetTareasPendientes()
         {
-            var tareas = contectoVistasGenerales.vTareas.Where(t => t.Finalizada == null || t.Finalizada == false).OrderBy(t => t.FechaVencimiento).ToList();
+            var tareas = contectoVistasGenerales.vTareas.AsNoTracking().Where(t => t.Finalizada != true).OrderBy(t => t.FechaVencimiento).ToList();
+            contectoVistasGenerales.Refresh( System.Data.Objects.RefreshMode.StoreWins, tareas);
             return tareas;
         }
 
         public List<vTareas> GetAllTareas()
         {
-            var tareas = contectoVistasGenerales.vTareas.OrderBy(t => t.FechaVencimiento).ToList();
+            var tareas = contectoVistasGenerales.vTareas.AsNoTracking().OrderBy(t => t.FechaVencimiento).ToList();
+            contectoVistasGenerales.Refresh(System.Data.Objects.RefreshMode.StoreWins, tareas);
             return tareas;
         }
 

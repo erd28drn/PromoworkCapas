@@ -34,23 +34,23 @@ namespace GestionData.Repositorios
         /// <param name="idPresupDet"></param>
         /// <param name="idPresupSub"></param>
         /// <returns></returns>
-        public ParticipantesPresupuestos GetOrCreateParticipantePartidaPresupuesto(int idEmpresa, int idUsuario, int idPresupCab, int idPresupCap, int idPresupDet, int? idPresupSub)
+        public List<ParticipantesPresupuestos> GetOrCreateParticipantesPartidaPresupuesto(int idEmpresa, int idUsuario, int idPresupCab, int idPresupCap, int idPresupDet, int? idPresupSub)
         {
-            ParticipantesPresupuestos participante;
+            List<ParticipantesPresupuestos> participantes;
             if (idPresupSub == null)
             {
-                participante = contextoOperaciones.ParticipantesPresupuestos.FirstOrDefault(p => p.IdEmpresa == idEmpresa
-                    && p.IdPresupCab == idPresupCab && p.IdPresupCap == idPresupCap && p.IdPresupDet == idPresupDet && p.IdPresupSub == null);
+                participantes = contextoOperaciones.ParticipantesPresupuestos.Where(p => p.IdEmpresa == idEmpresa
+                    && p.IdPresupCab == idPresupCab && p.IdPresupCap == idPresupCap && p.IdPresupDet == idPresupDet && p.IdPresupSub == null).ToList();
             }
             else
             {
-                participante = contextoOperaciones.ParticipantesPresupuestos.FirstOrDefault(p => p.IdEmpresa == idEmpresa
-                        && p.IdPresupCab == idPresupCab && p.IdPresupCap == idPresupCap && p.IdPresupDet == idPresupDet && p.IdPresupSub == idPresupSub);
+                participantes = contextoOperaciones.ParticipantesPresupuestos.Where(p => p.IdEmpresa == idEmpresa
+                        && p.IdPresupCab == idPresupCab && p.IdPresupCap == idPresupCap && p.IdPresupDet == idPresupDet && p.IdPresupSub == idPresupSub).ToList();
             }
 
-            if (participante == null)
+            if (!participantes.Any())
             {
-                participante = new ParticipantesPresupuestos
+                participantes.Add(new ParticipantesPresupuestos
                 {
                     IdEmpresa = idEmpresa,
                     IdUsuario = idUsuario,
@@ -65,13 +65,13 @@ namespace GestionData.Repositorios
                     Seleccionado3 = false,
                     FechaCrea = DateTime.Now,
                     FechaModifica = DateTime.Now
-                };
-                contextoOperaciones.ParticipantesPresupuestos.AddObject(participante);
+                });
+                contextoOperaciones.ParticipantesPresupuestos.AddObject(participantes.FirstOrDefault());
                 contextoOperaciones.SaveChanges();
-                GetOrCreateParticipantePartidaPresupuesto(idEmpresa, idUsuario, idPresupCab, idPresupCap, idPresupDet, idPresupSub);
+                GetOrCreateParticipantesPartidaPresupuesto(idEmpresa, idUsuario, idPresupCab, idPresupCap, idPresupDet, idPresupSub);
             }
 
-            return participante;
+            return participantes;
         }
 
         public List<ProveedoresParticipantes> GetOrCreateProveedoresParticipantes(int idParticipantePresupuesto, int numProveedores)
@@ -106,6 +106,26 @@ namespace GestionData.Repositorios
             //participantePresupuestoToUpdate.FechaModifica = DateTime.Now;
             contextoOperaciones.SaveChanges();
             return participantePresupuestoUpdated;
+        }
+
+        public bool DeleteParticipantePartidaPresupuesto(ParticipantesPresupuestos participantePresupuesto)
+        {
+            contextoOperaciones.ParticipantesPresupuestos.DeleteObject(participantePresupuesto);
+            contextoOperaciones.SaveChanges();
+            return true;
+        }
+
+        public List<ParticipantesPresupuestos> GetParticipantesPresupuesto(int idPresupCab)
+        {
+              var  participantes = contextoOperaciones.ParticipantesPresupuestos.Where(p => p.IdPresupCab == idPresupCab).ToList();
+              return participantes;
+        }
+
+        public bool AddParticipantePartidaPresupuesto(ParticipantesPresupuestos participantePresupuesto)
+        {
+            contextoOperaciones.ParticipantesPresupuestos.AddObject(participantePresupuesto);
+            contextoOperaciones.SaveChanges();
+            return true;
         }
     }
 }

@@ -117,7 +117,7 @@ namespace Promowork.Formularios.Operaciones
         {
             
 
-            if ((int)gridView2.GetRowCellValue(e.RowHandle, "IdPresupCap") < 0)
+            if ((int)gvPartida.GetRowCellValue(e.RowHandle, "IdPresupCap") < 0)
             {
                 MessageBox.Show("No puede crear detalles antes de guardar los cambios en el Capítulo", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
@@ -462,7 +462,7 @@ namespace Promowork.Formularios.Operaciones
 
         private void gridView2_InitNewRow(object sender, InitNewRowEventArgs e)
         {
-            gridView2.SetFocusedRowCellValue("IdPresupCab", gridView1.GetFocusedRowCellValue("IdPresupCab"));
+            gvPartida.SetFocusedRowCellValue("IdPresupCab", gridView1.GetFocusedRowCellValue("IdPresupCab"));
         }
 
 
@@ -475,11 +475,11 @@ namespace Promowork.Formularios.Operaciones
             if (toolStripButton6.Text == "+")
             {
               
-                for (int i = 0; i < gridView2.RowCount; i++)
+                for (int i = 0; i < gvPartida.RowCount; i++)
                 {
                   //  RecursExpand(gridView2, i);
 
-                    gridView2.SetMasterRowExpanded(i, true);
+                    gvPartida.SetMasterRowExpanded(i, true);
                    
 
                 }
@@ -489,9 +489,9 @@ namespace Promowork.Formularios.Operaciones
             }
             else
             {
-                for (int i = 0; i < gridView2.RowCount; i++)
+                for (int i = 0; i < gvPartida.RowCount; i++)
                 {
-                    gridView2.CollapseAllDetails();
+                    gvPartida.CollapseAllDetails();
                     //gridView2.SetRowExpanded(i, false, true);
                 }
                 toolStripButton6.Text = "+";
@@ -508,17 +508,17 @@ namespace Promowork.Formularios.Operaciones
             if (toolStripButton1.Text == "+")
             {
 
-                gridView2.BeginUpdate();
+                gvPartida.BeginUpdate();
                 
-                for (int i = 0; i < gridView2.RowCount; i++)
+                for (int i = 0; i < gvPartida.RowCount; i++)
                 {
                     
                         
-                    gridView2.SetMasterRowExpanded(i, true);
+                    gvPartida.SetMasterRowExpanded(i, true);
 
                     try
                     {
-                        GridView detalle = (GridView)gridView2.GetDetailView(i, 0);
+                        GridView detalle = (GridView)gvPartida.GetDetailView(i, 0);
                         detalle.OptionsDetail.AllowExpandEmptyDetails = false;
 
                         for (int j = 0; j < detalle.RowCount; j++)
@@ -533,7 +533,7 @@ namespace Promowork.Formularios.Operaciones
                     catch
                     { }
                 }
-                gridView2.EndUpdate();
+                gvPartida.EndUpdate();
                 toolStripButton1.Text = "-";
                 toolStripButton6.Text = "-";
                // toolStripButton1.Tag = "-";
@@ -541,15 +541,15 @@ namespace Promowork.Formularios.Operaciones
             else
             {
 
-                gridView2.BeginUpdate();
-                for (int i = 0; i < gridView2.RowCount; i++)
+                gvPartida.BeginUpdate();
+                for (int i = 0; i < gvPartida.RowCount; i++)
                 {
 
                     //  gridView3.SetMasterRowExpanded(i, true);
 
                     try
                     {
-                        GridView detalle = (GridView)gridView2.GetDetailView(i, 0);
+                        GridView detalle = (GridView)gvPartida.GetDetailView(i, 0);
                         //MessageBox.Show(detalle.RowCount.ToString());
                         for (int j = 0; j < detalle.RowCount; j++)
                         {
@@ -560,7 +560,7 @@ namespace Promowork.Formularios.Operaciones
                     catch
                     { }
                 }
-                gridView2.EndUpdate();
+                gvPartida.EndUpdate();
                 toolStripButton1.Text = "+";
               //  toolStripButton1.Tag = "+";
             }
@@ -783,6 +783,41 @@ namespace Promowork.Formularios.Operaciones
             frm.MdiParent = this.MdiParent;
             frm.Show();
 
+        }
+
+        private void numeroPartida_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            this.Validate();
+            this.presupDetBindingSource.EndEdit();
+            int idPresupCab=0;
+            int idPresupCap=0;
+            int idPresupDet=0;
+            int? idPresupSub=null;
+            try
+            {
+                GridView GridActiva = (GridView)presupCapGridControl.FocusedView;
+                if (GridActiva.Name == "gvDetalle")
+                {
+                    idPresupCab = (int)GridActiva.GetFocusedRowCellValue("IdPresupCab");
+                    idPresupCap = (int)GridActiva.GetFocusedRowCellValue("IdPresupCap");
+                    idPresupDet = (int)GridActiva.GetFocusedRowCellValue("IdPresupDet");
+                    idPresupSub = null;
+                }
+
+                if (GridActiva.Name == "gvSubDetalle")
+                {
+                    idPresupCab = (int)GridActiva.GetFocusedRowCellValue("IdPresupCab");
+                    idPresupCap = (int)GridActiva.GetFocusedRowCellValue("IdPresupCap");
+                    idPresupDet = (int)GridActiva.GetFocusedRowCellValue("IdPresupDet");
+                    idPresupSub = (int)GridActiva.GetFocusedRowCellValue("IdPresupSub");
+                }
+
+                frmParticipantesPresupuestos frm = new frmParticipantesPresupuestos(idPresupCab, idPresupCap, idPresupDet, idPresupSub);
+                frm.MdiParent = this.MdiParent;
+                frm.Show();
+            }
+            catch { MessageBox.Show("No fue posible recuperar los datos de la partida seleccionada. Guarde los datos antes de ejectar esta opción.", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error); }
+           
         }
 
     }

@@ -33,7 +33,12 @@ namespace Promowork.Formularios.General
             this.Validate();
             notasBindingSource.EndEdit();
             notas = (List<Notas>)notasBindingSource.DataSource;
-            repoNota.InsertUpdateDelete(notas);
+            repoNota.InsertUpdateDelete(notas, VariablesGlobales.nIdUsuarioActual);
+        }
+
+        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -33,9 +33,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmParticipantesPresupuestos));
             this.participantesPresupuestosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.participantesPresupuestosBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -44,12 +42,14 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.participantesPresupuestosBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.proveedoresParticipantesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.participantesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nomPresupTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.cbParticipante = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gvParticipantesPresupuestos = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colIdParticipantePresupuesto = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIdEmpresa = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIdUsuario = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -74,6 +74,8 @@
             this.colSeleccionado2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSeleccionado3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.chkMostrarTodoPresupuesto = new DevExpress.XtraEditors.CheckEdit();
+            this.panel1 = new System.Windows.Forms.Panel();
             nomPresupLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.participantesPresupuestosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.participantesPresupuestosBindingNavigator)).BeginInit();
@@ -82,20 +84,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.participantesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nomPresupTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbParticipante)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvParticipantesPresupuestos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbProveedores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proveedoresBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkMostrarTodoPresupuesto.Properties)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // nomPresupLabel
             // 
             nomPresupLabel.AutoSize = true;
-            nomPresupLabel.Location = new System.Drawing.Point(21, 48);
+            nomPresupLabel.Location = new System.Drawing.Point(13, 16);
             nomPresupLabel.Name = "nomPresupLabel";
-            nomPresupLabel.Size = new System.Drawing.Size(68, 13);
+            nomPresupLabel.Size = new System.Drawing.Size(69, 13);
             nomPresupLabel.TabIndex = 3;
-            nomPresupLabel.Text = "Nom Presup:";
+            nomPresupLabel.Text = "Presupuesto:";
             // 
             // participantesPresupuestosBindingSource
             // 
@@ -103,10 +107,10 @@
             // 
             // participantesPresupuestosBindingNavigator
             // 
-            this.participantesPresupuestosBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.participantesPresupuestosBindingNavigator.AddNewItem = null;
             this.participantesPresupuestosBindingNavigator.BindingSource = this.participantesPresupuestosBindingSource;
             this.participantesPresupuestosBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.participantesPresupuestosBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.participantesPresupuestosBindingNavigator.DeleteItem = null;
             this.participantesPresupuestosBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
@@ -131,30 +135,12 @@
             this.participantesPresupuestosBindingNavigator.TabIndex = 0;
             this.participantesPresupuestosBindingNavigator.Text = "bindingNavigator1";
             // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Agregar nuevo";
-            // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
             this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
             this.bindingNavigatorCountItem.Text = "de {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Eliminar";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -216,6 +202,26 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = global::Promowork.Properties.Resources.Duplicar_32;
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Duplicar";
+            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "Eliminar";
+            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
+            // 
             // participantesPresupuestosBindingNavigatorSaveItem
             // 
             this.participantesPresupuestosBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -236,8 +242,9 @@
             // nomPresupTextEdit
             // 
             this.nomPresupTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.participantesPresupuestosBindingSource, "PresupCab.NomPresup", true));
-            this.nomPresupTextEdit.Location = new System.Drawing.Point(95, 45);
+            this.nomPresupTextEdit.Location = new System.Drawing.Point(87, 12);
             this.nomPresupTextEdit.Name = "nomPresupTextEdit";
+            this.nomPresupTextEdit.Properties.ReadOnly = true;
             this.nomPresupTextEdit.Size = new System.Drawing.Size(378, 20);
             this.nomPresupTextEdit.TabIndex = 4;
             // 
@@ -253,9 +260,9 @@
             this.cbParticipante.Name = "cbParticipante";
             this.cbParticipante.ValueMember = "IdParticipante";
             // 
-            // gridView1
+            // gvParticipantesPresupuestos
             // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gvParticipantesPresupuestos.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colIdParticipantePresupuesto,
             this.colIdEmpresa,
             this.colIdUsuario,
@@ -277,29 +284,34 @@
             this.colSeleccionado1,
             this.colSeleccionado2,
             this.colSeleccionado3});
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
+            this.gvParticipantesPresupuestos.GridControl = this.gridControl1;
+            this.gvParticipantesPresupuestos.Name = "gvParticipantesPresupuestos";
+            this.gvParticipantesPresupuestos.OptionsView.ShowAutoFilterRow = true;
             // 
             // colIdParticipantePresupuesto
             // 
             this.colIdParticipantePresupuesto.FieldName = "IdParticipantePresupuesto";
             this.colIdParticipantePresupuesto.Name = "colIdParticipantePresupuesto";
+            this.colIdParticipantePresupuesto.OptionsColumn.ReadOnly = true;
             // 
             // colIdEmpresa
             // 
             this.colIdEmpresa.FieldName = "IdEmpresa";
             this.colIdEmpresa.Name = "colIdEmpresa";
+            this.colIdEmpresa.OptionsColumn.ReadOnly = true;
             // 
             // colIdUsuario
             // 
             this.colIdUsuario.FieldName = "IdUsuario";
             this.colIdUsuario.Name = "colIdUsuario";
+            this.colIdUsuario.OptionsColumn.ReadOnly = true;
             // 
             // colIdPresupCab
             // 
             this.colIdPresupCab.Caption = "Presupuesto";
             this.colIdPresupCab.FieldName = "PresupCab";
             this.colIdPresupCab.Name = "colIdPresupCab";
+            this.colIdPresupCab.OptionsColumn.ReadOnly = true;
             this.colIdPresupCab.Width = 114;
             // 
             // colIdPresupCap
@@ -307,6 +319,7 @@
             this.colIdPresupCap.Caption = "Capítulo";
             this.colIdPresupCap.FieldName = "PresupCap.DesCapPresup";
             this.colIdPresupCap.Name = "colIdPresupCap";
+            this.colIdPresupCap.OptionsColumn.ReadOnly = true;
             this.colIdPresupCap.Visible = true;
             this.colIdPresupCap.VisibleIndex = 0;
             this.colIdPresupCap.Width = 106;
@@ -316,6 +329,7 @@
             this.colIdPresupDet.Caption = "Detalle";
             this.colIdPresupDet.FieldName = "PresupDet.NomPresupDet";
             this.colIdPresupDet.Name = "colIdPresupDet";
+            this.colIdPresupDet.OptionsColumn.ReadOnly = true;
             this.colIdPresupDet.Visible = true;
             this.colIdPresupDet.VisibleIndex = 1;
             this.colIdPresupDet.Width = 104;
@@ -325,6 +339,7 @@
             this.colIdPresupSub.Caption = "Subdetalle";
             this.colIdPresupSub.FieldName = "PresupSub.NomPresupSub";
             this.colIdPresupSub.Name = "colIdPresupSub";
+            this.colIdPresupSub.OptionsColumn.ReadOnly = true;
             this.colIdPresupSub.Visible = true;
             this.colIdPresupSub.VisibleIndex = 2;
             this.colIdPresupSub.Width = 132;
@@ -333,6 +348,7 @@
             // 
             this.colNombrePartida.FieldName = "NombrePartida";
             this.colNombrePartida.Name = "colNombrePartida";
+            this.colNombrePartida.OptionsColumn.ReadOnly = true;
             this.colNombrePartida.Width = 260;
             // 
             // colIdParticipante
@@ -347,6 +363,7 @@
             // 
             // colEsServicio
             // 
+            this.colEsServicio.Caption = "Servicio";
             this.colEsServicio.FieldName = "EsServicio";
             this.colEsServicio.Name = "colEsServicio";
             this.colEsServicio.Visible = true;
@@ -357,11 +374,13 @@
             // 
             this.colFechaCrea.FieldName = "FechaCrea";
             this.colFechaCrea.Name = "colFechaCrea";
+            this.colFechaCrea.OptionsColumn.ReadOnly = true;
             // 
             // colFechaModifica
             // 
             this.colFechaModifica.FieldName = "FechaModifica";
             this.colFechaModifica.Name = "colFechaModifica";
+            this.colFechaModifica.OptionsColumn.ReadOnly = true;
             // 
             // colIdProveedor1
             // 
@@ -469,28 +488,49 @@
             // gridControl1
             // 
             this.gridControl1.DataSource = this.participantesPresupuestosBindingSource;
-            this.gridControl1.Location = new System.Drawing.Point(12, 90);
-            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl1.Location = new System.Drawing.Point(0, 70);
+            this.gridControl1.MainView = this.gvParticipantesPresupuestos;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cbParticipante,
             this.cbProveedores});
-            this.gridControl1.Size = new System.Drawing.Size(1147, 294);
+            this.gridControl1.Size = new System.Drawing.Size(1194, 399);
             this.gridControl1.TabIndex = 1;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.gvParticipantesPresupuestos});
+            // 
+            // chkMostrarTodoPresupuesto
+            // 
+            this.chkMostrarTodoPresupuesto.Location = new System.Drawing.Point(498, 13);
+            this.chkMostrarTodoPresupuesto.Name = "chkMostrarTodoPresupuesto";
+            this.chkMostrarTodoPresupuesto.Properties.Caption = "Mostrar Todo los participantes del Presupuesto";
+            this.chkMostrarTodoPresupuesto.Size = new System.Drawing.Size(268, 19);
+            this.chkMostrarTodoPresupuesto.TabIndex = 5;
+            this.chkMostrarTodoPresupuesto.CheckedChanged += new System.EventHandler(this.chkMostrarTodoPresupuesto_CheckedChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.chkMostrarTodoPresupuesto);
+            this.panel1.Controls.Add(nomPresupLabel);
+            this.panel1.Controls.Add(this.nomPresupTextEdit);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 25);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1194, 45);
+            this.panel1.TabIndex = 6;
             // 
             // frmParticipantesPresupuestos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1194, 469);
-            this.Controls.Add(nomPresupLabel);
-            this.Controls.Add(this.nomPresupTextEdit);
             this.Controls.Add(this.gridControl1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.participantesPresupuestosBindingNavigator);
             this.Name = "frmParticipantesPresupuestos";
             this.Text = "frmParticipantesPresupuestos";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmParticipantesPresupuestos_FormClosing);
             this.Load += new System.EventHandler(this.frmParticipantesPresupuestos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.participantesPresupuestosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.participantesPresupuestosBindingNavigator)).EndInit();
@@ -500,10 +540,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.participantesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nomPresupTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbParticipante)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvParticipantesPresupuestos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbProveedores)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proveedoresBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkMostrarTodoPresupuesto.Properties)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -529,7 +572,7 @@
         private System.Windows.Forms.BindingSource participantesBindingSource;
         private DevExpress.XtraEditors.TextEdit nomPresupTextEdit;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit cbParticipante;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvParticipantesPresupuestos;
         private DevExpress.XtraGrid.Columns.GridColumn colIdParticipantePresupuesto;
         private DevExpress.XtraGrid.Columns.GridColumn colIdEmpresa;
         private DevExpress.XtraGrid.Columns.GridColumn colIdUsuario;
@@ -554,5 +597,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colSeleccionado3;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit cbProveedores;
         private System.Windows.Forms.BindingSource proveedoresBindingSource;
+        private DevExpress.XtraEditors.CheckEdit chkMostrarTodoPresupuesto;
+        private System.Windows.Forms.Panel panel1;
     }
 }

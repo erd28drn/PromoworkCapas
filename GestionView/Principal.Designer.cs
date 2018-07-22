@@ -32,8 +32,19 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.MenuPrincipal = new System.Windows.Forms.MenuStrip();
             this.sistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.accesosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem19 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cambiarDeUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnTareasPendientes = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clasificaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.trabajadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.obrasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
             this.otrasDefinicionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,11 +68,21 @@
             this.tiposDeCombustiblesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vehículosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.operacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.horasTrabajadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem20 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.presupuestosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem22 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem17 = new System.Windows.Forms.ToolStripMenuItem();
+            this.facturasPresupuestoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cobrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.combustiblesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.entradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
@@ -100,8 +121,27 @@
             this.porConceptosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.porConceptosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton16 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton18 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton19 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton12 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton13 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton15 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton14 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton17 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -130,45 +170,6 @@
             this.tableAdapterManager = new GestionData.Promowork_dataDataSetTableAdapters.TableAdapterManager();
             this.usuariosTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.UsuariosTableAdapter();
             this.usuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton16 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton18 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton19 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton12 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton13 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton15 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton14 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton17 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.accesosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cambiarDeUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
-            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.trabajadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.obrasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.horasTrabajadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
-            this.presupuestosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.facturasPresupuestoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cobrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuPrincipal.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -203,10 +204,35 @@
             this.toolStripMenuItem19,
             this.cambiarDeUsuarioToolStripMenuItem,
             this.toolStripMenuItem8,
+            this.mnTareasPendientes,
             this.salirToolStripMenuItem});
             this.sistemaToolStripMenuItem.Name = "sistemaToolStripMenuItem";
             this.sistemaToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.sistemaToolStripMenuItem.Text = "General";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Image = global::Promowork.Properties.Resources.company;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItem1.Text = "Empresas";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // usuariosToolStripMenuItem
+            // 
+            this.usuariosToolStripMenuItem.Image = global::Promowork.Properties.Resources.user_account;
+            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.usuariosToolStripMenuItem.Text = "Usuarios";
+            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
+            // 
+            // accesosToolStripMenuItem
+            // 
+            this.accesosToolStripMenuItem.Image = global::Promowork.Properties.Resources.Accesos1;
+            this.accesosToolStripMenuItem.Name = "accesosToolStripMenuItem";
+            this.accesosToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.accesosToolStripMenuItem.Text = "Accesos Empresas";
+            this.accesosToolStripMenuItem.Click += new System.EventHandler(this.accesosToolStripMenuItem_Click);
             // 
             // toolStripMenuItem19
             // 
@@ -215,6 +241,37 @@
             this.toolStripMenuItem19.Size = new System.Drawing.Size(170, 22);
             this.toolStripMenuItem19.Text = "Accesos Opciones";
             this.toolStripMenuItem19.Click += new System.EventHandler(this.toolStripMenuItem19_Click);
+            // 
+            // cambiarDeUsuarioToolStripMenuItem
+            // 
+            this.cambiarDeUsuarioToolStripMenuItem.Image = global::Promowork.Properties.Resources.login;
+            this.cambiarDeUsuarioToolStripMenuItem.Name = "cambiarDeUsuarioToolStripMenuItem";
+            this.cambiarDeUsuarioToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.cambiarDeUsuarioToolStripMenuItem.Text = "Entrada al Sistema";
+            this.cambiarDeUsuarioToolStripMenuItem.Click += new System.EventHandler(this.cambiarDeUsuarioToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem8
+            // 
+            this.toolStripMenuItem8.Image = global::Promowork.Properties.Resources.report_img;
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItem8.Text = "Notas";
+            this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click_1);
+            // 
+            // mnTareasPendientes
+            // 
+            this.mnTareasPendientes.Name = "mnTareasPendientes";
+            this.mnTareasPendientes.Size = new System.Drawing.Size(170, 22);
+            this.mnTareasPendientes.Text = "Tareas Pendientes";
+            this.mnTareasPendientes.Click += new System.EventHandler(this.mnTareasPendientes_Click);
+            // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Image = global::Promowork.Properties.Resources.exit16;
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // clasificaToolStripMenuItem
             // 
@@ -229,6 +286,38 @@
             this.clasificaToolStripMenuItem.Name = "clasificaToolStripMenuItem";
             this.clasificaToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
             this.clasificaToolStripMenuItem.Text = "Definiciones";
+            // 
+            // trabajadoresToolStripMenuItem
+            // 
+            this.trabajadoresToolStripMenuItem.Image = global::Promowork.Properties.Resources.construction_worker;
+            this.trabajadoresToolStripMenuItem.Name = "trabajadoresToolStripMenuItem";
+            this.trabajadoresToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.trabajadoresToolStripMenuItem.Text = "Trabajadores";
+            this.trabajadoresToolStripMenuItem.Click += new System.EventHandler(this.trabajadoresToolStripMenuItem_Click);
+            // 
+            // clientesToolStripMenuItem
+            // 
+            this.clientesToolStripMenuItem.Image = global::Promowork.Properties.Resources.clientes32;
+            this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.clientesToolStripMenuItem.Text = "Clientes";
+            this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
+            // 
+            // proveedoresToolStripMenuItem
+            // 
+            this.proveedoresToolStripMenuItem.Image = global::Promowork.Properties.Resources.Suppiers;
+            this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
+            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.proveedoresToolStripMenuItem.Text = "Proveedores";
+            this.proveedoresToolStripMenuItem.Click += new System.EventHandler(this.proveedoresToolStripMenuItem_Click);
+            // 
+            // obrasToolStripMenuItem
+            // 
+            this.obrasToolStripMenuItem.Image = global::Promowork.Properties.Resources.icono_Curso_Construccion_Tabiques2;
+            this.obrasToolStripMenuItem.Name = "obrasToolStripMenuItem";
+            this.obrasToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.obrasToolStripMenuItem.Text = "Obras";
+            this.obrasToolStripMenuItem.Click += new System.EventHandler(this.obrasToolStripMenuItem_Click);
             // 
             // toolStripMenuItem14
             // 
@@ -427,12 +516,76 @@
             this.operacionesToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
             this.operacionesToolStripMenuItem.Text = "Operaciones";
             // 
+            // horasTrabajadasToolStripMenuItem
+            // 
+            this.horasTrabajadasToolStripMenuItem.Image = global::Promowork.Properties.Resources.reloj1;
+            this.horasTrabajadasToolStripMenuItem.Name = "horasTrabajadasToolStripMenuItem";
+            this.horasTrabajadasToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.horasTrabajadasToolStripMenuItem.Text = "Horas Trabajadas";
+            this.horasTrabajadasToolStripMenuItem.Click += new System.EventHandler(this.horasTrabajadasToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem9
+            // 
+            this.toolStripMenuItem9.Image = global::Promowork.Properties.Resources.relojadmin;
+            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(223, 22);
+            this.toolStripMenuItem9.Text = "Horas Administración";
+            this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
+            // 
+            // toolStripMenuItem15
+            // 
+            this.toolStripMenuItem15.Image = global::Promowork.Properties.Resources.Partes;
+            this.toolStripMenuItem15.Name = "toolStripMenuItem15";
+            this.toolStripMenuItem15.Size = new System.Drawing.Size(223, 22);
+            this.toolStripMenuItem15.Text = "Partes Trabajadores";
+            this.toolStripMenuItem15.Click += new System.EventHandler(this.toolStripMenuItem15_Click);
+            // 
             // toolStripMenuItem20
             // 
             this.toolStripMenuItem20.Name = "toolStripMenuItem20";
             this.toolStripMenuItem20.Size = new System.Drawing.Size(223, 22);
             this.toolStripMenuItem20.Text = "Revisión Partes Trabajadores";
             this.toolStripMenuItem20.Click += new System.EventHandler(this.toolStripMenuItem20_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Image = global::Promowork.Properties.Resources.Anticipos;
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(223, 22);
+            this.toolStripMenuItem2.Text = "Anticipos a Trabajadores";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Image = global::Promowork.Properties.Resources.logo_seguridad_social;
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(223, 22);
+            this.toolStripMenuItem3.Text = "Seguridad Social";
+            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
+            // 
+            // toolStripMenuItem7
+            // 
+            this.toolStripMenuItem7.Image = global::Promowork.Properties.Resources.cruz_roja32;
+            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(223, 22);
+            this.toolStripMenuItem7.Text = "Baja Médica";
+            this.toolStripMenuItem7.Click += new System.EventHandler(this.toolStripMenuItem7_Click);
+            // 
+            // presupuestosToolStripMenuItem
+            // 
+            this.presupuestosToolStripMenuItem.Image = global::Promowork.Properties.Resources.Presupuesto32;
+            this.presupuestosToolStripMenuItem.Name = "presupuestosToolStripMenuItem";
+            this.presupuestosToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.presupuestosToolStripMenuItem.Text = "Albaranes";
+            this.presupuestosToolStripMenuItem.Click += new System.EventHandler(this.presupuestosToolStripMenuItem_Click);
+            // 
+            // comprasToolStripMenuItem
+            // 
+            this.comprasToolStripMenuItem.Image = global::Promowork.Properties.Resources.Buy;
+            this.comprasToolStripMenuItem.Name = "comprasToolStripMenuItem";
+            this.comprasToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.comprasToolStripMenuItem.Text = "Compras";
+            this.comprasToolStripMenuItem.Click += new System.EventHandler(this.comprasToolStripMenuItem_Click);
             // 
             // toolStripMenuItem22
             // 
@@ -448,6 +601,14 @@
             this.toolStripMenuItem17.Text = "Presupuestos";
             this.toolStripMenuItem17.Click += new System.EventHandler(this.toolStripMenuItem17_Click_1);
             // 
+            // facturasPresupuestoToolStripMenuItem
+            // 
+            this.facturasPresupuestoToolStripMenuItem.Image = global::Promowork.Properties.Resources.Factura;
+            this.facturasPresupuestoToolStripMenuItem.Name = "facturasPresupuestoToolStripMenuItem";
+            this.facturasPresupuestoToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.facturasPresupuestoToolStripMenuItem.Text = "Facturas Presupuesto";
+            this.facturasPresupuestoToolStripMenuItem.Click += new System.EventHandler(this.facturasPresupuestoToolStripMenuItem_Click);
+            // 
             // toolStripMenuItem12
             // 
             this.toolStripMenuItem12.Name = "toolStripMenuItem12";
@@ -461,6 +622,14 @@
             this.toolStripMenuItem16.Size = new System.Drawing.Size(223, 22);
             this.toolStripMenuItem16.Text = "Facturas Partes Trabajadores";
             this.toolStripMenuItem16.Click += new System.EventHandler(this.toolStripMenuItem16_Click);
+            // 
+            // cobrosToolStripMenuItem
+            // 
+            this.cobrosToolStripMenuItem.Image = global::Promowork.Properties.Resources.money2;
+            this.cobrosToolStripMenuItem.Name = "cobrosToolStripMenuItem";
+            this.cobrosToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.cobrosToolStripMenuItem.Text = "Cobros";
+            this.cobrosToolStripMenuItem.Click += new System.EventHandler(this.cobrosToolStripMenuItem_Click);
             // 
             // combustiblesToolStripMenuItem1
             // 
@@ -794,17 +963,246 @@
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.AutoSize = false;
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = global::Promowork.Properties.Resources.login;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Margin = new System.Windows.Forms.Padding(0);
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(32, 32);
+            this.toolStripButton1.Text = "Entrada al Sistema";
+            this.toolStripButton1.ToolTipText = "Entrada al Sistema";
+            this.toolStripButton1.Click += new System.EventHandler(this.cambiarDeUsuarioToolStripMenuItem_Click);
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.AutoSize = false;
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = global::Promowork.Properties.Resources.company;
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(32, 32);
+            this.toolStripButton2.Text = "Empresas";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            this.toolStripButton2.Paint += new System.Windows.Forms.PaintEventHandler(this.toolStripButton2_Paint_1);
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.AutoSize = false;
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton3.Image = global::Promowork.Properties.Resources.user_account;
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(32, 32);
+            this.toolStripButton3.Text = "Usuarios";
+            this.toolStripButton3.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
+            this.toolStripButton3.Paint += new System.Windows.Forms.PaintEventHandler(this.toolStripButton3_Paint_1);
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.AutoSize = false;
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton4.Image = global::Promowork.Properties.Resources.Accesos1;
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(32, 32);
+            this.toolStripButton4.Text = "Permisos a Empresas";
+            this.toolStripButton4.Click += new System.EventHandler(this.accesosToolStripMenuItem_Click);
+            this.toolStripButton4.Paint += new System.Windows.Forms.PaintEventHandler(this.toolStripButton4_Paint_1);
+            // 
+            // toolStripButton16
+            // 
+            this.toolStripButton16.AutoSize = false;
+            this.toolStripButton16.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton16.Image = global::Promowork.Properties.Resources._checked;
+            this.toolStripButton16.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton16.Name = "toolStripButton16";
+            this.toolStripButton16.Size = new System.Drawing.Size(32, 32);
+            this.toolStripButton16.Text = "Permisos a Opciones";
+            this.toolStripButton16.Click += new System.EventHandler(this.toolStripMenuItem19_Click);
+            this.toolStripButton16.Paint += new System.Windows.Forms.PaintEventHandler(this.toolStripButton16_Paint);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.AutoSize = false;
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(20, 32);
             // 
+            // toolStripButton5
+            // 
+            this.toolStripButton5.AutoSize = false;
+            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton5.Image = global::Promowork.Properties.Resources.construction_worker;
+            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton5.Name = "toolStripButton5";
+            this.toolStripButton5.Size = new System.Drawing.Size(32, 32);
+            this.toolStripButton5.Text = "Trabajadores";
+            this.toolStripButton5.Click += new System.EventHandler(this.trabajadoresToolStripMenuItem_Click);
+            this.toolStripButton5.Paint += new System.Windows.Forms.PaintEventHandler(this.toolStripButton5_Paint);
+            // 
+            // toolStripButton6
+            // 
+            this.toolStripButton6.AutoSize = false;
+            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton6.Image = global::Promowork.Properties.Resources.clientes32;
+            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton6.Name = "toolStripButton6";
+            this.toolStripButton6.Size = new System.Drawing.Size(32, 32);
+            this.toolStripButton6.Text = "Clientes";
+            this.toolStripButton6.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
+            this.toolStripButton6.Paint += new System.Windows.Forms.PaintEventHandler(this.toolStripButton6_Paint);
+            // 
+            // toolStripButton10
+            // 
+            this.toolStripButton10.AutoSize = false;
+            this.toolStripButton10.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton10.Image = global::Promowork.Properties.Resources.Suppiers;
+            this.toolStripButton10.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton10.Name = "toolStripButton10";
+            this.toolStripButton10.Size = new System.Drawing.Size(32, 32);
+            this.toolStripButton10.Text = "Proveedores";
+            this.toolStripButton10.Click += new System.EventHandler(this.proveedoresToolStripMenuItem_Click);
+            this.toolStripButton10.Paint += new System.Windows.Forms.PaintEventHandler(this.toolStripButton10_Paint);
+            // 
+            // toolStripButton11
+            // 
+            this.toolStripButton11.AutoSize = false;
+            this.toolStripButton11.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton11.Image = global::Promowork.Properties.Resources.icono_Curso_Construccion_Tabiques2;
+            this.toolStripButton11.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton11.Name = "toolStripButton11";
+            this.toolStripButton11.Size = new System.Drawing.Size(32, 32);
+            this.toolStripButton11.Text = "Obras";
+            this.toolStripButton11.Click += new System.EventHandler(this.obrasToolStripMenuItem_Click);
+            this.toolStripButton11.Paint += new System.Windows.Forms.PaintEventHandler(this.toolStripButton11_Paint);
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.AutoSize = false;
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(20, 32);
+            // 
+            // toolStripButton7
+            // 
+            this.toolStripButton7.AutoSize = false;
+            this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton7.Image = global::Promowork.Properties.Resources.reloj1;
+            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton7.Name = "toolStripButton7";
+            this.toolStripButton7.Size = new System.Drawing.Size(32, 32);
+            this.toolStripButton7.Text = "Horas Trabajadas";
+            this.toolStripButton7.Click += new System.EventHandler(this.horasTrabajadasToolStripMenuItem_Click);
+            this.toolStripButton7.Paint += new System.Windows.Forms.PaintEventHandler(this.toolStripButton7_Paint);
+            // 
+            // toolStripButton18
+            // 
+            this.toolStripButton18.AutoSize = false;
+            this.toolStripButton18.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton18.Image = global::Promowork.Properties.Resources.relojadmin;
+            this.toolStripButton18.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton18.Name = "toolStripButton18";
+            this.toolStripButton18.Size = new System.Drawing.Size(32, 32);
+            this.toolStripButton18.Text = "Horas Administración";
+            this.toolStripButton18.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
+            this.toolStripButton18.Paint += new System.Windows.Forms.PaintEventHandler(this.toolStripButton18_Paint);
+            // 
+            // toolStripButton19
+            // 
+            this.toolStripButton19.AutoSize = false;
+            this.toolStripButton19.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton19.Image = global::Promowork.Properties.Resources.Partes;
+            this.toolStripButton19.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton19.Name = "toolStripButton19";
+            this.toolStripButton19.Size = new System.Drawing.Size(32, 32);
+            this.toolStripButton19.Text = "Partes Trabajadores";
+            this.toolStripButton19.Click += new System.EventHandler(this.toolStripMenuItem15_Click);
+            this.toolStripButton19.Paint += new System.Windows.Forms.PaintEventHandler(this.toolStripButton19_Paint);
+            // 
+            // toolStripButton12
+            // 
+            this.toolStripButton12.AutoSize = false;
+            this.toolStripButton12.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton12.Image = global::Promowork.Properties.Resources.Anticipos;
+            this.toolStripButton12.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton12.Name = "toolStripButton12";
+            this.toolStripButton12.Size = new System.Drawing.Size(32, 32);
+            this.toolStripButton12.Text = "Anticipos a Trabajadores";
+            this.toolStripButton12.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            this.toolStripButton12.Paint += new System.Windows.Forms.PaintEventHandler(this.toolStripButton12_Paint);
+            // 
+            // toolStripButton13
+            // 
+            this.toolStripButton13.AutoSize = false;
+            this.toolStripButton13.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton13.Image = global::Promowork.Properties.Resources.logo_seguridad_social;
+            this.toolStripButton13.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton13.Name = "toolStripButton13";
+            this.toolStripButton13.Size = new System.Drawing.Size(32, 32);
+            this.toolStripButton13.Text = "Seguridad Social";
+            this.toolStripButton13.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
+            this.toolStripButton13.Paint += new System.Windows.Forms.PaintEventHandler(this.toolStripButton13_Paint);
+            // 
+            // toolStripButton15
+            // 
+            this.toolStripButton15.AutoSize = false;
+            this.toolStripButton15.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton15.Image = global::Promowork.Properties.Resources.cruz_roja32;
+            this.toolStripButton15.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton15.Name = "toolStripButton15";
+            this.toolStripButton15.Size = new System.Drawing.Size(32, 32);
+            this.toolStripButton15.Text = "Baja Medica";
+            this.toolStripButton15.Click += new System.EventHandler(this.toolStripMenuItem7_Click);
+            this.toolStripButton15.Paint += new System.Windows.Forms.PaintEventHandler(this.toolStripButton15_Paint);
+            // 
+            // toolStripButton9
+            // 
+            this.toolStripButton9.AutoSize = false;
+            this.toolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton9.Image = global::Promowork.Properties.Resources.Presupuesto32;
+            this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton9.Name = "toolStripButton9";
+            this.toolStripButton9.Size = new System.Drawing.Size(32, 32);
+            this.toolStripButton9.Text = "Albaranes";
+            this.toolStripButton9.Click += new System.EventHandler(this.presupuestosToolStripMenuItem_Click);
+            this.toolStripButton9.Paint += new System.Windows.Forms.PaintEventHandler(this.toolStripButton9_Paint);
+            // 
+            // toolStripButton8
+            // 
+            this.toolStripButton8.AutoSize = false;
+            this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton8.Image = global::Promowork.Properties.Resources.Buy;
+            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton8.Name = "toolStripButton8";
+            this.toolStripButton8.Size = new System.Drawing.Size(32, 32);
+            this.toolStripButton8.Text = "Compras";
+            this.toolStripButton8.Click += new System.EventHandler(this.comprasToolStripMenuItem_Click);
+            this.toolStripButton8.Paint += new System.Windows.Forms.PaintEventHandler(this.toolStripButton8_Paint);
+            // 
+            // toolStripButton14
+            // 
+            this.toolStripButton14.AutoSize = false;
+            this.toolStripButton14.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton14.Image = global::Promowork.Properties.Resources.Factura;
+            this.toolStripButton14.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton14.Name = "toolStripButton14";
+            this.toolStripButton14.Size = new System.Drawing.Size(32, 32);
+            this.toolStripButton14.Text = "Facturación";
+            this.toolStripButton14.Click += new System.EventHandler(this.facturasPresupuestoToolStripMenuItem_Click);
+            this.toolStripButton14.Paint += new System.Windows.Forms.PaintEventHandler(this.toolStripButton14_Paint);
+            // 
+            // toolStripButton17
+            // 
+            this.toolStripButton17.AutoSize = false;
+            this.toolStripButton17.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton17.Image = global::Promowork.Properties.Resources.money2;
+            this.toolStripButton17.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton17.Name = "toolStripButton17";
+            this.toolStripButton17.Size = new System.Drawing.Size(32, 32);
+            this.toolStripButton17.Text = "Cobros";
+            this.toolStripButton17.Click += new System.EventHandler(this.cobrosToolStripMenuItem_Click);
+            this.toolStripButton17.Paint += new System.Windows.Forms.PaintEventHandler(this.toolStripButton17_Paint);
             // 
             // toolStripSeparator3
             // 
@@ -1040,395 +1438,6 @@
             this.usuariosBindingSource.DataMember = "Usuarios";
             this.usuariosBindingSource.DataSource = this.promowork_dataDataSet;
             // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.AutoSize = false;
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = global::Promowork.Properties.Resources.login;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Margin = new System.Windows.Forms.Padding(0);
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(32, 32);
-            this.toolStripButton1.Text = "Entrada al Sistema";
-            this.toolStripButton1.ToolTipText = "Entrada al Sistema";
-            this.toolStripButton1.Click += new System.EventHandler(this.cambiarDeUsuarioToolStripMenuItem_Click);
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.AutoSize = false;
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = global::Promowork.Properties.Resources.company;
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(32, 32);
-            this.toolStripButton2.Text = "Empresas";
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
-            this.toolStripButton2.Paint += new System.Windows.Forms.PaintEventHandler(this.toolStripButton2_Paint_1);
-            // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.AutoSize = false;
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = global::Promowork.Properties.Resources.user_account;
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(32, 32);
-            this.toolStripButton3.Text = "Usuarios";
-            this.toolStripButton3.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
-            this.toolStripButton3.Paint += new System.Windows.Forms.PaintEventHandler(this.toolStripButton3_Paint_1);
-            // 
-            // toolStripButton4
-            // 
-            this.toolStripButton4.AutoSize = false;
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = global::Promowork.Properties.Resources.Accesos1;
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(32, 32);
-            this.toolStripButton4.Text = "Permisos a Empresas";
-            this.toolStripButton4.Click += new System.EventHandler(this.accesosToolStripMenuItem_Click);
-            this.toolStripButton4.Paint += new System.Windows.Forms.PaintEventHandler(this.toolStripButton4_Paint_1);
-            // 
-            // toolStripButton16
-            // 
-            this.toolStripButton16.AutoSize = false;
-            this.toolStripButton16.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton16.Image = global::Promowork.Properties.Resources._checked;
-            this.toolStripButton16.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton16.Name = "toolStripButton16";
-            this.toolStripButton16.Size = new System.Drawing.Size(32, 32);
-            this.toolStripButton16.Text = "Permisos a Opciones";
-            this.toolStripButton16.Click += new System.EventHandler(this.toolStripMenuItem19_Click);
-            this.toolStripButton16.Paint += new System.Windows.Forms.PaintEventHandler(this.toolStripButton16_Paint);
-            // 
-            // toolStripButton5
-            // 
-            this.toolStripButton5.AutoSize = false;
-            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton5.Image = global::Promowork.Properties.Resources.construction_worker;
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(32, 32);
-            this.toolStripButton5.Text = "Trabajadores";
-            this.toolStripButton5.Click += new System.EventHandler(this.trabajadoresToolStripMenuItem_Click);
-            this.toolStripButton5.Paint += new System.Windows.Forms.PaintEventHandler(this.toolStripButton5_Paint);
-            // 
-            // toolStripButton6
-            // 
-            this.toolStripButton6.AutoSize = false;
-            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton6.Image = global::Promowork.Properties.Resources.clientes32;
-            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(32, 32);
-            this.toolStripButton6.Text = "Clientes";
-            this.toolStripButton6.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
-            this.toolStripButton6.Paint += new System.Windows.Forms.PaintEventHandler(this.toolStripButton6_Paint);
-            // 
-            // toolStripButton10
-            // 
-            this.toolStripButton10.AutoSize = false;
-            this.toolStripButton10.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton10.Image = global::Promowork.Properties.Resources.Suppiers;
-            this.toolStripButton10.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton10.Name = "toolStripButton10";
-            this.toolStripButton10.Size = new System.Drawing.Size(32, 32);
-            this.toolStripButton10.Text = "Proveedores";
-            this.toolStripButton10.Click += new System.EventHandler(this.proveedoresToolStripMenuItem_Click);
-            this.toolStripButton10.Paint += new System.Windows.Forms.PaintEventHandler(this.toolStripButton10_Paint);
-            // 
-            // toolStripButton11
-            // 
-            this.toolStripButton11.AutoSize = false;
-            this.toolStripButton11.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton11.Image = global::Promowork.Properties.Resources.icono_Curso_Construccion_Tabiques2;
-            this.toolStripButton11.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton11.Name = "toolStripButton11";
-            this.toolStripButton11.Size = new System.Drawing.Size(32, 32);
-            this.toolStripButton11.Text = "Obras";
-            this.toolStripButton11.Click += new System.EventHandler(this.obrasToolStripMenuItem_Click);
-            this.toolStripButton11.Paint += new System.Windows.Forms.PaintEventHandler(this.toolStripButton11_Paint);
-            // 
-            // toolStripButton7
-            // 
-            this.toolStripButton7.AutoSize = false;
-            this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton7.Image = global::Promowork.Properties.Resources.reloj1;
-            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton7.Name = "toolStripButton7";
-            this.toolStripButton7.Size = new System.Drawing.Size(32, 32);
-            this.toolStripButton7.Text = "Horas Trabajadas";
-            this.toolStripButton7.Click += new System.EventHandler(this.horasTrabajadasToolStripMenuItem_Click);
-            this.toolStripButton7.Paint += new System.Windows.Forms.PaintEventHandler(this.toolStripButton7_Paint);
-            // 
-            // toolStripButton18
-            // 
-            this.toolStripButton18.AutoSize = false;
-            this.toolStripButton18.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton18.Image = global::Promowork.Properties.Resources.relojadmin;
-            this.toolStripButton18.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton18.Name = "toolStripButton18";
-            this.toolStripButton18.Size = new System.Drawing.Size(32, 32);
-            this.toolStripButton18.Text = "Horas Administración";
-            this.toolStripButton18.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
-            this.toolStripButton18.Paint += new System.Windows.Forms.PaintEventHandler(this.toolStripButton18_Paint);
-            // 
-            // toolStripButton19
-            // 
-            this.toolStripButton19.AutoSize = false;
-            this.toolStripButton19.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton19.Image = global::Promowork.Properties.Resources.Partes;
-            this.toolStripButton19.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton19.Name = "toolStripButton19";
-            this.toolStripButton19.Size = new System.Drawing.Size(32, 32);
-            this.toolStripButton19.Text = "Partes Trabajadores";
-            this.toolStripButton19.Click += new System.EventHandler(this.toolStripMenuItem15_Click);
-            this.toolStripButton19.Paint += new System.Windows.Forms.PaintEventHandler(this.toolStripButton19_Paint);
-            // 
-            // toolStripButton12
-            // 
-            this.toolStripButton12.AutoSize = false;
-            this.toolStripButton12.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton12.Image = global::Promowork.Properties.Resources.Anticipos;
-            this.toolStripButton12.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton12.Name = "toolStripButton12";
-            this.toolStripButton12.Size = new System.Drawing.Size(32, 32);
-            this.toolStripButton12.Text = "Anticipos a Trabajadores";
-            this.toolStripButton12.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
-            this.toolStripButton12.Paint += new System.Windows.Forms.PaintEventHandler(this.toolStripButton12_Paint);
-            // 
-            // toolStripButton13
-            // 
-            this.toolStripButton13.AutoSize = false;
-            this.toolStripButton13.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton13.Image = global::Promowork.Properties.Resources.logo_seguridad_social;
-            this.toolStripButton13.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton13.Name = "toolStripButton13";
-            this.toolStripButton13.Size = new System.Drawing.Size(32, 32);
-            this.toolStripButton13.Text = "Seguridad Social";
-            this.toolStripButton13.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
-            this.toolStripButton13.Paint += new System.Windows.Forms.PaintEventHandler(this.toolStripButton13_Paint);
-            // 
-            // toolStripButton15
-            // 
-            this.toolStripButton15.AutoSize = false;
-            this.toolStripButton15.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton15.Image = global::Promowork.Properties.Resources.cruz_roja32;
-            this.toolStripButton15.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton15.Name = "toolStripButton15";
-            this.toolStripButton15.Size = new System.Drawing.Size(32, 32);
-            this.toolStripButton15.Text = "Baja Medica";
-            this.toolStripButton15.Click += new System.EventHandler(this.toolStripMenuItem7_Click);
-            this.toolStripButton15.Paint += new System.Windows.Forms.PaintEventHandler(this.toolStripButton15_Paint);
-            // 
-            // toolStripButton9
-            // 
-            this.toolStripButton9.AutoSize = false;
-            this.toolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton9.Image = global::Promowork.Properties.Resources.Presupuesto32;
-            this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton9.Name = "toolStripButton9";
-            this.toolStripButton9.Size = new System.Drawing.Size(32, 32);
-            this.toolStripButton9.Text = "Albaranes";
-            this.toolStripButton9.Click += new System.EventHandler(this.presupuestosToolStripMenuItem_Click);
-            this.toolStripButton9.Paint += new System.Windows.Forms.PaintEventHandler(this.toolStripButton9_Paint);
-            // 
-            // toolStripButton8
-            // 
-            this.toolStripButton8.AutoSize = false;
-            this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton8.Image = global::Promowork.Properties.Resources.Buy;
-            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton8.Name = "toolStripButton8";
-            this.toolStripButton8.Size = new System.Drawing.Size(32, 32);
-            this.toolStripButton8.Text = "Compras";
-            this.toolStripButton8.Click += new System.EventHandler(this.comprasToolStripMenuItem_Click);
-            this.toolStripButton8.Paint += new System.Windows.Forms.PaintEventHandler(this.toolStripButton8_Paint);
-            // 
-            // toolStripButton14
-            // 
-            this.toolStripButton14.AutoSize = false;
-            this.toolStripButton14.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton14.Image = global::Promowork.Properties.Resources.Factura;
-            this.toolStripButton14.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton14.Name = "toolStripButton14";
-            this.toolStripButton14.Size = new System.Drawing.Size(32, 32);
-            this.toolStripButton14.Text = "Facturación";
-            this.toolStripButton14.Click += new System.EventHandler(this.facturasPresupuestoToolStripMenuItem_Click);
-            this.toolStripButton14.Paint += new System.Windows.Forms.PaintEventHandler(this.toolStripButton14_Paint);
-            // 
-            // toolStripButton17
-            // 
-            this.toolStripButton17.AutoSize = false;
-            this.toolStripButton17.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton17.Image = global::Promowork.Properties.Resources.money2;
-            this.toolStripButton17.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton17.Name = "toolStripButton17";
-            this.toolStripButton17.Size = new System.Drawing.Size(32, 32);
-            this.toolStripButton17.Text = "Cobros";
-            this.toolStripButton17.Click += new System.EventHandler(this.cobrosToolStripMenuItem_Click);
-            this.toolStripButton17.Paint += new System.Windows.Forms.PaintEventHandler(this.toolStripButton17_Paint);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Image = global::Promowork.Properties.Resources.company;
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(170, 22);
-            this.toolStripMenuItem1.Text = "Empresas";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
-            // 
-            // usuariosToolStripMenuItem
-            // 
-            this.usuariosToolStripMenuItem.Image = global::Promowork.Properties.Resources.user_account;
-            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.usuariosToolStripMenuItem.Text = "Usuarios";
-            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
-            // 
-            // accesosToolStripMenuItem
-            // 
-            this.accesosToolStripMenuItem.Image = global::Promowork.Properties.Resources.Accesos1;
-            this.accesosToolStripMenuItem.Name = "accesosToolStripMenuItem";
-            this.accesosToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.accesosToolStripMenuItem.Text = "Accesos Empresas";
-            this.accesosToolStripMenuItem.Click += new System.EventHandler(this.accesosToolStripMenuItem_Click);
-            // 
-            // cambiarDeUsuarioToolStripMenuItem
-            // 
-            this.cambiarDeUsuarioToolStripMenuItem.Image = global::Promowork.Properties.Resources.login;
-            this.cambiarDeUsuarioToolStripMenuItem.Name = "cambiarDeUsuarioToolStripMenuItem";
-            this.cambiarDeUsuarioToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.cambiarDeUsuarioToolStripMenuItem.Text = "Entrada al Sistema";
-            this.cambiarDeUsuarioToolStripMenuItem.Click += new System.EventHandler(this.cambiarDeUsuarioToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem8
-            // 
-            this.toolStripMenuItem8.Image = global::Promowork.Properties.Resources.report_img;
-            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(170, 22);
-            this.toolStripMenuItem8.Text = "Notas";
-            this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click_1);
-            // 
-            // salirToolStripMenuItem
-            // 
-            this.salirToolStripMenuItem.Image = global::Promowork.Properties.Resources.exit16;
-            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.salirToolStripMenuItem.Text = "Salir";
-            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
-            // 
-            // trabajadoresToolStripMenuItem
-            // 
-            this.trabajadoresToolStripMenuItem.Image = global::Promowork.Properties.Resources.construction_worker;
-            this.trabajadoresToolStripMenuItem.Name = "trabajadoresToolStripMenuItem";
-            this.trabajadoresToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.trabajadoresToolStripMenuItem.Text = "Trabajadores";
-            this.trabajadoresToolStripMenuItem.Click += new System.EventHandler(this.trabajadoresToolStripMenuItem_Click);
-            // 
-            // clientesToolStripMenuItem
-            // 
-            this.clientesToolStripMenuItem.Image = global::Promowork.Properties.Resources.clientes32;
-            this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.clientesToolStripMenuItem.Text = "Clientes";
-            this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
-            // 
-            // proveedoresToolStripMenuItem
-            // 
-            this.proveedoresToolStripMenuItem.Image = global::Promowork.Properties.Resources.Suppiers;
-            this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
-            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.proveedoresToolStripMenuItem.Text = "Proveedores";
-            this.proveedoresToolStripMenuItem.Click += new System.EventHandler(this.proveedoresToolStripMenuItem_Click);
-            // 
-            // obrasToolStripMenuItem
-            // 
-            this.obrasToolStripMenuItem.Image = global::Promowork.Properties.Resources.icono_Curso_Construccion_Tabiques2;
-            this.obrasToolStripMenuItem.Name = "obrasToolStripMenuItem";
-            this.obrasToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.obrasToolStripMenuItem.Text = "Obras";
-            this.obrasToolStripMenuItem.Click += new System.EventHandler(this.obrasToolStripMenuItem_Click);
-            // 
-            // horasTrabajadasToolStripMenuItem
-            // 
-            this.horasTrabajadasToolStripMenuItem.Image = global::Promowork.Properties.Resources.reloj1;
-            this.horasTrabajadasToolStripMenuItem.Name = "horasTrabajadasToolStripMenuItem";
-            this.horasTrabajadasToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
-            this.horasTrabajadasToolStripMenuItem.Text = "Horas Trabajadas";
-            this.horasTrabajadasToolStripMenuItem.Click += new System.EventHandler(this.horasTrabajadasToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem9
-            // 
-            this.toolStripMenuItem9.Image = global::Promowork.Properties.Resources.relojadmin;
-            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(223, 22);
-            this.toolStripMenuItem9.Text = "Horas Administración";
-            this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
-            // 
-            // toolStripMenuItem15
-            // 
-            this.toolStripMenuItem15.Image = global::Promowork.Properties.Resources.Partes;
-            this.toolStripMenuItem15.Name = "toolStripMenuItem15";
-            this.toolStripMenuItem15.Size = new System.Drawing.Size(223, 22);
-            this.toolStripMenuItem15.Text = "Partes Trabajadores";
-            this.toolStripMenuItem15.Click += new System.EventHandler(this.toolStripMenuItem15_Click);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Image = global::Promowork.Properties.Resources.Anticipos;
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(223, 22);
-            this.toolStripMenuItem2.Text = "Anticipos a Trabajadores";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Image = global::Promowork.Properties.Resources.logo_seguridad_social;
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(223, 22);
-            this.toolStripMenuItem3.Text = "Seguridad Social";
-            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
-            // 
-            // toolStripMenuItem7
-            // 
-            this.toolStripMenuItem7.Image = global::Promowork.Properties.Resources.cruz_roja32;
-            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(223, 22);
-            this.toolStripMenuItem7.Text = "Baja Médica";
-            this.toolStripMenuItem7.Click += new System.EventHandler(this.toolStripMenuItem7_Click);
-            // 
-            // presupuestosToolStripMenuItem
-            // 
-            this.presupuestosToolStripMenuItem.Image = global::Promowork.Properties.Resources.Presupuesto32;
-            this.presupuestosToolStripMenuItem.Name = "presupuestosToolStripMenuItem";
-            this.presupuestosToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
-            this.presupuestosToolStripMenuItem.Text = "Albaranes";
-            this.presupuestosToolStripMenuItem.Click += new System.EventHandler(this.presupuestosToolStripMenuItem_Click);
-            // 
-            // comprasToolStripMenuItem
-            // 
-            this.comprasToolStripMenuItem.Image = global::Promowork.Properties.Resources.Buy;
-            this.comprasToolStripMenuItem.Name = "comprasToolStripMenuItem";
-            this.comprasToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
-            this.comprasToolStripMenuItem.Text = "Compras";
-            this.comprasToolStripMenuItem.Click += new System.EventHandler(this.comprasToolStripMenuItem_Click);
-            // 
-            // facturasPresupuestoToolStripMenuItem
-            // 
-            this.facturasPresupuestoToolStripMenuItem.Image = global::Promowork.Properties.Resources.Factura;
-            this.facturasPresupuestoToolStripMenuItem.Name = "facturasPresupuestoToolStripMenuItem";
-            this.facturasPresupuestoToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
-            this.facturasPresupuestoToolStripMenuItem.Text = "Facturas Presupuesto";
-            this.facturasPresupuestoToolStripMenuItem.Click += new System.EventHandler(this.facturasPresupuestoToolStripMenuItem_Click);
-            // 
-            // cobrosToolStripMenuItem
-            // 
-            this.cobrosToolStripMenuItem.Image = global::Promowork.Properties.Resources.money2;
-            this.cobrosToolStripMenuItem.Name = "cobrosToolStripMenuItem";
-            this.cobrosToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
-            this.cobrosToolStripMenuItem.Text = "Cobros";
-            this.cobrosToolStripMenuItem.Click += new System.EventHandler(this.cobrosToolStripMenuItem_Click);
-            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1608,5 +1617,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem21;
         private System.Windows.Forms.ToolStripMenuItem conversionesUMToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem22;
+        private System.Windows.Forms.ToolStripMenuItem mnTareasPendientes;
     }
 }

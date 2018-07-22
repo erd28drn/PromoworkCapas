@@ -30,9 +30,11 @@ namespace GestionData {
         
         private UsuariosDataTable tableUsuarios;
         
-        private global::System.Data.DataRelation relationFK_AccesosOpciones_OpcionesMenu;
-        
         private global::System.Data.DataRelation relationFK_AccesosOpciones_Usuarios;
+        
+        private global::System.Data.DataRelation relationAccesosOpciones_OpcionesMenu;
+        
+        private global::System.Data.DataRelation relationFK_AccesosOpciones_OpcionesMenu;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -246,8 +248,9 @@ namespace GestionData {
                     this.tableUsuarios.InitVars();
                 }
             }
-            this.relationFK_AccesosOpciones_OpcionesMenu = this.Relations["FK_AccesosOpciones_OpcionesMenu"];
             this.relationFK_AccesosOpciones_Usuarios = this.Relations["FK_AccesosOpciones_Usuarios"];
+            this.relationAccesosOpciones_OpcionesMenu = this.Relations["AccesosOpciones_OpcionesMenu"];
+            this.relationFK_AccesosOpciones_OpcionesMenu = this.Relations["FK_AccesosOpciones_OpcionesMenu"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -264,14 +267,18 @@ namespace GestionData {
             base.Tables.Add(this.tableOpcionesMenu);
             this.tableUsuarios = new UsuariosDataTable();
             base.Tables.Add(this.tableUsuarios);
-            this.relationFK_AccesosOpciones_OpcionesMenu = new global::System.Data.DataRelation("FK_AccesosOpciones_OpcionesMenu", new global::System.Data.DataColumn[] {
-                        this.tableOpcionesMenu.IdOpcionColumn}, new global::System.Data.DataColumn[] {
-                        this.tableAccesosOpciones.IdOpcionColumn}, false);
-            this.Relations.Add(this.relationFK_AccesosOpciones_OpcionesMenu);
             this.relationFK_AccesosOpciones_Usuarios = new global::System.Data.DataRelation("FK_AccesosOpciones_Usuarios", new global::System.Data.DataColumn[] {
                         this.tableUsuarios.IdUsuarioColumn}, new global::System.Data.DataColumn[] {
                         this.tableAccesosOpciones.IdUsuarioColumn}, false);
             this.Relations.Add(this.relationFK_AccesosOpciones_Usuarios);
+            this.relationAccesosOpciones_OpcionesMenu = new global::System.Data.DataRelation("AccesosOpciones_OpcionesMenu", new global::System.Data.DataColumn[] {
+                        this.tableAccesosOpciones.IdOpcionColumn}, new global::System.Data.DataColumn[] {
+                        this.tableOpcionesMenu.IdOpcionColumn}, false);
+            this.Relations.Add(this.relationAccesosOpciones_OpcionesMenu);
+            this.relationFK_AccesosOpciones_OpcionesMenu = new global::System.Data.DataRelation("FK_AccesosOpciones_OpcionesMenu", new global::System.Data.DataColumn[] {
+                        this.tableOpcionesMenu.IdOpcionColumn}, new global::System.Data.DataColumn[] {
+                        this.tableAccesosOpciones.IdOpcionColumn}, false);
+            this.Relations.Add(this.relationFK_AccesosOpciones_OpcionesMenu);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1556,23 +1563,23 @@ namespace GestionData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public OpcionesMenuRow OpcionesMenuRow {
-                get {
-                    return ((OpcionesMenuRow)(this.GetParentRow(this.Table.ParentRelations["FK_AccesosOpciones_OpcionesMenu"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_AccesosOpciones_OpcionesMenu"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public UsuariosRow UsuariosRow {
                 get {
                     return ((UsuariosRow)(this.GetParentRow(this.Table.ParentRelations["FK_AccesosOpciones_Usuarios"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_AccesosOpciones_Usuarios"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public OpcionesMenuRow OpcionesMenuRow {
+                get {
+                    return ((OpcionesMenuRow)(this.GetParentRow(this.Table.ParentRelations["FK_AccesosOpciones_OpcionesMenu"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_AccesosOpciones_OpcionesMenu"]);
                 }
             }
             
@@ -1622,6 +1629,17 @@ namespace GestionData {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetNivelNull() {
                 this[this.tableAccesosOpciones.NivelColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public OpcionesMenuRow[] GetOpcionesMenuRows() {
+                if ((this.Table.ChildRelations["AccesosOpciones_OpcionesMenu"] == null)) {
+                    return new OpcionesMenuRow[0];
+                }
+                else {
+                    return ((OpcionesMenuRow[])(base.GetChildRows(this.Table.ChildRelations["AccesosOpciones_OpcionesMenu"])));
+                }
             }
         }
         
@@ -1743,6 +1761,17 @@ namespace GestionData {
                 }
                 set {
                     this[this.tableOpcionesMenu.DetalleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public AccesosOpcionesRow AccesosOpcionesRow {
+                get {
+                    return ((AccesosOpcionesRow)(this.GetParentRow(this.Table.ParentRelations["AccesosOpciones_OpcionesMenu"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["AccesosOpciones_OpcionesMenu"]);
                 }
             }
             
@@ -2434,10 +2463,8 @@ namespace GestionData.DatosAccesosTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nivel", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nivel", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [AccesosOpciones] ([IdUsuario], [IdOpcion], [Acceso], [Nivel]) VALUES" +
-                " (@IdUsuario, @IdOpcion, @Acceso, @Nivel);\r\nSELECT IdAccesoOpcion, IdUsuario, Id" +
-                "Opcion, Acceso, Nivel FROM AccesosOpciones WHERE (IdAccesoOpcion = SCOPE_IDENTIT" +
-                "Y())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [AccesosOpciones] ([IdUsuario], [IdOpcion], [Acceso], [Nivel]) VALUES (@IdUsuario, @IdOpcion, @Acceso, @Nivel);
+SELECT IdAccesoOpcion, IdUsuario, IdOpcion, Acceso, Nivel FROM AccesosOpciones WHERE (IdAccesoOpcion = SCOPE_IDENTITY()) ORDER BY dbo.CalculaOrdenOpcionMenu(IdOpcion)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdUsuario", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdUsuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdOpcion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdOpcion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2446,7 +2473,7 @@ namespace GestionData.DatosAccesosTableAdapters {
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = @"UPDATE [AccesosOpciones] SET [IdUsuario] = @IdUsuario, [IdOpcion] = @IdOpcion, [Acceso] = @Acceso, [Nivel] = @Nivel WHERE (([IdAccesoOpcion] = @Original_IdAccesoOpcion) AND ((@IsNull_IdUsuario = 1 AND [IdUsuario] IS NULL) OR ([IdUsuario] = @Original_IdUsuario)) AND ((@IsNull_IdOpcion = 1 AND [IdOpcion] IS NULL) OR ([IdOpcion] = @Original_IdOpcion)) AND ((@IsNull_Acceso = 1 AND [Acceso] IS NULL) OR ([Acceso] = @Original_Acceso)) AND ((@IsNull_Nivel = 1 AND [Nivel] IS NULL) OR ([Nivel] = @Original_Nivel)));
-SELECT IdAccesoOpcion, IdUsuario, IdOpcion, Acceso, Nivel FROM AccesosOpciones WHERE (IdAccesoOpcion = @IdAccesoOpcion)";
+SELECT IdAccesoOpcion, IdUsuario, IdOpcion, Acceso, Nivel FROM AccesosOpciones WHERE (IdAccesoOpcion = @IdAccesoOpcion) ORDER BY dbo.CalculaOrdenOpcionMenu(IdOpcion)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdUsuario", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdUsuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdOpcion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdOpcion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2478,12 +2505,13 @@ SELECT IdAccesoOpcion, IdUsuario, IdOpcion, Acceso, Nivel FROM AccesosOpciones W
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        IdAccesoOpcion, IdUsuario, IdOpcion, Acceso, Nivel\r\nFROM           " +
-                " AccesosOpciones";
+                " AccesosOpciones\r\norder by dbo.CalculaOrdenOpcionMenu(IdOpcion)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT Acceso, IdAccesoOpcion, IdOpcion, IdUsuario, Nivel FROM AccesosOpciones WH" +
-                "ERE (IdUsuario = @Usuario)";
+            this._commandCollection[1].CommandText = "SELECT        Acceso, IdAccesoOpcion, IdOpcion, IdUsuario, Nivel\r\nFROM           " +
+                " AccesosOpciones\r\nWHERE        (IdUsuario = @Usuario)\r\nORDER BY dbo.CalculaOrden" +
+                "OpcionMenu(IdOpcion)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Usuario", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdUsuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -4267,21 +4295,21 @@ SELECT IdUsuario, NomUsuario, DesUsuario, ClaveUsuario, AdminUsuario, ActivoUsua
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._opcionesMenuTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.OpcionesMenu.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._opcionesMenuTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._accesosOpcionesTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.AccesosOpciones.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._accesosOpcionesTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._opcionesMenuTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.OpcionesMenu.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._opcionesMenuTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -4303,19 +4331,19 @@ SELECT IdUsuario, NomUsuario, DesUsuario, ClaveUsuario, AdminUsuario, ActivoUsua
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._opcionesMenuTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.OpcionesMenu.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._opcionesMenuTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._accesosOpcionesTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.AccesosOpciones.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._accesosOpcionesTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._opcionesMenuTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.OpcionesMenu.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._opcionesMenuTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -4329,19 +4357,19 @@ SELECT IdUsuario, NomUsuario, DesUsuario, ClaveUsuario, AdminUsuario, ActivoUsua
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(DatosAccesos dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._accesosOpcionesTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.AccesosOpciones.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._accesosOpcionesTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._opcionesMenuTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.OpcionesMenu.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._opcionesMenuTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._accesosOpcionesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.AccesosOpciones.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._accesosOpcionesTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

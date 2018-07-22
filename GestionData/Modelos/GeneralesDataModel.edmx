@@ -112,6 +112,10 @@
           <Property Name="IdNota" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="NombreNota" Type="varchar" MaxLength="50" />
           <Property Name="DescripcionNota" Type="varchar" MaxLength="4000" />
+          <Property Name="IdUsuarioCrea" Type="int" />
+          <Property Name="IdUsuarioModifica" Type="int" />
+          <Property Name="FechaCrea" Type="datetime" />
+          <Property Name="FechaModifica" Type="datetime" />
         </EntityType>
         <EntityType Name="ServidorSMTP">
           <Key>
@@ -164,9 +168,6 @@
           <Property Name="Scanner" Type="varchar" MaxLength="200" />
           <Property Name="ConfiguracionUsuario" Type="varchar(max)" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'Promowork_data.dbo.vTareas' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
-      -->
         <Association Name="FK_AccesosEmpresas_Empresas">
           <End Role="Empresas" Type="Promowork_dataModel.Store.Empresas" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
@@ -492,6 +493,10 @@
           <Property Type="Int32" Name="IdNota" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="NombreNota" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="DescripcionNota" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdUsuarioCrea" />
+          <Property Type="Int32" Name="IdUsuarioModifica" />
+          <Property Type="DateTime" Name="FechaCrea" />
+          <Property Type="DateTime" Name="FechaModifica" />
         </EntityType>
         <EntityType Name="Tareas">
           <Key>
@@ -656,6 +661,10 @@
           <EntitySetMapping Name="Notas">
             <EntityTypeMapping TypeName="Promowork_dataModel.Notas">
               <MappingFragment StoreEntitySet="Notas">
+                <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+                <ScalarProperty Name="FechaCrea" ColumnName="FechaCrea" />
+                <ScalarProperty Name="IdUsuarioModifica" ColumnName="IdUsuarioModifica" />
+                <ScalarProperty Name="IdUsuarioCrea" ColumnName="IdUsuarioCrea" />
                 <ScalarProperty Name="DescripcionNota" ColumnName="DescripcionNota" />
                 <ScalarProperty Name="NombreNota" ColumnName="NombreNota" />
                 <ScalarProperty Name="IdNota" ColumnName="IdNota" />
@@ -701,7 +710,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="GeneralesDataModel" ZoomLevel="97">
+      <Diagram Name="GeneralesDataModel" ZoomLevel="65">
         <EntityTypeShape EntityType="Promowork_dataModel.AccesosEmpresas" Width="1.5" PointX="5.25" PointY="3.75" Height="2.1725878906249996" IsExpanded="true" />
         <EntityTypeShape EntityType="Promowork_dataModel.AccesosOpciones" Width="1.5" PointX="5.25" PointY="7" Height="2.1725878906249996" IsExpanded="true" />
         <EntityTypeShape EntityType="Promowork_dataModel.Empresas" Width="1.5" PointX="0.75" PointY="1.25" Height="7.9416308593749978" IsExpanded="true" />

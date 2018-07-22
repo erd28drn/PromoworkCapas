@@ -22,59 +22,41 @@ namespace Promowork.Formularios.Operaciones
         RepositorioPresupuesto repoPresupuestos = new RepositorioPresupuesto();
         RepositorioProveedor repoProveedor = new RepositorioProveedor();
 
-        public frmParticipantesPresupuestos()//int idPresupCab, int idPresupCap, int idPresupDet, int idPresupSub
+        List<ParticipantesPresupuestos> participantesEliminar = new List<ParticipantesPresupuestos>();
+
+        string AparienciaGridParticipantes = "";
+
+        public frmParticipantesPresupuestos(int idPresupCab, int idPresupCap, int idPresupDet, int? idPresupSub)
         {
             InitializeComponent();
-            //22773	9464	24451
-            IdPresupCab = 1219;// idPresupCab;
-            IdPresupCap = 9709;// 9461;// idPresupCap;
-            IdPresupDet = 24736;// 24450;// idPresupDet;
-            IdPresupSub = null;// 22348;// idPresupSub;
+            IdPresupCab = idPresupCab;
+            IdPresupCap = idPresupCap;
+            IdPresupDet = idPresupDet;
+            IdPresupSub = idPresupSub;
         }
 
         private void frmParticipantesPresupuestos_Load(object sender, EventArgs e)
         {
             var participantes = repoProveedor.GetParticipantes(VariablesGlobales.nIdEmpresaActual);
             var proveedores = repoProveedor.GetProveedores(VariablesGlobales.nIdEmpresaActual);
-            var participantePresupuesto = repoPresupuestos.GetOrCreateParticipantePartidaPresupuesto(VariablesGlobales.nIdEmpresaActual,
-                VariablesGlobales.nIdUsuarioActual, IdPresupCab, IdPresupCap, IdPresupDet, IdPresupSub);
+            //var participantePresupuesto = repoPresupuestos.GetOrCreateParticipantesPartidaPresupuesto(VariablesGlobales.nIdEmpresaActual,
+            //    VariablesGlobales.nIdUsuarioActual, IdPresupCab, IdPresupCap, IdPresupDet, IdPresupSub);
 
            // var proveedores = repoPresupuestos.GetOrCreateProveedoresParticipantes(participantePresupuesto.IdParticipantePresupuesto, 3);
 
             participantesBindingSource.DataSource = participantes;
             proveedoresBindingSource.DataSource = proveedores;
-            participantesPresupuestosBindingSource.DataSource = participantePresupuesto;
-           // proveedoresParticipantesBindingSource.DataSource = proveedores;
 
-            //int proveedorIndex=1;
-            //foreach (var proveedor in proveedores)
-            //{
-            //    GridColumn columna = new GridColumn();
-            //    columna.Name = "Proveedor" + proveedorIndex.ToString();
-            //    columna.Caption = "Proveedor" + proveedorIndex.ToString();
-            //    columna.Visible = true;
-            //    //columna.FieldName = "IdProveedor";
-            //    gridView1.Columns.Add(columna);
-            //    gridView1.SetFocusedRowCellValue(columna, proveedor.IdProveedor);
+            AparienciaGridParticipantes = this.Name + gvParticipantesPresupuestos.Name + VariablesGlobales.nIdEmpresaActual.ToString() + VariablesGlobales.nIdUsuarioActual.ToString() + ".xml";
 
-            //    columna = new GridColumn();
-            //    columna.Name = "Valor" + proveedorIndex.ToString();
-            //    columna.Caption = "Valor" + proveedorIndex.ToString();
-            //    columna.Visible = true;
-            //    //columna.FieldName = "Precio";
-            //    gridView1.Columns.Add(columna);
-            //    gridView1.SetFocusedRowCellValue(columna, proveedor.Precio);
+            try
+            {
+               gvParticipantesPresupuestos.RestoreLayoutFromXml(AparienciaGridParticipantes);
+            }
+            catch { }
 
-            //    columna = new GridColumn();
-            //    columna.Name = "Seleccionado" + proveedorIndex.ToString();
-            //    columna.Caption = "Seleccionado" + proveedorIndex.ToString();
-            //    columna.Visible = true;
-            //    //columna.FieldName = "Seleccionado";
-            //    gridView1.Columns.Add(columna);
-            //    gridView1.SetFocusedRowCellValue(columna, proveedor.Seleccionado);
-
-            //    proveedorIndex += proveedorIndex;
-            //}
+            CargarParticipantes();
+            //participantesPresupuestosBindingSource.DataSource = participantePresupuesto;
 
         }
 
@@ -82,10 +64,70 @@ namespace Promowork.Formularios.Operaciones
         {
             this.Validate();
             participantesPresupuestosBindingSource.EndEdit();
-            var participantePresupuesto = (ParticipantesPresupuestos)participantesPresupuestosBindingSource.DataSource;
-            participantePresupuesto = repoPresupuestos.UpdateParticipantePartidaPresupuesto(participantePresupuesto);
 
-            participantesPresupuestosBindingSource.DataSource = participantePresupuesto;
+            foreach (var participanteEliminar in participantesEliminar)
+            {
+                repoPresupuestos.DeleteParticipantePartidaPresupuesto(participanteEliminar);
+            }
+
+            if (participantesPresupuestosBindingSource.Count > 1)
+            {
+                var participantesPresupuesto = (List<ParticipantesPresupuestos>)participantesPresupuestosBindingSource.DataSource;
+                foreach (var participantePresupuesto in participantesPresupuesto)
+                {
+                    repoPresupuestos.UpdateParticipantePartidaPresupuesto(participantePresupuesto);
+                }
+                CargarParticipantes();
+            }
+
+            if (participantesPresupuestosBindingSource.Count == 1)
+            {
+                var participantePresupuesto = (ParticipantesPresupuestos)participantesPresupuestosBindingSource.DataSource;
+                participantePresupuesto = repoPresupuestos.UpdateParticipantePartidaPresupuesto(participantePresupuesto);
+                participantesPresupuestosBindingSource.DataSource = participantePresupuesto;
+            }
         }
+
+        private void chkMostrarTodoPresupuesto_CheckedChanged(object sender, EventArgs e)
+        {
+            CargarParticipantes();
+        }
+
+        private void CargarParticipantes()
+        {
+            if (chkMostrarTodoPresupuesto.CheckState == CheckState.Checked)
+            {
+                var participantesPresupuesto = repoPresupuestos.GetParticipantesPresupuesto(IdPresupCab);
+                participantesPresupuestosBindingSource.DataSource = participantesPresupuesto;
+            }
+            else
+            {
+                var participantePresupuesto = repoPresupuestos.GetOrCreateParticipantesPartidaPresupuesto(VariablesGlobales.nIdEmpresaActual,
+                        VariablesGlobales.nIdUsuarioActual, IdPresupCab, IdPresupCap, IdPresupDet, IdPresupSub);
+                participantesPresupuestosBindingSource.DataSource = participantePresupuesto;
+            }
+        }
+
+       private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+            var participanteEliminar = (ParticipantesPresupuestos)participantesPresupuestosBindingSource.Current;
+            participantesEliminar.Add(participanteEliminar);
+            participantesPresupuestosBindingSource.RemoveCurrent();
+
+        }
+
+       private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+       {
+           var participantePresupuesto = (ParticipantesPresupuestos)participantesPresupuestosBindingSource.Current;
+           participantePresupuesto.IdParticipantePresupuesto = 0;
+           repoPresupuestos.AddParticipantePartidaPresupuesto(participantePresupuesto);
+
+           CargarParticipantes();
+       }
+
+       private void frmParticipantesPresupuestos_FormClosing(object sender, FormClosingEventArgs e)
+       {
+          gvParticipantesPresupuestos.SaveLayoutToXml(AparienciaGridTareas);
+       }
     }
 }

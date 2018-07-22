@@ -256,6 +256,7 @@
             this.gridView2.GridControl = this.accesosOpcionesGridControl;
             this.gridView2.Name = "gridView2";
             this.gridView2.OptionsCustomization.AllowSort = false;
+            this.gridView2.OptionsView.ShowDetailButtons = false;
             this.gridView2.OptionsView.ShowGroupPanel = false;
             // 
             // colIdAccesoOpcion

@@ -34,7 +34,7 @@
             this.colVencida = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFinalizada = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFechaVencimiento = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pAgregarTareas = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -56,6 +56,11 @@
             this.btSaveTarea = new System.Windows.Forms.Button();
             this.btAddTarea = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.chkOcultarPanelEdicion = new System.Windows.Forms.CheckBox();
+            this.chkRecargar = new System.Windows.Forms.CheckBox();
+            this.lbSegundos = new DevExpress.XtraEditors.LabelControl();
+            this.spTiempoRecargar = new DevExpress.XtraEditors.SpinEdit();
+            this.lbRecargar = new DevExpress.XtraEditors.LabelControl();
             this.btSincronizar = new System.Windows.Forms.Button();
             this.chkMostrarFinalizados = new System.Windows.Forms.CheckBox();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
@@ -75,7 +80,8 @@
             this.colUsuarioCreacion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUsuarioModificacion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDesEmpresa = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.panel1.SuspendLayout();
+            this.tmTemporizador = new System.Windows.Forms.Timer(this.components);
+            this.pAgregarTareas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -93,6 +99,7 @@
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spTiempoRecargar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvTareas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Descripción)).BeginInit();
@@ -102,6 +109,7 @@
             // 
             this.colVencida.FieldName = "Vencida";
             this.colVencida.Name = "colVencida";
+            this.colVencida.OptionsColumn.ReadOnly = true;
             // 
             // colFinalizada
             // 
@@ -127,15 +135,14 @@
             this.colFechaVencimiento.VisibleIndex = 5;
             this.colFechaVencimiento.Width = 84;
             // 
-            // panel1
+            // pAgregarTareas
             // 
-            this.panel1.Controls.Add(this.splitContainer1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 597);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1236, 111);
-            this.panel1.TabIndex = 1;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.pAgregarTareas.Controls.Add(this.splitContainer1);
+            this.pAgregarTareas.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pAgregarTareas.Location = new System.Drawing.Point(0, 597);
+            this.pAgregarTareas.Name = "pAgregarTareas";
+            this.pAgregarTareas.Size = new System.Drawing.Size(1236, 111);
+            this.pAgregarTareas.TabIndex = 1;
             // 
             // splitContainer1
             // 
@@ -353,6 +360,11 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.chkOcultarPanelEdicion);
+            this.panel2.Controls.Add(this.chkRecargar);
+            this.panel2.Controls.Add(this.lbSegundos);
+            this.panel2.Controls.Add(this.spTiempoRecargar);
+            this.panel2.Controls.Add(this.lbRecargar);
             this.panel2.Controls.Add(this.btSincronizar);
             this.panel2.Controls.Add(this.chkMostrarFinalizados);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -361,9 +373,63 @@
             this.panel2.Size = new System.Drawing.Size(1236, 44);
             this.panel2.TabIndex = 2;
             // 
+            // chkOcultarPanelEdicion
+            // 
+            this.chkOcultarPanelEdicion.AutoSize = true;
+            this.chkOcultarPanelEdicion.Location = new System.Drawing.Point(176, 13);
+            this.chkOcultarPanelEdicion.Name = "chkOcultarPanelEdicion";
+            this.chkOcultarPanelEdicion.Size = new System.Drawing.Size(183, 17);
+            this.chkOcultarPanelEdicion.TabIndex = 7;
+            this.chkOcultarPanelEdicion.Text = "Mostrar en modo de visualización";
+            this.chkOcultarPanelEdicion.UseVisualStyleBackColor = true;
+            this.chkOcultarPanelEdicion.CheckedChanged += new System.EventHandler(this.chkOcultarPanelEdicion_CheckedChanged);
+            // 
+            // chkRecargar
+            // 
+            this.chkRecargar.AutoSize = true;
+            this.chkRecargar.Checked = true;
+            this.chkRecargar.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkRecargar.Location = new System.Drawing.Point(412, 14);
+            this.chkRecargar.Name = "chkRecargar";
+            this.chkRecargar.Size = new System.Drawing.Size(15, 14);
+            this.chkRecargar.TabIndex = 6;
+            this.chkRecargar.UseVisualStyleBackColor = true;
+            this.chkRecargar.CheckedChanged += new System.EventHandler(this.chkRecargar_CheckedChanged);
+            // 
+            // lbSegundos
+            // 
+            this.lbSegundos.Location = new System.Drawing.Point(673, 15);
+            this.lbSegundos.Name = "lbSegundos";
+            this.lbSegundos.Size = new System.Drawing.Size(47, 13);
+            this.lbSegundos.TabIndex = 5;
+            this.lbSegundos.Text = "Segundos";
+            // 
+            // spTiempoRecargar
+            // 
+            this.spTiempoRecargar.EditValue = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            this.spTiempoRecargar.Location = new System.Drawing.Point(595, 11);
+            this.spTiempoRecargar.Name = "spTiempoRecargar";
+            this.spTiempoRecargar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.spTiempoRecargar.Size = new System.Drawing.Size(67, 20);
+            this.spTiempoRecargar.TabIndex = 4;
+            this.spTiempoRecargar.EditValueChanged += new System.EventHandler(this.spTiempoRecargar_EditValueChanged);
+            // 
+            // lbRecargar
+            // 
+            this.lbRecargar.Location = new System.Drawing.Point(433, 15);
+            this.lbRecargar.Name = "lbRecargar";
+            this.lbRecargar.Size = new System.Drawing.Size(156, 13);
+            this.lbRecargar.TabIndex = 3;
+            this.lbRecargar.Text = "Recargar automaticamente cada";
+            // 
             // btSincronizar
             // 
-            this.btSincronizar.Location = new System.Drawing.Point(315, 13);
+            this.btSincronizar.Location = new System.Drawing.Point(770, 12);
             this.btSincronizar.Name = "btSincronizar";
             this.btSincronizar.Size = new System.Drawing.Size(75, 23);
             this.btSincronizar.TabIndex = 1;
@@ -378,7 +444,7 @@
             this.chkMostrarFinalizados.Name = "chkMostrarFinalizados";
             this.chkMostrarFinalizados.Size = new System.Drawing.Size(116, 17);
             this.chkMostrarFinalizados.TabIndex = 0;
-            this.chkMostrarFinalizados.Text = "Mostrar Finalizados";
+            this.chkMostrarFinalizados.Text = "Mostrar Finalizadas";
             this.chkMostrarFinalizados.UseVisualStyleBackColor = true;
             this.chkMostrarFinalizados.CheckedChanged += new System.EventHandler(this.chkMostrarFinalizados_CheckedChanged);
             // 
@@ -437,7 +503,6 @@
             styleFormatCondition2});
             this.gvTareas.GridControl = this.gridControl1;
             this.gvTareas.Name = "gvTareas";
-            this.gvTareas.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.gvTareas.OptionsView.RowAutoHeight = true;
             this.gvTareas.OptionsView.ShowGroupPanel = false;
             this.gvTareas.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
@@ -539,6 +604,7 @@
             this.colResponsable.Caption = "Responsable";
             this.colResponsable.FieldName = "Responsable";
             this.colResponsable.Name = "colResponsable";
+            this.colResponsable.OptionsColumn.ReadOnly = true;
             this.colResponsable.Visible = true;
             this.colResponsable.VisibleIndex = 7;
             this.colResponsable.Width = 72;
@@ -548,6 +614,7 @@
             this.colUsuarioCreacion.Caption = "Creada por";
             this.colUsuarioCreacion.FieldName = "UsuarioCreacion";
             this.colUsuarioCreacion.Name = "colUsuarioCreacion";
+            this.colUsuarioCreacion.OptionsColumn.ReadOnly = true;
             this.colUsuarioCreacion.Visible = true;
             this.colUsuarioCreacion.VisibleIndex = 8;
             this.colUsuarioCreacion.Width = 72;
@@ -557,6 +624,7 @@
             this.colUsuarioModificacion.Caption = "Modificada por";
             this.colUsuarioModificacion.FieldName = "UsuarioModificacion";
             this.colUsuarioModificacion.Name = "colUsuarioModificacion";
+            this.colUsuarioModificacion.OptionsColumn.ReadOnly = true;
             this.colUsuarioModificacion.Visible = true;
             this.colUsuarioModificacion.VisibleIndex = 9;
             this.colUsuarioModificacion.Width = 77;
@@ -566,9 +634,15 @@
             this.colDesEmpresa.Caption = "Empresa";
             this.colDesEmpresa.FieldName = "DesEmpresa";
             this.colDesEmpresa.Name = "colDesEmpresa";
+            this.colDesEmpresa.OptionsColumn.ReadOnly = true;
             this.colDesEmpresa.Visible = true;
             this.colDesEmpresa.VisibleIndex = 0;
             this.colDesEmpresa.Width = 103;
+            // 
+            // tmTemporizador
+            // 
+            this.tmTemporizador.Interval = 10000;
+            this.tmTemporizador.Tick += new System.EventHandler(this.tmTemporizador_Tick);
             // 
             // frmTareas
             // 
@@ -576,12 +650,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1236, 708);
             this.Controls.Add(this.gridControl1);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pAgregarTareas);
             this.Controls.Add(this.panel2);
             this.Name = "frmTareas";
             this.Text = "Tareas Pendientes";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmTareas_FormClosing);
             this.Load += new System.EventHandler(this.frmTareas_Load);
-            this.panel1.ResumeLayout(false);
+            this.pAgregarTareas.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -603,6 +678,7 @@
             this.splitContainer3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spTiempoRecargar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvTareas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Descripción)).EndInit();
@@ -612,7 +688,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pAgregarTareas;
         private System.Windows.Forms.Button btAddTarea;
         private System.Windows.Forms.TextBox tbObservaciones;
         private System.Windows.Forms.TextBox tbNombreTarea;
@@ -670,6 +746,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private DevExpress.XtraEditors.LabelControl lbSegundos;
+        private DevExpress.XtraEditors.SpinEdit spTiempoRecargar;
+        private DevExpress.XtraEditors.LabelControl lbRecargar;
+        private System.Windows.Forms.Timer tmTemporizador;
+        private System.Windows.Forms.CheckBox chkRecargar;
+        private System.Windows.Forms.CheckBox chkOcultarPanelEdicion;
     }
 }
 
