@@ -1245,7 +1245,7 @@ namespace Promowork
 
         private void toolStripButton16_Paint(object sender, PaintEventArgs e)
         {
-            toolStripButton16.Enabled = toolStripMenuItem8.Enabled;
+            toolStripButton16.Enabled = toolStripMenuItem19.Enabled;
         }
 
         private void toolStripButton1_Paint(object sender, PaintEventArgs e)

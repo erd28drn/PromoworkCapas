@@ -1617,6 +1617,7 @@
     <None Include="Resources\AgergaSubcapitulo16.png" />
     <None Include="Resources\AgergaSubcapitulo16x16.png" />
     <None Include="Resources\checked.png" />
+    <None Include="Resources\checks.png" />
     <Content Include="Resources\cruz-roja.png" />
     <None Include="Resources\Factura.png" />
     <None Include="Resources\cruz-roja32.png" />

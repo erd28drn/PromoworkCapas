@@ -7351,6 +7351,30 @@ namespace GestionData.Modelos
         private Nullable<global::System.Boolean> _Seleccionado3;
         partial void OnSeleccionado3Changing(Nullable<global::System.Boolean> value);
         partial void OnSeleccionado3Changed();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String NombreParticipacion
+        {
+            get
+            {
+                return _NombreParticipacion;
+            }
+            set
+            {
+                OnNombreParticipacionChanging(value);
+                ReportPropertyChanging("NombreParticipacion");
+                _NombreParticipacion = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("NombreParticipacion");
+                OnNombreParticipacionChanged();
+            }
+        }
+        private global::System.String _NombreParticipacion;
+        partial void OnNombreParticipacionChanging(global::System.String value);
+        partial void OnNombreParticipacionChanged();
 
         #endregion
 

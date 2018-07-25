@@ -402,6 +402,7 @@
           <Property Name="IdPresupDet" Type="int" />
           <Property Name="IdPresupSub" Type="int" />
           <Property Name="NombrePartida" Type="varchar" MaxLength="1000" />
+          <Property Name="NombreParticipacion" Type="varchar" MaxLength="100" />
           <Property Name="IdParticipante" Type="int" />
           <Property Name="EsServicio" Type="bit" />
           <Property Name="FechaCrea" Type="datetime" />
@@ -1615,6 +1616,7 @@
           <Property Type="Int32" Name="IdProveedor3" />
           <Property Type="Decimal" Name="Precio3" Precision="16" Scale="6" />
           <Property Type="Boolean" Name="Seleccionado3" />
+          <Property Type="String" Name="NombreParticipacion" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="ProveedoresParticipantes">
           <Key>
@@ -2053,6 +2055,7 @@
           <EntitySetMapping Name="ParticipantesPresupuestos">
             <EntityTypeMapping TypeName="Promowork_dataModel.ParticipantesPresupuestos">
               <MappingFragment StoreEntitySet="ParticipantesPresupuestos">
+                <ScalarProperty Name="NombreParticipacion" ColumnName="NombreParticipacion" />
                 <ScalarProperty Name="Seleccionado3" ColumnName="Seleccionado3" />
                 <ScalarProperty Name="Precio3" ColumnName="Precio3" />
                 <ScalarProperty Name="IdProveedor3" ColumnName="IdProveedor3" />

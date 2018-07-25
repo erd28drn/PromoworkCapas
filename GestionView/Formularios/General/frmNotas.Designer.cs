@@ -47,6 +47,7 @@
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gvNotas = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colIdNota = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTituloNota = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNombreNota = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDescripcionNota = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemMemoEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
@@ -209,6 +210,7 @@
             // 
             this.gvNotas.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colIdNota,
+            this.colTituloNota,
             this.colNombreNota,
             this.colDescripcionNota,
             this.colFechaCrea,
@@ -220,15 +222,24 @@
             this.gvNotas.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
             this.gvNotas.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
             this.gvNotas.OptionsBehavior.AllowIncrementalSearch = true;
+            this.gvNotas.OptionsCustomization.AllowRowSizing = true;
             this.gvNotas.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.gvNotas.OptionsView.RowAutoHeight = true;
             this.gvNotas.OptionsView.ShowAutoFilterRow = true;
-            this.gvNotas.OptionsView.ShowGroupPanel = false;
             // 
             // colIdNota
             // 
             this.colIdNota.FieldName = "IdNota";
             this.colIdNota.Name = "colIdNota";
+            // 
+            // colTituloNota
+            // 
+            this.colTituloNota.Caption = "Título";
+            this.colTituloNota.FieldName = "TituloNota";
+            this.colTituloNota.Name = "colTituloNota";
+            this.colTituloNota.Visible = true;
+            this.colTituloNota.VisibleIndex = 0;
+            this.colTituloNota.Width = 123;
             // 
             // colNombreNota
             // 
@@ -239,8 +250,8 @@
             this.colNombreNota.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.colNombreNota.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
             this.colNombreNota.Visible = true;
-            this.colNombreNota.VisibleIndex = 0;
-            this.colNombreNota.Width = 234;
+            this.colNombreNota.VisibleIndex = 1;
+            this.colNombreNota.Width = 222;
             // 
             // colDescripcionNota
             // 
@@ -252,8 +263,8 @@
             this.colDescripcionNota.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.colDescripcionNota.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
             this.colDescripcionNota.Visible = true;
-            this.colDescripcionNota.VisibleIndex = 1;
-            this.colDescripcionNota.Width = 434;
+            this.colDescripcionNota.VisibleIndex = 2;
+            this.colDescripcionNota.Width = 417;
             // 
             // repositoryItemMemoEdit1
             // 
@@ -329,5 +340,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colFechaModifica;
         private DevExpress.XtraGrid.Columns.GridColumn colIdUsuarioCrea;
         private DevExpress.XtraGrid.Columns.GridColumn colIdUsuarioModifica;
+        private DevExpress.XtraGrid.Columns.GridColumn colTituloNota;
     }
 }

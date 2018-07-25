@@ -1830,6 +1830,30 @@ namespace GestionData.Modelos
         private Nullable<global::System.DateTime> _FechaModifica;
         partial void OnFechaModificaChanging(Nullable<global::System.DateTime> value);
         partial void OnFechaModificaChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String TituloNota
+        {
+            get
+            {
+                return _TituloNota;
+            }
+            set
+            {
+                OnTituloNotaChanging(value);
+                ReportPropertyChanging("TituloNota");
+                _TituloNota = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("TituloNota");
+                OnTituloNotaChanged();
+            }
+        }
+        private global::System.String _TituloNota;
+        partial void OnTituloNotaChanging(global::System.String value);
+        partial void OnTituloNotaChanged();
 
         #endregion
 

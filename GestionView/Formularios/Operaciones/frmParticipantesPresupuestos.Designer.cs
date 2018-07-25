@@ -55,7 +55,9 @@
             this.colIdUsuario = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIdPresupCab = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIdPresupCap = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tbTexto = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.colIdPresupDet = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNombreParticipacion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIdPresupSub = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNombrePartida = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIdParticipante = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -85,6 +87,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nomPresupTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbParticipante)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvParticipantesPresupuestos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbTexto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbProveedores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proveedoresBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -269,6 +272,7 @@
             this.colIdPresupCab,
             this.colIdPresupCap,
             this.colIdPresupDet,
+            this.colNombreParticipacion,
             this.colIdPresupSub,
             this.colNombrePartida,
             this.colIdParticipante,
@@ -286,7 +290,10 @@
             this.colSeleccionado3});
             this.gvParticipantesPresupuestos.GridControl = this.gridControl1;
             this.gvParticipantesPresupuestos.Name = "gvParticipantesPresupuestos";
+            this.gvParticipantesPresupuestos.OptionsCustomization.AllowRowSizing = true;
+            this.gvParticipantesPresupuestos.OptionsView.RowAutoHeight = true;
             this.gvParticipantesPresupuestos.OptionsView.ShowAutoFilterRow = true;
+            this.gvParticipantesPresupuestos.CellValueChanging += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvParticipantesPresupuestos_CellValueChanging);
             // 
             // colIdParticipantePresupuesto
             // 
@@ -317,22 +324,38 @@
             // colIdPresupCap
             // 
             this.colIdPresupCap.Caption = "Capítulo";
+            this.colIdPresupCap.ColumnEdit = this.tbTexto;
             this.colIdPresupCap.FieldName = "PresupCap.DesCapPresup";
             this.colIdPresupCap.Name = "colIdPresupCap";
             this.colIdPresupCap.OptionsColumn.ReadOnly = true;
             this.colIdPresupCap.Visible = true;
             this.colIdPresupCap.VisibleIndex = 0;
-            this.colIdPresupCap.Width = 106;
+            this.colIdPresupCap.Width = 116;
+            // 
+            // tbTexto
+            // 
+            this.tbTexto.MaxLength = 1000;
+            this.tbTexto.Name = "tbTexto";
             // 
             // colIdPresupDet
             // 
             this.colIdPresupDet.Caption = "Detalle";
+            this.colIdPresupDet.ColumnEdit = this.tbTexto;
             this.colIdPresupDet.FieldName = "PresupDet.NomPresupDet";
             this.colIdPresupDet.Name = "colIdPresupDet";
             this.colIdPresupDet.OptionsColumn.ReadOnly = true;
             this.colIdPresupDet.Visible = true;
             this.colIdPresupDet.VisibleIndex = 1;
-            this.colIdPresupDet.Width = 104;
+            this.colIdPresupDet.Width = 114;
+            // 
+            // colNombreParticipacion
+            // 
+            this.colNombreParticipacion.Caption = "Nombre Participación";
+            this.colNombreParticipacion.FieldName = "NombreParticipacion";
+            this.colNombreParticipacion.Name = "colNombreParticipacion";
+            this.colNombreParticipacion.Visible = true;
+            this.colNombreParticipacion.VisibleIndex = 2;
+            this.colNombreParticipacion.Width = 135;
             // 
             // colIdPresupSub
             // 
@@ -340,8 +363,6 @@
             this.colIdPresupSub.FieldName = "PresupSub.NomPresupSub";
             this.colIdPresupSub.Name = "colIdPresupSub";
             this.colIdPresupSub.OptionsColumn.ReadOnly = true;
-            this.colIdPresupSub.Visible = true;
-            this.colIdPresupSub.VisibleIndex = 2;
             this.colIdPresupSub.Width = 132;
             // 
             // colNombrePartida
@@ -359,7 +380,7 @@
             this.colIdParticipante.Name = "colIdParticipante";
             this.colIdParticipante.Visible = true;
             this.colIdParticipante.VisibleIndex = 3;
-            this.colIdParticipante.Width = 149;
+            this.colIdParticipante.Width = 152;
             // 
             // colEsServicio
             // 
@@ -368,7 +389,7 @@
             this.colEsServicio.Name = "colEsServicio";
             this.colEsServicio.Visible = true;
             this.colEsServicio.VisibleIndex = 4;
-            this.colEsServicio.Width = 47;
+            this.colEsServicio.Width = 46;
             // 
             // colFechaCrea
             // 
@@ -390,7 +411,7 @@
             this.colIdProveedor1.Name = "colIdProveedor1";
             this.colIdProveedor1.Visible = true;
             this.colIdProveedor1.VisibleIndex = 5;
-            this.colIdProveedor1.Width = 103;
+            this.colIdProveedor1.Width = 104;
             // 
             // cbProveedores
             // 
@@ -416,7 +437,7 @@
             this.colIdProveedor2.Name = "colIdProveedor2";
             this.colIdProveedor2.Visible = true;
             this.colIdProveedor2.VisibleIndex = 8;
-            this.colIdProveedor2.Width = 90;
+            this.colIdProveedor2.Width = 91;
             // 
             // colIdProveedor3
             // 
@@ -426,7 +447,7 @@
             this.colIdProveedor3.Name = "colIdProveedor3";
             this.colIdProveedor3.Visible = true;
             this.colIdProveedor3.VisibleIndex = 11;
-            this.colIdProveedor3.Width = 84;
+            this.colIdProveedor3.Width = 86;
             // 
             // colPrecio1
             // 
@@ -456,34 +477,34 @@
             this.colPrecio3.Name = "colPrecio3";
             this.colPrecio3.Visible = true;
             this.colPrecio3.VisibleIndex = 12;
-            this.colPrecio3.Width = 68;
+            this.colPrecio3.Width = 69;
             // 
             // colSeleccionado1
             // 
-            this.colSeleccionado1.Caption = " ";
+            this.colSeleccionado1.Caption = " Selec.";
             this.colSeleccionado1.FieldName = "Seleccionado1";
             this.colSeleccionado1.Name = "colSeleccionado1";
             this.colSeleccionado1.Visible = true;
             this.colSeleccionado1.VisibleIndex = 7;
-            this.colSeleccionado1.Width = 46;
+            this.colSeleccionado1.Width = 45;
             // 
             // colSeleccionado2
             // 
-            this.colSeleccionado2.Caption = " ";
+            this.colSeleccionado2.Caption = " Selec.";
             this.colSeleccionado2.FieldName = "Seleccionado2";
             this.colSeleccionado2.Name = "colSeleccionado2";
             this.colSeleccionado2.Visible = true;
             this.colSeleccionado2.VisibleIndex = 10;
-            this.colSeleccionado2.Width = 44;
+            this.colSeleccionado2.Width = 45;
             // 
             // colSeleccionado3
             // 
-            this.colSeleccionado3.Caption = " ";
+            this.colSeleccionado3.Caption = " Selec.";
             this.colSeleccionado3.FieldName = "Seleccionado3";
             this.colSeleccionado3.Name = "colSeleccionado3";
             this.colSeleccionado3.Visible = true;
             this.colSeleccionado3.VisibleIndex = 13;
-            this.colSeleccionado3.Width = 51;
+            this.colSeleccionado3.Width = 68;
             // 
             // gridControl1
             // 
@@ -494,7 +515,8 @@
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cbParticipante,
-            this.cbProveedores});
+            this.cbProveedores,
+            this.tbTexto});
             this.gridControl1.Size = new System.Drawing.Size(1194, 399);
             this.gridControl1.TabIndex = 1;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -541,6 +563,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nomPresupTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbParticipante)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvParticipantesPresupuestos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbTexto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbProveedores)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proveedoresBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
@@ -599,5 +622,7 @@
         private System.Windows.Forms.BindingSource proveedoresBindingSource;
         private DevExpress.XtraEditors.CheckEdit chkMostrarTodoPresupuesto;
         private System.Windows.Forms.Panel panel1;
+        private DevExpress.XtraGrid.Columns.GridColumn colNombreParticipacion;
+        private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit tbTexto;
     }
 }

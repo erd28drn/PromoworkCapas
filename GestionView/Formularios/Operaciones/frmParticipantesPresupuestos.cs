@@ -70,22 +70,22 @@ namespace Promowork.Formularios.Operaciones
                 repoPresupuestos.DeleteParticipantePartidaPresupuesto(participanteEliminar);
             }
 
-            if (participantesPresupuestosBindingSource.Count > 1)
-            {
+            //if (participantesPresupuestosBindingSource.Count > 1)
+            //{
                 var participantesPresupuesto = (List<ParticipantesPresupuestos>)participantesPresupuestosBindingSource.DataSource;
                 foreach (var participantePresupuesto in participantesPresupuesto)
                 {
                     repoPresupuestos.UpdateParticipantePartidaPresupuesto(participantePresupuesto);
                 }
                 CargarParticipantes();
-            }
+           // }
 
-            if (participantesPresupuestosBindingSource.Count == 1)
-            {
-                var participantePresupuesto = (ParticipantesPresupuestos)participantesPresupuestosBindingSource.DataSource;
-                participantePresupuesto = repoPresupuestos.UpdateParticipantePartidaPresupuesto(participantePresupuesto);
-                participantesPresupuestosBindingSource.DataSource = participantePresupuesto;
-            }
+            //if (participantesPresupuestosBindingSource.Count == 1)
+            //{
+            //    var participantePresupuesto = (ParticipantesPresupuestos)participantesPresupuestosBindingSource.DataSource;
+            //    participantePresupuesto = repoPresupuestos.UpdateParticipantePartidaPresupuesto(participantePresupuesto);
+            //    participantesPresupuestosBindingSource.DataSource = participantePresupuesto;
+            //}
         }
 
         private void chkMostrarTodoPresupuesto_CheckedChanged(object sender, EventArgs e)
@@ -106,6 +106,8 @@ namespace Promowork.Formularios.Operaciones
                         VariablesGlobales.nIdUsuarioActual, IdPresupCab, IdPresupCap, IdPresupDet, IdPresupSub);
                 participantesPresupuestosBindingSource.DataSource = participantePresupuesto;
             }
+
+            gvParticipantesPresupuestos.RefreshData();
         }
 
        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
@@ -118,16 +120,40 @@ namespace Promowork.Formularios.Operaciones
 
        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
        {
-           var participantePresupuesto = (ParticipantesPresupuestos)participantesPresupuestosBindingSource.Current;
-           participantePresupuesto.IdParticipantePresupuesto = 0;
-           repoPresupuestos.AddParticipantePartidaPresupuesto(participantePresupuesto);
+           var participantePresupuestoActual = (ParticipantesPresupuestos)participantesPresupuestosBindingSource.Current;
+
+           var participantePresupuestoDuplicado = repoPresupuestos.CreateParticipantesPartidaPresupuesto(VariablesGlobales.nIdEmpresaActual, VariablesGlobales.nIdUsuarioActual, participantePresupuestoActual.IdPresupCab.Value, participantePresupuestoActual.IdPresupCap.Value, participantePresupuestoActual.IdPresupDet.Value, participantePresupuestoActual.IdPresupSub);
 
            CargarParticipantes();
        }
 
        private void frmParticipantesPresupuestos_FormClosing(object sender, FormClosingEventArgs e)
        {
-          gvParticipantesPresupuestos.SaveLayoutToXml(AparienciaGridTareas);
+           gvParticipantesPresupuestos.SaveLayoutToXml(AparienciaGridParticipantes);
        }
+
+       private void gvParticipantesPresupuestos_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+       {
+
+           if (e.Column == colSeleccionado1)
+           {
+               gvParticipantesPresupuestos.SetFocusedRowCellValue(colSeleccionado2, false);
+               gvParticipantesPresupuestos.SetFocusedRowCellValue(colSeleccionado3, false);
+           }
+
+           if (e.Column == colSeleccionado2)
+           {
+               gvParticipantesPresupuestos.SetFocusedRowCellValue(colSeleccionado1, false);
+               gvParticipantesPresupuestos.SetFocusedRowCellValue(colSeleccionado3, false);
+           }
+
+           if (e.Column == colSeleccionado3)
+           {
+               gvParticipantesPresupuestos.SetFocusedRowCellValue(colSeleccionado1, false);
+               gvParticipantesPresupuestos.SetFocusedRowCellValue(colSeleccionado2, false);
+           }
+       }
+
+
     }
 }

@@ -50,7 +50,17 @@ namespace GestionData.Repositorios
 
             if (!participantes.Any())
             {
-                participantes.Add(new ParticipantesPresupuestos
+               var participantePresupuesto= CreateParticipantesPartidaPresupuesto(idEmpresa, idUsuario, idPresupCab, idPresupCap, idPresupDet, idPresupSub);
+               
+                GetOrCreateParticipantesPartidaPresupuesto(idEmpresa, idUsuario, idPresupCab, idPresupCap, idPresupDet, idPresupSub);
+            }
+
+            return participantes;
+        }
+
+        public ParticipantesPresupuestos CreateParticipantesPartidaPresupuesto(int idEmpresa, int idUsuario, int idPresupCab, int idPresupCap, int idPresupDet, int? idPresupSub)
+        {
+            var participantePresupuesto=new ParticipantesPresupuestos
                 {
                     IdEmpresa = idEmpresa,
                     IdUsuario = idUsuario,
@@ -65,13 +75,11 @@ namespace GestionData.Repositorios
                     Seleccionado3 = false,
                     FechaCrea = DateTime.Now,
                     FechaModifica = DateTime.Now
-                });
-                contextoOperaciones.ParticipantesPresupuestos.AddObject(participantes.FirstOrDefault());
-                contextoOperaciones.SaveChanges();
-                GetOrCreateParticipantesPartidaPresupuesto(idEmpresa, idUsuario, idPresupCab, idPresupCap, idPresupDet, idPresupSub);
-            }
+                };
+            contextoOperaciones.ParticipantesPresupuestos.AddObject(participantePresupuesto);
+            contextoOperaciones.SaveChanges();
 
-            return participantes;
+            return participantePresupuesto;
         }
 
         public List<ProveedoresParticipantes> GetOrCreateProveedoresParticipantes(int idParticipantePresupuesto, int numProveedores)
