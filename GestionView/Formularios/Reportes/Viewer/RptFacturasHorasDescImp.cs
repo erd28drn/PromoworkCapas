@@ -35,7 +35,5 @@ namespace Promowork.Formularios.Reportes.Viewer
            // this.reportViewer1.LocalReport.AddTrustedCodeModuleInCurrentAppDomain("System.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089");
             this.reportViewer1.RefreshReport();
         }
-
-              
     }
 }

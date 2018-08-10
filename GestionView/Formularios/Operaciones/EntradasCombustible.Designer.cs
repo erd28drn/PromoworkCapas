@@ -53,6 +53,9 @@
             this.colIdServicio = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Servicio = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.tiposServiciosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.colIdProducto = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cbProducto = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.ProductosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.colTipo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIdUmedida = new DevExpress.XtraGrid.Columns.GridColumn();
             this.UMCombustible = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -104,6 +107,7 @@
             this.uMedidasTableAdapter = new GestionData.Promowork_dataDataSetCombustibleTableAdapters.UMedidasTableAdapter();
             this.tiposServiciosTableAdapter = new GestionData.Promowork_dataDataSetCombustibleTableAdapters.TiposServiciosTableAdapter();
             this.tableAdapterManager = new GestionData.Promowork_dataDataSetCombustibleTableAdapters.TableAdapterManager();
+            this.productosTableAdapter = new GestionData.Promowork_dataDataSetCombustibleTableAdapters.ProductosTableAdapter();
             this.entradasCombustibleCabTableAdapter = new GestionData.Promowork_dataDataSetCombustibleTableAdapters.EntradasCombustibleCabTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.Promowork_dataDataSetCombustible)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -111,6 +115,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Servicio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tiposServiciosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbProducto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProductosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UMCombustible)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uMedidasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -219,7 +225,7 @@
             this.entradasCombustibleCabBindingNavigatorSaveItem.Text = "Save Data";
             this.entradasCombustibleCabBindingNavigatorSaveItem.Click += new System.EventHandler(this.entradasCombustibleCabBindingNavigatorSaveItem_Click);
             // 
-            // GestionData.Promowork_dataDataSetCombustible
+            // Promowork_dataDataSetCombustible
             // 
             this.Promowork_dataDataSetCombustible.DataSetName = "GestionData.Promowork_dataDataSetCombustible";
             this.Promowork_dataDataSetCombustible.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
@@ -233,7 +239,8 @@
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.Servicio,
-            this.UMCombustible});
+            this.UMCombustible,
+            this.cbProducto});
             this.gridControl1.Size = new System.Drawing.Size(1303, 332);
             this.gridControl1.TabIndex = 3;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -252,6 +259,7 @@
             this.colCantidad,
             this.colPrecio,
             this.colIdServicio,
+            this.colIdProducto,
             this.colTipo,
             this.colIdUmedida,
             this.colImpIVA,
@@ -278,6 +286,7 @@
             this.colAlbaran.Name = "colAlbaran";
             this.colAlbaran.Visible = true;
             this.colAlbaran.VisibleIndex = 0;
+            this.colAlbaran.Width = 128;
             // 
             // colCantidad
             // 
@@ -292,6 +301,7 @@
             this.colCantidad.Name = "colCantidad";
             this.colCantidad.Visible = true;
             this.colCantidad.VisibleIndex = 3;
+            this.colCantidad.Width = 119;
             // 
             // colPrecio
             // 
@@ -300,12 +310,13 @@
             this.colPrecio.AppearanceHeader.Options.UseTextOptions = true;
             this.colPrecio.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.colPrecio.Caption = "Precio";
-            this.colPrecio.DisplayFormat.FormatString = "C2";
+            this.colPrecio.DisplayFormat.FormatString = "C4";
             this.colPrecio.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colPrecio.FieldName = "Precio";
             this.colPrecio.Name = "colPrecio";
             this.colPrecio.Visible = true;
             this.colPrecio.VisibleIndex = 5;
+            this.colPrecio.Width = 119;
             // 
             // colIdServicio
             // 
@@ -313,8 +324,6 @@
             this.colIdServicio.ColumnEdit = this.Servicio;
             this.colIdServicio.FieldName = "IdServicio";
             this.colIdServicio.Name = "colIdServicio";
-            this.colIdServicio.Visible = true;
-            this.colIdServicio.VisibleIndex = 1;
             // 
             // Servicio
             // 
@@ -337,6 +346,33 @@
             this.tiposServiciosBindingSource.DataMember = "TiposServicios";
             this.tiposServiciosBindingSource.DataSource = this.Promowork_dataDataSetCombustible;
             // 
+            // colIdProducto
+            // 
+            this.colIdProducto.Caption = "Producto";
+            this.colIdProducto.ColumnEdit = this.cbProducto;
+            this.colIdProducto.FieldName = "IdProducto";
+            this.colIdProducto.Name = "colIdProducto";
+            this.colIdProducto.Visible = true;
+            this.colIdProducto.VisibleIndex = 1;
+            this.colIdProducto.Width = 187;
+            // 
+            // cbProducto
+            // 
+            this.cbProducto.AutoHeight = false;
+            this.cbProducto.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbProducto.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DesProducto", "Producto", 74, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
+            this.cbProducto.DataSource = this.ProductosBindingSource;
+            this.cbProducto.DisplayMember = "DesProducto";
+            this.cbProducto.Name = "cbProducto";
+            this.cbProducto.ValueMember = "IdProducto";
+            // 
+            // ProductosBindingSource
+            // 
+            this.ProductosBindingSource.DataMember = "Productos";
+            this.ProductosBindingSource.DataSource = this.Promowork_dataDataSetCombustible;
+            // 
             // colTipo
             // 
             this.colTipo.AppearanceHeader.Options.UseTextOptions = true;
@@ -346,6 +382,7 @@
             this.colTipo.Name = "colTipo";
             this.colTipo.Visible = true;
             this.colTipo.VisibleIndex = 2;
+            this.colTipo.Width = 119;
             // 
             // colIdUmedida
             // 
@@ -355,6 +392,7 @@
             this.colIdUmedida.Name = "colIdUmedida";
             this.colIdUmedida.Visible = true;
             this.colIdUmedida.VisibleIndex = 4;
+            this.colIdUmedida.Width = 119;
             // 
             // UMCombustible
             // 
@@ -388,6 +426,7 @@
             this.colImpIVA.Name = "colImpIVA";
             this.colImpIVA.Visible = true;
             this.colImpIVA.VisibleIndex = 8;
+            this.colImpIVA.Width = 119;
             // 
             // colImporte
             // 
@@ -405,6 +444,7 @@
             this.colImporte.OptionsColumn.ReadOnly = true;
             this.colImporte.Visible = true;
             this.colImporte.VisibleIndex = 6;
+            this.colImporte.Width = 119;
             // 
             // colIVA
             // 
@@ -422,6 +462,7 @@
             this.colIVA.OptionsColumn.ReadOnly = true;
             this.colIVA.Visible = true;
             this.colIVA.VisibleIndex = 7;
+            this.colIVA.Width = 119;
             // 
             // colImpTotal
             // 
@@ -439,6 +480,7 @@
             this.colImpTotal.OptionsColumn.ReadOnly = true;
             this.colImpTotal.Visible = true;
             this.colImpTotal.VisibleIndex = 9;
+            this.colImpTotal.Width = 137;
             // 
             // colIdCompra1
             // 
@@ -800,6 +842,7 @@
             this.tableAdapterManager.EmpresasTableAdapter = null;
             this.tableAdapterManager.EntradasCombustibleDetTableAdapter = this.entradasCombustibleDetTableAdapter;
             this.tableAdapterManager.FormasPagoTableAdapter = null;
+            this.tableAdapterManager.ProductosTableAdapter = this.productosTableAdapter;
             this.tableAdapterManager.ProveedoresTableAdapter = null;
             this.tableAdapterManager.ServiciosVehiculosTableAdapter = null;
             this.tableAdapterManager.TiposServiciosTableAdapter = this.tiposServiciosTableAdapter;
@@ -807,6 +850,10 @@
             this.tableAdapterManager.UMedidasTableAdapter = this.uMedidasTableAdapter;
             this.tableAdapterManager.UpdateOrder = GestionData.Promowork_dataDataSetCombustibleTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.VehiculosTableAdapter = null;
+            // 
+            // productosTableAdapter
+            // 
+            this.productosTableAdapter.ClearBeforeFill = true;
             // 
             // entradasCombustibleCabTableAdapter
             // 
@@ -830,6 +877,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Servicio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tiposServiciosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbProducto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProductosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UMCombustible)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uMedidasBindingSource)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -924,5 +973,9 @@
         private System.Windows.Forms.ToolStripButton toolStripButton6;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton presupCabBindingNavigatorSaveItem;
+        private DevExpress.XtraGrid.Columns.GridColumn colIdProducto;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit cbProducto;
+        private GestionData.Promowork_dataDataSetCombustibleTableAdapters.ProductosTableAdapter productosTableAdapter;
+        private System.Windows.Forms.BindingSource ProductosBindingSource;
     }
 }

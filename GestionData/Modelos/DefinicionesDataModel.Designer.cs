@@ -22,6 +22,12 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("Promowork_dataModel", "FK_Obras_Clientes", "Clientes", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(GestionData.Modelos.Clientes), "Obras", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GestionData.Modelos.Obras), true)]
 [assembly: EdmRelationshipAttribute("Promowork_dataModel", "FK_Obras_Clientes1", "Clientes", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(GestionData.Modelos.Clientes), "Obras", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GestionData.Modelos.Obras), true)]
 [assembly: EdmRelationshipAttribute("Promowork_dataModel", "FK_Proveedores_Participantes", "Participantes", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(GestionData.Modelos.Participantes), "Proveedores", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GestionData.Modelos.Proveedores), true)]
+[assembly: EdmRelationshipAttribute("Promowork_dataModel", "FK_Productos_Obras", "Obras", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(GestionData.Modelos.Obras), "Productos", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GestionData.Modelos.Productos), true)]
+[assembly: EdmRelationshipAttribute("Promowork_dataModel", "FK_Productos_Productos", "Productos", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(GestionData.Modelos.Productos), "Productos1", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(GestionData.Modelos.Productos), true)]
+[assembly: EdmRelationshipAttribute("Promowork_dataModel", "FK_Productos_Proveedores", "Proveedores", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(GestionData.Modelos.Proveedores), "Productos", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GestionData.Modelos.Productos), true)]
+[assembly: EdmRelationshipAttribute("Promowork_dataModel", "FK_Productos_UMedidas", "UMedidas", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(GestionData.Modelos.UMedidas), "Productos", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GestionData.Modelos.Productos), true)]
+[assembly: EdmRelationshipAttribute("Promowork_dataModel", "FK_Productos_UMedidas1", "UMedidas", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(GestionData.Modelos.UMedidas), "Productos", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GestionData.Modelos.Productos), true)]
+[assembly: EdmRelationshipAttribute("Promowork_dataModel", "FK_Productos_UMedidas2", "UMedidas", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(GestionData.Modelos.UMedidas), "Productos", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(GestionData.Modelos.Productos), true)]
 
 #endregion
 
@@ -152,6 +158,38 @@ namespace GestionData.Modelos
             }
         }
         private ObjectSet<Participantes> _Participantes;
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        public ObjectSet<Productos> Productos
+        {
+            get
+            {
+                if ((_Productos == null))
+                {
+                    _Productos = base.CreateObjectSet<Productos>("Productos");
+                }
+                return _Productos;
+            }
+        }
+        private ObjectSet<Productos> _Productos;
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        public ObjectSet<UMedidas> UMedidas
+        {
+            get
+            {
+                if ((_UMedidas == null))
+                {
+                    _UMedidas = base.CreateObjectSet<UMedidas>("UMedidas");
+                }
+                return _UMedidas;
+            }
+        }
+        private ObjectSet<UMedidas> _UMedidas;
 
         #endregion
 
@@ -195,6 +233,22 @@ namespace GestionData.Modelos
         public void AddToParticipantes(Participantes participantes)
         {
             base.AddObject("Participantes", participantes);
+        }
+    
+        /// <summary>
+        /// Método desusado para agregar un nuevo objeto al EntitySet Productos. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
+        /// </summary>
+        public void AddToProductos(Productos productos)
+        {
+            base.AddObject("Productos", productos);
+        }
+    
+        /// <summary>
+        /// Método desusado para agregar un nuevo objeto al EntitySet UMedidas. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
+        /// </summary>
+        public void AddToUMedidas(UMedidas uMedidas)
+        {
+            base.AddObject("UMedidas", uMedidas);
         }
 
         #endregion
@@ -1582,6 +1636,28 @@ namespace GestionData.Modelos
                 }
             }
         }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Promowork_dataModel", "FK_Productos_Obras", "Productos")]
+        public EntityCollection<Productos> Productos
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Productos>("Promowork_dataModel.FK_Productos_Obras", "Productos");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Productos>("Promowork_dataModel.FK_Productos_Obras", "Productos", value);
+                }
+            }
+        }
 
         #endregion
 
@@ -1736,6 +1812,1033 @@ namespace GestionData.Modelos
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Proveedores>("Promowork_dataModel.FK_Proveedores_Participantes", "Proveedores", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No hay documentación de metadatos disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Promowork_dataModel", Name="Productos")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Productos : EntityObject
+    {
+        #region Método de generador
+    
+        /// <summary>
+        /// Crear un nuevo objeto Productos.
+        /// </summary>
+        /// <param name="idProducto">Valor inicial de la propiedad IdProducto.</param>
+        /// <param name="idEmpresa">Valor inicial de la propiedad IdEmpresa.</param>
+        /// <param name="desProducto">Valor inicial de la propiedad DesProducto.</param>
+        public static Productos CreateProductos(global::System.Int32 idProducto, global::System.Int32 idEmpresa, global::System.String desProducto)
+        {
+            Productos productos = new Productos();
+            productos.IdProducto = idProducto;
+            productos.IdEmpresa = idEmpresa;
+            productos.DesProducto = desProducto;
+            return productos;
+        }
+
+        #endregion
+
+        #region Propiedades primitivas
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 IdProducto
+        {
+            get
+            {
+                return _IdProducto;
+            }
+            set
+            {
+                if (_IdProducto != value)
+                {
+                    OnIdProductoChanging(value);
+                    ReportPropertyChanging("IdProducto");
+                    _IdProducto = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("IdProducto");
+                    OnIdProductoChanged();
+                }
+            }
+        }
+        private global::System.Int32 _IdProducto;
+        partial void OnIdProductoChanging(global::System.Int32 value);
+        partial void OnIdProductoChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 IdEmpresa
+        {
+            get
+            {
+                return _IdEmpresa;
+            }
+            set
+            {
+                OnIdEmpresaChanging(value);
+                ReportPropertyChanging("IdEmpresa");
+                _IdEmpresa = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdEmpresa");
+                OnIdEmpresaChanged();
+            }
+        }
+        private global::System.Int32 _IdEmpresa;
+        partial void OnIdEmpresaChanging(global::System.Int32 value);
+        partial void OnIdEmpresaChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String CodProducto
+        {
+            get
+            {
+                return _CodProducto;
+            }
+            set
+            {
+                OnCodProductoChanging(value);
+                ReportPropertyChanging("CodProducto");
+                _CodProducto = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("CodProducto");
+                OnCodProductoChanged();
+            }
+        }
+        private global::System.String _CodProducto;
+        partial void OnCodProductoChanging(global::System.String value);
+        partial void OnCodProductoChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String CodProductoInterno
+        {
+            get
+            {
+                return _CodProductoInterno;
+            }
+            set
+            {
+                OnCodProductoInternoChanging(value);
+                ReportPropertyChanging("CodProductoInterno");
+                _CodProductoInterno = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("CodProductoInterno");
+                OnCodProductoInternoChanged();
+            }
+        }
+        private global::System.String _CodProductoInterno;
+        partial void OnCodProductoInternoChanging(global::System.String value);
+        partial void OnCodProductoInternoChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String DesProducto
+        {
+            get
+            {
+                return _DesProducto;
+            }
+            set
+            {
+                OnDesProductoChanging(value);
+                ReportPropertyChanging("DesProducto");
+                _DesProducto = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("DesProducto");
+                OnDesProductoChanged();
+            }
+        }
+        private global::System.String _DesProducto;
+        partial void OnDesProductoChanging(global::System.String value);
+        partial void OnDesProductoChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdUMedidaProv
+        {
+            get
+            {
+                return _IdUMedidaProv;
+            }
+            set
+            {
+                OnIdUMedidaProvChanging(value);
+                ReportPropertyChanging("IdUMedidaProv");
+                _IdUMedidaProv = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdUMedidaProv");
+                OnIdUMedidaProvChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdUMedidaProv;
+        partial void OnIdUMedidaProvChanging(Nullable<global::System.Int32> value);
+        partial void OnIdUMedidaProvChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> ConvUMProv
+        {
+            get
+            {
+                return _ConvUMProv;
+            }
+            set
+            {
+                OnConvUMProvChanging(value);
+                ReportPropertyChanging("ConvUMProv");
+                _ConvUMProv = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ConvUMProv");
+                OnConvUMProvChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _ConvUMProv;
+        partial void OnConvUMProvChanging(Nullable<global::System.Decimal> value);
+        partial void OnConvUMProvChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdUMedida
+        {
+            get
+            {
+                return _IdUMedida;
+            }
+            set
+            {
+                OnIdUMedidaChanging(value);
+                ReportPropertyChanging("IdUMedida");
+                _IdUMedida = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdUMedida");
+                OnIdUMedidaChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdUMedida;
+        partial void OnIdUMedidaChanging(Nullable<global::System.Int32> value);
+        partial void OnIdUMedidaChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> ConvUMVenta
+        {
+            get
+            {
+                return _ConvUMVenta;
+            }
+            set
+            {
+                OnConvUMVentaChanging(value);
+                ReportPropertyChanging("ConvUMVenta");
+                _ConvUMVenta = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ConvUMVenta");
+                OnConvUMVentaChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _ConvUMVenta;
+        partial void OnConvUMVentaChanging(Nullable<global::System.Decimal> value);
+        partial void OnConvUMVentaChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdUMedidaVenta
+        {
+            get
+            {
+                return _IdUMedidaVenta;
+            }
+            set
+            {
+                OnIdUMedidaVentaChanging(value);
+                ReportPropertyChanging("IdUMedidaVenta");
+                _IdUMedidaVenta = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdUMedidaVenta");
+                OnIdUMedidaVentaChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdUMedidaVenta;
+        partial void OnIdUMedidaVentaChanging(Nullable<global::System.Int32> value);
+        partial void OnIdUMedidaVentaChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> PVP
+        {
+            get
+            {
+                return _PVP;
+            }
+            set
+            {
+                OnPVPChanging(value);
+                ReportPropertyChanging("PVP");
+                _PVP = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PVP");
+                OnPVPChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _PVP;
+        partial void OnPVPChanging(Nullable<global::System.Decimal> value);
+        partial void OnPVPChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Descuento
+        {
+            get
+            {
+                return _Descuento;
+            }
+            set
+            {
+                OnDescuentoChanging(value);
+                ReportPropertyChanging("Descuento");
+                _Descuento = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Descuento");
+                OnDescuentoChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _Descuento;
+        partial void OnDescuentoChanging(Nullable<global::System.Decimal> value);
+        partial void OnDescuentoChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Porciento
+        {
+            get
+            {
+                return _Porciento;
+            }
+            set
+            {
+                OnPorcientoChanging(value);
+                ReportPropertyChanging("Porciento");
+                _Porciento = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Porciento");
+                OnPorcientoChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _Porciento;
+        partial void OnPorcientoChanging(Nullable<global::System.Decimal> value);
+        partial void OnPorcientoChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> PrecioVenta
+        {
+            get
+            {
+                return _PrecioVenta;
+            }
+            set
+            {
+                OnPrecioVentaChanging(value);
+                ReportPropertyChanging("PrecioVenta");
+                _PrecioVenta = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PrecioVenta");
+                OnPrecioVentaChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _PrecioVenta;
+        partial void OnPrecioVentaChanging(Nullable<global::System.Decimal> value);
+        partial void OnPrecioVentaChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdProveedor
+        {
+            get
+            {
+                return _IdProveedor;
+            }
+            set
+            {
+                OnIdProveedorChanging(value);
+                ReportPropertyChanging("IdProveedor");
+                _IdProveedor = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdProveedor");
+                OnIdProveedorChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdProveedor;
+        partial void OnIdProveedorChanging(Nullable<global::System.Int32> value);
+        partial void OnIdProveedorChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdObra
+        {
+            get
+            {
+                return _IdObra;
+            }
+            set
+            {
+                OnIdObraChanging(value);
+                ReportPropertyChanging("IdObra");
+                _IdObra = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdObra");
+                OnIdObraChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdObra;
+        partial void OnIdObraChanging(Nullable<global::System.Int32> value);
+        partial void OnIdObraChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdFabricante
+        {
+            get
+            {
+                return _IdFabricante;
+            }
+            set
+            {
+                OnIdFabricanteChanging(value);
+                ReportPropertyChanging("IdFabricante");
+                _IdFabricante = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdFabricante");
+                OnIdFabricanteChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdFabricante;
+        partial void OnIdFabricanteChanging(Nullable<global::System.Int32> value);
+        partial void OnIdFabricanteChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdTipoProveedor
+        {
+            get
+            {
+                return _IdTipoProveedor;
+            }
+            set
+            {
+                OnIdTipoProveedorChanging(value);
+                ReportPropertyChanging("IdTipoProveedor");
+                _IdTipoProveedor = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdTipoProveedor");
+                OnIdTipoProveedorChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdTipoProveedor;
+        partial void OnIdTipoProveedorChanging(Nullable<global::System.Int32> value);
+        partial void OnIdTipoProveedorChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdGrupo
+        {
+            get
+            {
+                return _IdGrupo;
+            }
+            set
+            {
+                OnIdGrupoChanging(value);
+                ReportPropertyChanging("IdGrupo");
+                _IdGrupo = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdGrupo");
+                OnIdGrupoChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdGrupo;
+        partial void OnIdGrupoChanging(Nullable<global::System.Int32> value);
+        partial void OnIdGrupoChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdTipoProducto
+        {
+            get
+            {
+                return _IdTipoProducto;
+            }
+            set
+            {
+                OnIdTipoProductoChanging(value);
+                ReportPropertyChanging("IdTipoProducto");
+                _IdTipoProducto = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdTipoProducto");
+                OnIdTipoProductoChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdTipoProducto;
+        partial void OnIdTipoProductoChanging(Nullable<global::System.Int32> value);
+        partial void OnIdTipoProductoChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> anteriores
+        {
+            get
+            {
+                return _anteriores;
+            }
+            set
+            {
+                OnanterioresChanging(value);
+                ReportPropertyChanging("anteriores");
+                _anteriores = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("anteriores");
+                OnanterioresChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _anteriores;
+        partial void OnanterioresChanging(Nullable<global::System.Boolean> value);
+        partial void OnanterioresChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> FechaCrea
+        {
+            get
+            {
+                return _FechaCrea;
+            }
+            set
+            {
+                OnFechaCreaChanging(value);
+                ReportPropertyChanging("FechaCrea");
+                _FechaCrea = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FechaCrea");
+                OnFechaCreaChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _FechaCrea;
+        partial void OnFechaCreaChanging(Nullable<global::System.DateTime> value);
+        partial void OnFechaCreaChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> FechaModif
+        {
+            get
+            {
+                return _FechaModif;
+            }
+            set
+            {
+                OnFechaModifChanging(value);
+                ReportPropertyChanging("FechaModif");
+                _FechaModif = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FechaModif");
+                OnFechaModifChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _FechaModif;
+        partial void OnFechaModifChanging(Nullable<global::System.DateTime> value);
+        partial void OnFechaModifChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> FechaUtilizado
+        {
+            get
+            {
+                return _FechaUtilizado;
+            }
+            set
+            {
+                OnFechaUtilizadoChanging(value);
+                ReportPropertyChanging("FechaUtilizado");
+                _FechaUtilizado = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FechaUtilizado");
+                OnFechaUtilizadoChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _FechaUtilizado;
+        partial void OnFechaUtilizadoChanging(Nullable<global::System.DateTime> value);
+        partial void OnFechaUtilizadoChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> FechaActualizaPrecio
+        {
+            get
+            {
+                return _FechaActualizaPrecio;
+            }
+            set
+            {
+                OnFechaActualizaPrecioChanging(value);
+                ReportPropertyChanging("FechaActualizaPrecio");
+                _FechaActualizaPrecio = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FechaActualizaPrecio");
+                OnFechaActualizaPrecioChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _FechaActualizaPrecio;
+        partial void OnFechaActualizaPrecioChanging(Nullable<global::System.DateTime> value);
+        partial void OnFechaActualizaPrecioChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> ProductoGenerico
+        {
+            get
+            {
+                return _ProductoGenerico;
+            }
+            set
+            {
+                OnProductoGenericoChanging(value);
+                ReportPropertyChanging("ProductoGenerico");
+                _ProductoGenerico = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ProductoGenerico");
+                OnProductoGenericoChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _ProductoGenerico;
+        partial void OnProductoGenericoChanging(Nullable<global::System.Boolean> value);
+        partial void OnProductoGenericoChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> PrecioMinimo
+        {
+            get
+            {
+                return _PrecioMinimo;
+            }
+            set
+            {
+                OnPrecioMinimoChanging(value);
+                ReportPropertyChanging("PrecioMinimo");
+                _PrecioMinimo = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PrecioMinimo");
+                OnPrecioMinimoChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _PrecioMinimo;
+        partial void OnPrecioMinimoChanging(Nullable<global::System.Decimal> value);
+        partial void OnPrecioMinimoChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> DescuentoPrecioMinimo
+        {
+            get
+            {
+                return _DescuentoPrecioMinimo;
+            }
+            set
+            {
+                OnDescuentoPrecioMinimoChanging(value);
+                ReportPropertyChanging("DescuentoPrecioMinimo");
+                _DescuentoPrecioMinimo = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DescuentoPrecioMinimo");
+                OnDescuentoPrecioMinimoChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _DescuentoPrecioMinimo;
+        partial void OnDescuentoPrecioMinimoChanging(Nullable<global::System.Decimal> value);
+        partial void OnDescuentoPrecioMinimoChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdAlbaranCab
+        {
+            get
+            {
+                return _IdAlbaranCab;
+            }
+            set
+            {
+                OnIdAlbaranCabChanging(value);
+                ReportPropertyChanging("IdAlbaranCab");
+                _IdAlbaranCab = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdAlbaranCab");
+                OnIdAlbaranCabChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdAlbaranCab;
+        partial void OnIdAlbaranCabChanging(Nullable<global::System.Int32> value);
+        partial void OnIdAlbaranCabChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> FechaPrecioMinimo
+        {
+            get
+            {
+                return _FechaPrecioMinimo;
+            }
+            set
+            {
+                OnFechaPrecioMinimoChanging(value);
+                ReportPropertyChanging("FechaPrecioMinimo");
+                _FechaPrecioMinimo = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FechaPrecioMinimo");
+                OnFechaPrecioMinimoChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _FechaPrecioMinimo;
+        partial void OnFechaPrecioMinimoChanging(Nullable<global::System.DateTime> value);
+        partial void OnFechaPrecioMinimoChanged();
+
+        #endregion
+
+    
+        #region Propiedades de navegación
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Promowork_dataModel", "FK_Productos_Obras", "Obras")]
+        public Obras Obras
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Obras>("Promowork_dataModel.FK_Productos_Obras", "Obras").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Obras>("Promowork_dataModel.FK_Productos_Obras", "Obras").Value = value;
+            }
+        }
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Obras> ObrasReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Obras>("Promowork_dataModel.FK_Productos_Obras", "Obras");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Obras>("Promowork_dataModel.FK_Productos_Obras", "Obras", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Promowork_dataModel", "FK_Productos_Productos", "Productos1")]
+        public Productos Productos1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Productos>("Promowork_dataModel.FK_Productos_Productos", "Productos1").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Productos>("Promowork_dataModel.FK_Productos_Productos", "Productos1").Value = value;
+            }
+        }
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Productos> Productos1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Productos>("Promowork_dataModel.FK_Productos_Productos", "Productos1");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Productos>("Promowork_dataModel.FK_Productos_Productos", "Productos1", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Promowork_dataModel", "FK_Productos_Productos", "Productos")]
+        public Productos Productos2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Productos>("Promowork_dataModel.FK_Productos_Productos", "Productos").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Productos>("Promowork_dataModel.FK_Productos_Productos", "Productos").Value = value;
+            }
+        }
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Productos> Productos2Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Productos>("Promowork_dataModel.FK_Productos_Productos", "Productos");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Productos>("Promowork_dataModel.FK_Productos_Productos", "Productos", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Promowork_dataModel", "FK_Productos_Proveedores", "Proveedores")]
+        public Proveedores Proveedores
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Proveedores>("Promowork_dataModel.FK_Productos_Proveedores", "Proveedores").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Proveedores>("Promowork_dataModel.FK_Productos_Proveedores", "Proveedores").Value = value;
+            }
+        }
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Proveedores> ProveedoresReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Proveedores>("Promowork_dataModel.FK_Productos_Proveedores", "Proveedores");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Proveedores>("Promowork_dataModel.FK_Productos_Proveedores", "Proveedores", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Promowork_dataModel", "FK_Productos_UMedidas", "UMedidas")]
+        public UMedidas UMedidas
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UMedidas>("Promowork_dataModel.FK_Productos_UMedidas", "UMedidas").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UMedidas>("Promowork_dataModel.FK_Productos_UMedidas", "UMedidas").Value = value;
+            }
+        }
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<UMedidas> UMedidasReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UMedidas>("Promowork_dataModel.FK_Productos_UMedidas", "UMedidas");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<UMedidas>("Promowork_dataModel.FK_Productos_UMedidas", "UMedidas", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Promowork_dataModel", "FK_Productos_UMedidas1", "UMedidas")]
+        public UMedidas UMedidas1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UMedidas>("Promowork_dataModel.FK_Productos_UMedidas1", "UMedidas").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UMedidas>("Promowork_dataModel.FK_Productos_UMedidas1", "UMedidas").Value = value;
+            }
+        }
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<UMedidas> UMedidas1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UMedidas>("Promowork_dataModel.FK_Productos_UMedidas1", "UMedidas");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<UMedidas>("Promowork_dataModel.FK_Productos_UMedidas1", "UMedidas", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Promowork_dataModel", "FK_Productos_UMedidas2", "UMedidas")]
+        public UMedidas UMedidas2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UMedidas>("Promowork_dataModel.FK_Productos_UMedidas2", "UMedidas").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UMedidas>("Promowork_dataModel.FK_Productos_UMedidas2", "UMedidas").Value = value;
+            }
+        }
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<UMedidas> UMedidas2Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UMedidas>("Promowork_dataModel.FK_Productos_UMedidas2", "UMedidas");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<UMedidas>("Promowork_dataModel.FK_Productos_UMedidas2", "UMedidas", value);
                 }
             }
         }
@@ -2491,6 +3594,28 @@ namespace GestionData.Modelos
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Participantes>("Promowork_dataModel.FK_Proveedores_Participantes", "Participantes", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Promowork_dataModel", "FK_Productos_Proveedores", "Productos")]
+        public EntityCollection<Productos> Productos
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Productos>("Promowork_dataModel.FK_Productos_Proveedores", "Productos");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Productos>("Promowork_dataModel.FK_Productos_Proveedores", "Productos", value);
                 }
             }
         }
@@ -3354,6 +4479,207 @@ namespace GestionData.Modelos
         #endregion
 
     
+    }
+    
+    /// <summary>
+    /// No hay documentación de metadatos disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Promowork_dataModel", Name="UMedidas")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class UMedidas : EntityObject
+    {
+        #region Método de generador
+    
+        /// <summary>
+        /// Crear un nuevo objeto UMedidas.
+        /// </summary>
+        /// <param name="idUmedida">Valor inicial de la propiedad IdUmedida.</param>
+        /// <param name="codUmedida">Valor inicial de la propiedad CodUmedida.</param>
+        public static UMedidas CreateUMedidas(global::System.Int32 idUmedida, global::System.String codUmedida)
+        {
+            UMedidas uMedidas = new UMedidas();
+            uMedidas.IdUmedida = idUmedida;
+            uMedidas.CodUmedida = codUmedida;
+            return uMedidas;
+        }
+
+        #endregion
+
+        #region Propiedades primitivas
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 IdUmedida
+        {
+            get
+            {
+                return _IdUmedida;
+            }
+            set
+            {
+                if (_IdUmedida != value)
+                {
+                    OnIdUmedidaChanging(value);
+                    ReportPropertyChanging("IdUmedida");
+                    _IdUmedida = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("IdUmedida");
+                    OnIdUmedidaChanged();
+                }
+            }
+        }
+        private global::System.Int32 _IdUmedida;
+        partial void OnIdUmedidaChanging(global::System.Int32 value);
+        partial void OnIdUmedidaChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String CodUmedida
+        {
+            get
+            {
+                return _CodUmedida;
+            }
+            set
+            {
+                OnCodUmedidaChanging(value);
+                ReportPropertyChanging("CodUmedida");
+                _CodUmedida = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("CodUmedida");
+                OnCodUmedidaChanged();
+            }
+        }
+        private global::System.String _CodUmedida;
+        partial void OnCodUmedidaChanging(global::System.String value);
+        partial void OnCodUmedidaChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String DesUmedida
+        {
+            get
+            {
+                return _DesUmedida;
+            }
+            set
+            {
+                OnDesUmedidaChanging(value);
+                ReportPropertyChanging("DesUmedida");
+                _DesUmedida = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("DesUmedida");
+                OnDesUmedidaChanged();
+            }
+        }
+        private global::System.String _DesUmedida;
+        partial void OnDesUmedidaChanging(global::System.String value);
+        partial void OnDesUmedidaChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> ActivaUM
+        {
+            get
+            {
+                return _ActivaUM;
+            }
+            set
+            {
+                OnActivaUMChanging(value);
+                ReportPropertyChanging("ActivaUM");
+                _ActivaUM = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ActivaUM");
+                OnActivaUMChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _ActivaUM;
+        partial void OnActivaUMChanging(Nullable<global::System.Boolean> value);
+        partial void OnActivaUMChanged();
+
+        #endregion
+
+    
+        #region Propiedades de navegación
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Promowork_dataModel", "FK_Productos_UMedidas", "Productos")]
+        public EntityCollection<Productos> Productos
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Productos>("Promowork_dataModel.FK_Productos_UMedidas", "Productos");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Productos>("Promowork_dataModel.FK_Productos_UMedidas", "Productos", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Promowork_dataModel", "FK_Productos_UMedidas1", "Productos")]
+        public EntityCollection<Productos> Productos1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Productos>("Promowork_dataModel.FK_Productos_UMedidas1", "Productos");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Productos>("Promowork_dataModel.FK_Productos_UMedidas1", "Productos", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Promowork_dataModel", "FK_Productos_UMedidas2", "Productos")]
+        public EntityCollection<Productos> Productos2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Productos>("Promowork_dataModel.FK_Productos_UMedidas2", "Productos");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Productos>("Promowork_dataModel.FK_Productos_UMedidas2", "Productos", value);
+                }
+            }
+        }
+
+        #endregion
+
     }
 
     #endregion

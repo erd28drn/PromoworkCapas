@@ -1303,7 +1303,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=sum(Fields!CantAdmin.Value*Fields!SalarioVenta.Value)+sum((Fields!CantProd.Value*Fields!PVP.Value)-((Fields!CantProd.Value*Fields!PVP.Value)*Fields!Descuento.Value/100)+(((Fields!CantProd.Value*Fields!PVP.Value)-((Fields!CantProd.Value*Fields!PVP.Value)*Fields!Descuento.Value/100))*Fields!Porciento.Value/100))</Value>
+                              <Value>=sum(Fields!CantAdmin.Value*Fields!SalarioVenta.Value)</Value>
                               <Style>
                                 <FontFamily>Franklin Gothic Medium Cond</FontFamily>
                                 <FontWeight>Bold</FontWeight>
@@ -1596,7 +1596,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=sum(Fields!CantAdmin.Value*Fields!SalarioVenta.Value)+sum((Fields!CantProd.Value*Fields!PVP.Value)-((Fields!CantProd.Value*Fields!PVP.Value)*Fields!Descuento.Value/100)+(((Fields!CantProd.Value*Fields!PVP.Value)-((Fields!CantProd.Value*Fields!PVP.Value)*Fields!Descuento.Value/100))*Fields!Porciento.Value/100))</Value>
+                              <Value>=sum(Fields!CantAdmin.Value*Fields!SalarioVenta.Value)</Value>
                               <Style>
                                 <FontFamily>Franklin Gothic Medium Cond</FontFamily>
                                 <FontSize>8pt</FontSize>
@@ -1799,7 +1799,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=sum((Fields!CantAdmin.Value*Fields!SalarioVenta.Value)+(Fields!PVP.Value*(1-(Fields!Descuento.Value/100)))*(1+(Fields!Porciento.Value/100))*Fields!CantProd.Value)</Value>
+                              <Value>=sum(Fields!CantAdmin.Value*Fields!SalarioVenta.Value)</Value>
                               <Style>
                                 <FontFamily>Franklin Gothic Medium Cond</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -2055,7 +2055,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=sum((Fields!CantAdmin.Value*Fields!SalarioVenta.Value)+(Fields!PVP.Value*(1-(Fields!Descuento.Value/100)))*(1+(Fields!Porciento.Value/100))*Fields!CantProd.Value)</Value>
+                              <Value>=sum(Fields!CantAdmin.Value*Fields!SalarioVenta.Value)</Value>
                               <Style>
                                 <FontFamily>Franklin Gothic Medium Cond</FontFamily>
                                 <FontSize>8pt</FontSize>
@@ -3183,7 +3183,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=SUM((Fields!PVP.Value*(1-(Fields!Descuento.Value/100)))*(1+(Fields!Porciento.Value/100)))+Fields!SalarioVenta.Value</Value>
+                              <Value>=sum((Fields!PVP.Value*(1-(Fields!Descuento.Value/100)))*(1+(Fields!Porciento.Value/100))*Fields!CantProd.Value)/Sum(Fields!CantProd.Value)</Value>
                               <Style>
                                 <FontFamily>Franklin Gothic Medium Cond</FontFamily>
                                 <FontSize>8pt</FontSize>
@@ -3208,7 +3208,6 @@
                         <rd:FormatSymbolCulture>es-ES</rd:FormatSymbolCulture>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -3947,7 +3946,7 @@
         <FixedRowHeaders>true</FixedRowHeaders>
         <DataSetName>DataSet1</DataSetName>
         <Top>0.09701cm</Top>
-        <Height>12.44367cm</Height>
+        <Height>12.44366cm</Height>
         <Width>19.01353cm</Width>
         <Style>
           <Border>

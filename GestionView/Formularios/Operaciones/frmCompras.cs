@@ -38,6 +38,8 @@ namespace Promowork.Formularios.Operaciones
         int? vMesFactura = null;
         int? vAnoFactura = null;
 
+        CombustibleService servicioCombustible = new CombustibleService();
+
         private void frmCompras_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
@@ -435,6 +437,11 @@ namespace Promowork.Formularios.Operaciones
             gvAlbaranesProveedorObra.SetFocusedRowCellValue(colIdCompra, vCompra);
             gvAlbaranesProveedorObra.SetFocusedRowCellValue(colModificaImporteCompra, chkAutocalcular.Checked);
 
+            var idAlbaranCab= (int) gvAlbaranesProveedorObra.GetFocusedRowCellValue(colIdAlbaranCab1);
+            decimal iva = 0;
+            decimal.TryParse(tbIVA.Text, out iva);
+            servicioCombustible.ValidaInsertaDetalleCombustible(vCompra, idAlbaranCab, iva);
+
             this.Validate();
             this.albaranesCabProveedoresBindingSource.EndEdit();
 
@@ -458,7 +465,9 @@ namespace Promowork.Formularios.Operaciones
             decimal importe = (decimal)gvAlbaranesCompra.GetFocusedRowCellValue(colImporteAlbaranCompra);
 
             QuitarAlbaranCompra(obra, importe);
-           
+
+            servicioCombustible.ValidaEliminarDetalleCombustible(vAlbaran);
+
             gvAlbaranesCompra.SetFocusedRowCellValue(colIdCompra, null);
             gvAlbaranesCompra.SetFocusedRowCellValue(colModificaImporteCompraAlbProv, null);
 
@@ -695,7 +704,7 @@ namespace Promowork.Formularios.Operaciones
 
         private void button6_Click(object sender, EventArgs e)
         {
-            Proveedores frm = new Proveedores();
+            Promowork.Formularios.Definiciones.Proveedores frm = new Promowork.Formularios.Definiciones.Proveedores();
             frm.ShowDialog();
             this.vProveedoresTableAdapter.FillByEmpresa(promowork_dataDataSet.vProveedores, VariablesGlobales.nIdEmpresaActual);
         }

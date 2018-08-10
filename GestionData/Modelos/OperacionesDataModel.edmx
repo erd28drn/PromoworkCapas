@@ -11,7 +11,6 @@
           <EntitySet Name="Cobros" EntityType="Promowork_dataModel.Store.Cobros" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ComprasCab" EntityType="Promowork_dataModel.Store.ComprasCab" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ComprasDet" EntityType="Promowork_dataModel.Store.ComprasDet" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="EntradasCombustibleCab" EntityType="Promowork_dataModel.Store.EntradasCombustibleCab" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="EntradasCombustibleDet" EntityType="Promowork_dataModel.Store.EntradasCombustibleDet" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="FacturasCab" EntityType="Promowork_dataModel.Store.FacturasCab" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="FacturasDet" EntityType="Promowork_dataModel.Store.FacturasDet" store:Type="Tables" Schema="dbo" />
@@ -231,21 +230,6 @@
           <Property Name="ObsCompra" Type="varchar" MaxLength="100" />
           <Property Name="Color" Type="int" />
         </EntityType>
-        <EntityType Name="EntradasCombustibleCab">
-          <Key>
-            <PropertyRef Name="IdEntradaCab" />
-          </Key>
-          <Property Name="IdEntradaCab" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="IdEmpresa" Type="int" Nullable="false" />
-          <Property Name="NumFactura" Type="varchar" Nullable="false" MaxLength="20" />
-          <Property Name="FechaFactura" Type="date" Nullable="false" />
-          <Property Name="FechaRecib" Type="date" Nullable="false" />
-          <Property Name="FechaVcto" Type="date" Nullable="false" />
-          <Property Name="FechaPago" Type="date" Nullable="false" />
-          <Property Name="IdProveedor" Type="int" Nullable="false" />
-          <Property Name="IdFormaPago" Type="int" />
-          <Property Name="IdCuenta" Type="int" />
-        </EntityType>
         <EntityType Name="EntradasCombustibleDet">
           <Key>
             <PropertyRef Name="IdEntradaDet" />
@@ -259,6 +243,8 @@
           <Property Name="IdUmedida" Type="int" />
           <Property Name="Precio" Type="numeric" Precision="10" Scale="4" />
           <Property Name="ImpIVA" Type="numeric" Precision="10" Scale="4" />
+          <Property Name="IdProducto" Type="int" />
+          <Property Name="IdAlbaranDet" Type="int" />
         </EntityType>
         <EntityType Name="FacturasCab">
           <Key>
@@ -831,7 +817,6 @@
           <EntitySet Name="Cobros" EntityType="Promowork_dataModel.Cobros" />
           <EntitySet Name="ComprasCab" EntityType="Promowork_dataModel.ComprasCab" />
           <EntitySet Name="ComprasDet" EntityType="Promowork_dataModel.ComprasDet" />
-          <EntitySet Name="EntradasCombustibleCab" EntityType="Promowork_dataModel.EntradasCombustibleCab" />
           <EntitySet Name="EntradasCombustibleDet" EntityType="Promowork_dataModel.EntradasCombustibleDet" />
           <EntitySet Name="FacturasCab" EntityType="Promowork_dataModel.FacturasCab" />
           <EntitySet Name="FacturasDet" EntityType="Promowork_dataModel.FacturasDet" />
@@ -1064,21 +1049,6 @@
           <Property Name="Color" Type="Int32" />
           <NavigationProperty Name="ComprasCab" Relationship="Promowork_dataModel.FK_ComprasDet_ComprasCab" FromRole="ComprasDet" ToRole="ComprasCab" />
         </EntityType>
-        <EntityType Name="EntradasCombustibleCab">
-          <Key>
-            <PropertyRef Name="IdEntradaCab" />
-          </Key>
-          <Property Name="IdEntradaCab" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdEmpresa" Type="Int32" Nullable="false" />
-          <Property Name="NumFactura" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-          <Property Name="FechaFactura" Type="DateTime" Nullable="false" />
-          <Property Name="FechaRecib" Type="DateTime" Nullable="false" />
-          <Property Name="FechaVcto" Type="DateTime" Nullable="false" />
-          <Property Name="FechaPago" Type="DateTime" Nullable="false" />
-          <Property Name="IdProveedor" Type="Int32" Nullable="false" />
-          <Property Name="IdFormaPago" Type="Int32" />
-          <Property Name="IdCuenta" Type="Int32" />
-        </EntityType>
         <EntityType Name="EntradasCombustibleDet">
           <Key>
             <PropertyRef Name="IdEntradaDet" />
@@ -1093,6 +1063,8 @@
           <Property Name="Precio" Type="Decimal" Precision="10" Scale="4" />
           <Property Name="ImpIVA" Type="Decimal" Precision="10" Scale="4" />
           <NavigationProperty Name="ComprasCab" Relationship="Promowork_dataModel.FK_EntradasCombustibleDet_ComprasCab" FromRole="EntradasCombustibleDet" ToRole="ComprasCab" />
+          <Property Type="Int32" Name="IdProducto" />
+          <Property Type="Int32" Name="IdAlbaranDet" />
         </EntityType>
         <EntityType Name="FacturasCab">
           <Key>
@@ -1805,25 +1777,11 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="EntradasCombustibleCab">
-            <EntityTypeMapping TypeName="Promowork_dataModel.EntradasCombustibleCab">
-              <MappingFragment StoreEntitySet="EntradasCombustibleCab">
-                <ScalarProperty Name="IdEntradaCab" ColumnName="IdEntradaCab" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-                <ScalarProperty Name="NumFactura" ColumnName="NumFactura" />
-                <ScalarProperty Name="FechaFactura" ColumnName="FechaFactura" />
-                <ScalarProperty Name="FechaRecib" ColumnName="FechaRecib" />
-                <ScalarProperty Name="FechaVcto" ColumnName="FechaVcto" />
-                <ScalarProperty Name="FechaPago" ColumnName="FechaPago" />
-                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
-                <ScalarProperty Name="IdFormaPago" ColumnName="IdFormaPago" />
-                <ScalarProperty Name="IdCuenta" ColumnName="IdCuenta" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="EntradasCombustibleDet">
             <EntityTypeMapping TypeName="Promowork_dataModel.EntradasCombustibleDet">
               <MappingFragment StoreEntitySet="EntradasCombustibleDet">
+                <ScalarProperty Name="IdAlbaranDet" ColumnName="IdAlbaranDet" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
                 <ScalarProperty Name="IdEntradaDet" ColumnName="IdEntradaDet" />
                 <ScalarProperty Name="IdCompra" ColumnName="IdCompra" />
                 <ScalarProperty Name="Albaran" ColumnName="Albaran" />
@@ -2111,13 +2069,12 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="OperacionesDataModel">
+      <Diagram Name="OperacionesDataModel" ZoomLevel="74">
         <EntityTypeShape EntityType="Promowork_dataModel.AlbaranesCab" Width="1.5" PointX="7.5" PointY="3.375" Height="4.480205078125" IsExpanded="true" />
         <EntityTypeShape EntityType="Promowork_dataModel.AlbaranesDet" Width="1.5" PointX="9.75" PointY="4" Height="3.3263964843749996" IsExpanded="true" />
         <EntityTypeShape EntityType="Promowork_dataModel.Cobros" Width="1.5" PointX="5.25" PointY="8.375" Height="5.634013671875" IsExpanded="true" />
         <EntityTypeShape EntityType="Promowork_dataModel.ComprasCab" Width="1.5" PointX="5.25" PointY="0.75" Height="6.7878222656249978" IsExpanded="true" />
         <EntityTypeShape EntityType="Promowork_dataModel.ComprasDet" Width="1.5" PointX="7.5" PointY="14.625" Height="2.7494921874999996" IsExpanded="true" />
-        <EntityTypeShape EntityType="Promowork_dataModel.EntradasCombustibleCab" Width="1.5" PointX="0.75" PointY="3.5" Height="2.9417936197916665" IsExpanded="true" />
         <EntityTypeShape EntityType="Promowork_dataModel.EntradasCombustibleDet" Width="1.5" PointX="7.5" PointY="18.125" Height="2.9417936197916674" IsExpanded="true" />
         <EntityTypeShape EntityType="Promowork_dataModel.FacturasCab" Width="1.5" PointX="3" PointY="8" Height="8.7108365885416674" IsExpanded="true" />
         <EntityTypeShape EntityType="Promowork_dataModel.FacturasDet" Width="1.5" PointX="9.75" PointY="17.125" Height="3.7109993489583317" IsExpanded="true" />

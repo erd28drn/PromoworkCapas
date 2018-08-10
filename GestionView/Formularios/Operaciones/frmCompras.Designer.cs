@@ -42,11 +42,11 @@
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Label fechaPagoLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCompras));
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
             this.vComprasProveedoresGridControl = new DevExpress.XtraGrid.GridControl();
@@ -497,7 +497,7 @@
             this.splitContainerControl1.Panel2.Controls.Add(this.splitContainerControl3);
             this.splitContainerControl1.Panel2.Text = "Panel2";
             this.splitContainerControl1.Size = new System.Drawing.Size(1370, 749);
-            this.splitContainerControl1.SplitterPosition = 620;
+            this.splitContainerControl1.SplitterPosition = 551;
             this.splitContainerControl1.TabIndex = 0;
             this.splitContainerControl1.Text = "splitContainerControl1";
             // 
@@ -541,7 +541,7 @@
             this.splitContainerControl2.Panel2.Controls.Add(this.tbCopiaFactura);
             this.splitContainerControl2.Panel2.Controls.Add(this.observTextEdit);
             this.splitContainerControl2.Panel2.Text = "Panel2";
-            this.splitContainerControl2.Size = new System.Drawing.Size(1370, 620);
+            this.splitContainerControl2.Size = new System.Drawing.Size(1370, 551);
             this.splitContainerControl2.SplitterPosition = 511;
             this.splitContainerControl2.TabIndex = 3;
             this.splitContainerControl2.Text = "splitContainerControl2";
@@ -557,7 +557,7 @@
             this.Proveedores,
             this.FormasPago,
             this.Cuentas});
-            this.vComprasProveedoresGridControl.Size = new System.Drawing.Size(854, 593);
+            this.vComprasProveedoresGridControl.Size = new System.Drawing.Size(854, 524);
             this.vComprasProveedoresGridControl.TabIndex = 2;
             this.vComprasProveedoresGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvComprasCab});
@@ -1156,7 +1156,7 @@
             this.groupBox2.Controls.Add(this.rbVcto);
             this.groupBox2.Controls.Add(this.rbPrevision);
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.groupBox2.Location = new System.Drawing.Point(259, 125);
+            this.groupBox2.Location = new System.Drawing.Point(260, 125);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(104, 65);
             this.groupBox2.TabIndex = 94;
@@ -1198,7 +1198,7 @@
             this.tbbtAddPago,
             this.tbbtSavePago,
             this.toolStripSeparator15});
-            this.bindingNavigator5.Location = new System.Drawing.Point(0, 405);
+            this.bindingNavigator5.Location = new System.Drawing.Point(0, 336);
             this.bindingNavigator5.MoveFirstItem = null;
             this.bindingNavigator5.MoveLastItem = null;
             this.bindingNavigator5.MoveNextItem = null;
@@ -1263,7 +1263,7 @@
             // 
             this.pagosGridControl.DataSource = this.pagosBindingSource;
             this.pagosGridControl.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pagosGridControl.Location = new System.Drawing.Point(0, 430);
+            this.pagosGridControl.Location = new System.Drawing.Point(0, 361);
             this.pagosGridControl.MainView = this.gvPagos;
             this.pagosGridControl.Name = "pagosGridControl";
             this.pagosGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -1617,9 +1617,9 @@
             this.tbCopiaFactura.Location = new System.Drawing.Point(137, 248);
             this.tbCopiaFactura.Name = "tbCopiaFactura";
             this.tbCopiaFactura.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "Adjuntar copia de la Factura", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::Promowork.Properties.Resources.View_icon, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "Ver copia de factura.", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "Eliminar copia de factura adjunta.", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "Adjuntar copia de la Factura", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::Promowork.Properties.Resources.View_icon, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "Ver copia de factura.", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "Eliminar copia de factura adjunta.", null, null, true)});
             this.tbCopiaFactura.Size = new System.Drawing.Size(370, 22);
             this.tbCopiaFactura.TabIndex = 15;
             this.tbCopiaFactura.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.tbCopiaFactura_ButtonPressed);
@@ -1644,7 +1644,7 @@
             this.splitContainerControl3.Panel2.Controls.Add(this.albaranesCabGridControl1);
             this.splitContainerControl3.Panel2.Controls.Add(this.bindingNavigator2);
             this.splitContainerControl3.Panel2.Text = "Panel2";
-            this.splitContainerControl3.Size = new System.Drawing.Size(1370, 124);
+            this.splitContainerControl3.Size = new System.Drawing.Size(1370, 193);
             this.splitContainerControl3.SplitterPosition = 1159;
             this.splitContainerControl3.TabIndex = 1;
             this.splitContainerControl3.Text = "splitContainerControl3";
@@ -1660,8 +1660,8 @@
             this.splitContainerControl5.Panel1.Text = "Panel1";
             this.splitContainerControl5.Panel2.Controls.Add(this.splitContainerControl4);
             this.splitContainerControl5.Panel2.Text = "Panel2";
-            this.splitContainerControl5.Size = new System.Drawing.Size(1159, 99);
-            this.splitContainerControl5.SplitterPosition = 51;
+            this.splitContainerControl5.Size = new System.Drawing.Size(1159, 168);
+            this.splitContainerControl5.SplitterPosition = 48;
             this.splitContainerControl5.TabIndex = 4;
             this.splitContainerControl5.Text = "splitContainerControl5";
             // 
@@ -1674,7 +1674,7 @@
             this.comprasDetGridControl.Name = "comprasDetGridControl";
             this.comprasDetGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.Obras});
-            this.comprasDetGridControl.Size = new System.Drawing.Size(1159, 51);
+            this.comprasDetGridControl.Size = new System.Drawing.Size(1159, 48);
             this.comprasDetGridControl.TabIndex = 0;
             this.comprasDetGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvComprasDet});
@@ -1840,7 +1840,7 @@
             this.splitContainerControl4.Panel2.Controls.Add(this.albaranesDetGridControl);
             this.splitContainerControl4.Panel2.Controls.Add(this.bindingNavigator4);
             this.splitContainerControl4.Panel2.Text = "Panel2";
-            this.splitContainerControl4.Size = new System.Drawing.Size(1159, 43);
+            this.splitContainerControl4.Size = new System.Drawing.Size(1159, 115);
             this.splitContainerControl4.SplitterPosition = 567;
             this.splitContainerControl4.TabIndex = 3;
             this.splitContainerControl4.Text = "splitContainerControl4";
@@ -1855,7 +1855,7 @@
             this.albaranesCabGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.QuitarAsociacion,
             this.ObrasAlbaranes});
-            this.albaranesCabGridControl.Size = new System.Drawing.Size(567, 18);
+            this.albaranesCabGridControl.Size = new System.Drawing.Size(567, 90);
             this.albaranesCabGridControl.TabIndex = 0;
             this.albaranesCabGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvAlbaranesCompra});
@@ -2022,7 +2022,7 @@
             // 
             this.QuitarAsociacion.AutoHeight = false;
             this.QuitarAsociacion.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "Quitar Asociación", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "Quitar Asociación", null, null, true)});
             this.QuitarAsociacion.Name = "QuitarAsociacion";
             this.QuitarAsociacion.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.QuitarAsociacion.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.QuitarAsociacion_ButtonPressed);
@@ -2087,7 +2087,7 @@
             this.albaranesDetGridControl.Location = new System.Drawing.Point(0, 25);
             this.albaranesDetGridControl.MainView = this.gvAlbaranesDet;
             this.albaranesDetGridControl.Name = "albaranesDetGridControl";
-            this.albaranesDetGridControl.Size = new System.Drawing.Size(587, 18);
+            this.albaranesDetGridControl.Size = new System.Drawing.Size(587, 90);
             this.albaranesDetGridControl.TabIndex = 0;
             this.albaranesDetGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvAlbaranesDet});
@@ -2338,7 +2338,7 @@
             this.albaranesCabGridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cbObraAlbaran,
             this.AsociarAFactura});
-            this.albaranesCabGridControl1.Size = new System.Drawing.Size(206, 97);
+            this.albaranesCabGridControl1.Size = new System.Drawing.Size(206, 166);
             this.albaranesCabGridControl1.TabIndex = 1;
             this.albaranesCabGridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvAlbaranesProveedorObra});
@@ -2382,7 +2382,7 @@
             // 
             this.AsociarAFactura.AutoHeight = false;
             this.AsociarAFactura.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "Asociar a Factura", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "Asociar a Factura", null, null, true)});
             this.AsociarAFactura.Name = "AsociarAFactura";
             this.AsociarAFactura.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.AsociarAFactura.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.AsociarAFactura_ButtonPressed);

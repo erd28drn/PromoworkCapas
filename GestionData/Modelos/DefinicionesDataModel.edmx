@@ -9,8 +9,10 @@
           <EntitySet Name="Clientes" EntityType="Promowork_dataModel.Store.Clientes" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Obras" EntityType="Promowork_dataModel.Store.Obras" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Participantes" EntityType="Promowork_dataModel.Store.Participantes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Productos" EntityType="Promowork_dataModel.Store.Productos" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Proveedores" EntityType="Promowork_dataModel.Store.Proveedores" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Trabajadores" EntityType="Promowork_dataModel.Store.Trabajadores" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UMedidas" EntityType="Promowork_dataModel.Store.UMedidas" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK_Obras_Clientes" Association="Promowork_dataModel.Store.FK_Obras_Clientes">
             <End Role="Clientes" EntitySet="Clientes" />
             <End Role="Obras" EntitySet="Obras" />
@@ -18,6 +20,30 @@
           <AssociationSet Name="FK_Obras_Clientes1" Association="Promowork_dataModel.Store.FK_Obras_Clientes1">
             <End Role="Clientes" EntitySet="Clientes" />
             <End Role="Obras" EntitySet="Obras" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Productos_Obras" Association="Promowork_dataModel.Store.FK_Productos_Obras">
+            <End Role="Obras" EntitySet="Obras" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Productos_Productos" Association="Promowork_dataModel.Store.FK_Productos_Productos">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="Productos1" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Productos_Proveedores" Association="Promowork_dataModel.Store.FK_Productos_Proveedores">
+            <End Role="Proveedores" EntitySet="Proveedores" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Productos_UMedidas" Association="Promowork_dataModel.Store.FK_Productos_UMedidas">
+            <End Role="UMedidas" EntitySet="UMedidas" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Productos_UMedidas1" Association="Promowork_dataModel.Store.FK_Productos_UMedidas1">
+            <End Role="UMedidas" EntitySet="UMedidas" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Productos_UMedidas2" Association="Promowork_dataModel.Store.FK_Productos_UMedidas2">
+            <End Role="UMedidas" EntitySet="UMedidas" />
+            <End Role="Productos" EntitySet="Productos" />
           </AssociationSet>
           <AssociationSet Name="FK_Proveedores_Participantes" Association="Promowork_dataModel.Store.FK_Proveedores_Participantes">
             <End Role="Participantes" EntitySet="Participantes" />
@@ -92,6 +118,41 @@
           <Property Name="DesParticipante" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="ActivoParticipante" Type="bit" />
         </EntityType>
+        <EntityType Name="Productos">
+          <Key>
+            <PropertyRef Name="IdProducto" />
+          </Key>
+          <Property Name="IdProducto" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdEmpresa" Type="int" Nullable="false" />
+          <Property Name="CodProducto" Type="varchar" MaxLength="40" />
+          <Property Name="CodProductoInterno" Type="varchar" MaxLength="20" />
+          <Property Name="DesProducto" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="IdUMedidaProv" Type="int" />
+          <Property Name="ConvUMProv" Type="numeric" Precision="16" Scale="6" />
+          <Property Name="IdUMedida" Type="int" />
+          <Property Name="ConvUMVenta" Type="numeric" Precision="16" Scale="6" />
+          <Property Name="IdUMedidaVenta" Type="int" />
+          <Property Name="PVP" Type="numeric" Precision="16" Scale="6" />
+          <Property Name="Descuento" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="Porciento" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="PrecioVenta" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="IdProveedor" Type="int" />
+          <Property Name="IdObra" Type="int" />
+          <Property Name="IdFabricante" Type="int" />
+          <Property Name="IdTipoProveedor" Type="int" />
+          <Property Name="IdGrupo" Type="int" />
+          <Property Name="IdTipoProducto" Type="int" />
+          <Property Name="anteriores" Type="bit" />
+          <Property Name="FechaCrea" Type="datetime" />
+          <Property Name="FechaModif" Type="datetime" />
+          <Property Name="FechaUtilizado" Type="date" />
+          <Property Name="FechaActualizaPrecio" Type="date" />
+          <Property Name="ProductoGenerico" Type="bit" />
+          <Property Name="PrecioMinimo" Type="numeric" Precision="16" Scale="6" />
+          <Property Name="DescuentoPrecioMinimo" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="IdAlbaranCab" Type="int" />
+          <Property Name="FechaPrecioMinimo" Type="date" />
+        </EntityType>
         <EntityType Name="Proveedores">
           <Key>
             <PropertyRef Name="IdProveedor" />
@@ -164,6 +225,15 @@
           <Property Name="Externo" Type="bit" />
           <Property Name="Clave" Type="varchar" MaxLength="15" />
         </EntityType>
+        <EntityType Name="UMedidas">
+          <Key>
+            <PropertyRef Name="IdUmedida" />
+          </Key>
+          <Property Name="IdUmedida" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CodUmedida" Type="varchar" Nullable="false" MaxLength="3" />
+          <Property Name="DesUmedida" Type="varchar" MaxLength="30" />
+          <Property Name="ActivaUM" Type="bit" />
+        </EntityType>
         <Association Name="FK_Obras_Clientes">
           <End Role="Clientes" Type="Promowork_dataModel.Store.Clientes" Multiplicity="0..1" />
           <End Role="Obras" Type="Promowork_dataModel.Store.Obras" Multiplicity="*" />
@@ -185,6 +255,78 @@
             </Principal>
             <Dependent Role="Obras">
               <PropertyRef Name="PromObra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Productos_Obras">
+          <End Role="Obras" Type="Promowork_dataModel.Store.Obras" Multiplicity="0..1" />
+          <End Role="Productos" Type="Promowork_dataModel.Store.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Obras">
+              <PropertyRef Name="IdObra" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="IdObra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Productos_Productos">
+          <End Role="Productos" Type="Promowork_dataModel.Store.Productos" Multiplicity="1" />
+          <End Role="Productos1" Type="Promowork_dataModel.Store.Productos" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="IdProducto" />
+            </Principal>
+            <Dependent Role="Productos1">
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Productos_Proveedores">
+          <End Role="Proveedores" Type="Promowork_dataModel.Store.Proveedores" Multiplicity="0..1" />
+          <End Role="Productos" Type="Promowork_dataModel.Store.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proveedores">
+              <PropertyRef Name="IdProveedor" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="IdProveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Productos_UMedidas">
+          <End Role="UMedidas" Type="Promowork_dataModel.Store.UMedidas" Multiplicity="0..1" />
+          <End Role="Productos" Type="Promowork_dataModel.Store.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UMedidas">
+              <PropertyRef Name="IdUmedida" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="IdUMedida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Productos_UMedidas1">
+          <End Role="UMedidas" Type="Promowork_dataModel.Store.UMedidas" Multiplicity="0..1" />
+          <End Role="Productos" Type="Promowork_dataModel.Store.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UMedidas">
+              <PropertyRef Name="IdUmedida" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="IdUMedidaProv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Productos_UMedidas2">
+          <End Role="UMedidas" Type="Promowork_dataModel.Store.UMedidas" Multiplicity="0..1" />
+          <End Role="Productos" Type="Promowork_dataModel.Store.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UMedidas">
+              <PropertyRef Name="IdUmedida" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="IdUMedidaVenta" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -221,6 +363,32 @@
           <AssociationSet Name="FK_Proveedores_Participantes" Association="Promowork_dataModel.FK_Proveedores_Participantes">
             <End Role="Participantes" EntitySet="Participantes" />
             <End Role="Proveedores" EntitySet="Proveedores" />
+          </AssociationSet>
+          <EntitySet Name="Productos" EntityType="Promowork_dataModel.Productos" />
+          <EntitySet Name="UMedidas" EntityType="Promowork_dataModel.UMedidas" />
+          <AssociationSet Name="FK_Productos_Obras" Association="Promowork_dataModel.FK_Productos_Obras">
+            <End Role="Obras" EntitySet="Obras" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Productos_Productos" Association="Promowork_dataModel.FK_Productos_Productos">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="Productos1" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Productos_Proveedores" Association="Promowork_dataModel.FK_Productos_Proveedores">
+            <End Role="Proveedores" EntitySet="Proveedores" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Productos_UMedidas" Association="Promowork_dataModel.FK_Productos_UMedidas">
+            <End Role="UMedidas" EntitySet="UMedidas" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Productos_UMedidas1" Association="Promowork_dataModel.FK_Productos_UMedidas1">
+            <End Role="UMedidas" EntitySet="UMedidas" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Productos_UMedidas2" Association="Promowork_dataModel.FK_Productos_UMedidas2">
+            <End Role="UMedidas" EntitySet="UMedidas" />
+            <End Role="Productos" EntitySet="Productos" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Clientes">
@@ -287,6 +455,7 @@
           <Property Name="Idgrupo" Type="Int32" />
           <Property Name="EsGestor" Type="Boolean" />
           <NavigationProperty Name="Participantes" Relationship="Promowork_dataModel.FK_Proveedores_Participantes" FromRole="Proveedores" ToRole="Participantes" />
+          <NavigationProperty Name="Productos" Relationship="Promowork_dataModel.FK_Productos_Proveedores" FromRole="Proveedores" ToRole="Productos" />
         </EntityType>
         <EntityType Name="Trabajadores">
           <Key>
@@ -358,6 +527,7 @@
           <Property Type="Decimal" Name="PendienteCobro" Precision="10" Scale="2" />
           <NavigationProperty Name="Clientes" Relationship="Promowork_dataModel.FK_Obras_Clientes" FromRole="Obras" ToRole="Clientes" />
           <NavigationProperty Name="Clientes1" Relationship="Promowork_dataModel.FK_Obras_Clientes1" FromRole="Obras" ToRole="Clientes" />
+          <NavigationProperty Name="Productos" Relationship="Promowork_dataModel.FK_Productos_Obras" FromRole="Obras" ToRole="Productos" />
         </EntityType>
         <Association Name="FK_Obras_Clientes">
           <End Type="Promowork_dataModel.Clientes" Role="Clientes" Multiplicity="0..1" />
@@ -402,6 +572,132 @@
             </Principal>
             <Dependent Role="Proveedores">
               <PropertyRef Name="IdParticipante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Productos">
+          <Key>
+            <PropertyRef Name="IdProducto" />
+          </Key>
+          <Property Type="Int32" Name="IdProducto" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="IdEmpresa" Nullable="false" />
+          <Property Type="String" Name="CodProducto" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CodProductoInterno" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DesProducto" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdUMedidaProv" />
+          <Property Type="Decimal" Name="ConvUMProv" Precision="16" Scale="6" />
+          <Property Type="Int32" Name="IdUMedida" />
+          <Property Type="Decimal" Name="ConvUMVenta" Precision="16" Scale="6" />
+          <Property Type="Int32" Name="IdUMedidaVenta" />
+          <Property Type="Decimal" Name="PVP" Precision="16" Scale="6" />
+          <Property Type="Decimal" Name="Descuento" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="Porciento" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="PrecioVenta" Precision="10" Scale="2" />
+          <Property Type="Int32" Name="IdProveedor" />
+          <Property Type="Int32" Name="IdObra" />
+          <Property Type="Int32" Name="IdFabricante" />
+          <Property Type="Int32" Name="IdTipoProveedor" />
+          <Property Type="Int32" Name="IdGrupo" />
+          <Property Type="Int32" Name="IdTipoProducto" />
+          <Property Type="Boolean" Name="anteriores" />
+          <Property Type="DateTime" Name="FechaCrea" />
+          <Property Type="DateTime" Name="FechaModif" />
+          <Property Type="DateTime" Name="FechaUtilizado" />
+          <Property Type="DateTime" Name="FechaActualizaPrecio" />
+          <Property Type="Boolean" Name="ProductoGenerico" />
+          <Property Type="Decimal" Name="PrecioMinimo" Precision="16" Scale="6" />
+          <Property Type="Decimal" Name="DescuentoPrecioMinimo" Precision="10" Scale="2" />
+          <Property Type="Int32" Name="IdAlbaranCab" />
+          <Property Type="DateTime" Name="FechaPrecioMinimo" />
+          <NavigationProperty Name="Obras" Relationship="Promowork_dataModel.FK_Productos_Obras" FromRole="Productos" ToRole="Obras" />
+          <NavigationProperty Name="Productos1" Relationship="Promowork_dataModel.FK_Productos_Productos" FromRole="Productos" ToRole="Productos1" />
+          <NavigationProperty Name="Productos2" Relationship="Promowork_dataModel.FK_Productos_Productos" FromRole="Productos1" ToRole="Productos" />
+          <NavigationProperty Name="Proveedores" Relationship="Promowork_dataModel.FK_Productos_Proveedores" FromRole="Productos" ToRole="Proveedores" />
+          <NavigationProperty Name="UMedidas" Relationship="Promowork_dataModel.FK_Productos_UMedidas" FromRole="Productos" ToRole="UMedidas" />
+          <NavigationProperty Name="UMedidas1" Relationship="Promowork_dataModel.FK_Productos_UMedidas1" FromRole="Productos" ToRole="UMedidas" />
+          <NavigationProperty Name="UMedidas2" Relationship="Promowork_dataModel.FK_Productos_UMedidas2" FromRole="Productos" ToRole="UMedidas" />
+        </EntityType>
+        <EntityType Name="UMedidas">
+          <Key>
+            <PropertyRef Name="IdUmedida" />
+          </Key>
+          <Property Type="Int32" Name="IdUmedida" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="CodUmedida" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DesUmedida" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="ActivaUM" />
+          <NavigationProperty Name="Productos" Relationship="Promowork_dataModel.FK_Productos_UMedidas" FromRole="UMedidas" ToRole="Productos" />
+          <NavigationProperty Name="Productos1" Relationship="Promowork_dataModel.FK_Productos_UMedidas1" FromRole="UMedidas" ToRole="Productos" />
+          <NavigationProperty Name="Productos2" Relationship="Promowork_dataModel.FK_Productos_UMedidas2" FromRole="UMedidas" ToRole="Productos" />
+        </EntityType>
+        <Association Name="FK_Productos_Obras">
+          <End Type="Promowork_dataModel.Obras" Role="Obras" Multiplicity="0..1" />
+          <End Type="Promowork_dataModel.Productos" Role="Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Obras">
+              <PropertyRef Name="IdObra" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="IdObra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Productos_Productos">
+          <End Type="Promowork_dataModel.Productos" Role="Productos" Multiplicity="1" />
+          <End Type="Promowork_dataModel.Productos" Role="Productos1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="IdProducto" />
+            </Principal>
+            <Dependent Role="Productos1">
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Productos_Proveedores">
+          <End Type="Promowork_dataModel.Proveedores" Role="Proveedores" Multiplicity="0..1" />
+          <End Type="Promowork_dataModel.Productos" Role="Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proveedores">
+              <PropertyRef Name="IdProveedor" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="IdProveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Productos_UMedidas">
+          <End Type="Promowork_dataModel.UMedidas" Role="UMedidas" Multiplicity="0..1" />
+          <End Type="Promowork_dataModel.Productos" Role="Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UMedidas">
+              <PropertyRef Name="IdUmedida" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="IdUMedida" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Productos_UMedidas1">
+          <End Type="Promowork_dataModel.UMedidas" Role="UMedidas" Multiplicity="0..1" />
+          <End Type="Promowork_dataModel.Productos" Role="Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UMedidas">
+              <PropertyRef Name="IdUmedida" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="IdUMedidaProv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Productos_UMedidas2">
+          <End Type="Promowork_dataModel.UMedidas" Role="UMedidas" Multiplicity="0..1" />
+          <End Type="Promowork_dataModel.Productos" Role="Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UMedidas">
+              <PropertyRef Name="IdUmedida" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="IdUMedidaVenta" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -556,6 +852,52 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Productos">
+            <EntityTypeMapping TypeName="Promowork_dataModel.Productos">
+              <MappingFragment StoreEntitySet="Productos">
+                <ScalarProperty Name="FechaPrecioMinimo" ColumnName="FechaPrecioMinimo" />
+                <ScalarProperty Name="IdAlbaranCab" ColumnName="IdAlbaranCab" />
+                <ScalarProperty Name="DescuentoPrecioMinimo" ColumnName="DescuentoPrecioMinimo" />
+                <ScalarProperty Name="PrecioMinimo" ColumnName="PrecioMinimo" />
+                <ScalarProperty Name="ProductoGenerico" ColumnName="ProductoGenerico" />
+                <ScalarProperty Name="FechaActualizaPrecio" ColumnName="FechaActualizaPrecio" />
+                <ScalarProperty Name="FechaUtilizado" ColumnName="FechaUtilizado" />
+                <ScalarProperty Name="FechaModif" ColumnName="FechaModif" />
+                <ScalarProperty Name="FechaCrea" ColumnName="FechaCrea" />
+                <ScalarProperty Name="anteriores" ColumnName="anteriores" />
+                <ScalarProperty Name="IdTipoProducto" ColumnName="IdTipoProducto" />
+                <ScalarProperty Name="IdGrupo" ColumnName="IdGrupo" />
+                <ScalarProperty Name="IdTipoProveedor" ColumnName="IdTipoProveedor" />
+                <ScalarProperty Name="IdFabricante" ColumnName="IdFabricante" />
+                <ScalarProperty Name="IdObra" ColumnName="IdObra" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="PrecioVenta" ColumnName="PrecioVenta" />
+                <ScalarProperty Name="Porciento" ColumnName="Porciento" />
+                <ScalarProperty Name="Descuento" ColumnName="Descuento" />
+                <ScalarProperty Name="PVP" ColumnName="PVP" />
+                <ScalarProperty Name="IdUMedidaVenta" ColumnName="IdUMedidaVenta" />
+                <ScalarProperty Name="ConvUMVenta" ColumnName="ConvUMVenta" />
+                <ScalarProperty Name="IdUMedida" ColumnName="IdUMedida" />
+                <ScalarProperty Name="ConvUMProv" ColumnName="ConvUMProv" />
+                <ScalarProperty Name="IdUMedidaProv" ColumnName="IdUMedidaProv" />
+                <ScalarProperty Name="DesProducto" ColumnName="DesProducto" />
+                <ScalarProperty Name="CodProductoInterno" ColumnName="CodProductoInterno" />
+                <ScalarProperty Name="CodProducto" ColumnName="CodProducto" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UMedidas">
+            <EntityTypeMapping TypeName="Promowork_dataModel.UMedidas">
+              <MappingFragment StoreEntitySet="UMedidas">
+                <ScalarProperty Name="ActivaUM" ColumnName="ActivaUM" />
+                <ScalarProperty Name="DesUmedida" ColumnName="DesUmedida" />
+                <ScalarProperty Name="CodUmedida" ColumnName="CodUmedida" />
+                <ScalarProperty Name="IdUmedida" ColumnName="IdUmedida" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -582,32 +924,61 @@
         <EntityTypeShape EntityType="Promowork_dataModel.Trabajadores" Width="1.5" PointX="5.375" PointY="0.75" Height="7.5570279947916656" />
         <EntityTypeShape EntityType="Promowork_dataModel.Obras" Width="1.5" PointX="3" PointY="10.75" Height="6.210917968749996" />
         <AssociationConnector Association="Promowork_dataModel.FK_Obras_Clientes" >
-          <ConnectorPoint PointX="2.25" PointY="3.7593082682291659" />
-          <ConnectorPoint PointX="2.5" PointY="3.7593082682291659" />
-          <ConnectorPoint PointX="2.5" PointY="7.5955208333333326" />
-          <ConnectorPoint PointX="2.5416666666666665" PointY="7.5955208333333317" />
-          <ConnectorPoint PointX="2.7083333333333335" PointY="7.5955208333333326" />
-          <ConnectorPoint PointX="2.7604166666666665" PointY="7.5955208333333317" />
-          <ConnectorPoint PointX="2.9270833333333335" PointY="7.5955208333333326" />
-          <ConnectorPoint PointX="3.75" PointY="7.5955208333333326" />
-          <ConnectorPoint PointX="3.75" PointY="10.75" />
+          <ConnectorPoint PointX="2.25" PointY="2.8071800594075511" />
+          <ConnectorPoint PointX="2.5" PointY="2.8071800594075511" />
+          <ConnectorPoint PointX="2.5" PointY="7.787822265625" />
+          <ConnectorPoint PointX="2.7604166666666665" PointY="7.7878222656249987" />
+          <ConnectorPoint PointX="2.9583358333333334" PointY="7.787822265625" />
+          <ConnectorPoint PointX="4.0039075" PointY="7.787822265625" />
+          <ConnectorPoint PointX="4.0039075" PointY="10.75" />
         </AssociationConnector>
         <AssociationConnector Association="Promowork_dataModel.FK_Obras_Clientes1" >
-          <ConnectorPoint PointX="2.25" PointY="5.2952144023437491" />
-          <ConnectorPoint PointX="2.4166666666666665" PointY="5.2952144023437482" />
-          <ConnectorPoint PointX="2.5833333333333335" PointY="5.2952144023437491" />
-          <ConnectorPoint PointX="2.625" PointY="5.2952144023437491" />
-          <ConnectorPoint PointX="2.625" PointY="7.8455208333333326" />
-          <ConnectorPoint PointX="2.7604166666666665" PointY="7.8455208333333317" />
-          <ConnectorPoint PointX="2.9270833333333335" PointY="7.8455208333333326" />
-          <ConnectorPoint PointX="3.343748" PointY="7.8455208333333326" />
-          <ConnectorPoint PointX="3.343748" PointY="10.75" />
+          <ConnectorPoint PointX="2.25" PointY="4.8191502979329419" />
+          <ConnectorPoint PointX="2.5" PointY="4.8191502979329419" />
+          <ConnectorPoint PointX="2.5" PointY="7.912822265625" />
+          <ConnectorPoint PointX="2.7604166666666665" PointY="7.9128222656249987" />
+          <ConnectorPoint PointX="2.9583358333333334" PointY="7.912822265625" />
+          <ConnectorPoint PointX="3.4707017500000004" PointY="7.912822265625" />
+          <ConnectorPoint PointX="3.4707017500000004" PointY="10.75" />
         </AssociationConnector>
         <EntityTypeShape EntityType="Promowork_dataModel.Participantes" Width="1.5" PointX="0.75" PointY="9.125" Height="1.7879850260416674" />
         <AssociationConnector Association="Promowork_dataModel.FK_Proveedores_Participantes" >
           <ConnectorPoint PointX="2.25" PointY="9.90625" />
           <ConnectorPoint PointX="2.84375" PointY="9.90625" />
-          <ConnectorPoint PointX="2.84375" PointY="7.3455208333333326" />
+          <ConnectorPoint PointX="2.84375" PointY="7.5378222656249987" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Promowork_dataModel.Productos" Width="1.5" PointX="9.625" PointY="4.875" Height="8.1339322916666674" />
+        <EntityTypeShape EntityType="Promowork_dataModel.UMedidas" Width="1.5" PointX="7.375" PointY="4.125" Height="2.3648893229166674" />
+        <AssociationConnector Association="Promowork_dataModel.FK_Productos_Obras" >
+          <ConnectorPoint PointX="4.5" PointY="11.879466145833334" />
+          <ConnectorPoint PointX="9.625" PointY="11.879466145833334" />
+        </AssociationConnector>
+        <AssociationConnector Association="Promowork_dataModel.FK_Productos_Productos" >
+          <ConnectorPoint PointX="10.156923076923077" PointY="13.008932291666667" />
+          <ConnectorPoint PointX="10.156923076923077" PointY="13.258932291666667" />
+          <ConnectorPoint PointX="10.603461538461538" PointY="13.258932291666667" />
+          <ConnectorPoint PointX="10.603461538461538" PointY="13.008932291666667" />
+        </AssociationConnector>
+        <AssociationConnector Association="Promowork_dataModel.FK_Productos_Proveedores" >
+          <ConnectorPoint PointX="2.8750025" PointY="7.5378222656249987" />
+          <ConnectorPoint PointX="2.8750025" PointY="9.1378889973958337" />
+          <ConnectorPoint PointX="3.3873684166666669" PointY="9.1378889973958337" />
+          <ConnectorPoint PointX="3.5540350833333338" PointY="9.1378889973958337" />
+          <ConnectorPoint PointX="3.9205741666666669" PointY="9.1378889973958337" />
+          <ConnectorPoint PointX="4.0872408333333334" PointY="9.1378889973958337" />
+          <ConnectorPoint PointX="9.625" PointY="9.1378889973958337" />
+        </AssociationConnector>
+        <AssociationConnector Association="Promowork_dataModel.FK_Productos_UMedidas" >
+          <ConnectorPoint PointX="8.875" PointY="5.6824446614583337" />
+          <ConnectorPoint PointX="9.625" PointY="5.6824446614583337" />
+        </AssociationConnector>
+        <AssociationConnector Association="Promowork_dataModel.FK_Productos_UMedidas1" >
+          <ConnectorPoint PointX="8.875" PointY="5.2162223307291669" />
+          <ConnectorPoint PointX="9.625" PointY="5.2162223307291669" />
+        </AssociationConnector>
+        <AssociationConnector Association="Promowork_dataModel.FK_Productos_UMedidas2" >
+          <ConnectorPoint PointX="8.875" PointY="6.1486669921875006" />
+          <ConnectorPoint PointX="9.625" PointY="6.1486669921875006" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

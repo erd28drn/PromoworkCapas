@@ -22,5 +22,10 @@ namespace GestionData.Repositorios
         {
             return contextoDefiniciones.Participantes.Where(p => p.IdEmpresa == idEmpresa).ToList();
         }
+
+        public bool EsProveedorCombustible(int idProveedor)
+        {
+            return contextoDefiniciones.Proveedores.Any(p=> p.IdProveedor==idProveedor && p.ProveedorCombustible==true);
+        }
     }
 }

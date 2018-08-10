@@ -859,30 +859,80 @@ namespace Promowork.Formularios.Operaciones
 
        private void toolStripButton1_Click_1(object sender, EventArgs e)
        {
+         DataRowView FacturaAct = (DataRowView)facturasCabBindingSource.Current;
+           int nIdFactura = Convert.ToInt32(FacturaAct["IdFactCab"]);
+           RptFacturasClientes frm = new RptFacturasClientes();
 
            if (facturaCheckBox.Checked == true)
            {
-               DataRowView FacturaAct = (DataRowView)facturasCabBindingSource.Current;
+               //if (unificarMaterialCheckEdit.Checked)
+               //{
+               //    frm.LoadFiltro(nIdFactura, "Promowork.Reportes.FacturaHorasMatImp.rdlc", true);
+               //    frm.MdiParent = this.MdiParent;
+               //    frm.Show();
 
-               int Factura = Convert.ToInt32(FacturaAct["IdFactCab"]);
+               //}
+               //else
+               //{
+               frm.LoadFiltro(nIdFactura, "Promowork.Reportes.FacturaHorasDescImp2.rdlc", true);
+               //frm.MdiParent = this.MdiParent;
+               frm.ShowDialog();
+               if (frm.fechaEnvioFactura != null)
+               {
+                   gridView6.SetFocusedRowCellValue(colFechaEnvioCliente, frm.fechaEnvioFactura);
+                   gridView6.SetFocusedRowCellValue(colEntregada, true);
 
+                   facturasCabBindingNavigatorSaveItem_Click(null, null);
+               }
 
-               RptFacturasHorasDescImp frm = new RptFacturasHorasDescImp();
-               frm.LoadFiltro(Factura);
-               frm.MdiParent = this.MdiParent;
-               frm.Show();
+               //}
+
            }
-           else 
+           else
            {
-               DataRowView FacturaAct = (DataRowView)facturasCabBindingSource.Current;
+               //if (unificarMaterialCheckEdit.Checked)
+               //{
+               //    frm.LoadFiltro(nIdFactura, "Promowork.Reportes.FacturaHorasMatImpParte.rdlc", true);
+               //    frm.MdiParent = this.MdiParent;
+               //    frm.Show();
 
-               int Factura = Convert.ToInt32(FacturaAct["IdFactCab"]);
-
-
-               RptFacturasHorasDescImpParte frm = new RptFacturasHorasDescImpParte();
-               frm.LoadFiltro(Factura);
+               //}
+               //else
+               //{
+               frm.LoadFiltro(nIdFactura, "Promowork.Reportes.FacturaHorasDescImpParte.rdlc", true);
                frm.MdiParent = this.MdiParent;
                frm.Show();
+
+               // }
+
+           }
+
+
+
+
+           //if (facturaCheckBox.Checked == true)
+           //{
+           //    DataRowView FacturaAct = (DataRowView)facturasCabBindingSource.Current;
+
+           //    int Factura = Convert.ToInt32(FacturaAct["IdFactCab"]);
+
+
+           //    RptFacturasHorasDescImp frm = new RptFacturasHorasDescImp();
+           //    frm.LoadFiltro(Factura);
+           //    frm.MdiParent = this.MdiParent;
+           //    frm.Show();
+           //}
+           //else 
+           //{
+           //    DataRowView FacturaAct = (DataRowView)facturasCabBindingSource.Current;
+
+           //    int Factura = Convert.ToInt32(FacturaAct["IdFactCab"]);
+
+
+           //    RptFacturasHorasDescImpParte frm = new RptFacturasHorasDescImpParte();
+           //    frm.LoadFiltro(Factura);
+           //    frm.MdiParent = this.MdiParent;
+           //    frm.Show();
                
                
                
@@ -896,7 +946,7 @@ namespace Promowork.Formularios.Operaciones
                //frm.LoadFiltro(Factura);
                //frm.MdiParent = this.MdiParent;
                //frm.Show();
-           }
+          // }
        }
 
        private void toolStripButton13_Click(object sender, EventArgs e)

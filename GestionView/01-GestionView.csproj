@@ -1049,6 +1049,7 @@
     <EmbeddedResource Include="Formularios\Reportes\Parametros\rptParametrosObrasProveedores.resx">
       <DependentUpon>rptParametrosObrasProveedores.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\FacturaHorasDescImp2.rdlc" />
     <EmbeddedResource Include="Reportes\FacturaHorasMatImpParte.rdlc" />
     <EmbeddedResource Include="Reportes\FacturaHorasMatImp.rdlc" />
     <EmbeddedResource Include="Formularios\Operaciones\frmAgregarPartidasPresupuesto.resx">

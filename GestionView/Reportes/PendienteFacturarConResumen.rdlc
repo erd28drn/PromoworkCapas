@@ -1999,7 +1999,7 @@
                               <Style>
                                 <FontFamily>Franklin Gothic Medium Cond</FontFamily>
                                 <FontSize>8pt</FontSize>
-                                <Format>#,0.00'€'</Format>
+                                <Format>#,0.0000'€'</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -2020,6 +2020,7 @@
                         <rd:FormatSymbolCulture>es-ES</rd:FormatSymbolCulture>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>

@@ -60,6 +60,7 @@ namespace Promowork.Formularios.Operaciones
             // TODO: esta línea de código carga datos en la tabla 'GestionData.Promowork_dataDataSetCombustible.EntradasCombustibleDet' Puede moverla o quitarla según sea necesario.
             //this.entradasCombustibleDetTableAdapter.Fill(this.Promowork_dataDataSetCombustible.EntradasCombustibleDet);
             this.entradasCombustibleCabTableAdapter.Fill(Promowork_dataDataSetCombustible.EntradasCombustibleCab, VariablesGlobales.nIdEmpresaActual);
+            this.productosTableAdapter.FillByEmpresa(Promowork_dataDataSetCombustible.Productos, VariablesGlobales.nIdEmpresaActual);
 
             entradasCombustibleCabBindingSource.MoveLast();
 

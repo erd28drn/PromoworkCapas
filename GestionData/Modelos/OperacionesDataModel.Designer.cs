@@ -178,22 +178,6 @@ namespace GestionData.Modelos
         /// <summary>
         /// No hay documentación de metadatos disponible.
         /// </summary>
-        public ObjectSet<EntradasCombustibleCab> EntradasCombustibleCab
-        {
-            get
-            {
-                if ((_EntradasCombustibleCab == null))
-                {
-                    _EntradasCombustibleCab = base.CreateObjectSet<EntradasCombustibleCab>("EntradasCombustibleCab");
-                }
-                return _EntradasCombustibleCab;
-            }
-        }
-        private ObjectSet<EntradasCombustibleCab> _EntradasCombustibleCab;
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
         public ObjectSet<EntradasCombustibleDet> EntradasCombustibleDet
         {
             get
@@ -441,14 +425,6 @@ namespace GestionData.Modelos
         public void AddToComprasDet(ComprasDet comprasDet)
         {
             base.AddObject("ComprasDet", comprasDet);
-        }
-    
-        /// <summary>
-        /// Método desusado para agregar un nuevo objeto al EntitySet EntradasCombustibleCab. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
-        /// </summary>
-        public void AddToEntradasCombustibleCab(EntradasCombustibleCab entradasCombustibleCab)
-        {
-            base.AddObject("EntradasCombustibleCab", entradasCombustibleCab);
         }
     
         /// <summary>
@@ -3075,293 +3051,6 @@ namespace GestionData.Modelos
     /// <summary>
     /// No hay documentación de metadatos disponible.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="Promowork_dataModel", Name="EntradasCombustibleCab")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class EntradasCombustibleCab : EntityObject
-    {
-        #region Método de generador
-    
-        /// <summary>
-        /// Crear un nuevo objeto EntradasCombustibleCab.
-        /// </summary>
-        /// <param name="idEntradaCab">Valor inicial de la propiedad IdEntradaCab.</param>
-        /// <param name="idEmpresa">Valor inicial de la propiedad IdEmpresa.</param>
-        /// <param name="numFactura">Valor inicial de la propiedad NumFactura.</param>
-        /// <param name="fechaFactura">Valor inicial de la propiedad FechaFactura.</param>
-        /// <param name="fechaRecib">Valor inicial de la propiedad FechaRecib.</param>
-        /// <param name="fechaVcto">Valor inicial de la propiedad FechaVcto.</param>
-        /// <param name="fechaPago">Valor inicial de la propiedad FechaPago.</param>
-        /// <param name="idProveedor">Valor inicial de la propiedad IdProveedor.</param>
-        public static EntradasCombustibleCab CreateEntradasCombustibleCab(global::System.Int32 idEntradaCab, global::System.Int32 idEmpresa, global::System.String numFactura, global::System.DateTime fechaFactura, global::System.DateTime fechaRecib, global::System.DateTime fechaVcto, global::System.DateTime fechaPago, global::System.Int32 idProveedor)
-        {
-            EntradasCombustibleCab entradasCombustibleCab = new EntradasCombustibleCab();
-            entradasCombustibleCab.IdEntradaCab = idEntradaCab;
-            entradasCombustibleCab.IdEmpresa = idEmpresa;
-            entradasCombustibleCab.NumFactura = numFactura;
-            entradasCombustibleCab.FechaFactura = fechaFactura;
-            entradasCombustibleCab.FechaRecib = fechaRecib;
-            entradasCombustibleCab.FechaVcto = fechaVcto;
-            entradasCombustibleCab.FechaPago = fechaPago;
-            entradasCombustibleCab.IdProveedor = idProveedor;
-            return entradasCombustibleCab;
-        }
-
-        #endregion
-
-        #region Propiedades primitivas
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 IdEntradaCab
-        {
-            get
-            {
-                return _IdEntradaCab;
-            }
-            set
-            {
-                if (_IdEntradaCab != value)
-                {
-                    OnIdEntradaCabChanging(value);
-                    ReportPropertyChanging("IdEntradaCab");
-                    _IdEntradaCab = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("IdEntradaCab");
-                    OnIdEntradaCabChanged();
-                }
-            }
-        }
-        private global::System.Int32 _IdEntradaCab;
-        partial void OnIdEntradaCabChanging(global::System.Int32 value);
-        partial void OnIdEntradaCabChanged();
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 IdEmpresa
-        {
-            get
-            {
-                return _IdEmpresa;
-            }
-            set
-            {
-                OnIdEmpresaChanging(value);
-                ReportPropertyChanging("IdEmpresa");
-                _IdEmpresa = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("IdEmpresa");
-                OnIdEmpresaChanged();
-            }
-        }
-        private global::System.Int32 _IdEmpresa;
-        partial void OnIdEmpresaChanging(global::System.Int32 value);
-        partial void OnIdEmpresaChanged();
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String NumFactura
-        {
-            get
-            {
-                return _NumFactura;
-            }
-            set
-            {
-                OnNumFacturaChanging(value);
-                ReportPropertyChanging("NumFactura");
-                _NumFactura = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("NumFactura");
-                OnNumFacturaChanged();
-            }
-        }
-        private global::System.String _NumFactura;
-        partial void OnNumFacturaChanging(global::System.String value);
-        partial void OnNumFacturaChanged();
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime FechaFactura
-        {
-            get
-            {
-                return _FechaFactura;
-            }
-            set
-            {
-                OnFechaFacturaChanging(value);
-                ReportPropertyChanging("FechaFactura");
-                _FechaFactura = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("FechaFactura");
-                OnFechaFacturaChanged();
-            }
-        }
-        private global::System.DateTime _FechaFactura;
-        partial void OnFechaFacturaChanging(global::System.DateTime value);
-        partial void OnFechaFacturaChanged();
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime FechaRecib
-        {
-            get
-            {
-                return _FechaRecib;
-            }
-            set
-            {
-                OnFechaRecibChanging(value);
-                ReportPropertyChanging("FechaRecib");
-                _FechaRecib = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("FechaRecib");
-                OnFechaRecibChanged();
-            }
-        }
-        private global::System.DateTime _FechaRecib;
-        partial void OnFechaRecibChanging(global::System.DateTime value);
-        partial void OnFechaRecibChanged();
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime FechaVcto
-        {
-            get
-            {
-                return _FechaVcto;
-            }
-            set
-            {
-                OnFechaVctoChanging(value);
-                ReportPropertyChanging("FechaVcto");
-                _FechaVcto = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("FechaVcto");
-                OnFechaVctoChanged();
-            }
-        }
-        private global::System.DateTime _FechaVcto;
-        partial void OnFechaVctoChanging(global::System.DateTime value);
-        partial void OnFechaVctoChanged();
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime FechaPago
-        {
-            get
-            {
-                return _FechaPago;
-            }
-            set
-            {
-                OnFechaPagoChanging(value);
-                ReportPropertyChanging("FechaPago");
-                _FechaPago = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("FechaPago");
-                OnFechaPagoChanged();
-            }
-        }
-        private global::System.DateTime _FechaPago;
-        partial void OnFechaPagoChanging(global::System.DateTime value);
-        partial void OnFechaPagoChanged();
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 IdProveedor
-        {
-            get
-            {
-                return _IdProveedor;
-            }
-            set
-            {
-                OnIdProveedorChanging(value);
-                ReportPropertyChanging("IdProveedor");
-                _IdProveedor = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("IdProveedor");
-                OnIdProveedorChanged();
-            }
-        }
-        private global::System.Int32 _IdProveedor;
-        partial void OnIdProveedorChanging(global::System.Int32 value);
-        partial void OnIdProveedorChanged();
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> IdFormaPago
-        {
-            get
-            {
-                return _IdFormaPago;
-            }
-            set
-            {
-                OnIdFormaPagoChanging(value);
-                ReportPropertyChanging("IdFormaPago");
-                _IdFormaPago = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("IdFormaPago");
-                OnIdFormaPagoChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _IdFormaPago;
-        partial void OnIdFormaPagoChanging(Nullable<global::System.Int32> value);
-        partial void OnIdFormaPagoChanged();
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> IdCuenta
-        {
-            get
-            {
-                return _IdCuenta;
-            }
-            set
-            {
-                OnIdCuentaChanging(value);
-                ReportPropertyChanging("IdCuenta");
-                _IdCuenta = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("IdCuenta");
-                OnIdCuentaChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _IdCuenta;
-        partial void OnIdCuentaChanging(Nullable<global::System.Int32> value);
-        partial void OnIdCuentaChanged();
-
-        #endregion
-
-    
-    }
-    
-    /// <summary>
-    /// No hay documentación de metadatos disponible.
-    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="Promowork_dataModel", Name="EntradasCombustibleDet")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -3604,6 +3293,54 @@ namespace GestionData.Modelos
         private Nullable<global::System.Decimal> _ImpIVA;
         partial void OnImpIVAChanging(Nullable<global::System.Decimal> value);
         partial void OnImpIVAChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdProducto
+        {
+            get
+            {
+                return _IdProducto;
+            }
+            set
+            {
+                OnIdProductoChanging(value);
+                ReportPropertyChanging("IdProducto");
+                _IdProducto = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdProducto");
+                OnIdProductoChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdProducto;
+        partial void OnIdProductoChanging(Nullable<global::System.Int32> value);
+        partial void OnIdProductoChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdAlbaranDet
+        {
+            get
+            {
+                return _IdAlbaranDet;
+            }
+            set
+            {
+                OnIdAlbaranDetChanging(value);
+                ReportPropertyChanging("IdAlbaranDet");
+                _IdAlbaranDet = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdAlbaranDet");
+                OnIdAlbaranDetChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdAlbaranDet;
+        partial void OnIdAlbaranDetChanging(Nullable<global::System.Int32> value);
+        partial void OnIdAlbaranDetChanged();
 
         #endregion
 
