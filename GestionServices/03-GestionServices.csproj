@@ -74,6 +74,7 @@
     <Compile Include="Generales\ErroresSQLSerrver.cs" />
     <Compile Include="Generales\UsuariosService.cs" />
     <Compile Include="Generales\Utilidades.cs" />
+    <Compile Include="Operaciones\CobrosService.cs" />
     <Compile Include="Operaciones\CombustibleService.cs" />
     <Compile Include="Operaciones\FacturasClientesService.cs" />
     <Compile Include="Operaciones\ComprasPoveedoresService.cs" />

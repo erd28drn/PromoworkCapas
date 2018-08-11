@@ -156,18 +156,19 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Repositorios\RepositorioAlbaran.cs" />
+    <Compile Include="Repositorios\RepositorioCobro.cs" />
     <Compile Include="Repositorios\RepositorioCombustible.cs" />
     <Compile Include="Repositorios\RepositorioProducto.cs" />
     <Compile Include="Repositorios\RepositorioProveedor.cs" />
     <Compile Include="Repositorios\RepositorioPresupuesto.cs" />
     <Compile Include="Repositorios\RepositorioNota.cs" />
     <Compile Include="Repositorios\RepositorioHorasTrabajadas.cs" />
-    <Compile Include="Repositorios\RepositorioFacturasDetHoras.cs" />
+    <Compile Include="Repositorios\RepositorioFacturasCab.cs" />
     <Compile Include="Repositorios\RepositorioTareas.cs" />
     <Compile Include="Repositorios\RepositorioTrabajador.cs" />
     <Compile Include="Repositorios\RepositorioCliente.cs" />
     <Compile Include="Repositorios\RepositorioEmpresa.cs" />
-    <Compile Include="Repositorios\RepositorioFacturasCab.cs" />
+    <Compile Include="Repositorios\RepositorioFacturasDetHoras.cs" />
     <Compile Include="Repositorios\RepositorioUsuario.cs" />
     <Compile Include="Settings.cs" />
   </ItemGroup>

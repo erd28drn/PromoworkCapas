@@ -15,6 +15,7 @@ using Promowork.Formularios.Operaciones;
 using GestionData;
 using GestionData.Enumeradores;
 using GestionServices.Generales;
+using GestionServices.Operaciones;
 
 namespace Promowork.Formularios.Operaciones
 {
@@ -25,6 +26,7 @@ namespace Promowork.Formularios.Operaciones
             InitializeComponent();
         }
 
+        int? idFactCab = null;
         private void cobrosBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             try
@@ -50,23 +52,14 @@ namespace Promowork.Formularios.Operaciones
                     }
                     else
                     {
-                        //    //try
-                        //    //{
-                        //    //    CobroActual["IdFactCab"] = idFactCabComboBox.SelectedValue;
-                        //    //}
-                        //    //catch { }
-                        //}
 
                         if (idFactCabComboBox.SelectedIndex != -1)
                         {
                             try
                             {
-                                //int finfact = idFactCabComboBox.Text.IndexOf(" ");
-                                //int inifecha = idFactCabComboBox.Text.LastIndexOf(" ");
-                                //string factura = idFactCabComboBox.Text.Substring(0, finfact);
-                                string todo = idFactCabComboBox.Text;
-                                CobroActual["Factura"] = idFactCabComboBox.Text.Substring(0, idFactCabComboBox.Text.IndexOf(" ") + 1);
-                                CobroActual["FechaFactura"] = idFactCabComboBox.Text.Substring(idFactCabComboBox.Text.IndexOf("-") - 4, 10);
+                                string numeroFechaFactura = idFactCabComboBox.Text;
+                                CobroActual["Factura"] = numeroFechaFactura.Substring(0, numeroFechaFactura.IndexOf(" ") + 1);
+                                CobroActual["FechaFactura"] = numeroFechaFactura.Substring(numeroFechaFactura.IndexOf("-") - 4, 10);
                             }
                             catch 
                             {
@@ -75,36 +68,10 @@ namespace Promowork.Formularios.Operaciones
                         }
                     }
 
-                    ////facturasConCobrosBindingSource.AddNew();
-                    ////DataRowView fcc = (DataRowView)facturasConCobrosBindingSource.Current;
-                    ////fcc["IdFactCab"] = idFactCabComboBox.SelectedValue;
-                    ////fcc["Factura"] = idFactCabComboBox.Text.Substring(0, idFactCabComboBox.Text.IndexOf(" ") + 1);
-                    ////fcc["IdEmpresa"] = VariablesGlobales.nIdEmpresaActual;
-                    ////fcc["FechaFactura"] = idFactCabComboBox.Text.Substring(idFactCabComboBox.Text.IndexOf("-") - 4, 10);
-
-                   
-                    
-                    ////gridView1.SetFocusedRowCellValue("IdFactCab", idFactCabComboBox.Text.Substring(0, idFactCabComboBox.Text.IndexOf(" ") + 1));
-
                     this.Validate();
                     this.cobrosBindingSource.EndEdit();
                     cobrosTableAdapter.Update(promowork_dataDataSet.Cobros);
 
-                  //  facturasConCobrosTableAdapter.FillByAnoCobro(promowork_dataDataSet.FacturasConCobros, int.Parse(cbxAnosCobros.Text), VariablesGlobales.nIdEmpresaActual);
-
-                    //DataRowView FacturaActual = (DataRowView)facturasCabListaBindingSource.Current;
-                    //try
-                    //{
-                    //    if ((decimal)FacturaActual["ImpBase"] <= (decimal)CobroActual["ImpBase"])
-                    //    {
-                    //        queriesTableAdapter1.UpdateFacturasCabCobrada(true, (int)FacturaActual["IdFactCab"]);
-                    //    }
-                    //    else
-                    //    {
-                    //        queriesTableAdapter1.UpdateFacturasCabCobrada(false, (int)FacturaActual["IdFactCab"]);
-                    //    }
-                    //}
-                    //catch { }
                 }
             }
             catch (DBConcurrencyException)
@@ -272,6 +239,19 @@ namespace Promowork.Formularios.Operaciones
             fechaRecDateTimePicker.Value = fechaExpDateTimePicker.Value;
             fechaVctoDateTimePicker.Value = fechaExpDateTimePicker.Value;
             fechaAbonoDateTimePicker.Value = fechaExpDateTimePicker.Value;
+        }
+
+        private void btVincular_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+
+            CobrosService servicioCobro = new CobrosService();
+
+            servicioCobro.ValidaActualizaVinculacionFacturasCobros(VariablesGlobales.nIdEmpresaActual, int.Parse(cbxAnosCobros.Text));
+
+            this.cobrosTableAdapter.FillByAno(this.promowork_dataDataSet.Cobros, VariablesGlobales.nIdEmpresaActual, int.Parse(cbxAnosCobros.Text));
+
+            Cursor.Current = Cursors.Default;
         }
 
        

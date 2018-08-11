@@ -151,6 +151,7 @@ namespace Promowork.Formularios.Operaciones
 
                         this.cobrosTableAdapter.Update(promowork_dataDataSet.Cobros);
                         this.cobrosTableAdapter.FillByFactura(this.promowork_dataDataSet.Cobros, (int)gridView6.GetFocusedRowCellValue("IdFactCab"));
+
                     }
 
 

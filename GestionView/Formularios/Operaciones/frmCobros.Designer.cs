@@ -64,6 +64,8 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.cbxAnosCobros = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btVincular = new System.Windows.Forms.ToolStripButton();
             this.cobrosGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colIdCobro = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -96,6 +98,7 @@
             this.colCopiaFactura = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colEnBanco = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPrevision = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colIdFactCab1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.previsionCheckEdit = new DevExpress.XtraEditors.CheckEdit();
             this.idFormaPagoComboBox = new System.Windows.Forms.ComboBox();
             this.idCuentaComboBox = new System.Windows.Forms.ComboBox();
@@ -122,6 +125,7 @@
             this.facturasCabListaTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.FacturasCabListaTableAdapter();
             this.anosCobrosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.anosCobrosTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.AnosCobrosTableAdapter();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             idFormaPagoLabel = new System.Windows.Forms.Label();
             idCuentaLabel = new System.Windows.Forms.Label();
             idClienteLabel = new System.Windows.Forms.Label();
@@ -378,7 +382,10 @@
             this.cobrosBindingNavigatorSaveItem,
             this.toolStripSeparator1,
             this.toolStripLabel1,
-            this.cbxAnosCobros});
+            this.cbxAnosCobros,
+            this.toolStripSeparator2,
+            this.btVincular,
+            this.toolStripSeparator3});
             this.cobrosBindingNavigator.Location = new System.Drawing.Point(0, 0);
             this.cobrosBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.cobrosBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -515,6 +522,22 @@
             this.cbxAnosCobros.Size = new System.Drawing.Size(75, 25);
             this.cbxAnosCobros.SelectedIndexChanged += new System.EventHandler(this.cbxAnosCobros_SelectedIndexChanged);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // btVincular
+            // 
+            this.btVincular.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btVincular.Image = ((System.Drawing.Image)(resources.GetObject("btVincular.Image")));
+            this.btVincular.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btVincular.Name = "btVincular";
+            this.btVincular.Size = new System.Drawing.Size(124, 22);
+            this.btVincular.Text = "Revisar Vinculaciones";
+            this.btVincular.ToolTipText = "Revisar y Corregir Vinculaciones Facturas";
+            this.btVincular.Click += new System.EventHandler(this.btVincular_Click);
+            // 
             // cobrosGridControl
             // 
             this.cobrosGridControl.DataSource = this.cobrosBindingSource;
@@ -556,7 +579,8 @@
             this.colFechaFactura,
             this.colCopiaFactura,
             this.colEnBanco,
-            this.colPrevision});
+            this.colPrevision,
+            this.colIdFactCab1});
             this.gridView1.GridControl = this.cobrosGridControl;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
@@ -801,6 +825,11 @@
             this.colPrevision.FieldName = "Prevision";
             this.colPrevision.Name = "colPrevision";
             // 
+            // colIdFactCab1
+            // 
+            this.colIdFactCab1.FieldName = "IdFactCab";
+            this.colIdFactCab1.Name = "colIdFactCab1";
+            // 
             // previsionCheckEdit
             // 
             this.previsionCheckEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.cobrosBindingSource, "Prevision", true));
@@ -1007,6 +1036,7 @@
             this.tableAdapterManager.EmpresasTableAdapter = null;
             this.tableAdapterManager.EstadoCivilTableAdapter = null;
             this.tableAdapterManager.FabricantesTableAdapter = null;
+            this.tableAdapterManager.FacturasCabListaTableAdapter = null;
             this.tableAdapterManager.FacturasCabTableAdapter = null;
             this.tableAdapterManager.FacturasDetHorasTableAdapter = null;
             this.tableAdapterManager.FacturasDetTableAdapter = null;
@@ -1018,6 +1048,7 @@
             this.tableAdapterManager.HijosTrabajadoresTableAdapter = null;
             this.tableAdapterManager.HorasAdminTableAdapter = null;
             this.tableAdapterManager.HorasTrabajadasTableAdapter = null;
+            this.tableAdapterManager.HorasTrabajadoresTableAdapter = null;
             this.tableAdapterManager.NacionesTableAdapter = null;
             this.tableAdapterManager.ObrasTableAdapter = this.obrasTableAdapter;
             this.tableAdapterManager.OperacionesBancoTableAdapter = null;
@@ -1035,6 +1066,7 @@
             this.tableAdapterManager.PresupSubTableAdapter = null;
             this.tableAdapterManager.ProductosTableAdapter = null;
             this.tableAdapterManager.ProductosUtilizadosTableAdapter = null;
+            this.tableAdapterManager.ProductosUtTrabajadoresTableAdapter = null;
             this.tableAdapterManager.ProveedoresTableAdapter = null;
             this.tableAdapterManager.Provincias1TableAdapter = null;
             this.tableAdapterManager.ProvinciasTableAdapter = null;
@@ -1043,6 +1075,8 @@
             this.tableAdapterManager.SalariosVentaAdminTableAdapter = null;
             this.tableAdapterManager.SalariosVentaTableAdapter = null;
             this.tableAdapterManager.SeguridadSocialTableAdapter = null;
+            this.tableAdapterManager.TiposProductosTableAdapter = null;
+            this.tableAdapterManager.TiposProveedoresTableAdapter = null;
             this.tableAdapterManager.TiposTableAdapter = null;
             this.tableAdapterManager.TrabajadoresListaTableAdapter = null;
             this.tableAdapterManager.TrabajadoresTableAdapter = null;
@@ -1070,6 +1104,11 @@
             // anosCobrosTableAdapter
             // 
             this.anosCobrosTableAdapter.ClearBeforeFill = true;
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
             // frmCobros
             // 
@@ -1193,5 +1232,9 @@
         private System.Windows.Forms.ToolStripComboBox cbxAnosCobros;
         private System.Windows.Forms.BindingSource anosCobrosBindingSource;
         private GestionData.Promowork_dataDataSetTableAdapters.AnosCobrosTableAdapter anosCobrosTableAdapter;
+        private DevExpress.XtraGrid.Columns.GridColumn colIdFactCab1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripButton btVincular;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
     }
 }
