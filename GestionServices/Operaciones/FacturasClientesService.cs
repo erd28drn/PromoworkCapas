@@ -15,11 +15,12 @@ namespace GestionServices.Operaciones
         RepositorioFacturasDetHoras repoFacturasDetHoras = new RepositorioFacturasDetHoras();
         RespuestasServicios respuetaServicio = new RespuestasServicios();
         RepositorioHorasTrabajadas repoHoras = new RepositorioHorasTrabajadas();
+        RepositorioObra repoObra = new RepositorioObra();
 
-        public RespuestasServicios CrearFacturaPartes(int idUsuario, List<GestionData.Promowork_dataDataSet.HorasPendientesFacturarRow> horasFacturar)
+        public RespuestasServicios CrearFacturaPartes(int idUsuario, DateTime fechaInicio, DateTime fechaFinal, List<GestionData.Promowork_dataDataSet.HorasPendientesFacturarRow> horasFacturar)
         {
             var primeraHoraFacturar= horasFacturar.FirstOrDefault();
-            var respuestaFacturaCab = CrearFacturaCab(idUsuario, primeraHoraFacturar);
+            var respuestaFacturaCab = CrearFacturaCab(idUsuario, fechaInicio, fechaFinal, primeraHoraFacturar);
             if (respuestaFacturaCab.ResultadoOk)
             {
                 var respuestaFacturaDet = CrearFacturaDetHoras(respuestaFacturaCab.idRespuesta, horasFacturar);
@@ -32,10 +33,15 @@ namespace GestionServices.Operaciones
             return respuestaFacturaCab;
         }
 
-        private RespuestasServicios CrearFacturaCab(int idUsuario, GestionData.Promowork_dataDataSet.HorasPendientesFacturarRow datosEncabezado)
+        private RespuestasServicios CrearFacturaCab(int idUsuario, DateTime fechaInicio, DateTime fechaFinal, GestionData.Promowork_dataDataSet.HorasPendientesFacturarRow datosEncabezado)
         {
             try
             {
+                string numeroCertificacion="1";
+                string direccionObra = repoObra.GetOneObra(datosEncabezado.IdObra).DirObra;
+                string observaciones = "Certificación Nº " + numeroCertificacion + " de los partes realizados desde el " 
+                    + fechaInicio.ToShortDateString() + " al " + fechaFinal.ToShortDateString() + ", de los trabajos realizados en "
+                    + datosEncabezado.DesObra + ", situ en " + direccionObra;
                 FacturasCab facturaCab = new FacturasCab
                 {
                     NumFactura = 0,
@@ -45,17 +51,21 @@ namespace GestionServices.Operaciones
                     IdClienteFact = datosEncabezado.IdCliente,
                     IdObra = datosEncabezado.IdObra,
                     Factura = true,
+                    FacturaPresup= null,
                     EsPrevision = true,
                     Cobrada = false,
                     Entregada = false,
-                    NoDetalle = false,
+                    NoDetalle = true,
                     MostrarObra = true,
                     MostrarVcto = true,
                     MostrarSubTot = false,
                     UnificarMaterial = false,
+                    EsCertificacion= true,
                     FechaFactura = DateTime.Today,
-                    FechaVctoFact = DateTime.Today
+                    FechaVctoFact = DateTime.Today,
+                    ObsFactura= observaciones
                 };
+
                 respuetaServicio.idRespuesta = repoFacturasCab.InsertFacturaCab(facturaCab);
                 respuetaServicio.ResultadoOk = true;
             }

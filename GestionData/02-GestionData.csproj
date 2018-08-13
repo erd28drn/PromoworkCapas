@@ -158,6 +158,7 @@
     <Compile Include="Repositorios\RepositorioAlbaran.cs" />
     <Compile Include="Repositorios\RepositorioCobro.cs" />
     <Compile Include="Repositorios\RepositorioCombustible.cs" />
+    <Compile Include="Repositorios\RepositorioObra.cs" />
     <Compile Include="Repositorios\RepositorioProducto.cs" />
     <Compile Include="Repositorios\RepositorioProveedor.cs" />
     <Compile Include="Repositorios\RepositorioPresupuesto.cs" />

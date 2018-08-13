@@ -24,8 +24,14 @@ namespace Promowork.Formularios.Reportes.Viewer
 
         GestionData.Promowork_dataDataSet.HorasPendientesFacturarDataTable horasPendientes;
 
+        FacturasClientesService facturasServices = new FacturasClientesService();
+        DateTime fechaInicio;
+        DateTime fechaFinal;
+
         internal void LoadParametros(DateTime fechaini, DateTime fechafin, DataTable  tmpObras, DataTable tmpTRabajadores, int Facturado, bool resumen,  bool agruparDescripcion )
         {
+            fechaInicio = fechaini;
+            fechaFinal = fechafin;
             this.WindowState = FormWindowState.Maximized;
             // TODO: This line of code loads data into the 'Promowork_dataDataSet.EmpresasActual' table. You can move, or remove it, as needed.
             this.EmpresasActualTableAdapter.FillByEmpresa(this.Promowork_dataDataSet.EmpresasActual, VariablesGlobales.nIdEmpresaActual);
@@ -88,8 +94,7 @@ namespace Promowork.Formularios.Reportes.Viewer
 
                         if (horasFactura.Any())
                         {
-                            FacturasClientesService facturasServices = new FacturasClientesService();
-                            var resultado = facturasServices.CrearFacturaPartes(VariablesGlobales.nIdUsuarioActual, horasFactura);
+                            var resultado = facturasServices.CrearFacturaPartes(VariablesGlobales.nIdUsuarioActual, fechaInicio, fechaFinal, horasFactura);
                             respuestas.Add(resultado);
                         }
 
