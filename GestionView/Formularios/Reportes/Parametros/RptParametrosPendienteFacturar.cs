@@ -13,6 +13,8 @@ using Promowork.Formularios.Reportes.Viewer;
 using Promowork.Formularios.Operaciones;
 using GestionData;
 using GestionData.Enumeradores;
+using GestionData.Repositorios;
+using GestionData.Entities;
 
 namespace Promowork.Formularios.Reportes.Parametros
 {
@@ -28,6 +30,9 @@ namespace Promowork.Formularios.Reportes.Parametros
         int nDiasFin;
         DateTime FechaIni;
         DateTime FechaFin;
+
+        RepositorioEmpresa repoEmpresa = new RepositorioEmpresa();
+        ConfiguracionEmpresa configuracionEmpresa;
 
         private void RptParametros_Load(object sender, EventArgs e)
         {
@@ -48,6 +53,9 @@ namespace Promowork.Formularios.Reportes.Parametros
             marcaObrasTableAdapter.Fill(promowork_dataDataSet.MarcaObras, VariablesGlobales.nIdEmpresaActual);
             marcaTrabajadoresTableAdapter.Fill(promowork_dataDataSet.MarcaTrabajadores, VariablesGlobales.nIdEmpresaActual, FechaIni, FechaFin);
             //empresasActualTableAdapter.FillByEmpresa(promowork_dataDataSet.EmpresasActual, VariablesGlobales.nIdEmpresaActual);
+
+            configuracionEmpresa = repoEmpresa.GetConfiguracionEmpresa(VariablesGlobales.nIdEmpresaActual);
+            spDecimales.Value = configuracionEmpresa.DecimalesPrecioProductosReportes ?? 4;
 
         }
 
@@ -78,6 +86,8 @@ namespace Promowork.Formularios.Reportes.Parametros
         {
             try
             {
+                configuracionEmpresa.DecimalesPrecioProductosReportes = (int)spDecimales.Value;
+                repoEmpresa.GuardarConfiguracionEmpresa(configuracionEmpresa);
 
                 DataTable tmpObras = new DataTable();
                 DataTable tmpTrabajadores = new DataTable();
@@ -114,7 +124,7 @@ namespace Promowork.Formularios.Reportes.Parametros
                     //if (chkResumen.CheckState == CheckState.Checked)
                     //{
                         RptPendienteFacturarConResumen frm = new RptPendienteFacturarConResumen();
-                        frm.LoadParametros(dateTimePicker1.Value, dateTimePicker2.Value, tmpObras, tmpTrabajadores, rdgFacturado.SelectedIndex, chkResumen.Checked, chkAgruparDescripcion.Checked);
+                        frm.LoadParametros(dateTimePicker1.Value, dateTimePicker2.Value, tmpObras, tmpTrabajadores, rdgFacturado.SelectedIndex, chkResumen.Checked, chkAgruparDescripcion.Checked, (int)spDecimales.Value);
                         frm.MdiParent = this.MdiParent;
                         frm.Show();
                     //}

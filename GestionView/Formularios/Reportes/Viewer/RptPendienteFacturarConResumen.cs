@@ -28,7 +28,7 @@ namespace Promowork.Formularios.Reportes.Viewer
         DateTime fechaInicio;
         DateTime fechaFinal;
 
-        internal void LoadParametros(DateTime fechaini, DateTime fechafin, DataTable  tmpObras, DataTable tmpTRabajadores, int Facturado, bool resumen,  bool agruparDescripcion )
+        internal void LoadParametros(DateTime fechaini, DateTime fechafin, DataTable  tmpObras, DataTable tmpTRabajadores, int Facturado, bool resumen,  bool agruparDescripcion, int decimalesPrecio )
         {
             fechaInicio = fechaini;
             fechaFinal = fechafin;
@@ -54,10 +54,23 @@ namespace Promowork.Formularios.Reportes.Viewer
                 reportViewer1.LocalReport.ReportEmbeddedResource = "Promowork.Reportes.PendienteFacturar.rdlc";
             }
 
-            ReportParameter[] Parametros = new ReportParameter[2];
+            string decimales = "0";
+            if (decimalesPrecio > 0)
+            {
+                decimales = decimales + ".";
+                for (int i = 1; i <= decimalesPrecio; i++)
+                {
+                    decimales = decimales + "0";
+                }
+            }
+            string formatoPrecio = "#,"+decimales+"'€'";
+
+            ReportParameter[] Parametros = new ReportParameter[4];
             //Establecemos el valor de los parámetros
             Parametros[0] = new ReportParameter("FechaIni", Convert.ToString(fechaini));
             Parametros[1] = new ReportParameter("FechaFin", Convert.ToString(fechafin));
+            Parametros[2] = new ReportParameter("FormatoPrecio", formatoPrecio);
+            Parametros[3] = new ReportParameter("DecimalesPrecio", decimalesPrecio.ToString());
            
             //Pasamos el array de los parámetros al ReportViewer
             this.reportViewer1.LocalReport.SetParameters(Parametros);

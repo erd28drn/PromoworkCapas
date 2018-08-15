@@ -17,6 +17,7 @@ namespace GestionData.Entities
         public decimal PrecioHoraOficial { get; set; }
         public decimal PrecioHoraPeon { get; set; }
         public List<string> ObservacionesAlbaranes { get; set; }
+        public int? DecimalesPrecioProductosReportes { get; set; }
 
     }
 

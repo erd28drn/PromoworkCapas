@@ -71,6 +71,8 @@
             this.colNomTrabajador = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colApeTrabajador = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDesCategoria = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.spDecimales = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.marcaObrasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.promowork_dataDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.marcaTrabajadoresBindingSource)).BeginInit();
@@ -79,12 +81,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.marcaObrasGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.marcaTrabajadoresGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spDecimales.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // marcaObrasBindingSource
@@ -105,7 +109,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 18);
+            this.label3.Location = new System.Drawing.Point(9, 18);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 9;
@@ -114,7 +118,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(178, 18);
+            this.label4.Location = new System.Drawing.Point(156, 18);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 13);
             this.label4.TabIndex = 10;
@@ -123,24 +127,24 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(55, 14);
+            this.dateTimePicker1.Location = new System.Drawing.Point(50, 14);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(104, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(95, 20);
             this.dateTimePicker1.TabIndex = 0;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // dateTimePicker2
             // 
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(216, 14);
+            this.dateTimePicker2.Location = new System.Drawing.Point(194, 14);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(104, 20);
+            this.dateTimePicker2.Size = new System.Drawing.Size(95, 20);
             this.dateTimePicker2.TabIndex = 1;
             this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(339, 13);
+            this.button1.Location = new System.Drawing.Point(303, 13);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -176,7 +180,7 @@
             // 
             this.rdgFacturado.AutoSizeInLayoutControl = true;
             this.rdgFacturado.EditValue = 0;
-            this.rdgFacturado.Location = new System.Drawing.Point(776, 12);
+            this.rdgFacturado.Location = new System.Drawing.Point(681, 12);
             this.rdgFacturado.Name = "rdgFacturado";
             this.rdgFacturado.Properties.Appearance.BackColor = System.Drawing.SystemColors.Control;
             this.rdgFacturado.Properties.Appearance.Options.UseBackColor = true;
@@ -185,7 +189,7 @@
             new DevExpress.XtraEditors.Controls.RadioGroupItem(1, "Mostrar Facturado"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(2, "Motrar Finalizado"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(3, "Mostrar Todo")});
-            this.rdgFacturado.Size = new System.Drawing.Size(591, 24);
+            this.rdgFacturado.Size = new System.Drawing.Size(528, 24);
             this.rdgFacturado.TabIndex = 16;
             // 
             // marcaObrasTableAdapter
@@ -283,7 +287,7 @@
             // chkResumen
             // 
             this.chkResumen.AutoSize = true;
-            this.chkResumen.Location = new System.Drawing.Point(461, 16);
+            this.chkResumen.Location = new System.Drawing.Point(9, 6);
             this.chkResumen.Name = "chkResumen";
             this.chkResumen.Size = new System.Drawing.Size(109, 17);
             this.chkResumen.TabIndex = 17;
@@ -403,7 +407,8 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.chkAgruparDescripcion);
+            this.panel1.Controls.Add(this.labelControl1);
+            this.panel1.Controls.Add(this.spDecimales);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -414,7 +419,7 @@
             // chkAgruparDescripcion
             // 
             this.chkAgruparDescripcion.AutoSize = true;
-            this.chkAgruparDescripcion.Location = new System.Drawing.Point(586, 16);
+            this.chkAgruparDescripcion.Location = new System.Drawing.Point(124, 6);
             this.chkAgruparDescripcion.Name = "chkAgruparDescripcion";
             this.chkAgruparDescripcion.Size = new System.Drawing.Size(140, 17);
             this.chkAgruparDescripcion.TabIndex = 19;
@@ -424,9 +429,11 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Location = new System.Drawing.Point(447, 9);
+            this.panel2.Controls.Add(this.chkResumen);
+            this.panel2.Controls.Add(this.chkAgruparDescripcion);
+            this.panel2.Location = new System.Drawing.Point(397, 9);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(322, 30);
+            this.panel2.Size = new System.Drawing.Size(273, 30);
             this.panel2.TabIndex = 20;
             // 
             // splitContainer1
@@ -546,12 +553,42 @@
             this.colDesCategoria.VisibleIndex = 4;
             this.colDesCategoria.Width = 195;
             // 
+            // spDecimales
+            // 
+            this.spDecimales.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.spDecimales.Location = new System.Drawing.Point(1323, 14);
+            this.spDecimales.Name = "spDecimales";
+            this.spDecimales.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.spDecimales.Properties.DisplayFormat.FormatString = "N0";
+            this.spDecimales.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.spDecimales.Properties.EditFormat.FormatString = "N0";
+            this.spDecimales.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.spDecimales.Properties.MaxValue = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.spDecimales.Size = new System.Drawing.Size(35, 20);
+            this.spDecimales.TabIndex = 21;
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(1234, 17);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(83, 13);
+            this.labelControl1.TabIndex = 22;
+            this.labelControl1.Text = "Decimales Precio:";
+            // 
             // RptParametrosPendienteFacturar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 477);
-            this.Controls.Add(this.chkResumen);
             this.Controls.Add(this.rdgFacturado);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dateTimePicker2);
@@ -575,6 +612,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -583,6 +622,7 @@
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.marcaTrabajadoresGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spDecimales.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -632,6 +672,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn colDesCategoria;
         private System.Windows.Forms.CheckBox chkAgruparDescripcion;
         private System.Windows.Forms.Panel panel2;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.SpinEdit spDecimales;
        
     }
 }
