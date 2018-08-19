@@ -7,12 +7,22 @@
     <Schema Namespace="Promowork_dataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="Promowork_dataModelStoreContainer">
           <EntitySet Name="Clientes" EntityType="Promowork_dataModel.Store.Clientes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Documentos" EntityType="Promowork_dataModel.Store.Documentos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DocumentosParticipantes" EntityType="Promowork_dataModel.Store.DocumentosParticipantes" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Obras" EntityType="Promowork_dataModel.Store.Obras" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Participantes" EntityType="Promowork_dataModel.Store.Participantes" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Productos" EntityType="Promowork_dataModel.Store.Productos" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Proveedores" EntityType="Promowork_dataModel.Store.Proveedores" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Trabajadores" EntityType="Promowork_dataModel.Store.Trabajadores" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="UMedidas" EntityType="Promowork_dataModel.Store.UMedidas" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_DocumentosParticipantes_Documentos" Association="Promowork_dataModel.Store.FK_DocumentosParticipantes_Documentos">
+            <End Role="Documentos" EntitySet="Documentos" />
+            <End Role="DocumentosParticipantes" EntitySet="DocumentosParticipantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DocumentosParticipantes_Participantes" Association="Promowork_dataModel.Store.FK_DocumentosParticipantes_Participantes">
+            <End Role="Participantes" EntitySet="Participantes" />
+            <End Role="DocumentosParticipantes" EntitySet="DocumentosParticipantes" />
+          </AssociationSet>
           <AssociationSet Name="FK_Obras_Clientes" Association="Promowork_dataModel.Store.FK_Obras_Clientes">
             <End Role="Clientes" EntitySet="Clientes" />
             <End Role="Obras" EntitySet="Obras" />
@@ -79,6 +89,29 @@
           <Property Name="ObsCliente" Type="varchar" MaxLength="1000" />
           <Property Name="ActivoCliente" Type="bit" />
         </EntityType>
+        <EntityType Name="Documentos">
+          <Key>
+            <PropertyRef Name="IdDocumento" />
+          </Key>
+          <Property Name="IdDocumento" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NomDocumento" Type="varchar" MaxLength="50" />
+          <Property Name="DiasValidez" Type="int" />
+          <Property Name="FechaCrea" Type="datetime" />
+          <Property Name="FechaModifica" Type="datetime" />
+          <Property Name="UsuarioCrea" Type="int" />
+          <Property Name="UsuarioModifica" Type="int" />
+        </EntityType>
+        <EntityType Name="DocumentosParticipantes">
+          <Key>
+            <PropertyRef Name="IdDocumentoParticipante" />
+          </Key>
+          <Property Name="IdDocumentoParticipante" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdEmpresa" Type="int" />
+          <Property Name="IdParticipante" Type="int" />
+          <Property Name="IdDocumento" Type="int" />
+          <Property Name="UsuarioCrea" Type="int" />
+          <Property Name="FechaCrea" Type="datetime" />
+        </EntityType>
         <EntityType Name="Obras">
           <Key>
             <PropertyRef Name="IdObra" />
@@ -117,6 +150,10 @@
           <Property Name="IdEmpresa" Type="int" />
           <Property Name="DesParticipante" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="ActivoParticipante" Type="bit" />
+          <Property Name="UsuarioCrea" Type="int" />
+          <Property Name="FechaCrea" Type="datetime" />
+          <Property Name="UsuarioModifica" Type="int" />
+          <Property Name="FechaModifica" Type="datetime" />
         </EntityType>
         <EntityType Name="Productos">
           <Key>
@@ -234,6 +271,30 @@
           <Property Name="DesUmedida" Type="varchar" MaxLength="30" />
           <Property Name="ActivaUM" Type="bit" />
         </EntityType>
+        <Association Name="FK_DocumentosParticipantes_Documentos">
+          <End Role="Documentos" Type="Promowork_dataModel.Store.Documentos" Multiplicity="0..1" />
+          <End Role="DocumentosParticipantes" Type="Promowork_dataModel.Store.DocumentosParticipantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documentos">
+              <PropertyRef Name="IdDocumento" />
+            </Principal>
+            <Dependent Role="DocumentosParticipantes">
+              <PropertyRef Name="IdDocumento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DocumentosParticipantes_Participantes">
+          <End Role="Participantes" Type="Promowork_dataModel.Store.Participantes" Multiplicity="0..1" />
+          <End Role="DocumentosParticipantes" Type="Promowork_dataModel.Store.DocumentosParticipantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participantes">
+              <PropertyRef Name="IdParticipante" />
+            </Principal>
+            <Dependent Role="DocumentosParticipantes">
+              <PropertyRef Name="IdParticipante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Obras_Clientes">
           <End Role="Clientes" Type="Promowork_dataModel.Store.Clientes" Multiplicity="0..1" />
           <End Role="Obras" Type="Promowork_dataModel.Store.Obras" Multiplicity="*" />
@@ -389,6 +450,16 @@
           <AssociationSet Name="FK_Productos_UMedidas2" Association="Promowork_dataModel.FK_Productos_UMedidas2">
             <End Role="UMedidas" EntitySet="UMedidas" />
             <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <EntitySet Name="DocumentosParticipantes" EntityType="Promowork_dataModel.DocumentosParticipantes" />
+          <AssociationSet Name="FK_DocumentosParticipantes_Participantes" Association="Promowork_dataModel.FK_DocumentosParticipantes_Participantes">
+            <End Role="Participantes" EntitySet="Participantes" />
+            <End Role="DocumentosParticipantes" EntitySet="DocumentosParticipantes" />
+          </AssociationSet>
+          <EntitySet Name="Documentos" EntityType="Promowork_dataModel.Documentos" />
+          <AssociationSet Name="FK_DocumentosParticipantes_Documentos" Association="Promowork_dataModel.FK_DocumentosParticipantes_Documentos">
+            <End Role="Documentos" EntitySet="Documentos" />
+            <End Role="DocumentosParticipantes" EntitySet="DocumentosParticipantes" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Clientes">
@@ -562,6 +633,11 @@
           <Property Type="Boolean" Name="ActivoParticipante" />
           <NavigationProperty Name="Proveedores" Relationship="Promowork_dataModel.FK_Proveedores_Participantes" FromRole="Participantes" ToRole="Proveedores" />
           <Property Type="Int32" Name="IdEmpresa" />
+          <NavigationProperty Name="DocumentosParticipantes" Relationship="Promowork_dataModel.FK_DocumentosParticipantes_Participantes" FromRole="Participantes" ToRole="DocumentosParticipantes" />
+          <Property Type="Int32" Name="UsuarioCrea" />
+          <Property Type="DateTime" Name="FechaCrea" />
+          <Property Type="Int32" Name="UsuarioModifica" />
+          <Property Type="DateTime" Name="FechaModifica" />
         </EntityType>
         <Association Name="FK_Proveedores_Participantes">
           <End Type="Promowork_dataModel.Participantes" Role="Participantes" Multiplicity="0..1" />
@@ -698,6 +774,56 @@
             </Principal>
             <Dependent Role="Productos">
               <PropertyRef Name="IdUMedidaVenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DocumentosParticipantes">
+          <Key>
+            <PropertyRef Name="IdDocumentoParticipante" />
+          </Key>
+          <Property Type="Int32" Name="IdDocumentoParticipante" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="IdEmpresa" />
+          <Property Type="Int32" Name="IdParticipante" />
+          <Property Type="Int32" Name="IdDocumento" />
+          <NavigationProperty Name="Participantes" Relationship="Promowork_dataModel.FK_DocumentosParticipantes_Participantes" FromRole="DocumentosParticipantes" ToRole="Participantes" />
+          <NavigationProperty Name="Documentos" Relationship="Promowork_dataModel.FK_DocumentosParticipantes_Documentos" FromRole="DocumentosParticipantes" ToRole="Documentos" />
+          <Property Type="Int32" Name="UsuarioCrea" />
+          <Property Type="DateTime" Name="FechaCrea" />
+        </EntityType>
+        <Association Name="FK_DocumentosParticipantes_Participantes">
+          <End Type="Promowork_dataModel.Participantes" Role="Participantes" Multiplicity="0..1" />
+          <End Type="Promowork_dataModel.DocumentosParticipantes" Role="DocumentosParticipantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participantes">
+              <PropertyRef Name="IdParticipante" />
+            </Principal>
+            <Dependent Role="DocumentosParticipantes">
+              <PropertyRef Name="IdParticipante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Documentos">
+          <Key>
+            <PropertyRef Name="IdDocumento" />
+          </Key>
+          <Property Type="Int32" Name="IdDocumento" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="NomDocumento" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="DiasValidez" />
+          <Property Type="DateTime" Name="FechaCrea" />
+          <Property Type="DateTime" Name="FechaModifica" />
+          <Property Type="Int32" Name="UsuarioCrea" />
+          <Property Type="Int32" Name="UsuarioModifica" />
+          <NavigationProperty Name="DocumentosParticipantes" Relationship="Promowork_dataModel.FK_DocumentosParticipantes_Documentos" FromRole="Documentos" ToRole="DocumentosParticipantes" />
+        </EntityType>
+        <Association Name="FK_DocumentosParticipantes_Documentos">
+          <End Type="Promowork_dataModel.Documentos" Role="Documentos" Multiplicity="0..1" />
+          <End Type="Promowork_dataModel.DocumentosParticipantes" Role="DocumentosParticipantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documentos">
+              <PropertyRef Name="IdDocumento" />
+            </Principal>
+            <Dependent Role="DocumentosParticipantes">
+              <PropertyRef Name="IdDocumento" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -845,6 +971,10 @@
           <EntitySetMapping Name="Participantes">
             <EntityTypeMapping TypeName="Promowork_dataModel.Participantes">
               <MappingFragment StoreEntitySet="Participantes">
+                <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+                <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+                <ScalarProperty Name="FechaCrea" ColumnName="FechaCrea" />
+                <ScalarProperty Name="UsuarioCrea" ColumnName="UsuarioCrea" />
                 <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
                 <ScalarProperty Name="ActivoParticipante" ColumnName="ActivoParticipante" />
                 <ScalarProperty Name="DesParticipante" ColumnName="DesParticipante" />
@@ -898,6 +1028,31 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="DocumentosParticipantes">
+            <EntityTypeMapping TypeName="Promowork_dataModel.DocumentosParticipantes">
+              <MappingFragment StoreEntitySet="DocumentosParticipantes">
+                <ScalarProperty Name="FechaCrea" ColumnName="FechaCrea" />
+                <ScalarProperty Name="UsuarioCrea" ColumnName="UsuarioCrea" />
+                <ScalarProperty Name="IdDocumento" ColumnName="IdDocumento" />
+                <ScalarProperty Name="IdParticipante" ColumnName="IdParticipante" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdDocumentoParticipante" ColumnName="IdDocumentoParticipante" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Documentos">
+            <EntityTypeMapping TypeName="Promowork_dataModel.Documentos">
+              <MappingFragment StoreEntitySet="Documentos">
+                <ScalarProperty Name="UsuarioModifica" ColumnName="UsuarioModifica" />
+                <ScalarProperty Name="UsuarioCrea" ColumnName="UsuarioCrea" />
+                <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+                <ScalarProperty Name="FechaCrea" ColumnName="FechaCrea" />
+                <ScalarProperty Name="DiasValidez" ColumnName="DiasValidez" />
+                <ScalarProperty Name="NomDocumento" ColumnName="NomDocumento" />
+                <ScalarProperty Name="IdDocumento" ColumnName="IdDocumento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -918,28 +1073,28 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="DefinicionesDataModel" ZoomLevel="66">
+      <Diagram Name="DefinicionesDataModel" ZoomLevel="92">
         <EntityTypeShape EntityType="Promowork_dataModel.Clientes" Width="1.5" PointX="0.75" PointY="0.75" Height="5.634013671875" IsExpanded="true" />
         <EntityTypeShape EntityType="Promowork_dataModel.Proveedores" Width="1.5" PointX="2.75" PointY="0.75" Height="6.4032194010416656" IsExpanded="true" />
         <EntityTypeShape EntityType="Promowork_dataModel.Trabajadores" Width="1.5" PointX="5.375" PointY="0.75" Height="7.5570279947916656" />
         <EntityTypeShape EntityType="Promowork_dataModel.Obras" Width="1.5" PointX="3" PointY="10.75" Height="6.210917968749996" />
         <AssociationConnector Association="Promowork_dataModel.FK_Obras_Clientes" >
-          <ConnectorPoint PointX="2.25" PointY="2.8071800594075511" />
-          <ConnectorPoint PointX="2.5" PointY="2.8071800594075511" />
-          <ConnectorPoint PointX="2.5" PointY="7.787822265625" />
-          <ConnectorPoint PointX="2.7604166666666665" PointY="7.7878222656249987" />
-          <ConnectorPoint PointX="2.9583358333333334" PointY="7.787822265625" />
-          <ConnectorPoint PointX="4.0039075" PointY="7.787822265625" />
-          <ConnectorPoint PointX="4.0039075" PointY="10.75" />
+          <ConnectorPoint PointX="2.25" PointY="2.7789245463562011" />
+          <ConnectorPoint PointX="2.5" PointY="2.7789245463562011" />
+          <ConnectorPoint PointX="2.5" PointY="7.7878222656249987" />
+          <ConnectorPoint PointX="2.7604166666666665" PointY="7.7878222656249978" />
+          <ConnectorPoint PointX="2.9583358333333334" PointY="7.7878222656249987" />
+          <ConnectorPoint PointX="4.01977671875" PointY="7.7878222656249987" />
+          <ConnectorPoint PointX="4.01977671875" PointY="10.75" />
         </AssociationConnector>
         <AssociationConnector Association="Promowork_dataModel.FK_Obras_Clientes1" >
-          <ConnectorPoint PointX="2.25" PointY="4.8191502979329419" />
-          <ConnectorPoint PointX="2.5" PointY="4.8191502979329419" />
-          <ConnectorPoint PointX="2.5" PointY="7.912822265625" />
-          <ConnectorPoint PointX="2.7604166666666665" PointY="7.9128222656249987" />
-          <ConnectorPoint PointX="2.9583358333333334" PointY="7.912822265625" />
-          <ConnectorPoint PointX="3.4707017500000004" PointY="7.912822265625" />
-          <ConnectorPoint PointX="3.4707017500000004" PointY="10.75" />
+          <ConnectorPoint PointX="2.25" PointY="4.8050225414072667" />
+          <ConnectorPoint PointX="2.5" PointY="4.8050225414072667" />
+          <ConnectorPoint PointX="2.5" PointY="7.8034472656249987" />
+          <ConnectorPoint PointX="2.7604166666666665" PointY="7.8034472656249978" />
+          <ConnectorPoint PointX="2.9583358333333334" PointY="7.8034472656249987" />
+          <ConnectorPoint PointX="3.4786363593750003" PointY="7.8034472656249987" />
+          <ConnectorPoint PointX="3.4786363593750003" PointY="10.75" />
         </AssociationConnector>
         <EntityTypeShape EntityType="Promowork_dataModel.Participantes" Width="1.5" PointX="0.75" PointY="9.125" Height="1.7879850260416674" />
         <AssociationConnector Association="Promowork_dataModel.FK_Proveedores_Participantes" >
@@ -950,8 +1105,10 @@
         <EntityTypeShape EntityType="Promowork_dataModel.Productos" Width="1.5" PointX="9.625" PointY="4.875" Height="8.1339322916666674" />
         <EntityTypeShape EntityType="Promowork_dataModel.UMedidas" Width="1.5" PointX="7.375" PointY="4.125" Height="2.3648893229166674" />
         <AssociationConnector Association="Promowork_dataModel.FK_Productos_Obras" >
-          <ConnectorPoint PointX="4.5" PointY="11.879466145833334" />
-          <ConnectorPoint PointX="9.625" PointY="11.879466145833334" />
+          <ConnectorPoint PointX="4.5" PointY="12.184510091145834" />
+          <ConnectorPoint PointX="4.822916666666667" PointY="12.184510091145834" />
+          <ConnectorPoint PointX="4.989583333333333" PointY="12.184510091145834" />
+          <ConnectorPoint PointX="9.625" PointY="12.184510091145834" />
         </AssociationConnector>
         <AssociationConnector Association="Promowork_dataModel.FK_Productos_Productos" >
           <ConnectorPoint PointX="10.156923076923077" PointY="13.008932291666667" />
@@ -961,24 +1118,49 @@
         </AssociationConnector>
         <AssociationConnector Association="Promowork_dataModel.FK_Productos_Proveedores" >
           <ConnectorPoint PointX="2.8750025" PointY="7.5378222656249987" />
-          <ConnectorPoint PointX="2.8750025" PointY="9.1378889973958337" />
-          <ConnectorPoint PointX="3.3873684166666669" PointY="9.1378889973958337" />
-          <ConnectorPoint PointX="3.5540350833333338" PointY="9.1378889973958337" />
-          <ConnectorPoint PointX="3.9205741666666669" PointY="9.1378889973958337" />
-          <ConnectorPoint PointX="4.0872408333333334" PointY="9.1378889973958337" />
-          <ConnectorPoint PointX="9.625" PointY="9.1378889973958337" />
+          <ConnectorPoint PointX="2.8750025" PointY="8.7160139973958337" />
+          <ConnectorPoint PointX="3.3953030260416668" PointY="8.7160139973958337" />
+          <ConnectorPoint PointX="3.5619696927083337" PointY="8.7160139973958337" />
+          <ConnectorPoint PointX="3.9364433854166667" PointY="8.7160139973958337" />
+          <ConnectorPoint PointX="4.1031100520833332" PointY="8.7160139973958337" />
+          <ConnectorPoint PointX="9.2916666666666661" PointY="8.7160139973958337" />
+          <ConnectorPoint PointX="9.4583333333333339" PointY="8.7160139973958337" />
+          <ConnectorPoint PointX="9.625" PointY="8.7160139973958337" />
         </AssociationConnector>
         <AssociationConnector Association="Promowork_dataModel.FK_Productos_UMedidas" >
           <ConnectorPoint PointX="8.875" PointY="5.6824446614583337" />
+          <ConnectorPoint PointX="9.2916666666666661" PointY="5.6824446614583328" />
+          <ConnectorPoint PointX="9.4583333333333339" PointY="5.6824446614583337" />
           <ConnectorPoint PointX="9.625" PointY="5.6824446614583337" />
         </AssociationConnector>
         <AssociationConnector Association="Promowork_dataModel.FK_Productos_UMedidas1" >
           <ConnectorPoint PointX="8.875" PointY="5.2162223307291669" />
+          <ConnectorPoint PointX="9.2916666666666661" PointY="5.216222330729166" />
+          <ConnectorPoint PointX="9.4583333333333339" PointY="5.2162223307291669" />
           <ConnectorPoint PointX="9.625" PointY="5.2162223307291669" />
         </AssociationConnector>
         <AssociationConnector Association="Promowork_dataModel.FK_Productos_UMedidas2" >
           <ConnectorPoint PointX="8.875" PointY="6.1486669921875006" />
+          <ConnectorPoint PointX="9.2916666666666661" PointY="6.1486669921875" />
+          <ConnectorPoint PointX="9.4583333333333339" PointY="6.1486669921875006" />
           <ConnectorPoint PointX="9.625" PointY="6.1486669921875006" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Promowork_dataModel.DocumentosParticipantes" Width="1.5" PointX="6" PointY="9.125" Height="2.1725878906249996" />
+        <AssociationConnector Association="Promowork_dataModel.FK_DocumentosParticipantes_Participantes" >
+          <ConnectorPoint PointX="2.25" PointY="10.280021914975443" />
+          <ConnectorPoint PointX="3.3953030260416668" PointY="10.280021914975443" />
+          <ConnectorPoint PointX="3.5619696927083337" PointY="10.280021914975443" />
+          <ConnectorPoint PointX="3.9364433854166667" PointY="10.280021914975443" />
+          <ConnectorPoint PointX="4.1031100520833332" PointY="10.280021914975443" />
+          <ConnectorPoint PointX="6" PointY="10.280021914975443" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Promowork_dataModel.Documentos" Width="1.5" PointX="9.375" PointY="1" Height="2.5571907552083317" />
+        <AssociationConnector Association="Promowork_dataModel.FK_DocumentosParticipantes_Documentos" >
+          <ConnectorPoint PointX="10.125" PointY="3.5571907552083317" />
+          <ConnectorPoint PointX="10.125" PointY="4.625" />
+          <ConnectorPoint PointX="9.375" PointY="4.625" />
+          <ConnectorPoint PointX="9.375" PointY="10.2112939453125" />
+          <ConnectorPoint PointX="7.5" PointY="10.2112939453125" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

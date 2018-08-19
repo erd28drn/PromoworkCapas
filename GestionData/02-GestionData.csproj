@@ -103,6 +103,7 @@
     <Compile Include="Enumeradores\EnumCargaAlbaranes.cs" />
     <Compile Include="Enumeradores\EnumCargaFacturas.cs" />
     <Compile Include="Enumeradores\EnumEnhanced.cs" />
+    <Compile Include="Helpers\DataHelper.cs" />
     <Compile Include="Helpers\GeneralHelper.cs" />
     <Compile Include="masterDataSet.cs">
       <DependentUpon>masterDataSet.xsd</DependentUpon>
@@ -113,7 +114,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Modelos\DefinicionesDataModel.Designer.cs">
+    <Compile Include="Modelos\DefinicionesDataModel1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DefinicionesDataModel.edmx</DependentUpon>
@@ -159,6 +160,9 @@
     <Compile Include="Repositorios\RepositorioCobro.cs" />
     <Compile Include="Repositorios\RepositorioCombustible.cs" />
     <Compile Include="Repositorios\RepositorioObra.cs" />
+    <Compile Include="Repositorios\RepositorioDocumento.cs" />
+    <Compile Include="Repositorios\RepositorioParticipante.cs" />
+    <Compile Include="Repositorios\RepositorioDocumentosParticipante.cs" />
     <Compile Include="Repositorios\RepositorioProducto.cs" />
     <Compile Include="Repositorios\RepositorioProveedor.cs" />
     <Compile Include="Repositorios\RepositorioPresupuesto.cs" />
@@ -234,7 +238,7 @@
     </None>
     <EntityDeploy Include="Modelos\DefinicionesDataModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DefinicionesDataModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>DefinicionesDataModel1.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <EntityDeploy Include="Modelos\OperacionesDataModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
