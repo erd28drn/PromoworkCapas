@@ -58,8 +58,10 @@
             this.colDesCliente = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNumObraInt = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.chkAgruparDescripcion = new System.Windows.Forms.CheckBox();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.spDecimales = new DevExpress.XtraEditors.SpinEdit();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.chkAgruparDescripcion = new System.Windows.Forms.CheckBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.marcaTrabajadoresGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -71,8 +73,6 @@
             this.colNomTrabajador = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colApeTrabajador = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDesCategoria = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.spDecimales = new DevExpress.XtraEditors.SpinEdit();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.marcaObrasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.promowork_dataDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.marcaTrabajadoresBindingSource)).BeginInit();
@@ -81,6 +81,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.marcaObrasGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spDecimales.Properties)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -88,7 +89,6 @@
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.marcaTrabajadoresGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spDecimales.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // marcaObrasBindingSource
@@ -416,15 +416,36 @@
             this.panel1.Size = new System.Drawing.Size(1370, 48);
             this.panel1.TabIndex = 1;
             // 
-            // chkAgruparDescripcion
+            // labelControl1
             // 
-            this.chkAgruparDescripcion.AutoSize = true;
-            this.chkAgruparDescripcion.Location = new System.Drawing.Point(124, 6);
-            this.chkAgruparDescripcion.Name = "chkAgruparDescripcion";
-            this.chkAgruparDescripcion.Size = new System.Drawing.Size(140, 17);
-            this.chkAgruparDescripcion.TabIndex = 19;
-            this.chkAgruparDescripcion.Text = "Agrupar por Descripción";
-            this.chkAgruparDescripcion.UseVisualStyleBackColor = true;
+            this.labelControl1.Location = new System.Drawing.Point(1234, 17);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(83, 13);
+            this.labelControl1.TabIndex = 22;
+            this.labelControl1.Text = "Decimales Precio:";
+            // 
+            // spDecimales
+            // 
+            this.spDecimales.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.spDecimales.Location = new System.Drawing.Point(1323, 14);
+            this.spDecimales.Name = "spDecimales";
+            this.spDecimales.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.spDecimales.Properties.DisplayFormat.FormatString = "N0";
+            this.spDecimales.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.spDecimales.Properties.EditFormat.FormatString = "N0";
+            this.spDecimales.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.spDecimales.Properties.MaxValue = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.spDecimales.Size = new System.Drawing.Size(35, 20);
+            this.spDecimales.TabIndex = 21;
             // 
             // panel2
             // 
@@ -435,6 +456,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(273, 30);
             this.panel2.TabIndex = 20;
+            // 
+            // chkAgruparDescripcion
+            // 
+            this.chkAgruparDescripcion.AutoSize = true;
+            this.chkAgruparDescripcion.Location = new System.Drawing.Point(124, 6);
+            this.chkAgruparDescripcion.Name = "chkAgruparDescripcion";
+            this.chkAgruparDescripcion.Size = new System.Drawing.Size(140, 17);
+            this.chkAgruparDescripcion.TabIndex = 19;
+            this.chkAgruparDescripcion.Text = "Agrupar por Descripción";
+            this.chkAgruparDescripcion.UseVisualStyleBackColor = true;
             // 
             // splitContainer1
             // 
@@ -553,37 +584,6 @@
             this.colDesCategoria.VisibleIndex = 4;
             this.colDesCategoria.Width = 195;
             // 
-            // spDecimales
-            // 
-            this.spDecimales.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.spDecimales.Location = new System.Drawing.Point(1323, 14);
-            this.spDecimales.Name = "spDecimales";
-            this.spDecimales.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.spDecimales.Properties.DisplayFormat.FormatString = "N0";
-            this.spDecimales.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.spDecimales.Properties.EditFormat.FormatString = "N0";
-            this.spDecimales.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.spDecimales.Properties.MaxValue = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
-            this.spDecimales.Size = new System.Drawing.Size(35, 20);
-            this.spDecimales.TabIndex = 21;
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Location = new System.Drawing.Point(1234, 17);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(83, 13);
-            this.labelControl1.TabIndex = 22;
-            this.labelControl1.Text = "Decimales Precio:";
-            // 
             // RptParametrosPendienteFacturar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -612,6 +612,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spDecimales.Properties)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -622,7 +623,6 @@
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.marcaTrabajadoresGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spDecimales.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

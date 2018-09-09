@@ -97,6 +97,7 @@ namespace Promowork.Formularios.Operaciones
 
             }
             catch { }
+
         }
 
         private void horasTrabajadasBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
@@ -872,9 +873,6 @@ namespace Promowork.Formularios.Operaciones
             }
         }
 
-       
-       
-      
 
     }
 }

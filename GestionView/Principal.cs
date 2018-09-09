@@ -1430,6 +1430,21 @@ namespace Promowork
             }
         }
 
+        private void participantesYDocuemntosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms["frmParticipantesDocumentos"] != null)
+            {
+                Application.OpenForms["frmParticipantesDocumentos"].Activate();
+            }
+            else
+            {
+                frmParticipantesDocumentos frm = new frmParticipantesDocumentos();
+                frm.MdiParent = this;
+                frm.WindowState = FormWindowState.Maximized;
+                frm.Show();
+            }
+        }
+
        
        
     }

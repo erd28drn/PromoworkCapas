@@ -2,18 +2,41 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data.Objects;
+using System.Data;
 using GestionData.Modelos;
 using GestionData.Entities;
+using GestionData.Helpers;
 
 namespace GestionData.Repositorios
 {
     public class RepositorioNota
     {
         GeneralesDataModel contextoGenerales = new GeneralesDataModel();
+        RepositorioUsuario repoUsuario = new RepositorioUsuario();
 
         public List<Notas> GetAll()
         {
             return contextoGenerales.Notas.ToList();
+        }
+
+        public List<Notas> GetNotasUsuario(int idUsuario)
+        {
+            List<Notas> notas;
+            if (repoUsuario.EsAdmin(idUsuario))
+            {
+                notas = GetAll();
+            }
+            else
+            { 
+                notas = contextoGenerales.Notas.Where(n => n.IdUsuarioCrea == idUsuario || n.IdUsuarioPertenece == idUsuario).ToList();
+            }
+            return notas;
+        }
+
+        public Boolean TieneCambiosSinGuardar()
+        {
+            return DataHelper.TieneCambiosSinGuardar(contextoGenerales);
         }
 
         /// <summary>
@@ -21,11 +44,11 @@ namespace GestionData.Repositorios
         /// </summary>
         /// <param name="notas"></param>
         /// <returns></returns>
-        public bool InsertUpdateDelete(List<Notas> notas, int idUsuario)
+        public RespuestasServicios InsertUpdateDelete(List<Notas> notas, int idUsuario)
         {
-            var notasInsert= notas.Where(n=> n.IdNota==0);
-            var notasUpdate = notas.Where(n => n.EntityState == System.Data.EntityState.Modified);   //notas.Where(n=> n.IdNota>0);
-            var notasDelete = contextoGenerales.Notas.ToList().Except(notas.ToList());
+            var notasInsert= notas.Where(n=> n.IdNota==0).ToList();
+            var notasUpdate = notas.Where(n => n.EntityState == System.Data.EntityState.Modified).ToList();   //notas.Where(n=> n.IdNota>0);
+            var notasDelete = GetNotasUsuario(idUsuario).Except(notas.ToList()).ToList();
 
             foreach (var nota in notasDelete)
             {
@@ -48,8 +71,7 @@ namespace GestionData.Repositorios
 
                 contextoGenerales.Notas.AddObject(nota);
             }
-            contextoGenerales.SaveChanges();
-            return true;
+            return DataHelper.GuardarContexto(contextoGenerales, "Notas");
         }
 
         public bool InsertNotas(List<Notas> notas)

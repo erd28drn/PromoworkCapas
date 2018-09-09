@@ -1854,6 +1854,30 @@ namespace GestionData.Modelos
         private global::System.String _TituloNota;
         partial void OnTituloNotaChanging(global::System.String value);
         partial void OnTituloNotaChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IdUsuarioPertenece
+        {
+            get
+            {
+                return _IdUsuarioPertenece;
+            }
+            set
+            {
+                OnIdUsuarioPerteneceChanging(value);
+                ReportPropertyChanging("IdUsuarioPertenece");
+                _IdUsuarioPertenece = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IdUsuarioPertenece");
+                OnIdUsuarioPerteneceChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IdUsuarioPertenece;
+        partial void OnIdUsuarioPerteneceChanging(Nullable<global::System.Int32> value);
+        partial void OnIdUsuarioPerteneceChanged();
 
         #endregion
 

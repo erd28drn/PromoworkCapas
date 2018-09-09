@@ -12,5 +12,14 @@ namespace Promowork
         {
             return MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+        /// <summary>
+        /// Mostrará el mensaje: mensaje+" ¿Desea guardar los cambios realizados?"
+        /// </summary>
+        /// <param name="mensaje"></param>
+        /// <returns></returns>
+        public static DialogResult PreguntaGuardarDatos(string mensaje)
+        {
+            return MessageBox.Show(mensaje+" ¿Desea guardar los cambios realizados?", "Guardar Datos", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        }
     }
 }

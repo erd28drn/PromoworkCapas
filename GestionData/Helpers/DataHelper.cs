@@ -52,5 +52,12 @@ namespace GestionData.Helpers
         }
         #endregion GUARDAR CONTEXTO
 
+        #region COMPROBAR SI EL CONTEXTO TIENE CAMBIOS SIN GUARDAR
+        public static Boolean TieneCambiosSinGuardar(ObjectContext contexto)
+        {
+            return (contexto.ObjectStateManager.GetObjectStateEntries(EntityState.Added | EntityState.Modified | EntityState.Deleted).Any());
+        }
+        #endregion COMPROBAR SI EL CONTEXTO HA CAMBIADO
+
     }
 }

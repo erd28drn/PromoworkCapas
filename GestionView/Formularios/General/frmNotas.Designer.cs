@@ -44,6 +44,9 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.notasBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.btImportTxt = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gvNotas = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colIdNota = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -55,12 +58,18 @@
             this.colFechaModifica = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIdUsuarioCrea = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colIdUsuarioModifica = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colIdUsuarioPertenece = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cbUsuarios = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.usuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ofTextoNota = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.notasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.notasBindingNavigator)).BeginInit();
             this.notasBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvNotas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbUsuarios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuariosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // notasBindingSource
@@ -85,7 +94,10 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
-            this.notasBindingNavigatorSaveItem});
+            this.notasBindingNavigatorSaveItem,
+            this.toolStripSeparator1,
+            this.btImportTxt,
+            this.toolStripSeparator2});
             this.notasBindingNavigator.Location = new System.Drawing.Point(0, 0);
             this.notasBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.notasBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -93,7 +105,7 @@
             this.notasBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.notasBindingNavigator.Name = "notasBindingNavigator";
             this.notasBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.notasBindingNavigator.Size = new System.Drawing.Size(780, 25);
+            this.notasBindingNavigator.Size = new System.Drawing.Size(1057, 25);
             this.notasBindingNavigator.TabIndex = 0;
             this.notasBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -192,6 +204,27 @@
             this.notasBindingNavigatorSaveItem.Text = "Guardar datos";
             this.notasBindingNavigatorSaveItem.Click += new System.EventHandler(this.notasBindingNavigatorSaveItem_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // btImportTxt
+            // 
+            this.btImportTxt.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btImportTxt.Image = global::Promowork.Properties.Resources.Duplicar;
+            this.btImportTxt.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btImportTxt.Name = "btImportTxt";
+            this.btImportTxt.Size = new System.Drawing.Size(23, 22);
+            this.btImportTxt.Text = "Importar";
+            this.btImportTxt.ToolTipText = "Crea nuevas Notas desde Ficheros Texto";
+            this.btImportTxt.Click += new System.EventHandler(this.btImportTxt_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
             // gridControl1
             // 
             this.gridControl1.DataSource = this.notasBindingSource;
@@ -200,8 +233,9 @@
             this.gridControl1.MainView = this.gvNotas;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemMemoEdit1});
-            this.gridControl1.Size = new System.Drawing.Size(780, 333);
+            this.repositoryItemMemoEdit1,
+            this.cbUsuarios});
+            this.gridControl1.Size = new System.Drawing.Size(1057, 303);
             this.gridControl1.TabIndex = 3;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvNotas});
@@ -216,7 +250,8 @@
             this.colFechaCrea,
             this.colFechaModifica,
             this.colIdUsuarioCrea,
-            this.colIdUsuarioModifica});
+            this.colIdUsuarioModifica,
+            this.colIdUsuarioPertenece});
             this.gvNotas.GridControl = this.gridControl1;
             this.gvNotas.Name = "gvNotas";
             this.gvNotas.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
@@ -236,7 +271,10 @@
             // 
             this.colTituloNota.Caption = "Título";
             this.colTituloNota.FieldName = "TituloNota";
+            this.colTituloNota.FilterMode = DevExpress.XtraGrid.ColumnFilterMode.DisplayText;
             this.colTituloNota.Name = "colTituloNota";
+            this.colTituloNota.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
+            this.colTituloNota.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
             this.colTituloNota.Visible = true;
             this.colTituloNota.VisibleIndex = 0;
             this.colTituloNota.Width = 123;
@@ -264,7 +302,7 @@
             this.colDescripcionNota.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
             this.colDescripcionNota.Visible = true;
             this.colDescripcionNota.VisibleIndex = 2;
-            this.colDescripcionNota.Width = 417;
+            this.colDescripcionNota.Width = 343;
             // 
             // repositoryItemMemoEdit1
             // 
@@ -292,15 +330,51 @@
             this.colIdUsuarioModifica.FieldName = "IdUsuarioModifica";
             this.colIdUsuarioModifica.Name = "colIdUsuarioModifica";
             // 
+            // colIdUsuarioPertenece
+            // 
+            this.colIdUsuarioPertenece.Caption = "Pertenece a:";
+            this.colIdUsuarioPertenece.ColumnEdit = this.cbUsuarios;
+            this.colIdUsuarioPertenece.FieldName = "IdUsuarioPertenece";
+            this.colIdUsuarioPertenece.Name = "colIdUsuarioPertenece";
+            this.colIdUsuarioPertenece.Visible = true;
+            this.colIdUsuarioPertenece.VisibleIndex = 3;
+            this.colIdUsuarioPertenece.Width = 106;
+            // 
+            // cbUsuarios
+            // 
+            this.cbUsuarios.AutoHeight = false;
+            this.cbUsuarios.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbUsuarios.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NomUsuario", "Usuario", 70, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("AdminUsuario", "Admin", 78, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
+            this.cbUsuarios.DataSource = this.usuariosBindingSource;
+            this.cbUsuarios.DisplayMember = "NomUsuario";
+            this.cbUsuarios.Name = "cbUsuarios";
+            this.cbUsuarios.ValueMember = "IdUsuario";
+            // 
+            // usuariosBindingSource
+            // 
+            this.usuariosBindingSource.DataSource = typeof(GestionData.Modelos.Usuarios);
+            // 
+            // ofTextoNota
+            // 
+            this.ofTextoNota.DefaultExt = "txt";
+            this.ofTextoNota.FileName = "Nota";
+            this.ofTextoNota.Filter = "\"Archivos de Texto|*.txt|Todos los Archivos|*.*\"";
+            this.ofTextoNota.Multiselect = true;
+            this.ofTextoNota.Title = "Selecciones los ficheso que desea importar a Notas";
+            // 
             // frmNotas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(780, 358);
+            this.ClientSize = new System.Drawing.Size(1057, 328);
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.notasBindingNavigator);
             this.Name = "frmNotas";
             this.Text = "Notas";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmNotas_FormClosing);
             this.Load += new System.EventHandler(this.frmNotas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.notasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.notasBindingNavigator)).EndInit();
@@ -309,6 +383,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvNotas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbUsuarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usuariosBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -341,5 +417,12 @@
         private DevExpress.XtraGrid.Columns.GridColumn colIdUsuarioCrea;
         private DevExpress.XtraGrid.Columns.GridColumn colIdUsuarioModifica;
         private DevExpress.XtraGrid.Columns.GridColumn colTituloNota;
+        private DevExpress.XtraGrid.Columns.GridColumn colIdUsuarioPertenece;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit cbUsuarios;
+        private System.Windows.Forms.BindingSource usuariosBindingSource;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton btImportTxt;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.OpenFileDialog ofTextoNota;
     }
 }

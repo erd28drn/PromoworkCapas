@@ -38,15 +38,15 @@
             this.btFacturar = new DevExpress.XtraEditors.SimpleButton();
             this.cbObras = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.HorasPendientesFacturarBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.Promowork_dataDataSet = new GestionData.Promowork_dataDataSet();
             this.EmpresasActualBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Promowork_dataDataSet = new GestionData.Promowork_dataDataSet();
             this.EmpresasActualTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.EmpresasActualTableAdapter();
             this.HorasPendientesFacturarTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.HorasPendientesFacturarTableAdapter();
             this.btGenerarFacturas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbObras.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HorasPendientesFacturarBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Promowork_dataDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EmpresasActualBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Promowork_dataDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // reportViewer1
@@ -114,20 +114,15 @@
             this.cbObras.Size = new System.Drawing.Size(896, 20);
             this.cbObras.TabIndex = 0;
             // 
-            // HorasPendientesFacturarBindingSource
+            // EmpresasActualBindingSource
             // 
-            this.HorasPendientesFacturarBindingSource.DataMember = "HorasPendientesFacturar";
-            this.HorasPendientesFacturarBindingSource.DataSource = this.Promowork_dataDataSet;
+            this.EmpresasActualBindingSource.DataMember = "EmpresasActual";
+            this.EmpresasActualBindingSource.DataSource = this.Promowork_dataDataSet;
             // 
             // Promowork_dataDataSet
             // 
             this.Promowork_dataDataSet.DataSetName = "Promowork_dataDataSet";
             this.Promowork_dataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // EmpresasActualBindingSource
-            // 
-            this.EmpresasActualBindingSource.DataMember = "EmpresasActual";
-            this.EmpresasActualBindingSource.DataSource = this.Promowork_dataDataSet;
             // 
             // EmpresasActualTableAdapter
             // 
@@ -153,8 +148,8 @@
             this.btGenerarFacturas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbObras.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.HorasPendientesFacturarBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Promowork_dataDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EmpresasActualBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Promowork_dataDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }

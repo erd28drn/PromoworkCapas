@@ -115,6 +115,7 @@
           <Property Name="DescripcionNota" Type="varchar" MaxLength="4000" />
           <Property Name="IdUsuarioCrea" Type="int" />
           <Property Name="IdUsuarioModifica" Type="int" />
+          <Property Name="IdUsuarioPertenece" Type="int" />
           <Property Name="FechaCrea" Type="datetime" />
           <Property Name="FechaModifica" Type="datetime" />
         </EntityType>
@@ -499,6 +500,7 @@
           <Property Type="DateTime" Name="FechaCrea" />
           <Property Type="DateTime" Name="FechaModifica" />
           <Property Type="String" Name="TituloNota" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IdUsuarioPertenece" />
         </EntityType>
         <EntityType Name="Tareas">
           <Key>
@@ -663,6 +665,7 @@
           <EntitySetMapping Name="Notas">
             <EntityTypeMapping TypeName="Promowork_dataModel.Notas">
               <MappingFragment StoreEntitySet="Notas">
+                <ScalarProperty Name="IdUsuarioPertenece" ColumnName="IdUsuarioPertenece" />
                 <ScalarProperty Name="TituloNota" ColumnName="TituloNota" />
                 <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
                 <ScalarProperty Name="FechaCrea" ColumnName="FechaCrea" />

@@ -17,6 +17,11 @@ namespace GestionData.Repositorios
             return contextoGenerales.Usuarios.FirstOrDefault(u => u.IdUsuario == idUsuario);
         }
 
+        public bool EsAdmin(int idUsuario)
+        {
+            return GetOne(idUsuario).AdminUsuario ?? false;
+        }
+
         public List<Usuarios> GetAll()
         {
             return contextoGenerales.Usuarios.ToList();

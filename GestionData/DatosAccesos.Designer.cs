@@ -380,6 +380,8 @@ namespace GestionData {
             
             private global::System.Data.DataColumn columnNivel;
             
+            private global::System.Data.DataColumn columnOrden;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public AccesosOpcionesDataTable() {
@@ -455,6 +457,14 @@ namespace GestionData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn OrdenColumn {
+                get {
+                    return this.columnOrden;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -490,14 +500,15 @@ namespace GestionData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public AccesosOpcionesRow AddAccesosOpcionesRow(UsuariosRow parentUsuariosRowByFK_AccesosOpciones_Usuarios, OpcionesMenuRow parentOpcionesMenuRowByFK_AccesosOpciones_OpcionesMenu, bool Acceso, int Nivel) {
+            public AccesosOpcionesRow AddAccesosOpcionesRow(UsuariosRow parentUsuariosRowByFK_AccesosOpciones_Usuarios, OpcionesMenuRow parentOpcionesMenuRowByFK_AccesosOpciones_OpcionesMenu, bool Acceso, int Nivel, string Orden) {
                 AccesosOpcionesRow rowAccesosOpcionesRow = ((AccesosOpcionesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         null,
                         Acceso,
-                        Nivel};
+                        Nivel,
+                        Orden};
                 if ((parentUsuariosRowByFK_AccesosOpciones_Usuarios != null)) {
                     columnValuesArray[1] = parentUsuariosRowByFK_AccesosOpciones_Usuarios[0];
                 }
@@ -538,6 +549,7 @@ namespace GestionData {
                 this.columnIdOpcion = base.Columns["IdOpcion"];
                 this.columnAcceso = base.Columns["Acceso"];
                 this.columnNivel = base.Columns["Nivel"];
+                this.columnOrden = base.Columns["Orden"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -553,6 +565,8 @@ namespace GestionData {
                 base.Columns.Add(this.columnAcceso);
                 this.columnNivel = new global::System.Data.DataColumn("Nivel", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNivel);
+                this.columnOrden = new global::System.Data.DataColumn("Orden", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOrden);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnIdAccesoOpcion}, true));
                 this.columnIdAccesoOpcion.AutoIncrement = true;
@@ -561,6 +575,8 @@ namespace GestionData {
                 this.columnIdAccesoOpcion.AllowDBNull = false;
                 this.columnIdAccesoOpcion.ReadOnly = true;
                 this.columnIdAccesoOpcion.Unique = true;
+                this.columnOrden.ReadOnly = true;
+                this.columnOrden.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1563,6 +1579,22 @@ namespace GestionData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Orden {
+                get {
+                    try {
+                        return ((string)(this[this.tableAccesosOpciones.OrdenColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Orden\' de la tabla \'AccesosOpciones\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAccesosOpciones.OrdenColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public UsuariosRow UsuariosRow {
                 get {
                     return ((UsuariosRow)(this.GetParentRow(this.Table.ParentRelations["FK_AccesosOpciones_Usuarios"])));
@@ -1629,6 +1661,18 @@ namespace GestionData {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetNivelNull() {
                 this[this.tableAccesosOpciones.NivelColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsOrdenNull() {
+                return this.IsNull(this.tableAccesosOpciones.OrdenColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetOrdenNull() {
+                this[this.tableAccesosOpciones.OrdenColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2447,6 +2491,7 @@ namespace GestionData.DatosAccesosTableAdapters {
             tableMapping.ColumnMappings.Add("IdOpcion", "IdOpcion");
             tableMapping.ColumnMappings.Add("Acceso", "Acceso");
             tableMapping.ColumnMappings.Add("Nivel", "Nivel");
+            tableMapping.ColumnMappings.Add("Orden", "Orden");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -2464,7 +2509,7 @@ namespace GestionData.DatosAccesosTableAdapters {
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = @"INSERT INTO [AccesosOpciones] ([IdUsuario], [IdOpcion], [Acceso], [Nivel]) VALUES (@IdUsuario, @IdOpcion, @Acceso, @Nivel);
-SELECT IdAccesoOpcion, IdUsuario, IdOpcion, Acceso, Nivel FROM AccesosOpciones WHERE (IdAccesoOpcion = SCOPE_IDENTITY()) ORDER BY dbo.CalculaOrdenOpcionMenu(IdOpcion)";
+SELECT IdAccesoOpcion, IdUsuario, IdOpcion, Acceso, Nivel, dbo.CalculaOrdenOpcionMenu(IdOpcion) AS Orden FROM AccesosOpciones WHERE (IdAccesoOpcion = SCOPE_IDENTITY()) ORDER BY Orden";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdUsuario", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdUsuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdOpcion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdOpcion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2473,7 +2518,7 @@ SELECT IdAccesoOpcion, IdUsuario, IdOpcion, Acceso, Nivel FROM AccesosOpciones W
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = @"UPDATE [AccesosOpciones] SET [IdUsuario] = @IdUsuario, [IdOpcion] = @IdOpcion, [Acceso] = @Acceso, [Nivel] = @Nivel WHERE (([IdAccesoOpcion] = @Original_IdAccesoOpcion) AND ((@IsNull_IdUsuario = 1 AND [IdUsuario] IS NULL) OR ([IdUsuario] = @Original_IdUsuario)) AND ((@IsNull_IdOpcion = 1 AND [IdOpcion] IS NULL) OR ([IdOpcion] = @Original_IdOpcion)) AND ((@IsNull_Acceso = 1 AND [Acceso] IS NULL) OR ([Acceso] = @Original_Acceso)) AND ((@IsNull_Nivel = 1 AND [Nivel] IS NULL) OR ([Nivel] = @Original_Nivel)));
-SELECT IdAccesoOpcion, IdUsuario, IdOpcion, Acceso, Nivel FROM AccesosOpciones WHERE (IdAccesoOpcion = @IdAccesoOpcion) ORDER BY dbo.CalculaOrdenOpcionMenu(IdOpcion)";
+SELECT IdAccesoOpcion, IdUsuario, IdOpcion, Acceso, Nivel, dbo.CalculaOrdenOpcionMenu(IdOpcion) AS Orden FROM AccesosOpciones WHERE (IdAccesoOpcion = @IdAccesoOpcion) ORDER BY Orden";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdUsuario", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdUsuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdOpcion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdOpcion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2504,14 +2549,13 @@ SELECT IdAccesoOpcion, IdUsuario, IdOpcion, Acceso, Nivel FROM AccesosOpciones W
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        IdAccesoOpcion, IdUsuario, IdOpcion, Acceso, Nivel\r\nFROM           " +
-                " AccesosOpciones\r\norder by dbo.CalculaOrdenOpcionMenu(IdOpcion)";
+            this._commandCollection[0].CommandText = "SELECT        IdAccesoOpcion, IdUsuario, IdOpcion, Acceso, Nivel, dbo.CalculaOrde" +
+                "nOpcionMenu(IdOpcion) AS Orden\r\nFROM            AccesosOpciones\r\nORDER BY Orden";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        Acceso, IdAccesoOpcion, IdOpcion, IdUsuario, Nivel\r\nFROM           " +
-                " AccesosOpciones\r\nWHERE        (IdUsuario = @Usuario)\r\nORDER BY dbo.CalculaOrden" +
-                "OpcionMenu(IdOpcion)";
+            this._commandCollection[1].CommandText = "SELECT Acceso, IdAccesoOpcion, IdOpcion, IdUsuario, Nivel FROM AccesosOpciones WH" +
+                "ERE (IdUsuario = @Usuario) ORDER BY dbo.CalculaOrdenOpcionMenu(IdOpcion)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Usuario", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdUsuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -2941,7 +2985,7 @@ SELECT IdAccesoOpcion, IdUsuario, IdOpcion, Acceso, Nivel FROM AccesosOpciones W
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = @"INSERT INTO [OpcionesMenu] ([NombreOpcion], [NameOpcion], [Nivel], [Menu], [SubMenu], [Detalle]) VALUES (@NombreOpcion, @NameOpcion, @Nivel, @Menu, @SubMenu, @Detalle);
-SELECT IdOpcion, NombreOpcion, NameOpcion, Nivel, Menu, SubMenu, Detalle FROM OpcionesMenu WHERE (IdOpcion = SCOPE_IDENTITY()) ORDER BY Nivel, Menu, SubMenu, Detalle";
+SELECT IdOpcion, NombreOpcion, NameOpcion, Nivel, Menu, SubMenu, Detalle FROM OpcionesMenu WHERE (IdOpcion = SCOPE_IDENTITY()) ORDER BY Menu, SubMenu, Detalle";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NombreOpcion", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NombreOpcion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NameOpcion", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NameOpcion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2952,7 +2996,7 @@ SELECT IdOpcion, NombreOpcion, NameOpcion, Nivel, Menu, SubMenu, Detalle FROM Op
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = @"UPDATE [OpcionesMenu] SET [NombreOpcion] = @NombreOpcion, [NameOpcion] = @NameOpcion, [Nivel] = @Nivel, [Menu] = @Menu, [SubMenu] = @SubMenu, [Detalle] = @Detalle WHERE (([IdOpcion] = @Original_IdOpcion) AND ((@IsNull_NombreOpcion = 1 AND [NombreOpcion] IS NULL) OR ([NombreOpcion] = @Original_NombreOpcion)) AND ((@IsNull_NameOpcion = 1 AND [NameOpcion] IS NULL) OR ([NameOpcion] = @Original_NameOpcion)) AND ((@IsNull_Nivel = 1 AND [Nivel] IS NULL) OR ([Nivel] = @Original_Nivel)) AND ((@IsNull_Menu = 1 AND [Menu] IS NULL) OR ([Menu] = @Original_Menu)) AND ((@IsNull_SubMenu = 1 AND [SubMenu] IS NULL) OR ([SubMenu] = @Original_SubMenu)) AND ((@IsNull_Detalle = 1 AND [Detalle] IS NULL) OR ([Detalle] = @Original_Detalle)));
-SELECT IdOpcion, NombreOpcion, NameOpcion, Nivel, Menu, SubMenu, Detalle FROM OpcionesMenu WHERE (IdOpcion = @IdOpcion) ORDER BY Nivel, Menu, SubMenu, Detalle";
+SELECT IdOpcion, NombreOpcion, NameOpcion, Nivel, Menu, SubMenu, Detalle FROM OpcionesMenu WHERE (IdOpcion = @IdOpcion) ORDER BY Menu, SubMenu, Detalle";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NombreOpcion", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NombreOpcion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NameOpcion", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NameOpcion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2990,7 +3034,7 @@ SELECT IdOpcion, NombreOpcion, NameOpcion, Nivel, Menu, SubMenu, Detalle FROM Op
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        IdOpcion, NombreOpcion, NameOpcion, Nivel, Menu, SubMenu, Detalle\r\n" +
-                "FROM            OpcionesMenu\r\nORDER BY Nivel, Menu, SubMenu, Detalle";
+                "FROM            OpcionesMenu\r\nORDER BY Menu, SubMenu, Detalle";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

@@ -190,6 +190,7 @@
             this.vPosiblesHorasDuplicadasTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.vPosiblesHorasDuplicadasTableAdapter();
             this.festivosObrasDiaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.festivosObrasDiaTableAdapter = new GestionData.Promowork_dataDataSetTableAdapters.FestivosObrasDiaTableAdapter();
+            this.colNumTrabajador1 = new DevExpress.XtraGrid.Columns.GridColumn();
             copiaFacturaLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.horasTrabajadasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.promowork_dataDataSet)).BeginInit();
@@ -259,7 +260,7 @@
             this.Festivo.Name = "Festivo";
             this.Festivo.Visible = true;
             this.Festivo.VisibleIndex = 13;
-            this.Festivo.Width = 50;
+            this.Festivo.Width = 41;
             // 
             // colNumTrabajador
             // 
@@ -461,7 +462,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(701, 39);
+            this.groupBox1.Size = new System.Drawing.Size(677, 39);
             this.groupBox1.TabIndex = 36;
             this.groupBox1.TabStop = false;
             this.groupBox1.Visible = false;
@@ -517,7 +518,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Panel2MinSize = 100;
-            this.splitContainer1.Size = new System.Drawing.Size(1418, 651);
+            this.splitContainer1.Size = new System.Drawing.Size(1370, 651);
             this.splitContainer1.SplitterDistance = 481;
             this.splitContainer1.TabIndex = 43;
             // 
@@ -546,7 +547,7 @@
             this.repositoryItemMemoEdit1,
             this.repositoryItemButtonEdit1,
             this.cbxCategorias});
-            this.horasTrabajadasGridControl.Size = new System.Drawing.Size(1404, 427);
+            this.horasTrabajadasGridControl.Size = new System.Drawing.Size(1356, 427);
             this.horasTrabajadasGridControl.TabIndex = 4;
             this.horasTrabajadasGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -585,7 +586,8 @@
             this.colIdHoras2,
             this.colTelefonoCliente,
             this.colTrabajoFinalizado,
-            this.colConsecutivoParte});
+            this.colConsecutivoParte,
+            this.colNumTrabajador1});
             this.gridView1.CustomizationFormBounds = new System.Drawing.Rectangle(1109, 432, 216, 185);
             styleFormatCondition1.Appearance.BackColor = System.Drawing.SystemColors.ActiveCaption;
             styleFormatCondition1.Appearance.BackColor2 = System.Drawing.SystemColors.GradientInactiveCaption;
@@ -639,7 +641,7 @@
             this.colDiaTrab.Name = "colDiaTrab";
             this.colDiaTrab.Visible = true;
             this.colDiaTrab.VisibleIndex = 0;
-            this.colDiaTrab.Width = 34;
+            this.colDiaTrab.Width = 28;
             // 
             // colIdObra
             // 
@@ -649,7 +651,7 @@
             this.colIdObra.Name = "colIdObra";
             this.colIdObra.Visible = true;
             this.colIdObra.VisibleIndex = 1;
-            this.colIdObra.Width = 118;
+            this.colIdObra.Width = 99;
             // 
             // cbxObras
             // 
@@ -672,7 +674,7 @@
             this.colIdTrabajador.Name = "colIdTrabajador";
             this.colIdTrabajador.Visible = true;
             this.colIdTrabajador.VisibleIndex = 2;
-            this.colIdTrabajador.Width = 118;
+            this.colIdTrabajador.Width = 100;
             // 
             // cbxTrabajadores
             // 
@@ -699,7 +701,7 @@
             this.colIdTipo.Name = "colIdTipo";
             this.colIdTipo.Visible = true;
             this.colIdTipo.VisibleIndex = 3;
-            this.colIdTipo.Width = 55;
+            this.colIdTipo.Width = 45;
             // 
             // cbxTipos
             // 
@@ -726,7 +728,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Cantidad", "{0:N2}")});
             this.colCantidad.Visible = true;
             this.colCantidad.VisibleIndex = 5;
-            this.colCantidad.Width = 44;
+            this.colCantidad.Width = 36;
             // 
             // colIdUsuario
             // 
@@ -756,7 +758,7 @@
             this.colSalario.Name = "colSalario";
             this.colSalario.Visible = true;
             this.colSalario.VisibleIndex = 6;
-            this.colSalario.Width = 70;
+            this.colSalario.Width = 59;
             // 
             // colSalarioVenta
             // 
@@ -767,7 +769,7 @@
             this.colSalarioVenta.Name = "colSalarioVenta";
             this.colSalarioVenta.Visible = true;
             this.colSalarioVenta.VisibleIndex = 8;
-            this.colSalarioVenta.Width = 56;
+            this.colSalarioVenta.Width = 46;
             // 
             // colColor
             // 
@@ -792,7 +794,7 @@
             this.colDesTrabajo.Name = "colDesTrabajo";
             this.colDesTrabajo.Visible = true;
             this.colDesTrabajo.VisibleIndex = 9;
-            this.colDesTrabajo.Width = 211;
+            this.colDesTrabajo.Width = 180;
             // 
             // repositoryItemMemoEdit1
             // 
@@ -818,7 +820,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "CantAdmin", "{0:N2}")});
             this.colCantAdmin.Visible = true;
             this.colCantAdmin.VisibleIndex = 7;
-            this.colCantAdmin.Width = 63;
+            this.colCantAdmin.Width = 53;
             // 
             // colDirTrabajo
             // 
@@ -827,7 +829,7 @@
             this.colDirTrabajo.Name = "colDirTrabajo";
             this.colDirTrabajo.Visible = true;
             this.colDirTrabajo.VisibleIndex = 10;
-            this.colDirTrabajo.Width = 161;
+            this.colDirTrabajo.Width = 137;
             // 
             // colFacturado
             // 
@@ -838,7 +840,7 @@
             this.colFacturado.Name = "colFacturado";
             this.colFacturado.Visible = true;
             this.colFacturado.VisibleIndex = 14;
-            this.colFacturado.Width = 48;
+            this.colFacturado.Width = 39;
             // 
             // colAlbaran
             // 
@@ -846,7 +848,7 @@
             this.colAlbaran.Name = "colAlbaran";
             this.colAlbaran.Visible = true;
             this.colAlbaran.VisibleIndex = 4;
-            this.colAlbaran.Width = 41;
+            this.colAlbaran.Width = 33;
             // 
             // CopiaParte
             // 
@@ -858,7 +860,7 @@
             this.CopiaParte.Name = "CopiaParte";
             this.CopiaParte.Visible = true;
             this.CopiaParte.VisibleIndex = 12;
-            this.CopiaParte.Width = 148;
+            this.CopiaParte.Width = 126;
             // 
             // repositoryItemButtonEdit1
             // 
@@ -912,7 +914,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "CantExtra", "{0:N2}")});
             this.colCantExtra.Visible = true;
             this.colCantExtra.VisibleIndex = 16;
-            this.colCantExtra.Width = 59;
+            this.colCantExtra.Width = 49;
             // 
             // colSalarioExtra
             // 
@@ -921,7 +923,7 @@
             this.colSalarioExtra.Name = "colSalarioExtra";
             this.colSalarioExtra.Visible = true;
             this.colSalarioExtra.VisibleIndex = 17;
-            this.colSalarioExtra.Width = 59;
+            this.colSalarioExtra.Width = 82;
             // 
             // colObsHoras
             // 
@@ -941,7 +943,7 @@
             this.colTelefonoCliente.Name = "colTelefonoCliente";
             this.colTelefonoCliente.Visible = true;
             this.colTelefonoCliente.VisibleIndex = 11;
-            this.colTelefonoCliente.Width = 60;
+            this.colTelefonoCliente.Width = 50;
             // 
             // colTrabajoFinalizado
             // 
@@ -950,7 +952,7 @@
             this.colTrabajoFinalizado.Name = "colTrabajoFinalizado";
             this.colTrabajoFinalizado.Visible = true;
             this.colTrabajoFinalizado.VisibleIndex = 15;
-            this.colTrabajoFinalizado.Width = 109;
+            this.colTrabajoFinalizado.Width = 92;
             // 
             // colConsecutivoParte
             // 
@@ -1237,7 +1239,7 @@
             this.toolStripButton13.Size = new System.Drawing.Size(85, 22);
             this.toolStripButton13.Text = "Salario Admin";
             this.toolStripButton13.ToolTipText = "Aplica el Salario Admin del parte actual a todos los partes de esta Categoría en " +
-    "la Obra y el Mes seleccionados";
+                "la Obra y el Mes seleccionados";
             this.toolStripButton13.Click += new System.EventHandler(this.toolStripButton13_Click);
             // 
             // toolStripSeparator14
@@ -1290,8 +1292,8 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.horasTrabajadasTotalTrabajadorGridControl);
             this.splitContainer2.Panel2.Controls.Add(this.groupBox1);
-            this.splitContainer2.Size = new System.Drawing.Size(1418, 166);
-            this.splitContainer2.SplitterDistance = 709;
+            this.splitContainer2.Size = new System.Drawing.Size(1370, 166);
+            this.splitContainer2.SplitterDistance = 685;
             this.splitContainer2.TabIndex = 0;
             // 
             // chkNoActualizaPrecio
@@ -1313,7 +1315,7 @@
             this.productosUtilizadosGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit4,
             this.repositoryItemLookUpEdit5});
-            this.productosUtilizadosGridControl.Size = new System.Drawing.Size(705, 137);
+            this.productosUtilizadosGridControl.Size = new System.Drawing.Size(681, 137);
             this.productosUtilizadosGridControl.TabIndex = 6;
             this.productosUtilizadosGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -1503,7 +1505,7 @@
             this.bindingNavigator1.MovePreviousItem = null;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = null;
-            this.bindingNavigator1.Size = new System.Drawing.Size(705, 25);
+            this.bindingNavigator1.Size = new System.Drawing.Size(681, 25);
             this.bindingNavigator1.TabIndex = 7;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -1627,7 +1629,7 @@
             this.horasTrabajadasTotalTrabajadorGridControl.Location = new System.Drawing.Point(0, 39);
             this.horasTrabajadasTotalTrabajadorGridControl.MainView = this.gridView3;
             this.horasTrabajadasTotalTrabajadorGridControl.Name = "horasTrabajadasTotalTrabajadorGridControl";
-            this.horasTrabajadasTotalTrabajadorGridControl.Size = new System.Drawing.Size(701, 123);
+            this.horasTrabajadasTotalTrabajadorGridControl.Size = new System.Drawing.Size(677, 123);
             this.horasTrabajadasTotalTrabajadorGridControl.TabIndex = 38;
             this.horasTrabajadasTotalTrabajadorGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -1769,12 +1771,18 @@
             // 
             this.festivosObrasDiaTableAdapter.ClearBeforeFill = true;
             // 
+            // colNumTrabajador1
+            // 
+            this.colNumTrabajador1.FieldName = "NumTrabajador";
+            this.colNumTrabajador1.Name = "colNumTrabajador1";
+            this.colNumTrabajador1.OptionsColumn.ReadOnly = true;
+            // 
             // HorasMateriales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1418, 651);
+            this.ClientSize = new System.Drawing.Size(1370, 651);
             this.Controls.Add(this.splitContainer1);
             this.Name = "HorasMateriales";
             this.ShowIcon = false;
@@ -1991,6 +1999,7 @@
         private System.Windows.Forms.ToolStripTextBox txtPorciento;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private DevExpress.XtraGrid.Columns.GridColumn colNumTrabajador1;
 
     }
 }
